@@ -19,8 +19,8 @@ local diagnostic = {
 
 local git = {
     added = colors.green_03,
-    deleted = colors.red_02,
-    changed = colors.yellow_01,
+    deleted = colors.red_04,
+    changed = colors.blue_03,
 }
 
 M.components = function()
