@@ -188,15 +188,15 @@ M.components = function()
     components.inactive[1] = {
         {
             provider = " ",
-            hl = { bg = colors.green_01 },
+            hl = { bg = "vi_mode_bg" },
         },
         {
             provider = "file_type",
-            hl = { bg = colors.green_01 },
+            hl = { bg = "vi_mode_bg" },
         },
         {
             provider = " ",
-            hl = { bg = colors.green_01 },
+            hl = { bg = "vi_mode_bg" },
             right_sep = { " " },
         },
     }
