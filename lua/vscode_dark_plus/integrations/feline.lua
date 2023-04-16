@@ -1,11 +1,12 @@
 local colors = require("vscode_dark_plus.palette")
+local config = require("vscode_dark_plus").config
 
 local M = {}
 
 M.palette = function()
     return {
-        bg = "#007acc",
-        fg = "#ffffff",
+        bg = config.v2 and colors.bg_02 or "#007acc",
+        fg = config.v2 and colors.fg_08 or "#ffffff",
     }
 end
 
@@ -18,8 +19,8 @@ local diagnostic = {
 
 local git = {
     added = colors.green_03,
-    deleted = colors.red_04,
-    changed = colors.blue_03,
+    deleted = colors.red_02,
+    changed = colors.yellow_01,
 }
 
 M.components = function()
@@ -50,17 +51,17 @@ M.components = function()
         {
             provider = "git_diff_added",
             icon = " +",
-            hl = { fg = git.added },
+            hl = { fg = config.v2 and git.added or "fg" },
         },
         {
             provider = "git_diff_changed",
             icon = " ~",
-            hl = { fg = git.changed },
+            hl = { fg = config.v2 and git.changed or "fg" },
         },
         {
             provider = "git_diff_removed",
             icon = " -",
-            hl = { fg = git.deleted },
+            hl = { fg = config.v2 and git.deleted or "fg" },
         },
         {
             provider = "git_branch",
