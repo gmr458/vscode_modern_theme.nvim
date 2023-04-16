@@ -7,6 +7,7 @@ M.palette = function()
     return {
         bg = config.v2 and colors.bg_02 or "#007acc",
         fg = config.v2 and colors.fg_08 or "#ffffff",
+        vi_mode_bg = config.v2 and "#0078d4" or colors.green_01,
     }
 end
 
@@ -31,7 +32,7 @@ M.components = function()
     components.active[1] = {
         {
             provider = " ",
-            hl = { bg = colors.green_01 },
+            hl = { bg = "vi_mode_bg" },
         },
         {
             provider = "vi_mode",
@@ -39,14 +40,14 @@ M.components = function()
                 return {
                     name = vi_mode_utils.get_mode_highlight_name(),
                     style = "NONE",
-                    bg = colors.green_01,
+                    bg = "vi_mode_bg",
                 }
             end,
             icon = "",
         },
         {
             provider = " ",
-            hl = { bg = colors.green_01 },
+            hl = { bg = "vi_mode_bg" },
         },
         {
             provider = "git_diff_added",
