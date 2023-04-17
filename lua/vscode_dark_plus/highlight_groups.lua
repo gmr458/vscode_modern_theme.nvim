@@ -695,8 +695,8 @@ function M.set(config)
     -- vim.api.nvim_set_hl(0, "NvimTreeStatusLineNC", {})
     -- vim.api.nvim_set_hl(0, "NvimTreeSymlink", {})
     vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", {
-        bg = config.v2 and colors.bg_02 or colors.bg_03,
-        fg = config.v2 and colors.bg_02 or colors.bg_03,
+        bg = config.v2 and colors.bg_v2 or colors.bg,
+        fg = config.v2 and colors.bg_v2 or colors.bg,
     })
     -- vim.api.nvim_set_hl(0, "NvimTreeWindowPicker", {})
 
