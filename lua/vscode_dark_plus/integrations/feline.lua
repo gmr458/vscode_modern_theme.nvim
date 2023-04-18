@@ -6,7 +6,7 @@ local M = {}
 M.palette = function()
     return {
         bg = config.v2 and colors.bg_02 or "#007acc",
-        fg = config.v2 and colors.fg_08 or "#ffffff",
+        fg = config.v2 and colors.fg_10 or "#ffffff",
         vi_mode_bg = config.v2 and "#0078d4" or colors.green_01,
     }
 end
