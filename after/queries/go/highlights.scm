@@ -1,0 +1,4 @@
+;; extends
+[
+"default"
+] @keyword.default

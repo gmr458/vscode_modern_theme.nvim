@@ -8,6 +8,7 @@ M.palette = function()
         bg = config.v2 and colors.bg_02 or "#007acc",
         fg = config.v2 and colors.fg_10 or "#ffffff",
         vi_mode_bg = config.v2 and "#0078d4" or colors.green_01,
+        separator = config.v2 and "#2a2a2a" or "#729db3",
     }
 end
 
@@ -50,40 +51,92 @@ M.components = function()
             hl = { bg = "vi_mode_bg" },
         },
         {
-            provider = "git_diff_added",
-            icon = " +",
-            hl = { fg = config.v2 and git.added or "fg" },
-        },
-        {
-            provider = "git_diff_changed",
-            icon = " ~",
-            hl = { fg = config.v2 and git.changed or "fg" },
-        },
-        {
-            provider = "git_diff_removed",
-            icon = " -",
-            hl = { fg = config.v2 and git.deleted or "fg" },
-        },
-        {
-            provider = "git_branch",
-            icon = { str = " " },
+            provider = function()
+                local msg = "LSP inactive"
+                local buf_clients = vim.lsp.buf_get_clients()
+                if next(buf_clients) == nil then
+                    return msg
+                end
+
+                local buf_client_names = {}
+                for _, client in pairs(buf_clients) do
+                    if client.name ~= "null-ls" then
+                        table.insert(buf_client_names, client.name)
+                    end
+                end
+
+                local unique_client_names = vim.fn.uniq(buf_client_names)
+                return table.concat(unique_client_names, " ")
+            end,
             left_sep = " ",
         },
         {
             provider = function()
-                if #vim.lsp.buf_get_clients(0) == 0 then
-                    return "LSP inactive"
+                local buf_clients = vim.lsp.buf_get_clients()
+
+                if next(buf_clients) == nil then
+                    return ""
                 end
 
-                local clients = {}
+                local null_ls_running = false
 
-                for _, client in pairs(vim.lsp.buf_get_clients(0)) do
-                    clients[#clients + 1] = client.name
+                for _, client in pairs(buf_clients) do
+                    if client.name == "null-ls" then
+                        null_ls_running = true
+                    end
                 end
 
-                return table.concat(clients, " "), " "
+                if not null_ls_running then
+                    return ""
+                end
+
+                local filetype = vim.bo.filetype
+
+                local ok, sources = pcall(require, "null-ls.sources")
+                if not ok then
+                    return ""
+                end
+
+                local available_sources = sources.get_available(filetype)
+
+                local sources_registered = {}
+                for _, source in ipairs(available_sources) do
+                    table.insert(sources_registered, source.name)
+                end
+
+                return table.concat(sources_registered, " ")
             end,
             left_sep = " ",
+            right_sep = " ",
+        },
+        {
+
+            provider = "diagnostic_errors",
+            icon = " ",
+            hl = { fg = diagnostic.error },
+            left_sep = " ",
+            right_sep = " ",
+        },
+        {
+            provider = "diagnostic_warnings",
+            icon = " ",
+            hl = { fg = diagnostic.warn },
+            left_sep = " ",
+            right_sep = " ",
+        },
+        {
+            provider = "diagnostic_hints",
+            icon = " ",
+            hl = { fg = diagnostic.hint },
+            left_sep = " ",
+            right_sep = " ",
+        },
+        {
+            provider = "diagnostic_info",
+            icon = " ",
+            hl = { fg = diagnostic.info },
+            left_sep = " ",
+            right_sep = " ",
         },
         {
             provider = function()
@@ -102,42 +155,39 @@ M.components = function()
                     local frame = math.floor(ms / 120) % #spinners
 
                     if percentage >= 70 then
-                        return string.format(" %%<%s %s %s (%s%%%%) ", success_icon[frame + 1], title, msg, percentage)
+                        return string.format(" %%<%s %s %s (%s%%%%)", success_icon[frame + 1], title, msg, percentage)
                     end
 
-                    return string.format(" %%<%s %s %s (%s%%%%) ", spinners[frame + 1], title, msg, percentage)
+                    return string.format(" %%<%s %s %s (%s%%%%)", spinners[frame + 1], title, msg, percentage)
                 end
 
                 return ""
             end,
-        },
-        {
-            provider = "diagnostic_errors",
-            icon = "  ",
-            hl = { fg = diagnostic.error },
-        },
-        {
-            provider = "diagnostic_warnings",
-            icon = "  ",
-            hl = { fg = diagnostic.warn },
-        },
-        {
-            provider = "diagnostic_hints",
-            icon = "  ",
-            hl = { fg = diagnostic.hint },
-        },
-        {
-            provider = "diagnostic_info",
-            icon = "  ",
             hl = { fg = diagnostic.info },
         },
     }
     components.active[2] = {
         {
-            provider = "line_percentage",
-            left_sep = " ",
-            right_sep = " ",
+            provider = "git_diff_added",
+            icon = " +",
+            hl = { fg = config.v2 and git.added or "fg" },
         },
+        {
+            provider = "git_diff_changed",
+            icon = " ~",
+            hl = { fg = config.v2 and git.changed or "fg" },
+        },
+        {
+            provider = "git_diff_removed",
+            icon = " -",
+            hl = { fg = config.v2 and git.deleted or "fg" },
+        },
+        {
+            provider = "git_branch",
+            left_sep = "  ",
+            right_sep = { str = " | ", hl = { fg = "separator" } },
+        },
+        { provider = "line_percentage" },
         {
             provider = function()
                 local total_lines = vim.fn.line("$")
@@ -149,40 +199,35 @@ M.components = function()
 
                 return total_lines .. " lines"
             end,
-            left_sep = " ",
-            right_sep = " ",
+            left_sep = { str = " | ", hl = { fg = "separator" } },
         },
         {
             provider = { name = "file_info", opts = { file_readonly_icon = " ", file_modified_icon = "" } },
-            left_sep = " ",
-            right_sep = " ",
+            left_sep = { str = " | ", hl = { fg = "separator" } },
         },
         {
             provider = function()
-                local word = vim.bo.expandtab and "Spaces" or "Tab Size"
+                local word = vim.bo.expandtab and "spaces" or "tab size"
                 return word .. ": " .. ((vim.bo.tabstop ~= "" and vim.bo.tabstop) or vim.o.tabstop)
             end,
-            left_sep = " ",
-            right_sep = " ",
+            left_sep = { str = " | ", hl = { fg = "separator" } },
         },
         {
             provider = function()
                 return ((vim.bo.fenc ~= "" and vim.bo.fenc) or vim.o.enc)
             end,
-            left_sep = " ",
-            right_sep = " ",
+            left_sep = { str = " | ", hl = { fg = "separator" } },
         },
         {
             provider = function()
                 return ((vim.bo.fileformat ~= "" and vim.bo.fileformat) or vim.o.fileformat)
             end,
-            left_sep = " ",
-            right_sep = " ",
+            left_sep = { str = " | ", hl = { fg = "separator" } },
         },
         {
             provider = { name = "file_type", opts = { case = "lowercase" } },
-            left_sep = " ",
-            right_sep = " ",
+            left_sep = { str = " | ", hl = { fg = "separator" } },
+            right_sep = "  ",
         },
     }
     components.inactive[1] = {

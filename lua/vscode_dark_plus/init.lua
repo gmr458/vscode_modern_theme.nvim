@@ -5,6 +5,7 @@ local M = {}
 M.config = {
     v2 = false,
     cursorline = false,
+    transparent_background = false,
 }
 
 function M.setup(config)
