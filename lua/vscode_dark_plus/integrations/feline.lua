@@ -7,7 +7,7 @@ M.palette = function()
     return {
         bg = config.v2 and colors.bg_02 or "#007acc",
         fg = config.v2 and colors.fg_10 or "#ffffff",
-        vi_mode_bg = config.v2 and "#0078d4" or colors.green_01,
+        vi_mode_bg = config.v2 and "#0078d4" or colors.green_02,
         separator = config.v2 and "#2a2a2a" or "#729db3",
     }
 end
@@ -15,14 +15,14 @@ end
 local diagnostic = {
     error = colors.red_04,
     warn = colors.yellow_03,
-    info = colors.blue_07,
-    hint = colors.green_05,
+    info = colors.blue_08,
+    hint = colors.green_06,
 }
 
 local git = {
-    added = colors.green_03,
-    deleted = colors.red_04,
-    changed = colors.blue_03,
+    added = config.v2 and colors.green_01 or colors.green_04,
+    deleted = config.v2 and colors.red_05 or colors.red_04,
+    changed = colors.v2 and colors.blue_01 or colors.blue_04,
 }
 
 M.components = function()

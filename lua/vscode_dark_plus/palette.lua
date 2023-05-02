@@ -34,15 +34,16 @@ local colors = {
     fg_11 = "#ffffff",
 
     -- gren
-    green_01 = "#329171",
-    green_02 = "#373d29",
-    green_03 = "#487e02",
-    green_04 = "#4b592b",
-    green_05 = "#4ec9b0",
-    green_06 = "#5fa076",
-    green_07 = "#6a9372",
-    green_08 = "#6a9955",
-    green_09 = "#b5cea8",
+    green_01 = "#2EA043",
+    green_02 = "#329171",
+    green_03 = "#373d29",
+    green_04 = "#487e02",
+    green_05 = "#4b592b",
+    green_06 = "#4ec9b0",
+    green_07 = "#5fa076",
+    green_08 = "#6a9372",
+    green_09 = "#6a9955",
+    green_10 = "#b5cea8",
 
     -- yellow
     yellow_01 = "#b39973",
@@ -62,19 +63,20 @@ local colors = {
     magenta_01 = "#d16d9e",
 
     -- blue
-    blue_01 = "#04395e",
-    blue_02 = "#0e639c",
-    blue_03 = "#1b81a8",
-    blue_04 = "#264f78",
-    blue_05 = "#2aaaff",
-    blue_06 = "#3375c0",
-    blue_07 = "#3794ff",
-    blue_08 = "#3ba9f2",
-    blue_09 = "#4fc1ff",
-    blue_10 = "#569cd6",
-    blue_11 = "#729db3",
-    blue_12 = "#75beff",
-    blue_13 = "#9cdcfe",
+    blue_01 = "#0078D4",
+    blue_02 = "#04395e",
+    blue_03 = "#0e639c",
+    blue_04 = "#1b81a8",
+    blue_05 = "#264f78",
+    blue_06 = "#2aaaff",
+    blue_07 = "#3375c0",
+    blue_08 = "#3794ff",
+    blue_09 = "#3ba9f2",
+    blue_10 = "#4fc1ff",
+    blue_11 = "#569cd6",
+    blue_12 = "#729db3",
+    blue_13 = "#75beff",
+    blue_14 = "#9cdcfe",
 
     -- orange
     orange_01 = "#ce9178",
@@ -85,6 +87,7 @@ local colors = {
     red_02 = "#9e4434",
     red_03 = "#d16969",
     red_04 = "#f14c4c",
+    red_05 = "#f85149",
 
     none = "NONE",
 }
