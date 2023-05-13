@@ -1,13 +1,11 @@
-local highlight_groups = require("vscode_dark_plus.highlight_groups")
+local highlight_groups = require("vscode_dark_modern.highlight_groups")
 
 local M = {}
 
 --- @class Config
---- @field v2 boolean
 --- @field cursorline boolean
 --- @field transparent_background boolean
 M.config = {
-    v2 = false,
     cursorline = false,
     transparent_background = false,
 }
@@ -27,7 +25,7 @@ function M.load()
     end
 
     vim.o.termguicolors = true
-    vim.g.colors_name = "vscode_dark_plus"
+    vim.g.colors_name = "vscode_dark_modern"
 
     highlight_groups.set(M.config)
 end

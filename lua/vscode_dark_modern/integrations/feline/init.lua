@@ -1,28 +1,27 @@
-local colors = require("vscode_dark_plus.palette")
-local config = require("vscode_dark_plus").config
+local colors = require("vscode_dark_modern.palette")
 
 local M = {}
 
 M.palette = function()
     return {
-        bg = config.v2 and colors.bg_02 or "#007acc",
-        fg = config.v2 and colors.fg_10 or "#ffffff",
-        vi_mode_bg = config.v2 and "#0078d4" or colors.green_02,
-        separator = config.v2 and "#2a2a2a" or "#729db3",
+        bg = colors.bg_01,
+        fg = colors.fg_11,
+        vi_mode_bg = "#0078d4",
+        separator = "#2a2a2a",
     }
 end
 
 local diagnostic = {
     error = colors.red_04,
     warn = colors.yellow_03,
-    info = colors.blue_08,
-    hint = colors.green_06,
+    info = colors.blue_07,
+    hint = colors.green_05,
 }
 
 local git = {
-    added = config.v2 and colors.green_01 or colors.green_04,
-    deleted = config.v2 and colors.red_05 or colors.red_04,
-    changed = colors.v2 and colors.blue_01 or colors.blue_04,
+    added = colors.green_01,
+    deleted = colors.red_05,
+    changed = colors.blue_01,
 }
 
 M.components = function()
@@ -53,7 +52,7 @@ M.components = function()
         {
             provider = function()
                 local msg = "LSP inactive"
-                local buf_clients = vim.lsp.buf_get_clients()
+                local buf_clients = vim.lsp.get_active_clients()
                 if next(buf_clients) == nil then
                     return msg
                 end
@@ -72,7 +71,7 @@ M.components = function()
         },
         {
             provider = function()
-                local buf_clients = vim.lsp.buf_get_clients()
+                local buf_clients = vim.lsp.get_active_clients()
 
                 if next(buf_clients) == nil then
                     return ""
@@ -110,7 +109,6 @@ M.components = function()
             right_sep = " ",
         },
         {
-
             provider = "diagnostic_errors",
             icon = " ",
             hl = { fg = diagnostic.error },
@@ -170,20 +168,21 @@ M.components = function()
         {
             provider = "git_diff_added",
             icon = " +",
-            hl = { fg = config.v2 and git.added or "fg" },
+            hl = { fg = git.added },
         },
         {
             provider = "git_diff_changed",
             icon = " ~",
-            hl = { fg = config.v2 and git.changed or "fg" },
+            hl = { fg = git.changed },
         },
         {
             provider = "git_diff_removed",
             icon = " -",
-            hl = { fg = config.v2 and git.deleted or "fg" },
+            hl = { fg = git.deleted },
         },
         {
             provider = "git_branch",
+            icon = { str = "󰘬 ", hl = { fg = colors.orange_03 } },
             left_sep = "  ",
             right_sep = { str = " | ", hl = { fg = "separator" } },
         },
@@ -199,6 +198,7 @@ M.components = function()
 
                 return total_lines .. " lines"
             end,
+            icon = " ",
             left_sep = { str = " | ", hl = { fg = "separator" } },
         },
         {
@@ -207,25 +207,49 @@ M.components = function()
         },
         {
             provider = function()
-                local word = vim.bo.expandtab and "spaces" or "tab size"
+                local word = vim.bo.expandtab and "Spaces" or "Tab Size"
                 return word .. ": " .. ((vim.bo.tabstop ~= "" and vim.bo.tabstop) or vim.o.tabstop)
             end,
             left_sep = { str = " | ", hl = { fg = "separator" } },
         },
         {
             provider = function()
-                return ((vim.bo.fenc ~= "" and vim.bo.fenc) or vim.o.enc)
+                return ((vim.bo.fenc ~= "" and vim.bo.fenc) or vim.o.enc):upper()
             end,
             left_sep = { str = " | ", hl = { fg = "separator" } },
         },
         {
             provider = function()
-                return ((vim.bo.fileformat ~= "" and vim.bo.fileformat) or vim.o.fileformat)
+                local fileformat = ((vim.bo.fileformat ~= "" and vim.bo.fileformat) or vim.o.fileformat)
+                if fileformat == "unix" then
+                    return "LF"
+                else
+                    return "CRLF"
+                end
             end,
             left_sep = { str = " | ", hl = { fg = "separator" } },
         },
         {
-            provider = { name = "file_type", opts = { case = "lowercase" } },
+            -- provider = "file_type",
+            provider = function()
+                local ft = vim.bo.filetype
+
+                if ft == "" then
+                    ft = vim.fn.expand("%:e")
+
+                    if ft == "" then
+                        local buf = vim.api.nvim_get_current_buf()
+                        local bufname = vim.api.nvim_buf_get_name(buf)
+
+                        if bufname == vim.loop.cwd() then
+                            return "Directory"
+                        end
+                    end
+                end
+
+                local filetypes = require("vscode_dark_modern.integrations.feline.filetypes")
+                return filetypes[ft]
+            end,
             left_sep = { str = " | ", hl = { fg = "separator" } },
             right_sep = "  ",
         },

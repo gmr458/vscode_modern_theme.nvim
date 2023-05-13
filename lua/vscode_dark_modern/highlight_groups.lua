@@ -1,4 +1,4 @@
-local colors = require("vscode_dark_plus.palette")
+local colors = require("vscode_dark_modern.palette")
 
 local M = {}
 
@@ -7,49 +7,49 @@ function M.set(config)
     local diagnostic = {
         error = colors.red_04,
         warn = colors.yellow_03,
-        info = colors.blue_08,
-        hint = colors.green_06,
-        unnecessary = colors.blue_12,
+        info = colors.blue_07,
+        hint = colors.green_05,
+        unnecessary = colors.blue_11,
     }
 
     local git = {
         signs = {
-            add = config.v2 and colors.green_01 or colors.green_04,
-            delete = config.v2 and colors.red_05 or colors.red_04,
-            change = colors.v2 and colors.blue_01 or colors.blue_04,
+            add = colors.green_01,
+            delete = colors.red_05,
+            change = colors.blue_01,
         },
         status = {
-            ignored = colors.fg_05,
-            untracked = colors.green_07,
-            staged = colors.green_08,
+            ignored = colors.fg_06,
+            untracked = colors.green_06,
+            staged = colors.green_07,
             deleted = colors.red_02,
             modified = colors.yellow_01,
         },
         diff = {
-            add = colors.green_05,
+            add = colors.green_04,
             change = colors.green_03,
             delete = colors.red_01,
-            text = colors.green_05,
+            text = colors.green_04,
         },
     }
 
     -- Editor
 
     -- vim.api.nvim_set_hl(0, "ColorColumn", {})
-    vim.api.nvim_set_hl(0, "Conceal", { bg = colors.bg_12 })
+    vim.api.nvim_set_hl(0, "Conceal", { bg = colors.bg_11 })
     -- vim.api.nvim_set_hl(0, "CurSearch", {})
-    vim.api.nvim_set_hl(0, "Cursor", { bg = colors.bg_14, fg = colors.fg_01 })
-    vim.api.nvim_set_hl(0, "CursorIM", { bg = colors.bg_14, fg = colors.fg_01 })
+    vim.api.nvim_set_hl(0, "Cursor", { bg = colors.bg_13, fg = colors.fg_01 })
+    vim.api.nvim_set_hl(0, "CursorIM", { bg = colors.bg_13, fg = colors.fg_01 })
     -- vim.api.nvim_set_hl(0, "CursorColumn", {})
     vim.api.nvim_set_hl(
         0,
         "CursorLine",
-        { bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_04 or colors.none) }
+        { bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_03 or colors.none) }
     )
     -- vim.api.nvim_set_hl(0, "CursorLineFold", {})
     vim.api.nvim_set_hl(0, "CursorLineNr", {
-        bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_04 or colors.none),
-        fg = colors.fg_09,
+        bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_03 or colors.none),
+        fg = colors.fg_10,
     })
     -- vim.api.nvim_set_hl(0, "CursorLineSign", {})
     vim.api.nvim_set_hl(0, "Directory", { fg = colors.yellow_02 })
@@ -63,15 +63,15 @@ function M.set(config)
     -- vim.api.nvim_set_hl(0, "FoldColumn", {})
     -- vim.api.nvim_set_hl(0, "Folded", {})
     vim.api.nvim_set_hl(0, "FloatBorder", {
-        bg = config.transparent_background and colors.none or (config.v2 and colors.bg_v2 or colors.bg),
-        fg = colors.bg_12,
+        bg = config.transparent_background and colors.none or colors.bg,
+        fg = colors.bg_11,
     })
     -- vim.api.nvim_set_hl(0, "FloatTitle", {})
     -- vim.api.nvim_set_hl(0, "IncSearch", {})
-    vim.api.nvim_set_hl(0, "lCursor", { bg = colors.bg_14, fg = colors.fg_01 })
+    vim.api.nvim_set_hl(0, "lCursor", { bg = colors.bg_13, fg = colors.fg_01 })
     vim.api.nvim_set_hl(0, "LineNr", {
-        bg = config.transparent_background and colors.none or (config.v2 and colors.bg_v2 or colors.bg),
-        fg = colors.fg_04,
+        bg = config.transparent_background and colors.none or colors.bg,
+        fg = colors.fg_05,
     })
     -- vim.api.nvim_set_hl(0, "LineNrAbove", {})
     -- vim.api.nvim_set_hl(0, "LineNrBelow", {})
@@ -83,14 +83,10 @@ function M.set(config)
     -- vim.api.nvim_set_hl(0, "MsgSeparator", {})
     -- vim.api.nvim_set_hl(0, "NonText", {})
     vim.api.nvim_set_hl(0, "Normal", {
-        bg = config.transparent_background and colors.none or (config.v2 and colors.bg_v2 or colors.bg),
-        fg = config.v2 and colors.fg_v2 or colors.fg,
+        bg = config.transparent_background and colors.none or colors.bg,
+        fg = colors.fg,
     })
-    vim.api.nvim_set_hl(
-        0,
-        "NormalFloat",
-        { bg = config.transparent_background and colors.none or (config.v2 and colors.bg_v2 or colors.bg) }
-    )
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = config.transparent_background and colors.none or colors.bg })
     -- vim.api.nvim_set_hl(0, "NormalNC", {})
     -- vim.api.nvim_set_hl(0, "NormalSB", {})
     -- vim.api.nvim_set_hl(0, "Pmenu", {})
@@ -110,25 +106,25 @@ function M.set(config)
     -- vim.api.nvim_set_hl(0, "SpecialKey", {})
     vim.api.nvim_set_hl(0, "SpellBad", { sp = colors.red_03, undercurl = true })
     vim.api.nvim_set_hl(0, "SpellCap", { sp = colors.yellow_05, undercurl = true })
-    vim.api.nvim_set_hl(0, "SpellLocal", { sp = colors.blue_10, undercurl = true })
-    vim.api.nvim_set_hl(0, "SpellRare", { sp = colors.green_06, undercurl = true })
+    vim.api.nvim_set_hl(0, "SpellLocal", { sp = colors.blue_09, undercurl = true })
+    vim.api.nvim_set_hl(0, "SpellRare", { sp = colors.green_05, undercurl = true })
     vim.api.nvim_set_hl(0, "StatusLine", { bg = colors.none })
     -- vim.api.nvim_set_hl(0, "StatusLineNC", {})
     -- vim.api.nvim_set_hl(0, "Substitute", {})
     -- vim.api.nvim_set_hl(0, "TabLine", {})
     -- vim.api.nvim_set_hl(0, "TabLineFill", {})
     -- vim.api.nvim_set_hl(0, "TabLineSel", {})
-    vim.api.nvim_set_hl(0, "TermCursor", { bg = colors.fg_10, fg = config.v2 and colors.bg_02 or colors.bg })
+    vim.api.nvim_set_hl(0, "TermCursor", { bg = colors.fg_11, fg = colors.bg_01 })
     -- vim.api.nvim_set_hl(0, "TermCursorNC", {})
-    vim.api.nvim_set_hl(0, "Title", { fg = colors.fg_11 })
+    vim.api.nvim_set_hl(0, "Title", { fg = colors.fg_12 })
     -- vim.api.nvim_set_hl(0, "Tooltip", {})
     -- vim.api.nvim_set_hl(0, "VertSplit", {})
-    vim.api.nvim_set_hl(0, "Visual", { bg = colors.blue_05 })
+    vim.api.nvim_set_hl(0, "Visual", { bg = colors.blue_04 })
     -- vim.api.nvim_set_hl(0, "VisualNOS", {})
     vim.api.nvim_set_hl(0, "WarningMsg", { fg = diagnostic.warn })
     -- vim.api.nvim_set_hl(0, "Whitespace", {})
     -- vim.api.nvim_set_hl(0, "WildMenu", {})
-    vim.api.nvim_set_hl(0, "WinBar", { fg = colors.fg_07 })
+    vim.api.nvim_set_hl(0, "WinBar", { fg = colors.fg_08 })
     -- vim.api.nvim_set_hl(0, "WinBarNC", {})
     vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#080A0E" })
 
@@ -136,30 +132,30 @@ function M.set(config)
 
     -- Pmenu
 
-    vim.api.nvim_set_hl(0, "Pmenu", { bg = colors.bg_05, fg = colors.fg_10 })
+    vim.api.nvim_set_hl(0, "Pmenu", { bg = colors.bg_04, fg = colors.fg_11 })
     -- vim.api.nvim_set_hl(0, "PmenuExtra", {})
     -- vim.api.nvim_set_hl(0, "PmenuExtraSel", {})
     -- vim.api.nvim_set_hl(0, "PmenuKind", {})
     -- vim.api.nvim_set_hl(0, "PmenuKindSel", {})
-    vim.api.nvim_set_hl(0, "PmenuSbar", { bg = colors.bg_05 })
-    vim.api.nvim_set_hl(0, "PmenuSel", { bg = colors.blue_02, fg = colors.fg_11 })
-    vim.api.nvim_set_hl(0, "PmenuThumb", { bg = colors.bg_11 })
+    vim.api.nvim_set_hl(0, "PmenuSbar", { bg = colors.bg_04 })
+    vim.api.nvim_set_hl(0, "PmenuSel", { bg = colors.blue_02, fg = colors.fg_12 })
+    vim.api.nvim_set_hl(0, "PmenuThumb", { bg = colors.bg_10 })
 
     ------------------------------------------------------------------------------------------
 
     -- Sintax
 
-    vim.api.nvim_set_hl(0, "Comment", { fg = colors.green_09 })
+    vim.api.nvim_set_hl(0, "Comment", { fg = colors.green_08 })
 
-    vim.api.nvim_set_hl(0, "Variable", { fg = colors.blue_14 })
-    vim.api.nvim_set_hl(0, "Constant", { fg = colors.blue_10 })
+    vim.api.nvim_set_hl(0, "Variable", { fg = colors.blue_13 })
+    vim.api.nvim_set_hl(0, "Constant", { fg = colors.blue_09 })
     vim.api.nvim_set_hl(0, "String", { fg = colors.orange_01 })
     vim.api.nvim_set_hl(0, "Character", { fg = colors.red_03 })
-    vim.api.nvim_set_hl(0, "Number", { fg = colors.green_10 })
-    vim.api.nvim_set_hl(0, "Boolean", { fg = colors.blue_11 })
-    vim.api.nvim_set_hl(0, "Float", { fg = colors.green_10 })
+    vim.api.nvim_set_hl(0, "Number", { fg = colors.green_09 })
+    vim.api.nvim_set_hl(0, "Boolean", { fg = colors.blue_10 })
+    vim.api.nvim_set_hl(0, "Float", { fg = colors.green_09 })
 
-    vim.api.nvim_set_hl(0, "Identifier", { fg = config.v2 and colors.fg_v2 or colors.fg })
+    vim.api.nvim_set_hl(0, "Identifier", { fg = colors.fg })
     vim.api.nvim_set_hl(0, "Function", { fg = colors.yellow_05 })
 
     vim.api.nvim_set_hl(0, "Statement", { fg = colors.purple_02 })
@@ -167,7 +163,7 @@ function M.set(config)
     vim.api.nvim_set_hl(0, "Repeat", { fg = colors.purple_02 })
     vim.api.nvim_set_hl(0, "Label", { fg = colors.purple_02 })
     vim.api.nvim_set_hl(0, "Operator", { fg = colors.fg })
-    vim.api.nvim_set_hl(0, "Keyword", { fg = colors.blue_11 })
+    vim.api.nvim_set_hl(0, "Keyword", { fg = colors.blue_10 })
     vim.api.nvim_set_hl(0, "Exception", { fg = colors.purple_02 })
 
     vim.api.nvim_set_hl(0, "PreProc", { fg = colors.purple_02 })
@@ -176,10 +172,10 @@ function M.set(config)
     vim.api.nvim_set_hl(0, "Macro", { fg = colors.purple_02 })
     vim.api.nvim_set_hl(0, "PreCondit", { fg = colors.purple_02 })
 
-    vim.api.nvim_set_hl(0, "Type", { fg = colors.green_06 })
-    vim.api.nvim_set_hl(0, "StorageClass", { fg = colors.green_06 })
-    vim.api.nvim_set_hl(0, "Structure", { fg = colors.green_06 })
-    vim.api.nvim_set_hl(0, "Typedef", { fg = colors.green_06 })
+    vim.api.nvim_set_hl(0, "Type", { fg = colors.green_05 })
+    vim.api.nvim_set_hl(0, "StorageClass", { fg = colors.green_05 })
+    vim.api.nvim_set_hl(0, "Structure", { fg = colors.green_05 })
+    vim.api.nvim_set_hl(0, "Typedef", { fg = colors.green_05 })
 
     vim.api.nvim_set_hl(0, "Special", { fg = colors.yellow_04 })
     vim.api.nvim_set_hl(0, "SpecialChar", { fg = colors.yellow_04 })
@@ -194,62 +190,62 @@ function M.set(config)
 
     -- nvim-treesitter/nvim-treesitter
 
-    vim.api.nvim_set_hl(0, "@boolean", { fg = colors.blue_11 })
+    vim.api.nvim_set_hl(0, "@boolean", { fg = colors.blue_10 })
     vim.api.nvim_set_hl(0, "@character", { fg = colors.orange_01 })
     vim.api.nvim_set_hl(0, "@character.special", { fg = colors.yellow_04 })
-    vim.api.nvim_set_hl(0, "@comment", { fg = colors.green_09 })
+    vim.api.nvim_set_hl(0, "@comment", { fg = colors.green_08 })
     vim.api.nvim_set_hl(0, "@conditional", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@constant", { fg = colors.blue_10 })
+    vim.api.nvim_set_hl(0, "@constant", { fg = colors.blue_09 })
     vim.api.nvim_set_hl(0, "@constant.builtin", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "@constant.macro", { fg = colors.blue_10 })
-    vim.api.nvim_set_hl(0, "@constructor", { fg = colors.green_06 })
+    vim.api.nvim_set_hl(0, "@constant.macro", { fg = colors.blue_09 })
+    vim.api.nvim_set_hl(0, "@constructor", { fg = colors.green_05 })
     -- vim.api.nvim_set_hl(0, "@debug", {})
     vim.api.nvim_set_hl(0, "@define", { fg = colors.purple_02 })
     vim.api.nvim_set_hl(0, "@exception", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@field", { fg = colors.blue_14 })
-    vim.api.nvim_set_hl(0, "@float", { fg = colors.green_10 })
+    vim.api.nvim_set_hl(0, "@field", { fg = colors.blue_13 })
+    vim.api.nvim_set_hl(0, "@float", { fg = colors.green_09 })
     vim.api.nvim_set_hl(0, "@function", { fg = colors.yellow_05 })
     vim.api.nvim_set_hl(0, "@function.builtin", { fg = colors.yellow_05 })
     vim.api.nvim_set_hl(0, "@function.call", { fg = colors.yellow_05 })
-    vim.api.nvim_set_hl(0, "@function.macro", { fg = colors.blue_11 })
+    vim.api.nvim_set_hl(0, "@function.macro", { fg = colors.blue_10 })
     vim.api.nvim_set_hl(0, "@include", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@keyword", { fg = colors.blue_11 })
+    vim.api.nvim_set_hl(0, "@keyword", { fg = colors.blue_10 })
     vim.api.nvim_set_hl(0, "@keyword.return", { fg = colors.purple_02 })
     vim.api.nvim_set_hl(0, "@label", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@macro", { fg = colors.blue_11 })
+    vim.api.nvim_set_hl(0, "@macro", { fg = colors.blue_10 })
     vim.api.nvim_set_hl(0, "@method", { fg = colors.yellow_05 })
-    vim.api.nvim_set_hl(0, "@namespace", { fg = colors.green_06 })
-    vim.api.nvim_set_hl(0, "@number", { fg = colors.green_10 })
+    vim.api.nvim_set_hl(0, "@namespace", { fg = colors.green_05 })
+    vim.api.nvim_set_hl(0, "@number", { fg = colors.green_09 })
     vim.api.nvim_set_hl(0, "@operator", { fg = colors.fg })
-    vim.api.nvim_set_hl(0, "@parameter", { fg = colors.blue_14 })
+    vim.api.nvim_set_hl(0, "@parameter", { fg = colors.blue_13 })
     -- vim.api.nvim_set_hl(0, "@preproc", {})
     vim.api.nvim_set_hl(0, "@punctuation", { fg = colors.fg })
-    vim.api.nvim_set_hl(0, "@property", { fg = colors.blue_14 })
+    vim.api.nvim_set_hl(0, "@property", { fg = colors.blue_13 })
     vim.api.nvim_set_hl(0, "@punctuation.delimiter", { fg = colors.fg })
     vim.api.nvim_set_hl(0, "@repeat", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@storageclass", { fg = colors.blue_11 })
+    vim.api.nvim_set_hl(0, "@storageclass", { fg = colors.blue_10 })
     vim.api.nvim_set_hl(0, "@string", { fg = colors.orange_01 })
     vim.api.nvim_set_hl(0, "@string.escape", { fg = colors.yellow_04 })
     vim.api.nvim_set_hl(0, "@string.special", { fg = colors.yellow_04 })
-    vim.api.nvim_set_hl(0, "@tag", { fg = colors.blue_11 })
+    vim.api.nvim_set_hl(0, "@tag", { fg = colors.blue_10 })
     vim.api.nvim_set_hl(0, "@tag.attribute", { link = "@variable" })
-    vim.api.nvim_set_hl(0, "@tag.delimiter", { fg = colors.fg_03 })
+    vim.api.nvim_set_hl(0, "@tag.delimiter", { fg = colors.fg_04 })
     vim.api.nvim_set_hl(0, "@text.literal", { link = "@string" })
     vim.api.nvim_set_hl(0, "@text.reference", { link = "@constant" })
     vim.api.nvim_set_hl(0, "@text.title", { link = "Title" })
     vim.api.nvim_set_hl(0, "@text.todo", { link = "Todo" })
     vim.api.nvim_set_hl(0, "@text.underline", { underline = true })
     vim.api.nvim_set_hl(0, "@text.uri", { fg = colors.orange_01, underline = true })
-    vim.api.nvim_set_hl(0, "@type", { fg = colors.green_06 })
-    vim.api.nvim_set_hl(0, "@type.builtin", { fg = colors.green_06 })
-    vim.api.nvim_set_hl(0, "@type.definition", { fg = colors.green_06 })
-    vim.api.nvim_set_hl(0, "@type.qualifier", { fg = colors.blue_11 })
-    vim.api.nvim_set_hl(0, "@variable", { fg = colors.blue_14 })
+    vim.api.nvim_set_hl(0, "@type", { fg = colors.green_05 })
+    vim.api.nvim_set_hl(0, "@type.builtin", { fg = colors.green_05 })
+    vim.api.nvim_set_hl(0, "@type.definition", { fg = colors.green_05 })
+    vim.api.nvim_set_hl(0, "@type.qualifier", { fg = colors.blue_10 })
+    vim.api.nvim_set_hl(0, "@variable", { fg = colors.blue_13 })
     vim.api.nvim_set_hl(0, "@variable.builtin", { link = "@keyword" })
 
     -- C#
-    vim.api.nvim_set_hl(0, "@include.c_sharp", { fg = colors.blue_11 })
-    vim.api.nvim_set_hl(0, "@type.builtin.c_sharp", { fg = colors.blue_11 })
+    vim.api.nvim_set_hl(0, "@include.c_sharp", { fg = colors.blue_10 })
+    vim.api.nvim_set_hl(0, "@type.builtin.c_sharp", { fg = colors.blue_10 })
 
     -- Go
     vim.api.nvim_set_hl(0, "@keyword.default.go", { fg = colors.purple_02 })
@@ -258,12 +254,12 @@ function M.set(config)
     vim.api.nvim_set_hl(0, "@text.uri.gomod", { fg = colors.yellow_04, underline = true })
 
     -- HTML
-    vim.api.nvim_set_hl(0, "@constant.html", { fg = colors.blue_11 })
+    vim.api.nvim_set_hl(0, "@constant.html", { fg = colors.blue_10 })
     vim.api.nvim_set_hl(0, "@text.html", { fg = colors.fg })
     vim.api.nvim_set_hl(0, "@text.title.html", { fg = colors.fg })
 
     -- Java
-    vim.api.nvim_set_hl(0, "@include.java", { fg = colors.blue_11 })
+    vim.api.nvim_set_hl(0, "@include.java", { fg = colors.blue_10 })
     vim.api.nvim_set_hl(0, "@keyword.operator.java", { fg = colors.purple_02 })
 
     -- JavaScript
@@ -279,8 +275,8 @@ function M.set(config)
     vim.api.nvim_set_hl(0, "@constructor.lua", { link = "@punctuation" })
 
     -- Rust
-    vim.api.nvim_set_hl(0, "@include.mod.rust", { fg = colors.blue_11 })
-    vim.api.nvim_set_hl(0, "@include.use.rust", { fg = colors.blue_11 })
+    vim.api.nvim_set_hl(0, "@include.mod.rust", { fg = colors.blue_10 })
+    vim.api.nvim_set_hl(0, "@include.use.rust", { fg = colors.blue_10 })
 
     -- TypeScript
     vim.api.nvim_set_hl(0, "@keyword.coroutine.await.typescript", { fg = colors.purple_02 })
@@ -292,6 +288,9 @@ function M.set(config)
     vim.api.nvim_set_hl(0, "@keyword.coroutine.await.tsx", { fg = colors.purple_02 })
     vim.api.nvim_set_hl(0, "@keyword.default.tsx", { fg = colors.purple_02 })
     vim.api.nvim_set_hl(0, "@keyword.export.tsx", { fg = colors.purple_02 })
+
+    -- Vim
+    vim.api.nvim_set_hl(0, "@variable.builtin.vim", { link = "Variable" })
 
     -- Semantic Tokens
     vim.api.nvim_set_hl(0, "@lsp.type.annotation", { link = "@type" })
@@ -347,7 +346,7 @@ function M.set(config)
     vim.api.nvim_set_hl(
         0,
         "@lsp.typemod.variable.mutable",
-        { fg = colors.blue_14, sp = colors.blue_14, underline = true }
+        { fg = colors.blue_13, sp = colors.blue_13, underline = true }
     )
     vim.api.nvim_set_hl(0, "@lsp.typemod.variable.readonly", { link = "@constant" })
 
@@ -361,19 +360,17 @@ function M.set(config)
     ------------------------------------------------------------------------------------------
 
     -- nvim-treesitter/nvim-treesitter-context
-
-    vim.api.nvim_set_hl(0, "TreesitterContext", { bg = config.transparent_background and colors.bg_10 or colors.bg_05 })
+    vim.api.nvim_set_hl(0, "TreesitterContext", { bg = config.transparent_background and colors.bg_09 or colors.bg_04 })
     -- vim.api.nvim_set_hl(0, "TreesitterContextBottom", {})
     vim.api.nvim_set_hl(
         0,
         "TreesitterContextLineNumber",
-        { bg = config.transparent_background and colors.bg_10 or colors.bg_05 }
+        { bg = config.transparent_background and colors.bg_09 or colors.bg_04 }
     )
 
     ------------------------------------------------------------------------------------------
 
     -- nvim-treesitter/playground
-
     -- vim.api.nvim_set_hl(0, "nodeAnonymous", {})
     vim.api.nvim_set_hl(0, "nodeNumber", { link = "@number" })
     -- vim.api.nvim_set_hl(0, "nodeOp", {})
@@ -383,7 +380,7 @@ function M.set(config)
     ------------------------------------------------------------------------------------------
 
     -- ibhagwan/fzf-lua
-    vim.api.nvim_set_hl(0, "FzfLuaBorder", { fg = colors.fg_02 })
+    vim.api.nvim_set_hl(0, "FzfLuaBorder", { fg = colors.fg_03 })
     -- vim.api.nvim_set_hl(0, "FzfLuaCursor", {})
     -- vim.api.nvim_set_hl(0, "FzfLuaCursorLine", {})
     -- vim.api.nvim_set_hl(0, "FzfLuaCursorLineNr", {})
@@ -400,16 +397,15 @@ function M.set(config)
     ------------------------------------------------------------------------------------------
 
     -- nvim-telescope/telescope.nvim
-
     -- vim.api.nvim_set_hl(0, "TelescopeBorder", {})
-    vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = colors.blue_06 })
+    vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = colors.blue_05 })
     -- vim.api.nvim_set_hl(0, "TelescopeMultiIcon", {})
     -- vim.api.nvim_set_hl(0, "TelescopeMultiSelection", {})
     -- vim.api.nvim_set_hl(0, "TelescopeNormal", {})
 
     -- Telescope Preview
     -- vim.api.nvim_set_hl(0, "TelescopePreviewBlock", {})
-    vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = colors.bg_03, fg = colors.bg_03 })
+    vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = colors.bg_02, fg = colors.bg_02 })
     -- vim.api.nvim_set_hl(0, "TelescopePreviewCharDev", {})
     -- vim.api.nvim_set_hl(0, "TelescopePreviewDate", {})
     -- vim.api.nvim_set_hl(0, "TelescopePreviewDirectory", {})
@@ -420,7 +416,7 @@ function M.set(config)
     -- vim.api.nvim_set_hl(0, "TelescopePreviewMatch", {})
     -- vim.api.nvim_set_hl(0, "TelescopePreviewMessage", {})
     -- vim.api.nvim_set_hl(0, "TelescopePreviewMessageFillchar", {})
-    vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = colors.bg_03 })
+    vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = colors.bg_02 })
     -- vim.api.nvim_set_hl(0, "TelescopePreviewPipe", {})
     -- vim.api.nvim_set_hl(0, "TelescopePreviewRead", {})
     -- vim.api.nvim_set_hl(0, "TelescopePreviewSize", {})
@@ -430,14 +426,14 @@ function M.set(config)
     -- vim.api.nvim_set_hl(0, "TelescopePreviewWrite", {})
 
     -- Telescope Prompt
-    vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = colors.bg_07, fg = colors.bg_07 })
-    vim.api.nvim_set_hl(0, "TelescopePromptCounter", { fg = colors.bg_13 })
-    vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = colors.bg_07, fg = colors.bg_13 })
+    vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = colors.bg_06, fg = colors.bg_06 })
+    vim.api.nvim_set_hl(0, "TelescopePromptCounter", { fg = colors.bg_12 })
+    vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = colors.bg_06, fg = colors.bg_12 })
     vim.api.nvim_set_hl(0, "TelescopePromptPrefix", {})
-    vim.api.nvim_set_hl(0, "TelescopePromptTitle", { fg = colors.bg_13 })
+    vim.api.nvim_set_hl(0, "TelescopePromptTitle", { fg = colors.bg_12 })
 
     -- Telescope Results
-    vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { bg = colors.bg_05, fg = colors.bg_05 })
+    vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { bg = colors.bg_04, fg = colors.bg_04 })
     vim.api.nvim_set_hl(0, "TelescopeResultsClass", {})
     vim.api.nvim_set_hl(0, "TelescopeResultsComment", {})
     vim.api.nvim_set_hl(0, "TelescopeResultsConstant", {})
@@ -450,7 +446,7 @@ function M.set(config)
     vim.api.nvim_set_hl(0, "TelescopeResultsIdentifier", {})
     vim.api.nvim_set_hl(0, "TelescopeResultsLineNr", {})
     vim.api.nvim_set_hl(0, "TelescopeResultsMethod", {})
-    vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = colors.bg_05 })
+    vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = colors.bg_04 })
     vim.api.nvim_set_hl(0, "TelescopeResultsNumber", {})
     vim.api.nvim_set_hl(0, "TelescopeResultsOperator", {})
     vim.api.nvim_set_hl(0, "TelescopeResultsSpecialComment", {})
@@ -458,8 +454,11 @@ function M.set(config)
     vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { fg = colors.fg })
     vim.api.nvim_set_hl(0, "TelescopeResultsVariable", {})
 
-    vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = colors.blue_02, fg = colors.fg_11 })
+    -- Telescope Selection
+    vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = colors.blue_02, fg = colors.fg_12 })
     vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", {})
+
+    -- Telescope Title
     vim.api.nvim_set_hl(0, "TelescopeTitle", {})
 
     ------------------------------------------------------------------------------------------
@@ -467,7 +466,7 @@ function M.set(config)
     -- neovim/nvim-lspconfig
 
     -- Diagnostics LSP
-    vim.api.nvim_set_hl(0, "DiagnosticBorder", { bg = config.v2 and colors.bg_v2 or colors.bg, fg = colors.fg_02 })
+    vim.api.nvim_set_hl(0, "DiagnosticBorder", { bg = colors.bg, fg = colors.fg_03 })
     -- vim.api.nvim_set_hl(0, "DiagnosticBufnr", {})
     vim.api.nvim_set_hl(0, "DiagnosticDeprecated", { strikethrough = true })
     vim.api.nvim_set_hl(0, "DiagnosticError", { fg = diagnostic.error })
@@ -504,7 +503,7 @@ function M.set(config)
     vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = diagnostic.warn })
 
     -- LspInfo
-    vim.api.nvim_set_hl(0, "LspInfoBorder", { fg = colors.fg_02 })
+    vim.api.nvim_set_hl(0, "LspInfoBorder", { fg = colors.fg_03 })
     -- vim.api.nvim_set_hl(0, "LspInfoFiletype", {})
     -- vim.api.nvim_set_hl(0, "LspInfoList", {})
     -- vim.api.nvim_set_hl(0, "LspInfoTip", {})
@@ -513,7 +512,6 @@ function M.set(config)
     ------------------------------------------------------------------------------------------
 
     -- SmiteshP/nvim-navic
-
     vim.api.nvim_set_hl(0, "NavicIconsFile", { link = "@keyword" })
     vim.api.nvim_set_hl(0, "NavicIconsModule", { link = "@namespace" })
     vim.api.nvim_set_hl(0, "NavicIconsNamespace", { link = "@namespace" })
@@ -540,13 +538,12 @@ function M.set(config)
     vim.api.nvim_set_hl(0, "NavicIconsEvent", { link = "@keyword" })
     vim.api.nvim_set_hl(0, "NavicIconsOperator", { link = "@operator" })
     vim.api.nvim_set_hl(0, "NavicIconsTypeParameter", { link = "@parameter" })
-    vim.api.nvim_set_hl(0, "NavicText", { fg = colors.fg_07 })
-    vim.api.nvim_set_hl(0, "NavicSeparator", { fg = colors.fg_07 })
+    vim.api.nvim_set_hl(0, "NavicText", { fg = colors.fg_08 })
+    vim.api.nvim_set_hl(0, "NavicSeparator", { fg = colors.fg_08 })
 
     ------------------------------------------------------------------------------------------
 
     -- williamboman/mason.nvim
-
     vim.api.nvim_set_hl(0, "MasonError", { fg = diagnostic.error })
     -- vim.api.nvim_set_hl(0, "MasonHeader", {})
     -- vim.api.nvim_set_hl(0, "MasonHeaderSecondary", {})
@@ -570,122 +567,119 @@ function M.set(config)
     ------------------------------------------------------------------------------------------
 
     -- folke/trouble.nvim
-
-    vim.api.nvim_set_hl(0, "TroubleCode", { fg = colors.blue_07, underline = true })
-    vim.api.nvim_set_hl(0, "TroubleCount", { bg = colors.bg_10, fg = colors.fg_11 })
+    vim.api.nvim_set_hl(0, "TroubleCode", { fg = colors.blue_06, underline = true })
+    vim.api.nvim_set_hl(0, "TroubleCount", { bg = colors.bg_09, fg = colors.fg_12 })
     -- vim.api.nvim_set_hl(0, "TroubleError", {})
-    vim.api.nvim_set_hl(0, "TroubleFile", { fg = colors.fg_10 })
-    vim.api.nvim_set_hl(0, "TroubleFoldIcon", { fg = colors.fg_08 })
+    vim.api.nvim_set_hl(0, "TroubleFile", { fg = colors.fg_11 })
+    vim.api.nvim_set_hl(0, "TroubleFoldIcon", { fg = colors.fg_09 })
     -- vim.api.nvim_set_hl(0, "TroubleHint", {})
     -- vim.api.nvim_set_hl(0, "TroubleIndent", {})
     -- vim.api.nvim_set_hl(0, "TroubleInformation", {})
-    vim.api.nvim_set_hl(0, "TroubleLocation", { fg = colors.fg_06 })
+    vim.api.nvim_set_hl(0, "TroubleLocation", { fg = colors.fg_07 })
     -- vim.api.nvim_set_hl(0, "TroubleNormal", {})
     -- vim.api.nvim_set_hl(0, "TroubleOther", {})
-    vim.api.nvim_set_hl(0, "TroublePreview", { bg = colors.bg_09 })
+    vim.api.nvim_set_hl(0, "TroublePreview", { bg = colors.bg_08 })
     vim.api.nvim_set_hl(0, "TroubleSignError", { fg = diagnostic.error })
     vim.api.nvim_set_hl(0, "TroubleSignHint", { fg = diagnostic.hint })
     vim.api.nvim_set_hl(0, "TroubleSignInformation", { fg = diagnostic.info })
     -- vim.api.nvim_set_hl(0, "TroubleSignOther", {})
     vim.api.nvim_set_hl(0, "TroubleSignWarning", { fg = diagnostic.warn })
-    vim.api.nvim_set_hl(0, "TroubleSource", { fg = colors.fg_06 })
+    vim.api.nvim_set_hl(0, "TroubleSource", { fg = colors.fg_07 })
     -- vim.api.nvim_set_hl(0, "TroubleText", {})
-    vim.api.nvim_set_hl(0, "TroubleTextError", { fg = config.v2 and colors.fg_v2 or colors.fg })
-    vim.api.nvim_set_hl(0, "TroubleTextHint", { fg = config.v2 and colors.fg_v2 or colors.fg })
-    vim.api.nvim_set_hl(0, "TroubleTextInformation", { fg = config.v2 and colors.fg_v2 or colors.fg })
-    vim.api.nvim_set_hl(0, "TroubleTextWarning", { fg = config.v2 and colors.fg_v2 or colors.fg })
+    vim.api.nvim_set_hl(0, "TroubleTextError", { fg = colors.fg })
+    vim.api.nvim_set_hl(0, "TroubleTextHint", { fg = colors.fg })
+    vim.api.nvim_set_hl(0, "TroubleTextInformation", { fg = colors.fg })
+    vim.api.nvim_set_hl(0, "TroubleTextWarning", { fg = colors.fg })
     -- vim.api.nvim_set_hl(0, "TroubleWarning", {})
 
     ------------------------------------------------------------------------------------------
 
     -- hrsh7th/nvim-cmp
-
     vim.api.nvim_set_hl(0, "CmpDoc", {
-        bg = config.transparent_background and colors.none or (config.v2 and colors.bg_v2 or colors.bg),
+        bg = config.transparent_background and colors.none or colors.bg,
         fg = colors.fg,
     })
     vim.api.nvim_set_hl(0, "CmpDocBorder", {
-        bg = config.transparent_background and colors.none or (config.v2 and colors.bg_v2 or colors.bg),
-        fg = colors.bg_12,
+        bg = config.transparent_background and colors.none or colors.bg,
+        fg = colors.bg_11,
     })
     -- vim.api.nvim_set_hl(0, "CmpItemAbbr", {})
     -- vim.api.nvim_set_hl(0, "CmpItemAbbrDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = colors.fg_10, strikethrough = true })
+    vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = colors.fg_11, strikethrough = true })
     -- vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecatedDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = colors.blue_06 })
+    vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = colors.blue_05 })
     -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatchDefault", {})
     -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", {})
     -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzyDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKind", { fg = colors.fg_10 })
+    vim.api.nvim_set_hl(0, "CmpItemKind", { fg = colors.fg_11 })
     vim.api.nvim_set_hl(0, "CmpItemKindClass", { fg = colors.orange_02 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindClassDefault", {})
     vim.api.nvim_set_hl(0, "CmpItemKindColor", { fg = colors.fg })
     -- vim.api.nvim_set_hl(0, "CmpItemKindColorDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindConstant", { fg = colors.fg_10 })
+    vim.api.nvim_set_hl(0, "CmpItemKindConstant", { fg = colors.fg_11 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindConstantDefault", {})
     vim.api.nvim_set_hl(0, "CmpItemKindConstructor", { fg = colors.purple_01 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindConstructorDefault", {})
     -- vim.api.nvim_set_hl(0, "CmpItemKindDefault", {})
     vim.api.nvim_set_hl(0, "CmpItemKindEnum", { fg = colors.orange_02 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindEnumDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindEnumMember", { fg = colors.blue_13 })
+    vim.api.nvim_set_hl(0, "CmpItemKindEnumMember", { fg = colors.blue_12 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindEnumMemberDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindEvent", { fg = colors.fg_10 })
+    vim.api.nvim_set_hl(0, "CmpItemKindEvent", { fg = colors.fg_11 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindEventDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindField", { fg = colors.blue_13 })
+    vim.api.nvim_set_hl(0, "CmpItemKindField", { fg = colors.blue_12 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindFieldDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindFile", { fg = colors.fg_10 })
+    vim.api.nvim_set_hl(0, "CmpItemKindFile", { fg = colors.fg_11 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindFileDefault", {})
     vim.api.nvim_set_hl(0, "CmpItemKindFolder", { fg = colors.yellow_02 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindFolderDefault", {})
     vim.api.nvim_set_hl(0, "CmpItemKindFunction", { fg = colors.purple_01 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindFunctionDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindInterface", { fg = colors.blue_13 })
+    vim.api.nvim_set_hl(0, "CmpItemKindInterface", { fg = colors.blue_12 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindInterfaceDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { fg = colors.fg_10 })
+    vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { fg = colors.fg_11 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindKeywordDefault", {})
     vim.api.nvim_set_hl(0, "CmpItemKindMethod", { fg = colors.purple_01 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindMethodDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindModule", { fg = colors.fg_10 })
+    vim.api.nvim_set_hl(0, "CmpItemKindModule", { fg = colors.fg_11 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindModuleDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindOperator", { fg = colors.fg_10 })
+    vim.api.nvim_set_hl(0, "CmpItemKindOperator", { fg = colors.fg_11 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindOperatorDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindProperty", { fg = colors.blue_13 })
+    vim.api.nvim_set_hl(0, "CmpItemKindProperty", { fg = colors.blue_12 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindPropertyDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindReference", { fg = colors.fg_10 })
+    vim.api.nvim_set_hl(0, "CmpItemKindReference", { fg = colors.fg_11 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindReferenceDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = colors.fg_10 })
+    vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = colors.fg_11 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindSnippetDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindSnippetFunction", { fg = colors.fg_10 })
-    vim.api.nvim_set_hl(0, "CmpItemKindSnippetStruct", { fg = colors.fg_10 })
-    vim.api.nvim_set_hl(0, "CmpItemKindStruct", { fg = colors.fg_10 })
+    vim.api.nvim_set_hl(0, "CmpItemKindSnippetFunction", { fg = colors.fg_11 })
+    vim.api.nvim_set_hl(0, "CmpItemKindSnippetStruct", { fg = colors.fg_11 })
+    vim.api.nvim_set_hl(0, "CmpItemKindStruct", { fg = colors.fg_11 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindStructDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindText", { fg = colors.fg_10 })
+    vim.api.nvim_set_hl(0, "CmpItemKindText", { fg = colors.fg_11 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindTextDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = colors.fg_10 })
+    vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = colors.fg_11 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindTypeParameterDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindUnit", { fg = colors.fg_10 })
+    vim.api.nvim_set_hl(0, "CmpItemKindUnit", { fg = colors.fg_11 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindUnitDefault", {})
     vim.api.nvim_set_hl(0, "CmpItemKindValue", { fg = colors.orange_02 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindValueDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindVariable", { fg = colors.blue_13 })
+    vim.api.nvim_set_hl(0, "CmpItemKindVariable", { fg = colors.blue_12 })
     -- vim.api.nvim_set_hl(0, "CmpItemKindVariableDefault", {})
     -- vim.api.nvim_set_hl(0, "CmpItemMenu", {})
     -- vim.api.nvim_set_hl(0, "CmpItemMenuDefault", {})
     vim.api.nvim_set_hl(0, "CmpMenu", {
-        bg = config.transparent_background and colors.none or (config.v2 and colors.bg_v2 or colors.bg),
+        bg = config.transparent_background and colors.none or colors.bg,
         fg = colors.fg,
     })
     vim.api.nvim_set_hl(0, "CmpMenuBorder", {
-        bg = config.transparent_background and colors.none or (config.v2 and colors.bg_v2 or colors.bg),
-        fg = colors.bg_12,
+        bg = config.transparent_background and colors.none or colors.bg,
+        fg = colors.bg_11,
     })
-    vim.api.nvim_set_hl(0, "CmpMenuSel", { bg = colors.blue_02, fg = colors.fg_11 })
+    vim.api.nvim_set_hl(0, "CmpMenuSel", { bg = colors.blue_02, fg = colors.fg_12 })
 
     ------------------------------------------------------------------------------------------
 
     -- lewis6991/gitsigns.nvim
-
     vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = git.signs.add })
     -- vim.api.nvim_set_hl(0, "GitSignsAddInline", {})
     -- vim.api.nvim_set_hl(0, "GitSignsAddLn", {})
@@ -729,7 +723,6 @@ function M.set(config)
     ------------------------------------------------------------------------------------------
 
     -- petertriho/nvim-scrollbar
-
     -- vim.api.nvim_set_hl(0, "ScrollbarCursor", {})
     -- vim.api.nvim_set_hl(0, "ScrollbarCursorHandler", {})
     vim.api.nvim_set_hl(0, "ScrollbarError", { fg = diagnostic.error })
@@ -755,11 +748,10 @@ function M.set(config)
     ------------------------------------------------------------------------------------------
 
     -- nvim-tree/nvim-tree.lua
-
     -- vim.api.nvim_set_hl(0, "NvimTreeBookmark", {})
     vim.api.nvim_set_hl(0, "NvimTreeClosedFolderIcon", { link = "NvimTreeFolderIcon" })
     -- vim.api.nvim_set_hl(0, "NvimTreeCursorColumn", {})
-    vim.api.nvim_set_hl(0, "NvimTreeCursorLine", { bg = config.transparent_background and colors.none or colors.bg_06 })
+    vim.api.nvim_set_hl(0, "NvimTreeCursorLine", { bg = config.transparent_background and colors.none or colors.bg_05 })
     -- vim.api.nvim_set_hl(0, "NvimTreeCursorLineNr", {})
     -- vim.api.nvim_set_hl(0, "NvimTreeEmptyFolderName", {})
     -- vim.api.nvim_set_hl(0, "NvimTreeEndOfBuffer", {})
@@ -772,7 +764,7 @@ function M.set(config)
     -- vim.api.nvim_set_hl(0, "NvimTreeFileRenamed", {})
     -- vim.api.nvim_set_hl(0, "NvimTreeFileStaged", {})
     vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { fg = colors.yellow_02 })
-    vim.api.nvim_set_hl(0, "NvimTreeFolderName", { fg = config.v2 and colors.fg_v2 or colors.fg })
+    vim.api.nvim_set_hl(0, "NvimTreeFolderName", { fg = colors.fg })
     vim.api.nvim_set_hl(0, "NvimTreeGitDeleted", { fg = git.status.deleted })
     vim.api.nvim_set_hl(0, "NvimTreeGitDirty", { fg = git.status.modified })
     vim.api.nvim_set_hl(0, "NvimTreeGitIgnored", { fg = git.status.ignored })
@@ -781,7 +773,7 @@ function M.set(config)
     vim.api.nvim_set_hl(0, "NvimTreeGitRenamed", { fg = git.status.untracked })
     vim.api.nvim_set_hl(0, "NvimTreeGitStaged", { fg = git.status.staged })
     -- vim.api.nvim_set_hl(0, "NvimTreeImageFile", {})
-    -- vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", {})
+    vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", { fg = colors.fg_02 })
     -- vim.api.nvim_set_hl(0, "NvimTreeLineNr", {})
     -- vim.api.nvim_set_hl(0, "NvimTreeLiveFilterPrefix", {})
     -- vim.api.nvim_set_hl(0, "NvimTreeLiveFilterValue", {})
@@ -789,43 +781,37 @@ function M.set(config)
     vim.api.nvim_set_hl(0, "NvimTreeLspDiagnosticsHint", { fg = diagnostic.hint })
     vim.api.nvim_set_hl(0, "NvimTreeLspDiagnosticsInformation", { fg = diagnostic.info })
     vim.api.nvim_set_hl(0, "NvimTreeLspDiagnosticsWarning", { fg = diagnostic.warn })
-    vim.api.nvim_set_hl(0, "NvimTreeModifiedFile", { fg = config.v2 and colors.fg_v2 or colors.fg })
-    vim.api.nvim_set_hl(
-        0,
-        "NvimTreeNormal",
-        { bg = config.transparent_background and colors.none or (config.v2 and colors.bg_02 or colors.bg_03) }
-    )
+    vim.api.nvim_set_hl(0, "NvimTreeModifiedFile", { fg = colors.fg })
+    vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = config.transparent_background and colors.none or colors.bg_01 })
     -- vim.api.nvim_set_hl(0, "NvimTreeNormalNC", {})
-    vim.api.nvim_set_hl(0, "NvimTreeOpenedFile", { fg = config.v2 and colors.fg_v2 or colors.fg })
+    vim.api.nvim_set_hl(0, "NvimTreeOpenedFile", { fg = colors.fg })
     vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderIcon", { link = "NvimTreeFolderIcon" })
     vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderName", { fg = colors.fg })
     -- vim.api.nvim_set_hl(0, "NvimTreePopup", {})
-    vim.api.nvim_set_hl(0, "NvimTreeRootFolder", { fg = colors.fg_10 })
+    vim.api.nvim_set_hl(0, "NvimTreeRootFolder", { fg = colors.fg_11 })
     -- vim.api.nvim_set_hl(0, "NvimTreeSignColumn", {})
     -- vim.api.nvim_set_hl(0, "NvimTreeSpecialFile", {})
     -- vim.api.nvim_set_hl(0, "NvimTreeStatusLine", {})
     -- vim.api.nvim_set_hl(0, "NvimTreeStatusLineNC", {})
     -- vim.api.nvim_set_hl(0, "NvimTreeSymlink", {})
     vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", {
-        bg = config.transparent_background and colors.none or (config.v2 and colors.bg_v2 or colors.bg),
-        fg = config.v2 and colors.bg_v2 or colors.bg,
+        bg = config.transparent_background and colors.none or colors.bg,
+        fg = colors.bg,
     })
     -- vim.api.nvim_set_hl(0, "NvimTreeWindowPicker", {})
 
     ------------------------------------------------------------------------------------------
 
     -- akinsho/toggleterm.nvim.git
-
     -- vim.api.nvim_set_hl(0, "ToggleTermNormal", {})
-    vim.api.nvim_set_hl(0, "ToggleTermNormalFloat", { bg = colors.bg_03 })
-    vim.api.nvim_set_hl(0, "ToggleTermFloatBorder", { bg = colors.bg_03, fg = colors.bg_03 })
+    vim.api.nvim_set_hl(0, "ToggleTermNormalFloat", { bg = colors.bg_02 })
+    vim.api.nvim_set_hl(0, "ToggleTermFloatBorder", { bg = colors.bg_02, fg = colors.bg_02 })
 
     ------------------------------------------------------------------------------------------
 
     -- lukas-reineke/indent-blankline.nvim
-
-    vim.api.nvim_set_hl(0, "IndentBlanklineChar", { fg = colors.bg_08, bg = colors.none })
-    vim.api.nvim_set_hl(0, "IndentBlanklineContextChar", { fg = colors.bg_12, bg = colors.none })
+    vim.api.nvim_set_hl(0, "IndentBlanklineChar", { fg = colors.bg_07, bg = colors.none })
+    vim.api.nvim_set_hl(0, "IndentBlanklineContextChar", { fg = colors.bg_11, bg = colors.none })
     -- vim.api.nvim_set_hl(0, "IndentBlanklineContextStart", {})
     -- vim.api.nvim_set_hl(0, "IndentBlanklineSpaceChar", {})
     -- vim.api.nvim_set_hl(0, "IndentBlanklineSpaceCharBlankline", {})
@@ -833,18 +819,16 @@ function M.set(config)
     ------------------------------------------------------------------------------------------
 
     -- goolord/alpha-nvim
-
-    vim.api.nvim_set_hl(0, "AlphaButton", { fg = colors.blue_08 })
-    vim.api.nvim_set_hl(0, "AlphaHeader", { fg = colors.blue_09 })
-    vim.api.nvim_set_hl(0, "AlphaShorcut", { fg = colors.fg_04 })
+    vim.api.nvim_set_hl(0, "AlphaButton", { fg = colors.blue_07 })
+    vim.api.nvim_set_hl(0, "AlphaHeader", { fg = colors.blue_08 })
+    vim.api.nvim_set_hl(0, "AlphaShorcut", { fg = colors.fg_05 })
 
     ------------------------------------------------------------------------------------------
 
     -- folke/lazy.nvim
-
     vim.api.nvim_set_hl(0, "LazyButton", { bg = colors.blue_03 })
     vim.api.nvim_set_hl(0, "LazyButtonActive", { bg = colors.green_02 })
-    vim.api.nvim_set_hl(0, "LazyComment", { fg = colors.fg_04 })
+    vim.api.nvim_set_hl(0, "LazyComment", { fg = colors.fg_05 })
     -- vim.api.nvim_set_hl(0, "LazyCommitIssue", {})
     -- vim.api.nvim_set_hl(0, "LazyCommitScope", {})
     -- vim.api.nvim_set_hl(0, "LazyCommitType", {})
@@ -875,14 +859,15 @@ function M.set(config)
     ------------------------------------------------------------------------------------------
 
     -- lua
-
     vim.api.nvim_set_hl(0, "luaParenError", { link = "Normal" })
+
+    ------------------------------------------------------------------------------------------
 
     -- xml
     vim.api.nvim_set_hl(0, "xmlAttrib", { link = "Variable" })
     vim.api.nvim_set_hl(0, "xmlProcessingDelim", { link = "Keyword" })
-    vim.api.nvim_set_hl(0, "xmlProcessingDelim", { fg = colors.fg_03 })
-    vim.api.nvim_set_hl(0, "xmlTag", { fg = colors.fg_03 })
+    vim.api.nvim_set_hl(0, "xmlProcessingDelim", { fg = colors.fg_04 })
+    vim.api.nvim_set_hl(0, "xmlTag", { fg = colors.fg_04 })
     vim.api.nvim_set_hl(0, "xmlTagName", { link = "Keyword" })
 end
 
