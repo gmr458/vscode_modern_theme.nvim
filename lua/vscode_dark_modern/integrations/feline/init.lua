@@ -145,7 +145,7 @@ M.components = function()
                     local percentage = lsp.percentage or 0
                     local title = lsp.title or ""
 
-                    local spinners = { "", "", "" }
+                    local spinners = { "", "󰀚", "" }
 
                     local success_icon = { "", "", "" }
 
