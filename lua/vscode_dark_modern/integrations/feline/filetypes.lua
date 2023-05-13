@@ -52,6 +52,7 @@ return {
     ["julia"] = "Julia",
     ["kdl"] = "KDL",
     ["kotlin"] = "Kotlin",
+    ["lazy"] = "Lazy",
     ["less"] = "Less",
     ["lock"] = "Plain Text",
     ["log"] = "Log",
