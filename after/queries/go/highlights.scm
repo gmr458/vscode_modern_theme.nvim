@@ -1,4 +1,3 @@
-;; extends
-[
-"default"
-] @keyword.default
+; extends
+
+["default"] @keyword.default

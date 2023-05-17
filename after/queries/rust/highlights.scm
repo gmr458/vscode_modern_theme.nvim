@@ -1,8 +1,4 @@
-;; extends
-[
-"mod"
-] @include.mod
+; extends
 
-[
-"use"
-] @include.use
+["mod"] @include.mod
+["use"] @include.use

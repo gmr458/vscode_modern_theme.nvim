@@ -169,7 +169,7 @@ function M.set(config)
     vim.api.nvim_set_hl(0, "PreProc", { fg = colors.purple_02 })
     vim.api.nvim_set_hl(0, "Include", { fg = colors.purple_02 })
     vim.api.nvim_set_hl(0, "Define", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "Macro", { fg = colors.purple_02 })
+    vim.api.nvim_set_hl(0, "Macro", { fg = colors.blue_10 })
     vim.api.nvim_set_hl(0, "PreCondit", { fg = colors.purple_02 })
 
     vim.api.nvim_set_hl(0, "Type", { fg = colors.green_05 })
@@ -189,7 +189,7 @@ function M.set(config)
     ------------------------------------------------------------------------------------------
 
     -- nvim-treesitter/nvim-treesitter
-
+    vim.api.nvim_set_hl(0, "@attribute", { link = "@type" })
     vim.api.nvim_set_hl(0, "@boolean", { fg = colors.blue_10 })
     vim.api.nvim_set_hl(0, "@character", { fg = colors.orange_01 })
     vim.api.nvim_set_hl(0, "@character.special", { fg = colors.yellow_04 })
@@ -241,7 +241,7 @@ function M.set(config)
     vim.api.nvim_set_hl(0, "@type.definition", { fg = colors.green_05 })
     vim.api.nvim_set_hl(0, "@type.qualifier", { fg = colors.blue_10 })
     vim.api.nvim_set_hl(0, "@variable", { fg = colors.blue_13 })
-    vim.api.nvim_set_hl(0, "@variable.builtin", { link = "@keyword" })
+    vim.api.nvim_set_hl(0, "@variable.builtin", { link = "@variable" })
 
     -- C#
     vim.api.nvim_set_hl(0, "@include.c_sharp", { fg = colors.blue_10 })
@@ -260,10 +260,16 @@ function M.set(config)
 
     -- Java
     vim.api.nvim_set_hl(0, "@include.java", { fg = colors.blue_10 })
-    vim.api.nvim_set_hl(0, "@keyword.operator.java", { fg = colors.purple_02 })
+    vim.api.nvim_set_hl(0, "@variable.builtin.this.java", { link = "@keyword" })
 
     -- JavaScript
+    vim.api.nvim_set_hl(0, "@constructor.constructor.javascript", { link = "@keyword" })
+    vim.api.nvim_set_hl(0, "@keyword.coroutine.await.javascript", { fg = colors.purple_02 })
+    vim.api.nvim_set_hl(0, "@keyword.default.javascript", { fg = colors.purple_02 })
     vim.api.nvim_set_hl(0, "@keyword.export.javascript", { fg = colors.purple_02 })
+    vim.api.nvim_set_hl(0, "@number.infinity.javascript", { link = "@keyword" })
+    vim.api.nvim_set_hl(0, "@variable.builtin.this.javascript", { link = "@keyword" })
+    vim.api.nvim_set_hl(0, "@variable.builtin.super.javascript", { link = "@keyword" })
 
     -- JSON
     vim.api.nvim_set_hl(0, "@label.json", { link = "@variable" })
@@ -274,14 +280,24 @@ function M.set(config)
     -- Lua
     vim.api.nvim_set_hl(0, "@constructor.lua", { link = "@punctuation" })
 
+    -- Ruby
+    vim.api.nvim_set_hl(0, "@label.ruby", { link = "@variable" })
+
     -- Rust
+    vim.api.nvim_set_hl(0, "@constant.builtin.rust", { link = "@constant" })
     vim.api.nvim_set_hl(0, "@include.mod.rust", { fg = colors.blue_10 })
     vim.api.nvim_set_hl(0, "@include.use.rust", { fg = colors.blue_10 })
+    vim.api.nvim_set_hl(0, "@variable.builtin.rust", { link = "@keyword" })
 
     -- TypeScript
+    vim.api.nvim_set_hl(0, "@constructor.constructor.typescript", { link = "@keyword" })
+    vim.api.nvim_set_hl(0, "@constant.builtin.undefined.typescript", { link = "@keyword" })
     vim.api.nvim_set_hl(0, "@keyword.coroutine.await.typescript", { fg = colors.purple_02 })
     vim.api.nvim_set_hl(0, "@keyword.default.typescript", { fg = colors.purple_02 })
     vim.api.nvim_set_hl(0, "@keyword.export.typescript", { fg = colors.purple_02 })
+    vim.api.nvim_set_hl(0, "@number.infinity.typescript", { link = "@keyword" })
+    vim.api.nvim_set_hl(0, "@variable.builtin.super.typescript", { link = "@keyword" })
+    vim.api.nvim_set_hl(0, "@variable.builtin.this.typescript", { link = "@keyword" })
 
     -- TypeScript JSX
     vim.api.nvim_set_hl(0, "@keyword.as.tsx", { fg = colors.purple_02 })
@@ -289,73 +305,26 @@ function M.set(config)
     vim.api.nvim_set_hl(0, "@keyword.default.tsx", { fg = colors.purple_02 })
     vim.api.nvim_set_hl(0, "@keyword.export.tsx", { fg = colors.purple_02 })
 
-    -- Vim
-    vim.api.nvim_set_hl(0, "@variable.builtin.vim", { link = "Variable" })
-
     -- Semantic Tokens
-    vim.api.nvim_set_hl(0, "@lsp.type.annotation", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.type.boolean", { link = "@boolean" })
-    vim.api.nvim_set_hl(0, "@lsp.type.class", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.type.comment", { link = "@comment" })
-    vim.api.nvim_set_hl(0, "@lsp.type.decorator", { link = "@function" })
-    vim.api.nvim_set_hl(0, "@lsp.type.derive", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.type.enum", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.type.enumMember", { link = "@constant" })
-    vim.api.nvim_set_hl(0, "@lsp.type.formatSpecifier", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "@lsp.type.function", { link = "@function" })
-    vim.api.nvim_set_hl(0, "@lsp.type.interface", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.type.keyword", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "@lsp.type.macro", { link = "@macro" })
-    vim.api.nvim_set_hl(0, "@lsp.type.method", { link = "@method" })
-    vim.api.nvim_set_hl(0, "@lsp.type.modifier", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "@lsp.type.namespace", { link = "@namespace" })
-    vim.api.nvim_set_hl(0, "@lsp.type.number", { link = "@number" })
-    vim.api.nvim_set_hl(0, "@lsp.type.operator", { link = "@operator" })
-    vim.api.nvim_set_hl(0, "@lsp.type.parameter", { link = "@parameter" })
-    vim.api.nvim_set_hl(0, "@lsp.type.property", { link = "@property" })
-    vim.api.nvim_set_hl(0, "@lsp.type.string", { link = "@string" })
-    vim.api.nvim_set_hl(0, "@lsp.type.struct", { link = "@struct" })
-    vim.api.nvim_set_hl(0, "@lsp.type.type", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.type.typeParameter", { link = "@parameter" })
-    vim.api.nvim_set_hl(0, "@lsp.type.variable", { link = "@variable" })
+    vim.api.nvim_set_hl(0, "@lsp.type.annotation", { link = "Type" })
+    vim.api.nvim_set_hl(0, "@lsp.type.class", { link = "@lsp" })
+    vim.api.nvim_set_hl(0, "@lsp.type.formatSpecifier", { link = "Keyword" })
+    vim.api.nvim_set_hl(0, "@lsp.type.parameter", { link = "Variable" })
+    vim.api.nvim_set_hl(0, "@lsp.type.property", { link = "Variable" })
+    vim.api.nvim_set_hl(0, "@lsp.type.selfKeyword", { link = "Keyword" })
+    vim.api.nvim_set_hl(0, "@lsp.type.selfTypeKeyword", { link = "Keyword" })
+    vim.api.nvim_set_hl(0, "@lsp.type.variable", { link = "Variable" })
 
-    vim.api.nvim_set_hl(0, "@lsp.typemod.boolean.attribute", { link = "@variable" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.class.declaration", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.class.public", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.class.readonly", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.derive.library", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.enum.declaration", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.enumMember.declaration", { link = "@constant" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.function.declaration", { link = "@function" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.function.readonly", { link = "@function" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.generic.attribute", { link = "@variable" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.keyword.controlFlow", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.method.declaration", { link = "@function" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.method.public", { link = "@function" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.method.static", { link = "@function" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.namespace.declaration", { link = "@namespace" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.parameter.declaration", { link = "@variable" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.selfKeyword.declaration", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.selfKeyword.reference", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.string.attribute", { link = "@string" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.struct.declaration", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.type.declaration", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.variable.constant", { link = "@constant" })
-    -- vim.api.nvim_set_hl(0, "@lsp.typemod.variable.declaration", { link = "@variable" })
-    -- vim.api.nvim_set_hl(0, "@lsp.typemod.variable.static", { link = "@variable" })
-    vim.api.nvim_set_hl(
-        0,
-        "@lsp.typemod.variable.mutable",
-        { fg = colors.blue_13, sp = colors.blue_13, underline = true }
-    )
-    vim.api.nvim_set_hl(0, "@lsp.typemod.variable.readonly", { link = "@constant" })
+    vim.api.nvim_set_hl(0, "@lsp.typemod.class.constructor", { link = "Function" })
+    vim.api.nvim_set_hl(0, "@lsp.typemod.class.importDeclaration", { link = "Type" })
+    vim.api.nvim_set_hl(0, "@lsp.typemod.class.readonly", { link = "Type" })
+    vim.api.nvim_set_hl(0, "@lsp.typemod.function.declaration", { link = "Function" })
+    vim.api.nvim_set_hl(0, "@lsp.typemod.function.local", { link = "Function" })
+    vim.api.nvim_set_hl(0, "@lsp.typemod.function.readonly", { link = "Function" })
 
-    vim.api.nvim_set_hl(0, "@lsp.mod.attribute", { link = "@function" })
-    vim.api.nvim_set_hl(0, "@lsp.mod.constant", { link = "@constant" })
     vim.api.nvim_set_hl(0, "@lsp.mod.controlFlow", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@lsp.mod.declaration", { link = "@variable" })
     vim.api.nvim_set_hl(0, "@lsp.mod.mutable", { underline = true })
-    vim.api.nvim_set_hl(0, "@lsp.mod.readonly", { link = "@constant" })
+    vim.api.nvim_set_hl(0, "@lsp.mod.readonly", { link = "Constant" })
 
     ------------------------------------------------------------------------------------------
 
