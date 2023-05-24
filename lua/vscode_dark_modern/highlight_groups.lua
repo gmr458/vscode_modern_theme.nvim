@@ -392,7 +392,7 @@ function M.set(config)
     -- vim.api.nvim_set_hl(0, "TelescopePreviewRead", {})
     -- vim.api.nvim_set_hl(0, "TelescopePreviewSize", {})
     -- vim.api.nvim_set_hl(0, "TelescopePreviewSocket", {})
-    vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { fg = colors.fg })
+    vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg = colors.blue_01, fg = colors.fg_14 })
     -- vim.api.nvim_set_hl(0, "TelescopePreviewUser", {})
     -- vim.api.nvim_set_hl(0, "TelescopePreviewWrite", {})
 
@@ -401,7 +401,7 @@ function M.set(config)
     vim.api.nvim_set_hl(0, "TelescopePromptCounter", { fg = colors.bg_12 })
     vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = colors.bg_06, fg = colors.bg_12 })
     vim.api.nvim_set_hl(0, "TelescopePromptPrefix", {})
-    vim.api.nvim_set_hl(0, "TelescopePromptTitle", { fg = colors.bg_12 })
+    vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg = colors.blue_01, fg = colors.fg_14 })
 
     -- Telescope Results
     vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { bg = colors.bg_04, fg = colors.bg_04 })
@@ -422,7 +422,7 @@ function M.set(config)
     vim.api.nvim_set_hl(0, "TelescopeResultsOperator", {})
     vim.api.nvim_set_hl(0, "TelescopeResultsSpecialComment", {})
     vim.api.nvim_set_hl(0, "TelescopeResultsStruct", {})
-    vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { fg = colors.fg })
+    vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { bg = colors.blue_01, fg = colors.fg_14 })
     vim.api.nvim_set_hl(0, "TelescopeResultsVariable", {})
 
     -- Telescope Selection
