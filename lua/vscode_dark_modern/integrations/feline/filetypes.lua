@@ -63,6 +63,7 @@ return {
     ["kotlin"] = "Kotlin",
     ["lazy"] = "Lazy",
     ["less"] = "Less",
+    ["lisp"] = "Lisp",
     ["lock"] = "Plain Text",
     ["log"] = "Log",
     ["lua"] = "Lua",
