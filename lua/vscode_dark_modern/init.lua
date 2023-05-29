@@ -1,11 +1,12 @@
-local highlight_groups = require("vscode_dark_modern.highlight_groups")
-
 local M = {}
 
 --- @class Config
 --- @field cursorline boolean
 --- @field transparent_background boolean
 M.config = {
+    compile_path = vim.fn.stdpath("cache") .. "/vscode_dark_modern",
+    path_sep = jit and (jit.os == "Windows" and "\\" or "/") or package.config:sub(1, 1),
+    compiled_filename = "compiled",
     cursorline = false,
     transparent_background = false,
 }
@@ -16,18 +17,77 @@ function M.setup(config)
 end
 
 function M.load()
-    vim.cmd("hi clear")
+    local compiled_path = M.config.compile_path .. M.config.path_sep .. M.config.compiled_filename
+    local f = loadfile(compiled_path)
+    if not f then
+        M.compile(M.config)
+        f = assert(loadfile(compiled_path), "Could not load cache")
+    end
+    f()
+end
 
-    vim.o.background = "dark"
+local function inspect(t)
+    local list = {}
+    for k, v in pairs(t) do
+        local tv = type(v)
+        if tv == "string" then
+            table.insert(list, string.format([[%s = "%s"]], k, v))
+        elseif tv == "table" then
+            table.insert(list, string.format([[%s = %s]], k, inspect(v)))
+        else
+            table.insert(list, string.format([[%s = %s]], k, tostring(v)))
+        end
+    end
+    return string.format([[{ %s }]], table.concat(list, ", "))
+end
 
-    if vim.fn.exists("sintax_on") then
-        vim.cmd("syntax reset")
+function M.compile(config)
+    local lines = {
+        string.format([[
+return string.dump(function()
+vim.o.termguicolors = true
+if vim.g.colors_name then vim.cmd("hi clear") end
+vim.o.background = "dark"
+vim.g.colors_name = "vscode_dark_modern"
+local h = vim.api.nvim_set_hl]]),
+    }
+
+    if config.path_sep == "\\" then
+        config.compile_path = config.compile_path:gsub("/", "\\")
     end
 
-    vim.o.termguicolors = true
-    vim.g.colors_name = "vscode_dark_modern"
+    local hgs = require("vscode_dark_modern.highlight_groups").get(config)
+    for group, color in pairs(hgs) do
+        table.insert(lines, string.format([[h(0, "%s", %s)]], group, inspect(color)))
+    end
+    table.insert(lines, "end, true)")
 
-    highlight_groups.set(M.config)
+    if vim.fn.isdirectory(config.compile_path) == 0 then
+        vim.fn.mkdir(config.compile_path, "p")
+    end
+
+    local f = loadstring(table.concat(lines, "\n"))
+    if not f then
+        local err_path = (config.path_sep == "/" and "/tmp" or os.getenv("TMP")) .. "/vscode_dark_modern_error.lua"
+        print(string.format("VSCode Dark Modern (error): Open %s for debugging", err_path))
+        local err = io.open(err_path, "wb")
+        if err then
+            err:write(table.concat(lines, "\n"))
+            err:close()
+        end
+        dofile(err_path)
+        return
+    end
+
+    local file = assert(
+        io.open(config.compile_path .. config.path_sep .. config.compiled_filename, "wb"),
+        "Permission denied while writing compiled file to "
+            .. config.compile_path
+            .. config.path_sep
+            .. config.compiled_filename
+    )
+    file:write(f())
+    file:close()
 end
 
 return M

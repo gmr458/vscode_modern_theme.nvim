@@ -3,7 +3,7 @@ local colors = require("vscode_dark_modern.palette")
 local M = {}
 
 --- @overload fun(config: Config)
-function M.set(config)
+function M.get(config)
     local diagnostic = {
         error = colors.red_04,
         warn = colors.yellow_03,
@@ -33,817 +33,817 @@ function M.set(config)
         },
     }
 
-    -- Editor
-
-    -- vim.api.nvim_set_hl(0, "ColorColumn", {})
-    vim.api.nvim_set_hl(0, "Conceal", { bg = colors.bg_11 })
-    -- vim.api.nvim_set_hl(0, "CurSearch", {})
-    vim.api.nvim_set_hl(0, "Cursor", { bg = colors.bg_13, fg = colors.fg_02 })
-    vim.api.nvim_set_hl(0, "CursorIM", { bg = colors.bg_13, fg = colors.fg_02 })
-    -- vim.api.nvim_set_hl(0, "CursorColumn", {})
-    vim.api.nvim_set_hl(
-        0,
-        "CursorLine",
-        { bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_03 or colors.none) }
-    )
-    -- vim.api.nvim_set_hl(0, "CursorLineFold", {})
-    vim.api.nvim_set_hl(0, "CursorLineNr", {
-        bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_03 or colors.none),
-        fg = colors.fg_12,
-    })
-    -- vim.api.nvim_set_hl(0, "CursorLineSign", {})
-    vim.api.nvim_set_hl(0, "Directory", { fg = colors.yellow_02 })
-    vim.api.nvim_set_hl(0, "DiffAdd", { bg = git.diff.add })
-    vim.api.nvim_set_hl(0, "DiffChange", { bg = git.diff.change })
-    vim.api.nvim_set_hl(0, "DiffDelete", { bg = git.diff.delete })
-    vim.api.nvim_set_hl(0, "DiffText", { bg = git.diff.text })
-    -- vim.api.nvim_set_hl(0, "EndOfBuffer", {})
-    vim.api.nvim_set_hl(0, "Error", { fg = diagnostic.error })
-    vim.api.nvim_set_hl(0, "ErrorMsg", { fg = diagnostic.error })
-    -- vim.api.nvim_set_hl(0, "FoldColumn", {})
-    -- vim.api.nvim_set_hl(0, "Folded", {})
-    vim.api.nvim_set_hl(0, "FloatBorder", {
-        bg = config.transparent_background and colors.none or colors.bg,
-        fg = colors.bg_11,
-    })
-    -- vim.api.nvim_set_hl(0, "FloatTitle", {})
-    -- vim.api.nvim_set_hl(0, "IncSearch", {})
-    vim.api.nvim_set_hl(0, "lCursor", { bg = colors.bg_13, fg = colors.fg_02 })
-    vim.api.nvim_set_hl(0, "LineNr", {
-        bg = config.transparent_background and colors.none or colors.bg,
-        fg = colors.fg_06,
-    })
-    -- vim.api.nvim_set_hl(0, "LineNrAbove", {})
-    -- vim.api.nvim_set_hl(0, "LineNrBelow", {})
-    -- vim.api.nvim_set_hl(0, "MatchParen", {})
-    -- vim.api.nvim_set_hl(0, "Menu", {})
-    -- vim.api.nvim_set_hl(0, "ModeMsg", {})
-    -- vim.api.nvim_set_hl(0, "MoreMsg", {})
-    -- vim.api.nvim_set_hl(0, "MsgArea", {})
-    -- vim.api.nvim_set_hl(0, "MsgSeparator", {})
-    -- vim.api.nvim_set_hl(0, "NonText", {})
-    vim.api.nvim_set_hl(0, "Normal", {
-        bg = config.transparent_background and colors.none or colors.bg,
-        fg = colors.fg,
-    })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = config.transparent_background and colors.none or colors.bg })
-    -- vim.api.nvim_set_hl(0, "NormalNC", {})
-    -- vim.api.nvim_set_hl(0, "NormalSB", {})
-    -- vim.api.nvim_set_hl(0, "Pmenu", {})
-    -- vim.api.nvim_set_hl(0, "PmenuExtra", {})
-    -- vim.api.nvim_set_hl(0, "PmenuExtraSel", {})
-    -- vim.api.nvim_set_hl(0, "PmenuKind", {})
-    -- vim.api.nvim_set_hl(0, "PmenuKindSel", {})
-    -- vim.api.nvim_set_hl(0, "PmenuSbar", {})
-    -- vim.api.nvim_set_hl(0, "PmenuSel", {})
-    -- vim.api.nvim_set_hl(0, "PmenuThumb", {})
-    -- vim.api.nvim_set_hl(0, "Question", {})
-    -- vim.api.nvim_set_hl(0, "QuickFixLine", {})
-    -- vim.api.nvim_set_hl(0, "Scrollbar", {})
-    vim.api.nvim_set_hl(0, "Search", { bg = colors.brown_01 })
-    vim.api.nvim_set_hl(0, "SignColumn", { bg = colors.none })
-    -- vim.api.nvim_set_hl(0, "SignColumnSB", {})
-    -- vim.api.nvim_set_hl(0, "SpecialKey", {})
-    vim.api.nvim_set_hl(0, "SpellBad", { sp = colors.red_03, undercurl = true })
-    vim.api.nvim_set_hl(0, "SpellCap", { sp = colors.yellow_05, undercurl = true })
-    vim.api.nvim_set_hl(0, "SpellLocal", { sp = colors.blue_09, undercurl = true })
-    vim.api.nvim_set_hl(0, "SpellRare", { sp = colors.green_05, undercurl = true })
-    vim.api.nvim_set_hl(0, "StatusLine", { bg = colors.none })
-    -- vim.api.nvim_set_hl(0, "StatusLineNC", {})
-    -- vim.api.nvim_set_hl(0, "Substitute", {})
-    -- vim.api.nvim_set_hl(0, "TabLine", {})
-    -- vim.api.nvim_set_hl(0, "TabLineFill", {})
-    -- vim.api.nvim_set_hl(0, "TabLineSel", {})
-    vim.api.nvim_set_hl(0, "TermCursor", { bg = colors.fg_13, fg = colors.bg_01 })
-    -- vim.api.nvim_set_hl(0, "TermCursorNC", {})
-    vim.api.nvim_set_hl(0, "Title", { fg = colors.fg_14 })
-    -- vim.api.nvim_set_hl(0, "Tooltip", {})
-    -- vim.api.nvim_set_hl(0, "VertSplit", {})
-    vim.api.nvim_set_hl(0, "Visual", { bg = colors.blue_04 })
-    -- vim.api.nvim_set_hl(0, "VisualNOS", {})
-    vim.api.nvim_set_hl(0, "WarningMsg", { fg = diagnostic.warn })
-    -- vim.api.nvim_set_hl(0, "Whitespace", {})
-    -- vim.api.nvim_set_hl(0, "WildMenu", {})
-    vim.api.nvim_set_hl(0, "WinBar", { fg = colors.fg_10 })
-    -- vim.api.nvim_set_hl(0, "WinBarNC", {})
-    vim.api.nvim_set_hl(0, "WinSeparator", { fg = "#080A0E" })
-
-    ------------------------------------------------------------------------------------------
-
-    -- Pmenu
-
-    vim.api.nvim_set_hl(0, "Pmenu", { bg = colors.bg_04, fg = colors.fg_13 })
-    -- vim.api.nvim_set_hl(0, "PmenuExtra", {})
-    -- vim.api.nvim_set_hl(0, "PmenuExtraSel", {})
-    -- vim.api.nvim_set_hl(0, "PmenuKind", {})
-    -- vim.api.nvim_set_hl(0, "PmenuKindSel", {})
-    vim.api.nvim_set_hl(0, "PmenuSbar", { bg = colors.bg_04 })
-    vim.api.nvim_set_hl(0, "PmenuSel", { bg = colors.blue_02, fg = colors.fg_14 })
-    vim.api.nvim_set_hl(0, "PmenuThumb", { bg = colors.bg_10 })
-
-    ------------------------------------------------------------------------------------------
-
-    -- Sintax
-
-    vim.api.nvim_set_hl(0, "Comment", { fg = colors.green_08 })
-
-    vim.api.nvim_set_hl(0, "Variable", { fg = colors.blue_13 })
-    vim.api.nvim_set_hl(0, "Constant", { fg = colors.blue_09 })
-    vim.api.nvim_set_hl(0, "String", { fg = colors.orange_01 })
-    vim.api.nvim_set_hl(0, "Character", { fg = colors.red_03 })
-    vim.api.nvim_set_hl(0, "Number", { fg = colors.green_09 })
-    vim.api.nvim_set_hl(0, "Boolean", { fg = colors.blue_10 })
-    vim.api.nvim_set_hl(0, "Float", { fg = colors.green_09 })
-
-    vim.api.nvim_set_hl(0, "Identifier", { fg = colors.fg })
-    vim.api.nvim_set_hl(0, "Function", { fg = colors.yellow_05 })
-
-    vim.api.nvim_set_hl(0, "Statement", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "Conditional", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "Repeat", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "Label", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "Operator", { fg = colors.fg })
-    vim.api.nvim_set_hl(0, "Keyword", { fg = colors.blue_10 })
-    vim.api.nvim_set_hl(0, "Exception", { fg = colors.purple_02 })
-
-    vim.api.nvim_set_hl(0, "PreProc", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "Include", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "Define", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "Macro", { fg = colors.blue_10 })
-    vim.api.nvim_set_hl(0, "PreCondit", { fg = colors.purple_02 })
-
-    vim.api.nvim_set_hl(0, "Type", { fg = colors.green_05 })
-    vim.api.nvim_set_hl(0, "StorageClass", { fg = colors.green_05 })
-    vim.api.nvim_set_hl(0, "Structure", { fg = colors.green_05 })
-    vim.api.nvim_set_hl(0, "Typedef", { fg = colors.green_05 })
-
-    vim.api.nvim_set_hl(0, "Special", { fg = colors.yellow_04 })
-    vim.api.nvim_set_hl(0, "SpecialChar", { fg = colors.yellow_04 })
-    vim.api.nvim_set_hl(0, "Tag", { fg = colors.yellow_04 })
-    vim.api.nvim_set_hl(0, "Delimiter", { fg = colors.yellow_04 })
-    vim.api.nvim_set_hl(0, "SpecialComment", { fg = colors.yellow_04 })
-    vim.api.nvim_set_hl(0, "Debug", { fg = colors.yellow_04 })
-
-    vim.api.nvim_set_hl(0, "Todo", { fg = colors.magenta_01 })
-
-    ------------------------------------------------------------------------------------------
-
-    -- nvim-treesitter/nvim-treesitter
-    vim.api.nvim_set_hl(0, "@attribute", { link = "@type" })
-    vim.api.nvim_set_hl(0, "@boolean", { fg = colors.blue_10 })
-    vim.api.nvim_set_hl(0, "@character", { fg = colors.orange_01 })
-    vim.api.nvim_set_hl(0, "@character.special", { fg = colors.yellow_04 })
-    vim.api.nvim_set_hl(0, "@comment", { fg = colors.green_08 })
-    vim.api.nvim_set_hl(0, "@conditional", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@constant", { fg = colors.blue_09 })
-    vim.api.nvim_set_hl(0, "@constant.builtin", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "@constant.macro", { fg = colors.blue_09 })
-    vim.api.nvim_set_hl(0, "@constructor", { fg = colors.green_05 })
-    -- vim.api.nvim_set_hl(0, "@debug", {})
-    vim.api.nvim_set_hl(0, "@define", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@exception", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@field", { fg = colors.blue_13 })
-    vim.api.nvim_set_hl(0, "@float", { fg = colors.green_09 })
-    vim.api.nvim_set_hl(0, "@function", { fg = colors.yellow_05 })
-    vim.api.nvim_set_hl(0, "@function.builtin", { fg = colors.yellow_05 })
-    vim.api.nvim_set_hl(0, "@function.call", { fg = colors.yellow_05 })
-    vim.api.nvim_set_hl(0, "@function.macro", { fg = colors.blue_10 })
-    vim.api.nvim_set_hl(0, "@include", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@keyword", { fg = colors.blue_10 })
-    vim.api.nvim_set_hl(0, "@keyword.return", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@label", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@macro", { fg = colors.blue_10 })
-    vim.api.nvim_set_hl(0, "@method", { fg = colors.yellow_05 })
-    vim.api.nvim_set_hl(0, "@namespace", { fg = colors.green_05 })
-    vim.api.nvim_set_hl(0, "@number", { fg = colors.green_09 })
-    vim.api.nvim_set_hl(0, "@operator", { fg = colors.fg })
-    vim.api.nvim_set_hl(0, "@parameter", { fg = colors.blue_13 })
-    -- vim.api.nvim_set_hl(0, "@preproc", {})
-    vim.api.nvim_set_hl(0, "@punctuation", { fg = colors.fg })
-    vim.api.nvim_set_hl(0, "@property", { fg = colors.blue_13 })
-    vim.api.nvim_set_hl(0, "@punctuation.delimiter", { fg = colors.fg })
-    vim.api.nvim_set_hl(0, "@repeat", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@storageclass", { fg = colors.blue_10 })
-    vim.api.nvim_set_hl(0, "@string", { fg = colors.orange_01 })
-    vim.api.nvim_set_hl(0, "@string.escape", { fg = colors.yellow_04 })
-    vim.api.nvim_set_hl(0, "@string.special", { fg = colors.yellow_04 })
-    vim.api.nvim_set_hl(0, "@tag", { fg = colors.blue_10 })
-    vim.api.nvim_set_hl(0, "@tag.attribute", { link = "@variable" })
-    vim.api.nvim_set_hl(0, "@tag.delimiter", { fg = colors.fg_05 })
-    vim.api.nvim_set_hl(0, "@text.literal", { link = "@string" })
-    vim.api.nvim_set_hl(0, "@text.reference", { link = "@constant" })
-    vim.api.nvim_set_hl(0, "@text.title", { link = "Title" })
-    vim.api.nvim_set_hl(0, "@text.todo", { link = "Todo" })
-    vim.api.nvim_set_hl(0, "@text.underline", { underline = true })
-    vim.api.nvim_set_hl(0, "@text.uri", { fg = colors.orange_01, underline = true })
-    vim.api.nvim_set_hl(0, "@type", { fg = colors.green_05 })
-    vim.api.nvim_set_hl(0, "@type.builtin", { fg = colors.green_05 })
-    vim.api.nvim_set_hl(0, "@type.definition", { fg = colors.green_05 })
-    vim.api.nvim_set_hl(0, "@type.qualifier", { fg = colors.blue_10 })
-    vim.api.nvim_set_hl(0, "@variable", { fg = colors.blue_13 })
-    vim.api.nvim_set_hl(0, "@variable.builtin", { link = "@variable" })
-
-    -- C#
-    vim.api.nvim_set_hl(0, "@include.c_sharp", { fg = colors.blue_10 })
-    vim.api.nvim_set_hl(0, "@type.builtin.c_sharp", { fg = colors.blue_10 })
-
-    -- Go
-    vim.api.nvim_set_hl(0, "@keyword.default.go", { fg = colors.purple_02 })
-
-    -- Go Mod
-    vim.api.nvim_set_hl(0, "@text.uri.gomod", { fg = colors.yellow_04, underline = true })
-
-    -- HTML
-    vim.api.nvim_set_hl(0, "@constant.html", { fg = colors.blue_10 })
-    vim.api.nvim_set_hl(0, "@text.html", { fg = colors.fg })
-    vim.api.nvim_set_hl(0, "@text.title.html", { fg = colors.fg })
-
-    -- Java
-    vim.api.nvim_set_hl(0, "@include.java", { fg = colors.blue_10 })
-    vim.api.nvim_set_hl(0, "@variable.builtin.this.java", { link = "@keyword" })
-
-    -- JavaScript
-    vim.api.nvim_set_hl(0, "@constructor.constructor.javascript", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "@keyword.coroutine.await.javascript", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@keyword.default.javascript", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@keyword.export.javascript", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@number.infinity.javascript", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "@variable.builtin.this.javascript", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "@variable.builtin.super.javascript", { link = "@keyword" })
-
-    -- JSON
-    vim.api.nvim_set_hl(0, "@label.json", { link = "@variable" })
-
-    -- JSON with comments
-    vim.api.nvim_set_hl(0, "@label.jsonc", { link = "@variable" })
-
-    -- Lua
-    vim.api.nvim_set_hl(0, "@constructor.lua", { link = "@punctuation" })
-
-    -- Ruby
-    vim.api.nvim_set_hl(0, "@label.ruby", { link = "@variable" })
-
-    -- Rust
-    vim.api.nvim_set_hl(0, "@constant.builtin.rust", { link = "@constant" })
-    vim.api.nvim_set_hl(0, "@include.mod.rust", { fg = colors.blue_10 })
-    vim.api.nvim_set_hl(0, "@include.use.rust", { fg = colors.blue_10 })
-    vim.api.nvim_set_hl(0, "@variable.builtin.rust", { link = "@keyword" })
-
-    -- TypeScript
-    vim.api.nvim_set_hl(0, "@constructor.constructor.typescript", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "@constant.builtin.undefined.typescript", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "@keyword.coroutine.await.typescript", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@keyword.default.typescript", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@keyword.export.typescript", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@number.infinity.typescript", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "@variable.builtin.super.typescript", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "@variable.builtin.this.typescript", { link = "@keyword" })
-
-    -- TypeScript JSX
-    vim.api.nvim_set_hl(0, "@keyword.as.tsx", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@keyword.coroutine.await.tsx", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@keyword.default.tsx", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@keyword.export.tsx", { fg = colors.purple_02 })
-
-    -- Semantic Tokens
-    vim.api.nvim_set_hl(0, "@lsp.type.annotation", { link = "Type" })
-    vim.api.nvim_set_hl(0, "@lsp.type.class", { link = "@lsp" })
-    vim.api.nvim_set_hl(0, "@lsp.type.formatSpecifier", { link = "Keyword" })
-    vim.api.nvim_set_hl(0, "@lsp.type.parameter", { link = "Variable" })
-    vim.api.nvim_set_hl(0, "@lsp.type.property", { link = "Variable" })
-    vim.api.nvim_set_hl(0, "@lsp.type.selfKeyword", { link = "Keyword" })
-    vim.api.nvim_set_hl(0, "@lsp.type.selfTypeKeyword", { link = "Keyword" })
-    vim.api.nvim_set_hl(0, "@lsp.type.variable", { link = "Variable" })
-
-    vim.api.nvim_set_hl(0, "@lsp.typemod.class.constructor", { link = "Function" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.class.importDeclaration", { link = "Type" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.class.readonly", { link = "Type" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.enum.public", { link = "Type" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.function.declaration", { link = "Function" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.function.local", { link = "Function" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.function.readonly", { link = "Function" })
-    vim.api.nvim_set_hl(0, "@lsp.typemod.variable.static", { link = "Constant" })
-
-    vim.api.nvim_set_hl(0, "@lsp.mod.controlFlow", { fg = colors.purple_02 })
-    vim.api.nvim_set_hl(0, "@lsp.mod.mutable", { underline = true })
-    vim.api.nvim_set_hl(0, "@lsp.mod.readonly", { link = "Constant" })
-
-    ------------------------------------------------------------------------------------------
-
-    -- nvim-treesitter/nvim-treesitter-context
-    vim.api.nvim_set_hl(0, "TreesitterContext", { bg = config.transparent_background and colors.bg_09 or colors.bg_04 })
-    -- vim.api.nvim_set_hl(0, "TreesitterContextBottom", {})
-    vim.api.nvim_set_hl(
-        0,
-        "TreesitterContextLineNumber",
-        { bg = config.transparent_background and colors.bg_09 or colors.bg_04 }
-    )
-
-    ------------------------------------------------------------------------------------------
-
-    -- nvim-treesitter/playground
-    -- vim.api.nvim_set_hl(0, "nodeAnonymous", {})
-    vim.api.nvim_set_hl(0, "nodeNumber", { link = "@number" })
-    -- vim.api.nvim_set_hl(0, "nodeOp", {})
-    vim.api.nvim_set_hl(0, "nodeType", { link = "@type" })
-    vim.api.nvim_set_hl(0, "nodeTag", { link = "@variable" })
-
-    ------------------------------------------------------------------------------------------
-
-    -- ibhagwan/fzf-lua
-    vim.api.nvim_set_hl(0, "FzfLuaBorder", { fg = colors.fg_04 })
-    -- vim.api.nvim_set_hl(0, "FzfLuaCursor", {})
-    -- vim.api.nvim_set_hl(0, "FzfLuaCursorLine", {})
-    -- vim.api.nvim_set_hl(0, "FzfLuaCursorLineNr", {})
-    -- vim.api.nvim_set_hl(0, "FzfLuaHelpBorder", {})
-    -- vim.api.nvim_set_hl(0, "FzfLuaHelpNormal", {})
-    -- vim.api.nvim_set_hl(0, "FzfLuaNormal", {})
-    -- vim.api.nvim_set_hl(0, "FzfLuaScrollBorderEmpty", {})
-    -- vim.api.nvim_set_hl(0, "FzfLuaScrollBorderFull", {})
-    -- vim.api.nvim_set_hl(0, "FzfLuaScrollFloatEmpty", {})
-    -- vim.api.nvim_set_hl(0, "FzfLuaScrollFloatFull", {})
-    -- vim.api.nvim_set_hl(0, "FzfLuaSearch", {})
-    -- vim.api.nvim_set_hl(0, "FzfLuaTitle", {})
-
-    ------------------------------------------------------------------------------------------
-
-    -- nvim-telescope/telescope.nvim
-    -- vim.api.nvim_set_hl(0, "TelescopeBorder", {})
-    vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = colors.blue_05 })
-    -- vim.api.nvim_set_hl(0, "TelescopeMultiIcon", {})
-    -- vim.api.nvim_set_hl(0, "TelescopeMultiSelection", {})
-    -- vim.api.nvim_set_hl(0, "TelescopeNormal", {})
-
-    -- Telescope Preview
-    -- vim.api.nvim_set_hl(0, "TelescopePreviewBlock", {})
-    vim.api.nvim_set_hl(0, "TelescopePreviewBorder", { bg = colors.bg_02, fg = colors.bg_02 })
-    -- vim.api.nvim_set_hl(0, "TelescopePreviewCharDev", {})
-    -- vim.api.nvim_set_hl(0, "TelescopePreviewDate", {})
-    -- vim.api.nvim_set_hl(0, "TelescopePreviewDirectory", {})
-    -- vim.api.nvim_set_hl(0, "TelescopePreviewExecute", {})
-    -- vim.api.nvim_set_hl(0, "TelescopePreviewGroup", {})
-    -- vim.api.nvim_set_hl(0, "TelescopePreviewHyphen", {})
-    -- vim.api.nvim_set_hl(0, "TelescopePreviewLine", {})
-    -- vim.api.nvim_set_hl(0, "TelescopePreviewMatch", {})
-    -- vim.api.nvim_set_hl(0, "TelescopePreviewMessage", {})
-    -- vim.api.nvim_set_hl(0, "TelescopePreviewMessageFillchar", {})
-    vim.api.nvim_set_hl(0, "TelescopePreviewNormal", { bg = colors.bg_02 })
-    -- vim.api.nvim_set_hl(0, "TelescopePreviewPipe", {})
-    -- vim.api.nvim_set_hl(0, "TelescopePreviewRead", {})
-    -- vim.api.nvim_set_hl(0, "TelescopePreviewSize", {})
-    -- vim.api.nvim_set_hl(0, "TelescopePreviewSocket", {})
-    vim.api.nvim_set_hl(0, "TelescopePreviewTitle", { bg = colors.blue_01, fg = colors.fg_14 })
-    -- vim.api.nvim_set_hl(0, "TelescopePreviewUser", {})
-    -- vim.api.nvim_set_hl(0, "TelescopePreviewWrite", {})
-
-    -- Telescope Prompt
-    vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = colors.bg_06, fg = colors.bg_06 })
-    vim.api.nvim_set_hl(0, "TelescopePromptCounter", { fg = colors.bg_12 })
-    vim.api.nvim_set_hl(0, "TelescopePromptNormal", { bg = colors.bg_06, fg = colors.bg_12 })
-    vim.api.nvim_set_hl(0, "TelescopePromptPrefix", {})
-    vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg = colors.blue_01, fg = colors.fg_14 })
-
-    -- Telescope Results
-    vim.api.nvim_set_hl(0, "TelescopeResultsBorder", { bg = colors.bg_04, fg = colors.bg_04 })
-    vim.api.nvim_set_hl(0, "TelescopeResultsClass", {})
-    vim.api.nvim_set_hl(0, "TelescopeResultsComment", {})
-    vim.api.nvim_set_hl(0, "TelescopeResultsConstant", {})
-    vim.api.nvim_set_hl(0, "TelescopeResultsDiffAdd", {})
-    vim.api.nvim_set_hl(0, "TelescopeResultsDiffChange", {})
-    vim.api.nvim_set_hl(0, "TelescopeResultsDiffDelete", {})
-    vim.api.nvim_set_hl(0, "TelescopeResultsDiffUntracked", {})
-    vim.api.nvim_set_hl(0, "TelescopeResultsField", {})
-    vim.api.nvim_set_hl(0, "TelescopeResultsFunction", {})
-    vim.api.nvim_set_hl(0, "TelescopeResultsIdentifier", {})
-    vim.api.nvim_set_hl(0, "TelescopeResultsLineNr", {})
-    vim.api.nvim_set_hl(0, "TelescopeResultsMethod", {})
-    vim.api.nvim_set_hl(0, "TelescopeResultsNormal", { bg = colors.bg_04 })
-    vim.api.nvim_set_hl(0, "TelescopeResultsNumber", {})
-    vim.api.nvim_set_hl(0, "TelescopeResultsOperator", {})
-    vim.api.nvim_set_hl(0, "TelescopeResultsSpecialComment", {})
-    vim.api.nvim_set_hl(0, "TelescopeResultsStruct", {})
-    vim.api.nvim_set_hl(0, "TelescopeResultsTitle", { bg = colors.blue_01, fg = colors.fg_14 })
-    vim.api.nvim_set_hl(0, "TelescopeResultsVariable", {})
-
-    -- Telescope Selection
-    vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = colors.blue_02, fg = colors.fg_14 })
-    vim.api.nvim_set_hl(0, "TelescopeSelectionCaret", {})
-
-    -- Telescope Title
-    vim.api.nvim_set_hl(0, "TelescopeTitle", {})
-
-    ------------------------------------------------------------------------------------------
-
-    -- neovim/nvim-lspconfig
-
-    -- Diagnostics LSP
-    vim.api.nvim_set_hl(0, "DiagnosticBorder", { bg = colors.bg, fg = colors.fg_04 })
-    -- vim.api.nvim_set_hl(0, "DiagnosticBufnr", {})
-    vim.api.nvim_set_hl(0, "DiagnosticDeprecated", { strikethrough = true })
-    vim.api.nvim_set_hl(0, "DiagnosticError", { fg = diagnostic.error })
-    vim.api.nvim_set_hl(0, "DiagnosticFloatingError", { fg = diagnostic.error })
-    vim.api.nvim_set_hl(0, "DiagnosticFloatingHint", { fg = diagnostic.hint })
-    vim.api.nvim_set_hl(0, "DiagnosticFloatingInfo", { fg = diagnostic.info })
-    -- vim.api.nvim_set_hl(0, "DiagnosticFloatingOk", {})
-    vim.api.nvim_set_hl(0, "DiagnosticFloatingWarn", { fg = diagnostic.warn })
-    -- vim.api.nvim_set_hl(0, "DiagnosticFname", {})
-    vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = diagnostic.hint })
-    vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = diagnostic.info })
-    -- vim.api.nvim_set_hl(0, "DiagnosticNormal", {})
-    -- vim.api.nvim_set_hl(0, "DiagnosticOk", {})
-    -- vim.api.nvim_set_hl(0, "DiagnosticShowBorder", {})
-    -- vim.api.nvim_set_hl(0, "DiagnosticShowNormal", {})
-    vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = diagnostic.error })
-    vim.api.nvim_set_hl(0, "DiagnosticSignHint", { fg = diagnostic.hint })
-    vim.api.nvim_set_hl(0, "DiagnosticSignInfo", { fg = diagnostic.info })
-    -- vim.api.nvim_set_hl(0, "DiagnosticSignOk", {})
-    vim.api.nvim_set_hl(0, "DiagnosticSignWarn", { fg = diagnostic.warn })
-    -- vim.api.nvim_set_hl(0, "DiagnosticSource", {})
-    -- vim.api.nvim_set_hl(0, "DiagnosticText", {})
-    vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { sp = diagnostic.error, undercurl = true })
-    vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { sp = diagnostic.hint, undercurl = true })
-    vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { sp = diagnostic.info, undercurl = true })
-    -- vim.api.nvim_set_hl(0, "DiagnosticUnderlineOk", {})
-    vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", { sp = diagnostic.warn, undercurl = true })
-    vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { fg = diagnostic.unnecessary })
-    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = diagnostic.error })
-    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { fg = diagnostic.hint })
-    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { fg = diagnostic.info })
-    -- vim.api.nvim_set_hl(0, "DiagnosticVirtualTextOk", {})
-    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { fg = diagnostic.warn })
-    vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = diagnostic.warn })
-
-    -- LspInfo
-    vim.api.nvim_set_hl(0, "LspInfoBorder", { fg = colors.fg_04 })
-    -- vim.api.nvim_set_hl(0, "LspInfoFiletype", {})
-    -- vim.api.nvim_set_hl(0, "LspInfoList", {})
-    -- vim.api.nvim_set_hl(0, "LspInfoTip", {})
-    -- vim.api.nvim_set_hl(0, "LspInfoTitle", {})
-
-    -- Codelens
-    vim.api.nvim_set_hl(0, "LspCodeLens", { fg = colors.fg_09 })
-    vim.api.nvim_set_hl(0, "LspCodeLensSeparator", { fg = colors.fg_09 })
-
-    ------------------------------------------------------------------------------------------
-
-    -- SmiteshP/nvim-navic
-    vim.api.nvim_set_hl(0, "NavicIconsFile", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "NavicIconsModule", { link = "@namespace" })
-    vim.api.nvim_set_hl(0, "NavicIconsNamespace", { link = "@namespace" })
-    vim.api.nvim_set_hl(0, "NavicIconsPackage", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "NavicIconsClass", { link = "@type" })
-    vim.api.nvim_set_hl(0, "NavicIconsMethod", { link = "@method" })
-    vim.api.nvim_set_hl(0, "NavicIconsProperty", { link = "@property" })
-    vim.api.nvim_set_hl(0, "NavicIconsField", { link = "@field" })
-    vim.api.nvim_set_hl(0, "NavicIconsConstructor", { link = "@constructor" })
-    vim.api.nvim_set_hl(0, "NavicIconsEnum", { link = "@type" })
-    vim.api.nvim_set_hl(0, "NavicIconsInterface", { link = "@type" })
-    vim.api.nvim_set_hl(0, "NavicIconsFunction", { link = "@function" })
-    vim.api.nvim_set_hl(0, "NavicIconsVariable", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "NavicIconsConstant", { link = "@constant" })
-    vim.api.nvim_set_hl(0, "NavicIconsString", { link = "@string" })
-    vim.api.nvim_set_hl(0, "NavicIconsNumber", { link = "@number" })
-    vim.api.nvim_set_hl(0, "NavicIconsBoolean", { link = "@boolean" })
-    vim.api.nvim_set_hl(0, "NavicIconsArray", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "NavicIconsObject", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "NavicIconsKey", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "NavicIconsNull", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "NavicIconsEnumMember", { link = "@constant" })
-    vim.api.nvim_set_hl(0, "NavicIconsStruct", { link = "@type" })
-    vim.api.nvim_set_hl(0, "NavicIconsEvent", { link = "@keyword" })
-    vim.api.nvim_set_hl(0, "NavicIconsOperator", { link = "@operator" })
-    vim.api.nvim_set_hl(0, "NavicIconsTypeParameter", { link = "@parameter" })
-    vim.api.nvim_set_hl(0, "NavicText", { fg = colors.fg_10 })
-    vim.api.nvim_set_hl(0, "NavicSeparator", { fg = colors.fg_10 })
-
-    ------------------------------------------------------------------------------------------
-
-    -- williamboman/mason.nvim
-    vim.api.nvim_set_hl(0, "MasonError", { fg = diagnostic.error })
-    -- vim.api.nvim_set_hl(0, "MasonHeader", {})
-    -- vim.api.nvim_set_hl(0, "MasonHeaderSecondary", {})
-    -- vim.api.nvim_set_hl(0, "MasonHeading", {})
-    -- vim.api.nvim_set_hl(0, "MasonHighlight", {})
-    -- vim.api.nvim_set_hl(0, "MasonHighlightBlock", {})
-    -- vim.api.nvim_set_hl(0, "MasonHighlightBlockBold", {})
-    -- vim.api.nvim_set_hl(0, "MasonHighlightBlockBoldSecondary", {})
-    -- vim.api.nvim_set_hl(0, "MasonHighlightBlockSecondary", {})
-    -- vim.api.nvim_set_hl(0, "MasonHighlightSecondary", {})
-    -- vim.api.nvim_set_hl(0, "MasonLink", {})
-    -- vim.api.nvim_set_hl(0, "MasonMuted", {})
-    -- vim.api.nvim_set_hl(0, "MasonMutedBlock", {})
-    -- vim.api.nvim_set_hl(0, "MasonMutedBlockBold", {})
-    -- vim.api.nvim_set_hl(0, "MasonNormal", {})
-    vim.api.nvim_set_hl(0, "MasonWarning", { fg = diagnostic.warn })
-    -- vim.api.nvim_set_hl(0, "masonDoc", {})
-    -- vim.api.nvim_set_hl(0, "masonPerlComment", {})
-    -- vim.api.nvim_set_hl(0, "masonPod", {})
-
-    ------------------------------------------------------------------------------------------
-
-    -- folke/trouble.nvim
-    vim.api.nvim_set_hl(0, "TroubleCode", { fg = colors.blue_06, underline = true })
-    vim.api.nvim_set_hl(0, "TroubleCount", { bg = colors.bg_09, fg = colors.fg_14 })
-    -- vim.api.nvim_set_hl(0, "TroubleError", {})
-    vim.api.nvim_set_hl(0, "TroubleFile", { fg = colors.fg_13 })
-    vim.api.nvim_set_hl(0, "TroubleFoldIcon", { fg = colors.fg_11 })
-    -- vim.api.nvim_set_hl(0, "TroubleHint", {})
-    -- vim.api.nvim_set_hl(0, "TroubleIndent", {})
-    -- vim.api.nvim_set_hl(0, "TroubleInformation", {})
-    vim.api.nvim_set_hl(0, "TroubleLocation", { fg = colors.fg_08 })
-    -- vim.api.nvim_set_hl(0, "TroubleNormal", {})
-    -- vim.api.nvim_set_hl(0, "TroubleOther", {})
-    vim.api.nvim_set_hl(0, "TroublePreview", { bg = colors.bg_08 })
-    vim.api.nvim_set_hl(0, "TroubleSignError", { fg = diagnostic.error })
-    vim.api.nvim_set_hl(0, "TroubleSignHint", { fg = diagnostic.hint })
-    vim.api.nvim_set_hl(0, "TroubleSignInformation", { fg = diagnostic.info })
-    -- vim.api.nvim_set_hl(0, "TroubleSignOther", {})
-    vim.api.nvim_set_hl(0, "TroubleSignWarning", { fg = diagnostic.warn })
-    vim.api.nvim_set_hl(0, "TroubleSource", { fg = colors.fg_08 })
-    -- vim.api.nvim_set_hl(0, "TroubleText", {})
-    vim.api.nvim_set_hl(0, "TroubleTextError", { fg = colors.fg })
-    vim.api.nvim_set_hl(0, "TroubleTextHint", { fg = colors.fg })
-    vim.api.nvim_set_hl(0, "TroubleTextInformation", { fg = colors.fg })
-    vim.api.nvim_set_hl(0, "TroubleTextWarning", { fg = colors.fg })
-    -- vim.api.nvim_set_hl(0, "TroubleWarning", {})
-
-    ------------------------------------------------------------------------------------------
-
-    -- hrsh7th/nvim-cmp
-    vim.api.nvim_set_hl(0, "CmpDoc", {
-        bg = config.transparent_background and colors.none or colors.bg,
-        fg = colors.fg,
-    })
-    vim.api.nvim_set_hl(0, "CmpDocBorder", {
-        bg = config.transparent_background and colors.none or colors.bg,
-        fg = colors.bg_11,
-    })
-    -- vim.api.nvim_set_hl(0, "CmpItemAbbr", {})
-    -- vim.api.nvim_set_hl(0, "CmpItemAbbrDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = colors.fg_13, strikethrough = true })
-    -- vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecatedDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = colors.blue_05 })
-    -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatchDefault", {})
-    -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", {})
-    -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzyDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKind", { fg = colors.fg_13 })
-    vim.api.nvim_set_hl(0, "CmpItemKindClass", { fg = colors.orange_02 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindClassDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindColor", { fg = colors.fg })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindColorDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindConstant", { fg = colors.fg_13 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindConstantDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindConstructor", { fg = colors.purple_01 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindConstructorDefault", {})
-    -- vim.api.nvim_set_hl(0, "CmpItemKindDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindEnum", { fg = colors.orange_02 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindEnumDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindEnumMember", { fg = colors.blue_12 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindEnumMemberDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindEvent", { fg = colors.fg_13 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindEventDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindField", { fg = colors.blue_12 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindFieldDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindFile", { fg = colors.fg_13 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindFileDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindFolder", { fg = colors.yellow_02 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindFolderDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindFunction", { fg = colors.purple_01 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindFunctionDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindInterface", { fg = colors.blue_12 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindInterfaceDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindKeyword", { fg = colors.fg_13 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindKeywordDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindMethod", { fg = colors.purple_01 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindMethodDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindModule", { fg = colors.fg_13 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindModuleDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindOperator", { fg = colors.fg_13 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindOperatorDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindProperty", { fg = colors.blue_12 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindPropertyDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindReference", { fg = colors.fg_13 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindReferenceDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindSnippet", { fg = colors.fg_13 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindSnippetDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindSnippetFunction", { fg = colors.fg_13 })
-    vim.api.nvim_set_hl(0, "CmpItemKindSnippetStruct", { fg = colors.fg_13 })
-    vim.api.nvim_set_hl(0, "CmpItemKindStruct", { fg = colors.fg_13 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindStructDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindText", { fg = colors.fg_13 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindTextDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindTypeParameter", { fg = colors.fg_13 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindTypeParameterDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindUnit", { fg = colors.fg_13 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindUnitDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindValue", { fg = colors.orange_02 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindValueDefault", {})
-    vim.api.nvim_set_hl(0, "CmpItemKindVariable", { fg = colors.blue_12 })
-    -- vim.api.nvim_set_hl(0, "CmpItemKindVariableDefault", {})
-    -- vim.api.nvim_set_hl(0, "CmpItemMenu", {})
-    -- vim.api.nvim_set_hl(0, "CmpItemMenuDefault", {})
-    vim.api.nvim_set_hl(0, "CmpMenu", {
-        bg = config.transparent_background and colors.none or colors.bg,
-        fg = colors.fg,
-    })
-    vim.api.nvim_set_hl(0, "CmpMenuBorder", {
-        bg = config.transparent_background and colors.none or colors.bg,
-        fg = colors.bg_11,
-    })
-    vim.api.nvim_set_hl(0, "CmpMenuSel", { bg = colors.blue_02, fg = colors.fg_14 })
-
-    ------------------------------------------------------------------------------------------
-
-    -- lewis6991/gitsigns.nvim
-    vim.api.nvim_set_hl(0, "GitSignsAdd", { fg = git.signs.add })
-    -- vim.api.nvim_set_hl(0, "GitSignsAddInline", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsAddLn", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsAddPreview", {})
-    vim.api.nvim_set_hl(0, "GitSignsChange", { fg = git.signs.change })
-    -- vim.api.nvim_set_hl(0, "GitSignsChangeInline", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsChangeLn", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsChangeLnInline", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsChangeNr", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsChangedelete", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsChangedeleteLn", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsChangedeleteNr", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", {})
-    vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = git.signs.delete })
-    -- vim.api.nvim_set_hl(0, "GitSignsDelete", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsDeleteInline", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsDeleteLnInline", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsDeleteNr", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsDeletePreview", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsDeleteVirtLn", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsDeleteVirtLnInline", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsStagedAdd", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsStagedAddLn", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsStagedAddNr", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsStagedChange", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsStagedChangeLn", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsStagedChangeNr", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsStagedChangedelete", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsStagedChangedeleteLn", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsStagedChangedeleteNr", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsStagedDelete", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsStagedDeleteNr", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsStagedTopdelete", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsStagedTopdeleteNr", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsTopdelete", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsTopdeleteNr", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsUntracked", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsUntrackedLn", {})
-    -- vim.api.nvim_set_hl(0, "GitSignsUntrackedNr", {})
-
-    ------------------------------------------------------------------------------------------
-
-    -- petertriho/nvim-scrollbar
-    -- vim.api.nvim_set_hl(0, "ScrollbarCursor", {})
-    -- vim.api.nvim_set_hl(0, "ScrollbarCursorHandler", {})
-    vim.api.nvim_set_hl(0, "ScrollbarError", { fg = diagnostic.error })
-    vim.api.nvim_set_hl(0, "ScrollbarErrorHandle", { fg = diagnostic.error })
-    vim.api.nvim_set_hl(0, "ScrollbarGitAdd", { fg = git.signs.add })
-    vim.api.nvim_set_hl(0, "ScrollbarGitAddHandle", { fg = git.signs.add })
-    vim.api.nvim_set_hl(0, "ScrollbarGitChange", { fg = git.signs.change })
-    vim.api.nvim_set_hl(0, "ScrollbarGitChangeHandle", { fg = git.signs.change })
-    vim.api.nvim_set_hl(0, "ScrollbarGitDelete", { fg = git.signs.delete })
-    vim.api.nvim_set_hl(0, "ScrollbarGitDeleteHandle", { fg = git.signs.delete })
-    -- vim.api.nvim_set_hl(0, "ScrollbarHandle", {})
-    vim.api.nvim_set_hl(0, "ScrollbarHint", { fg = diagnostic.hint })
-    vim.api.nvim_set_hl(0, "ScrollbarHintHandle", { fg = diagnostic.hint })
-    vim.api.nvim_set_hl(0, "ScrollbarInfo", { fg = diagnostic.info })
-    vim.api.nvim_set_hl(0, "ScrollbarInfoHandle", { fg = diagnostic.info })
-    -- vim.api.nvim_set_hl(0, "ScrollbarMisc", {})
-    -- vim.api.nvim_set_hl(0, "ScrollbarMiscHandle", {})
-    -- vim.api.nvim_set_hl(0, "ScrollbarSearch", {})
-    -- vim.api.nvim_set_hl(0, "ScrollbarSearcHandle", {})
-    vim.api.nvim_set_hl(0, "ScrollbarWarn", { fg = diagnostic.warn })
-    vim.api.nvim_set_hl(0, "ScrollbarWarnHandle", { fg = diagnostic.warn })
-
-    ------------------------------------------------------------------------------------------
-
-    -- nvim-tree/nvim-tree.lua
-    -- vim.api.nvim_set_hl(0, "NvimTreeBookmark", {})
-    vim.api.nvim_set_hl(0, "NvimTreeClosedFolderIcon", { link = "NvimTreeFolderIcon" })
-    -- vim.api.nvim_set_hl(0, "NvimTreeCursorColumn", {})
-    vim.api.nvim_set_hl(0, "NvimTreeCursorLine", { bg = config.transparent_background and colors.none or colors.bg_05 })
-    -- vim.api.nvim_set_hl(0, "NvimTreeCursorLineNr", {})
-    -- vim.api.nvim_set_hl(0, "NvimTreeEmptyFolderName", {})
-    -- vim.api.nvim_set_hl(0, "NvimTreeEndOfBuffer", {})
-    -- vim.api.nvim_set_hl(0, "NvimTreeExecFile", {})
-    -- vim.api.nvim_set_hl(0, "NvimTreeFileDeleted", {})
-    -- vim.api.nvim_set_hl(0, "NvimTreeFileDirty", {})
-    -- vim.api.nvim_set_hl(0, "NvimTreeFileIgnored", {})
-    -- vim.api.nvim_set_hl(0, "NvimTreeFileMerge", {})
-    -- vim.api.nvim_set_hl(0, "NvimTreeFileNew", {})
-    -- vim.api.nvim_set_hl(0, "NvimTreeFileRenamed", {})
-    -- vim.api.nvim_set_hl(0, "NvimTreeFileStaged", {})
-    vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { fg = colors.yellow_02 })
-    vim.api.nvim_set_hl(0, "NvimTreeFolderName", { fg = colors.fg })
-    vim.api.nvim_set_hl(0, "NvimTreeGitDeleted", { fg = git.status.deleted })
-    vim.api.nvim_set_hl(0, "NvimTreeGitDirty", { fg = git.status.modified })
-    vim.api.nvim_set_hl(0, "NvimTreeGitIgnored", { fg = git.status.ignored })
-    -- vim.api.nvim_set_hl(0, "NvimTreeGitMerge", {})
-    vim.api.nvim_set_hl(0, "NvimTreeGitNew", { fg = git.status.untracked })
-    vim.api.nvim_set_hl(0, "NvimTreeGitRenamed", { fg = git.status.untracked })
-    vim.api.nvim_set_hl(0, "NvimTreeGitStaged", { fg = git.status.staged })
-    -- vim.api.nvim_set_hl(0, "NvimTreeImageFile", {})
-    vim.api.nvim_set_hl(0, "NvimTreeIndentMarker", { fg = colors.fg_03 })
-    -- vim.api.nvim_set_hl(0, "NvimTreeLineNr", {})
-    -- vim.api.nvim_set_hl(0, "NvimTreeLiveFilterPrefix", {})
-    -- vim.api.nvim_set_hl(0, "NvimTreeLiveFilterValue", {})
-    vim.api.nvim_set_hl(0, "NvimTreeLspDiagnosticsError", { fg = diagnostic.error })
-    vim.api.nvim_set_hl(0, "NvimTreeLspDiagnosticsHint", { fg = diagnostic.hint })
-    vim.api.nvim_set_hl(0, "NvimTreeLspDiagnosticsInformation", { fg = diagnostic.info })
-    vim.api.nvim_set_hl(0, "NvimTreeLspDiagnosticsWarning", { fg = diagnostic.warn })
-    vim.api.nvim_set_hl(0, "NvimTreeModifiedFile", { fg = colors.fg })
-    vim.api.nvim_set_hl(0, "NvimTreeNormal", { bg = config.transparent_background and colors.none or colors.bg_01 })
-    -- vim.api.nvim_set_hl(0, "NvimTreeNormalNC", {})
-    vim.api.nvim_set_hl(0, "NvimTreeOpenedFile", { fg = colors.fg })
-    vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderIcon", { link = "NvimTreeFolderIcon" })
-    vim.api.nvim_set_hl(0, "NvimTreeOpenedFolderName", { fg = colors.fg })
-    -- vim.api.nvim_set_hl(0, "NvimTreePopup", {})
-    vim.api.nvim_set_hl(0, "NvimTreeRootFolder", { fg = colors.fg_13 })
-    -- vim.api.nvim_set_hl(0, "NvimTreeSignColumn", {})
-    -- vim.api.nvim_set_hl(0, "NvimTreeSpecialFile", {})
-    -- vim.api.nvim_set_hl(0, "NvimTreeStatusLine", {})
-    -- vim.api.nvim_set_hl(0, "NvimTreeStatusLineNC", {})
-    -- vim.api.nvim_set_hl(0, "NvimTreeSymlink", {})
-    vim.api.nvim_set_hl(0, "NvimTreeWinSeparator", {
-        bg = config.transparent_background and colors.none or colors.bg,
-        fg = colors.bg,
-    })
-    -- vim.api.nvim_set_hl(0, "NvimTreeWindowPicker", {})
-
-    ------------------------------------------------------------------------------------------
-
-    -- akinsho/toggleterm.nvim.git
-    -- vim.api.nvim_set_hl(0, "ToggleTermNormal", {})
-    vim.api.nvim_set_hl(0, "ToggleTermNormalFloat", { bg = colors.bg_02 })
-    vim.api.nvim_set_hl(0, "ToggleTermFloatBorder", { bg = colors.bg_02, fg = colors.bg_02 })
-
-    ------------------------------------------------------------------------------------------
-
-    -- lukas-reineke/indent-blankline.nvim
-    vim.api.nvim_set_hl(0, "IndentBlanklineChar", { fg = colors.bg_07, bg = colors.none })
-    vim.api.nvim_set_hl(0, "IndentBlanklineContextChar", { fg = colors.bg_11, bg = colors.none })
-    -- vim.api.nvim_set_hl(0, "IndentBlanklineContextStart", {})
-    -- vim.api.nvim_set_hl(0, "IndentBlanklineSpaceChar", {})
-    -- vim.api.nvim_set_hl(0, "IndentBlanklineSpaceCharBlankline", {})
-
-    ------------------------------------------------------------------------------------------
-
-    -- goolord/alpha-nvim
-    vim.api.nvim_set_hl(0, "AlphaButton", { fg = colors.blue_07 })
-    vim.api.nvim_set_hl(0, "AlphaHeader", { fg = colors.blue_08 })
-    vim.api.nvim_set_hl(0, "AlphaShorcut", { fg = colors.fg_06 })
-
-    ------------------------------------------------------------------------------------------
-
-    -- folke/lazy.nvim
-    vim.api.nvim_set_hl(0, "LazyButton", { bg = colors.blue_03 })
-    vim.api.nvim_set_hl(0, "LazyButtonActive", { bg = colors.green_02 })
-    vim.api.nvim_set_hl(0, "LazyComment", { fg = colors.fg_06 })
-    -- vim.api.nvim_set_hl(0, "LazyCommitIssue", {})
-    -- vim.api.nvim_set_hl(0, "LazyCommitScope", {})
-    -- vim.api.nvim_set_hl(0, "LazyCommitType", {})
-    -- vim.api.nvim_set_hl(0, "LazyDimmed", {})
-    -- vim.api.nvim_set_hl(0, "LazyDir", {})
-    vim.api.nvim_set_hl(0, "LazyH1", { bg = colors.green_02 })
-    -- vim.api.nvim_set_hl(0, "LazyH2", {})
-    -- vim.api.nvim_set_hl(0, "LazyNoCond", {})
-    -- vim.api.nvim_set_hl(0, "LazyNormal", {})
-    -- vim.api.nvim_set_hl(0, "LazyProgressDone", {})
-    -- vim.api.nvim_set_hl(0, "LazyProgressTodo", {})
-    -- vim.api.nvim_set_hl(0, "LazyProp", {})
-    -- vim.api.nvim_set_hl(0, "LazyReasonCmd", {})
-    -- vim.api.nvim_set_hl(0, "LazyReasonEvent", {})
-    -- vim.api.nvim_set_hl(0, "LazyReasonFt", {})
-    -- vim.api.nvim_set_hl(0, "LazyReasonImport", {})
-    -- vim.api.nvim_set_hl(0, "LazyReasonKeys", {})
-    -- vim.api.nvim_set_hl(0, "LazyReasonPlugin", {})
-    -- vim.api.nvim_set_hl(0, "LazyReasonRuntime", {})
-    -- vim.api.nvim_set_hl(0, "LazyReasonSource", {})
-    -- vim.api.nvim_set_hl(0, "LazyReasonStart", {})
-    -- vim.api.nvim_set_hl(0, "LazySpecial", {})
-    -- vim.api.nvim_set_hl(0, "LazyTaskError", {})
-    -- vim.api.nvim_set_hl(0, "LazyTaskOutput", {})
-    -- vim.api.nvim_set_hl(0, "LazyUrl", {})
-    -- vim.api.nvim_set_hl(0, "LazyValue", {})
-
-    ------------------------------------------------------------------------------------------
-
-    -- lua
-    vim.api.nvim_set_hl(0, "luaParenError", { link = "Normal" })
-
-    ------------------------------------------------------------------------------------------
-
-    -- xml
-    vim.api.nvim_set_hl(0, "xmlAttrib", { link = "Variable" })
-    vim.api.nvim_set_hl(0, "xmlProcessingDelim", { link = "Keyword" })
-    vim.api.nvim_set_hl(0, "xmlProcessingDelim", { fg = colors.fg_05 })
-    vim.api.nvim_set_hl(0, "xmlTag", { fg = colors.fg_05 })
-    vim.api.nvim_set_hl(0, "xmlTagName", { link = "Keyword" })
+    return {
+
+        -- Editor
+
+        -- [ "ColorColumn"] = {},
+        ["Conceal"] = { bg = colors.bg_11 },
+        -- [ "CurSearch"] = {},
+        ["Cursor"] = { bg = colors.bg_13, fg = colors.fg_02 },
+        ["CursorIM"] = { bg = colors.bg_13, fg = colors.fg_02 },
+        -- [ "CursorColumn"] = {},
+        ["CursorLine"] = {
+            bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_03 or colors.none),
+        },
+        -- [ "CursorLineFold"] = {},
+        ["CursorLineNr"] = {
+            bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_03 or colors.none),
+            fg = colors.fg_12,
+        },
+        -- [ "CursorLineSign"] = {},
+        ["Directory"] = { fg = colors.yellow_02 },
+        ["DiffAdd"] = { bg = git.diff.add },
+        ["DiffChange"] = { bg = git.diff.change },
+        ["DiffDelete"] = { bg = git.diff.delete },
+        ["DiffText"] = { bg = git.diff.text },
+        -- [ "EndOfBuffer"] = {},
+        ["Error"] = { fg = diagnostic.error },
+        ["ErrorMsg"] = { fg = diagnostic.error },
+        -- [ "FoldColumn"] = {},
+        -- [ "Folded"] = {},
+        ["FloatBorder"] = {
+            bg = config.transparent_background and colors.none or colors.bg,
+            fg = colors.bg_11,
+        },
+        -- [ "FloatTitle"] = {},
+        -- [ "IncSearch"] = {},
+        ["lCursor"] = { bg = colors.bg_13, fg = colors.fg_02 },
+        ["LineNr"] = {
+            bg = config.transparent_background and colors.none or colors.bg,
+            fg = colors.fg_06,
+        },
+        -- [ "LineNrAbove"] = {},
+        -- [ "LineNrBelow"] = {},
+        -- [ "MatchParen"] = {},
+        -- [ "Menu"] = {},
+        -- [ "ModeMsg"] = {},
+        -- [ "MoreMsg"] = {},
+        -- [ "MsgArea"] = {},
+        -- [ "MsgSeparator"] = {},
+        -- [ "NonText"] = {},
+        ["Normal"] = {
+            bg = config.transparent_background and colors.none or colors.bg,
+            fg = colors.fg,
+        },
+        ["NormalFloat"] = { bg = config.transparent_background and colors.none or colors.bg },
+        -- [ "NormalNC"] = {},
+        -- [ "NormalSB"] = {},
+        -- [ "Pmenu"] = {},
+        -- [ "PmenuExtra"] = {},
+        -- [ "PmenuExtraSel"] = {},
+        -- [ "PmenuKind"] = {},
+        -- [ "PmenuKindSel"] = {},
+        -- [ "PmenuSbar"] = {},
+        -- [ "PmenuSel"] = {},
+        -- [ "PmenuThumb"] = {},
+        -- [ "Question"] = {},
+        -- [ "QuickFixLine"] = {},
+        -- [ "Scrollbar"] = {},
+        ["Search"] = { bg = colors.brown_01 },
+        ["SignColumn"] = { bg = colors.none },
+        -- [ "SignColumnSB"] = {},
+        -- [ "SpecialKey"] = {},
+        ["SpellBad"] = { sp = colors.red_03, undercurl = true },
+        ["SpellCap"] = { sp = colors.yellow_05, undercurl = true },
+        ["SpellLocal"] = { sp = colors.blue_09, undercurl = true },
+        ["SpellRare"] = { sp = colors.green_05, undercurl = true },
+        ["StatusLine"] = { bg = colors.none },
+        -- [ "StatusLineNC"] = {},
+        -- [ "Substitute"] = {},
+        -- [ "TabLine"] = {},
+        -- [ "TabLineFill"] = {},
+        -- [ "TabLineSel"] = {},
+        ["TermCursor"] = { bg = colors.fg_13, fg = colors.bg_01 },
+        -- [ "TermCursorNC"] = {},
+        ["Title"] = { fg = colors.fg_14 },
+        -- [ "Tooltip"] = {},
+        -- [ "VertSplit"] = {},
+        ["Visual"] = { bg = colors.blue_04 },
+        -- [ "VisualNOS"] = {},
+        ["WarningMsg"] = { fg = diagnostic.warn },
+        -- [ "Whitespace"] = {},
+        -- [ "WildMenu"] = {},
+        ["WinBar"] = { fg = colors.fg_10 },
+        -- [ "WinBarNC"] = {},
+        ["WinSeparator"] = { fg = "#080A0E" },
+
+        ------------------------------------------------------------------------------------------
+
+        -- Pmenu
+
+        ["Pmenu"] = { bg = colors.bg_04, fg = colors.fg_13 },
+        -- [ "PmenuExtra"] = {},
+        -- [ "PmenuExtraSel"] = {},
+        -- [ "PmenuKind"] = {},
+        -- [ "PmenuKindSel"] = {},
+        ["PmenuSbar"] = { bg = colors.bg_04 },
+        ["PmenuSel"] = { bg = colors.blue_02, fg = colors.fg_14 },
+        ["PmenuThumb"] = { bg = colors.bg_10 },
+
+        ------------------------------------------------------------------------------------------
+
+        -- Sintax
+
+        ["Comment"] = { fg = colors.green_08 },
+
+        ["Variable"] = { fg = colors.blue_13 },
+        ["Constant"] = { fg = colors.blue_09 },
+        ["String"] = { fg = colors.orange_01 },
+        ["Character"] = { fg = colors.red_03 },
+        ["Number"] = { fg = colors.green_09 },
+        ["Boolean"] = { fg = colors.blue_10 },
+        ["Float"] = { fg = colors.green_09 },
+
+        ["Identifier"] = { fg = colors.fg },
+        ["Function"] = { fg = colors.yellow_05 },
+
+        ["Statement"] = { fg = colors.purple_02 },
+        ["Conditional"] = { fg = colors.purple_02 },
+        ["Repeat"] = { fg = colors.purple_02 },
+        ["Label"] = { fg = colors.purple_02 },
+        ["Operator"] = { fg = colors.fg },
+        ["Keyword"] = { fg = colors.blue_10 },
+        ["Exception"] = { fg = colors.purple_02 },
+
+        ["PreProc"] = { fg = colors.purple_02 },
+        ["Include"] = { fg = colors.purple_02 },
+        ["Define"] = { fg = colors.purple_02 },
+        ["Macro"] = { fg = colors.blue_10 },
+        ["PreCondit"] = { fg = colors.purple_02 },
+
+        ["Type"] = { fg = colors.green_05 },
+        ["StorageClass"] = { fg = colors.green_05 },
+        ["Structure"] = { fg = colors.green_05 },
+        ["Typedef"] = { fg = colors.green_05 },
+
+        ["Special"] = { fg = colors.yellow_04 },
+        ["SpecialChar"] = { fg = colors.yellow_04 },
+        ["Tag"] = { fg = colors.yellow_04 },
+        ["Delimiter"] = { fg = colors.yellow_04 },
+        ["SpecialComment"] = { fg = colors.yellow_04 },
+        ["Debug"] = { fg = colors.yellow_04 },
+
+        ["Todo"] = { fg = colors.magenta_01 },
+
+        ------------------------------------------------------------------------------------------
+
+        -- nvim-treesitter/nvim-treesitter
+        ["@attribute"] = { link = "@type" },
+        ["@boolean"] = { fg = colors.blue_10 },
+        ["@character"] = { fg = colors.orange_01 },
+        ["@character.special"] = { fg = colors.yellow_04 },
+        ["@comment"] = { fg = colors.green_08 },
+        ["@conditional"] = { fg = colors.purple_02 },
+        ["@constant"] = { fg = colors.blue_09 },
+        ["@constant.builtin"] = { link = "@keyword" },
+        ["@constant.macro"] = { fg = colors.blue_09 },
+        ["@constructor"] = { fg = colors.green_05 },
+        -- [ "@debug"] = {},
+        ["@define"] = { fg = colors.purple_02 },
+        ["@exception"] = { fg = colors.purple_02 },
+        ["@field"] = { fg = colors.blue_13 },
+        ["@float"] = { fg = colors.green_09 },
+        ["@function"] = { fg = colors.yellow_05 },
+        ["@function.builtin"] = { fg = colors.yellow_05 },
+        ["@function.call"] = { fg = colors.yellow_05 },
+        ["@function.macro"] = { fg = colors.blue_10 },
+        ["@include"] = { fg = colors.purple_02 },
+        ["@keyword"] = { fg = colors.blue_10 },
+        ["@keyword.return"] = { fg = colors.purple_02 },
+        ["@label"] = { fg = colors.purple_02 },
+        ["@macro"] = { fg = colors.blue_10 },
+        ["@method"] = { fg = colors.yellow_05 },
+        ["@namespace"] = { fg = colors.green_05 },
+        ["@number"] = { fg = colors.green_09 },
+        ["@operator"] = { fg = colors.fg },
+        ["@parameter"] = { fg = colors.blue_13 },
+        -- [ "@preproc"] = {},
+        ["@punctuation"] = { fg = colors.fg },
+        ["@property"] = { fg = colors.blue_13 },
+        ["@punctuation.delimiter"] = { fg = colors.fg },
+        ["@repeat"] = { fg = colors.purple_02 },
+        ["@storageclass"] = { fg = colors.blue_10 },
+        ["@string"] = { fg = colors.orange_01 },
+        ["@string.escape"] = { fg = colors.yellow_04 },
+        ["@string.special"] = { fg = colors.yellow_04 },
+        ["@tag"] = { fg = colors.blue_10 },
+        ["@tag.attribute"] = { link = "@variable" },
+        ["@tag.delimiter"] = { fg = colors.fg_05 },
+        ["@text.literal"] = { link = "@string" },
+        ["@text.reference"] = { link = "@constant" },
+        ["@text.title"] = { link = "Title" },
+        ["@text.todo"] = { link = "Todo" },
+        ["@text.underline"] = { underline = true },
+        ["@text.uri"] = { fg = colors.orange_01, underline = true },
+        ["@type"] = { fg = colors.green_05 },
+        ["@type.builtin"] = { fg = colors.green_05 },
+        ["@type.definition"] = { fg = colors.green_05 },
+        ["@type.qualifier"] = { fg = colors.blue_10 },
+        ["@variable"] = { fg = colors.blue_13 },
+        ["@variable.builtin"] = { link = "@variable" },
+
+        -- C#
+        ["@include.c_sharp"] = { fg = colors.blue_10 },
+        ["@type.builtin.c_sharp"] = { fg = colors.blue_10 },
+
+        -- Go
+        ["@keyword.default.go"] = { fg = colors.purple_02 },
+
+        -- Go Mod
+        ["@text.uri.gomod"] = { fg = colors.yellow_04, underline = true },
+
+        -- HTML
+        ["@constant.html"] = { fg = colors.blue_10 },
+        ["@text.html"] = { fg = colors.fg },
+        ["@text.title.html"] = { fg = colors.fg },
+
+        -- Java
+        ["@function.builtin.super.java"] = { link = "@keyword" },
+        ["@include.java"] = { fg = colors.blue_10 },
+        ["@variable.builtin.this.java"] = { link = "@keyword" },
+
+        -- JavaScript
+        ["@constructor.constructor.javascript"] = { link = "@keyword" },
+        ["@keyword.coroutine.await.javascript"] = { fg = colors.purple_02 },
+        ["@keyword.default.javascript"] = { fg = colors.purple_02 },
+        ["@keyword.export.javascript"] = { fg = colors.purple_02 },
+        ["@number.infinity.javascript"] = { link = "@keyword" },
+        ["@variable.builtin.this.javascript"] = { link = "@keyword" },
+        ["@variable.builtin.super.javascript"] = { link = "@keyword" },
+
+        -- JSON
+        ["@label.json"] = { link = "@variable" },
+
+        -- JSON with comments
+        ["@label.jsonc"] = { link = "@variable" },
+
+        -- Lua
+        ["@constructor.lua"] = { link = "@punctuation" },
+
+        -- Python
+        ["@constructor.python"] = { link = "@function" },
+
+        -- Ruby
+        ["@label.ruby"] = { link = "@variable" },
+
+        -- Rust
+        ["@constant.builtin.rust"] = { link = "@constant" },
+        ["@include.mod.rust"] = { fg = colors.blue_10 },
+        ["@include.use.rust"] = { fg = colors.blue_10 },
+        ["@variable.builtin.rust"] = { link = "@keyword" },
+
+        -- TypeScript
+        ["@constructor.constructor.typescript"] = { link = "@keyword" },
+        ["@constant.builtin.undefined.typescript"] = { link = "@keyword" },
+        ["@keyword.coroutine.await.typescript"] = { fg = colors.purple_02 },
+        ["@keyword.default.typescript"] = { fg = colors.purple_02 },
+        ["@keyword.export.typescript"] = { fg = colors.purple_02 },
+        ["@number.infinity.typescript"] = { link = "@keyword" },
+        ["@variable.builtin.super.typescript"] = { link = "@keyword" },
+        ["@variable.builtin.this.typescript"] = { link = "@keyword" },
+
+        -- TypeScript JSX
+        ["@keyword.as.tsx"] = { fg = colors.purple_02 },
+        ["@keyword.coroutine.await.tsx"] = { fg = colors.purple_02 },
+        ["@keyword.default.tsx"] = { fg = colors.purple_02 },
+        ["@keyword.export.tsx"] = { fg = colors.purple_02 },
+
+        -- Semantic Tokens
+        ["@lsp.type.annotation"] = { link = "Type" },
+        ["@lsp.type.class"] = { link = "@lsp" },
+        ["@lsp.type.formatSpecifier"] = { link = "Keyword" },
+        ["@lsp.type.parameter"] = { link = "Variable" },
+        ["@lsp.type.property"] = { link = "Variable" },
+        ["@lsp.type.selfKeyword"] = { link = "Keyword" },
+        ["@lsp.type.selfTypeKeyword"] = { link = "Keyword" },
+        ["@lsp.type.variable"] = { link = "Variable" },
+
+        ["@lsp.typemod.class.constructor"] = { link = "Function" },
+        ["@lsp.typemod.class.importDeclaration"] = { link = "Type" },
+        ["@lsp.typemod.class.readonly"] = { link = "Type" },
+        ["@lsp.typemod.enum.public"] = { link = "Type" },
+        ["@lsp.typemod.function.declaration"] = { link = "Function" },
+        ["@lsp.typemod.function.local"] = { link = "Function" },
+        ["@lsp.typemod.function.readonly"] = { link = "Function" },
+        ["@lsp.typemod.variable.static"] = { link = "Constant" },
+
+        ["@lsp.mod.controlFlow"] = { fg = colors.purple_02 },
+        ["@lsp.mod.mutable"] = { underline = true },
+        ["@lsp.mod.readonly"] = { link = "Constant" },
+
+        ------------------------------------------------------------------------------------------
+
+        -- nvim-treesitter/nvim-treesitter-context
+        ["TreesitterContext"] = { bg = config.transparent_background and colors.bg_09 or colors.bg_04 },
+        -- [ "TreesitterContextBottom"] = {},
+        ["TreesitterContextLineNumber"] = { bg = config.transparent_background and colors.bg_09 or colors.bg_04 },
+
+        ------------------------------------------------------------------------------------------
+
+        -- nvim-treesitter/playground
+        -- [ "nodeAnonymous"]= {},
+        ["nodeNumber"] = { link = "@number" },
+        -- [ "nodeOp"]= {},
+        ["nodeType"] = { link = "@type" },
+        ["nodeTag"] = { link = "@variable" },
+
+        ------------------------------------------------------------------------------------------
+
+        -- ibhagwan/fzf-lua
+        ["FzfLuaBorder"] = { fg = colors.fg_04 },
+        -- [ "FzfLuaCursor"] = {},
+        -- [ "FzfLuaCursorLine"] = {},
+        -- [ "FzfLuaCursorLineNr"] = {},
+        -- [ "FzfLuaHelpBorder"] = {},
+        -- [ "FzfLuaHelpNormal"] = {},
+        -- [ "FzfLuaNormal"] = {},
+        -- [ "FzfLuaScrollBorderEmpty"] = {},
+        -- [ "FzfLuaScrollBorderFull"] = {},
+        -- [ "FzfLuaScrollFloatEmpty"] = {},
+        -- [ "FzfLuaScrollFloatFull"] = {},
+        -- [ "FzfLuaSearch"] = {},
+        -- [ "FzfLuaTitle"] = {},
+
+        ------------------------------------------------------------------------------------------
+
+        -- nvim-telescope/telescope.nvim
+        -- [ "TelescopeBorder"] = {},
+        ["TelescopeMatching"] = { fg = colors.blue_05 },
+        -- [ "TelescopeMultiIcon"] = {},
+        -- [ "TelescopeMultiSelection"] = {},
+        -- [ "TelescopeNormal"] = {},
+
+        -- Telescope Preview
+        -- [ "TelescopePreviewBlock"] = {},
+        ["TelescopePreviewBorder"] = { bg = colors.bg_02, fg = colors.bg_02 },
+        -- [ "TelescopePreviewCharDev"] = {},
+        -- [ "TelescopePreviewDate"] = {},
+        -- [ "TelescopePreviewDirectory"] = {},
+        -- [ "TelescopePreviewExecute"] = {},
+        -- [ "TelescopePreviewGroup"] = {},
+        -- [ "TelescopePreviewHyphen"] = {},
+        -- [ "TelescopePreviewLine"] = {},
+        -- [ "TelescopePreviewMatch"] = {},
+        -- [ "TelescopePreviewMessage"] = {},
+        -- [ "TelescopePreviewMessageFillchar"] = {},
+        ["TelescopePreviewNormal"] = { bg = colors.bg_02 },
+        -- [ "TelescopePreviewPipe"] = {},
+        -- [ "TelescopePreviewRead"] = {},
+        -- [ "TelescopePreviewSize"] = {},
+        -- [ "TelescopePreviewSocket"] = {},
+        ["TelescopePreviewTitle"] = { bg = colors.blue_01, fg = colors.fg_14 },
+        -- [ "TelescopePreviewUser"] = {},
+        -- [ "TelescopePreviewWrite"] = {},
+
+        -- Telescope Prompt
+        ["TelescopePromptBorder"] = { bg = colors.bg_06, fg = colors.bg_06 },
+        ["TelescopePromptCounter"] = { fg = colors.bg_12 },
+        ["TelescopePromptNormal"] = { bg = colors.bg_06, fg = colors.bg_12 },
+        -- ["TelescopePromptPrefix"] = {},
+        ["TelescopePromptTitle"] = { bg = colors.blue_01, fg = colors.fg_14 },
+
+        -- Telescope Results
+        ["TelescopeResultsBorder"] = { bg = colors.bg_04, fg = colors.bg_04 },
+        -- ["TelescopeResultsClass"] = {},
+        -- ["TelescopeResultsComment"] = {},
+        -- ["TelescopeResultsConstant"] = {},
+        -- ["TelescopeResultsDiffAdd"] = {},
+        -- ["TelescopeResultsDiffChange"] = {},
+        -- ["TelescopeResultsDiffDelete"] = {},
+        -- ["TelescopeResultsDiffUntracked"] = {},
+        -- ["TelescopeResultsField"] = {},
+        -- ["TelescopeResultsFunction"] = {},
+        -- ["TelescopeResultsIdentifier"] = {},
+        -- ["TelescopeResultsLineNr"] = {},
+        -- ["TelescopeResultsMethod"] = {},
+        ["TelescopeResultsNormal"] = { bg = colors.bg_04 },
+        -- ["TelescopeResultsNumber"] = {},
+        -- ["TelescopeResultsOperator"] = {},
+        -- ["TelescopeResultsSpecialComment"] = {},
+        -- ["TelescopeResultsStruct"] = {},
+        ["TelescopeResultsTitle"] = { bg = colors.blue_01, fg = colors.fg_14 },
+        -- ["TelescopeResultsVariable"] = {},
+
+        -- Telescope Selection
+        ["TelescopeSelection"] = { bg = colors.blue_02, fg = colors.fg_14 },
+        -- ["TelescopeSelectionCaret"] = {},
+
+        -- Telescope Title
+        -- ["TelescopeTitle"] = {},
+
+        ------------------------------------------------------------------------------------------
+
+        -- neovim/nvim-lspconfig
+
+        -- Diagnostics LSP
+        ["DiagnosticBorder"] = { bg = colors.bg, fg = colors.fg_04 },
+        -- [ "DiagnosticBufnr"] = {},
+        ["DiagnosticDeprecated"] = { strikethrough = true },
+        ["DiagnosticError"] = { fg = diagnostic.error },
+        ["DiagnosticFloatingError"] = { fg = diagnostic.error },
+        ["DiagnosticFloatingHint"] = { fg = diagnostic.hint },
+        ["DiagnosticFloatingInfo"] = { fg = diagnostic.info },
+        -- [ "DiagnosticFloatingOk"] = {},
+        ["DiagnosticFloatingWarn"] = { fg = diagnostic.warn },
+        -- [ "DiagnosticFname"] = {},
+        ["DiagnosticHint"] = { fg = diagnostic.hint },
+        ["DiagnosticInfo"] = { fg = diagnostic.info },
+        -- [ "DiagnosticNormal"] = {},
+        -- [ "DiagnosticOk"] = {},
+        -- [ "DiagnosticShowBorder"] = {},
+        -- [ "DiagnosticShowNormal"] = {},
+        ["DiagnosticSignError"] = { fg = diagnostic.error },
+        ["DiagnosticSignHint"] = { fg = diagnostic.hint },
+        ["DiagnosticSignInfo"] = { fg = diagnostic.info },
+        -- [ "DiagnosticSignOk"] = {},
+        ["DiagnosticSignWarn"] = { fg = diagnostic.warn },
+        -- [ "DiagnosticSource"] = {},
+        -- [ "DiagnosticText"] = {},
+        ["DiagnosticUnderlineError"] = { sp = diagnostic.error, undercurl = true },
+        ["DiagnosticUnderlineHint"] = { sp = diagnostic.hint, undercurl = true },
+        ["DiagnosticUnderlineInfo"] = { sp = diagnostic.info, undercurl = true },
+        -- [ "DiagnosticUnderlineOk"] = {},
+        ["DiagnosticUnderlineWarn"] = { sp = diagnostic.warn, undercurl = true },
+        ["DiagnosticUnnecessary"] = { fg = diagnostic.unnecessary },
+        ["DiagnosticVirtualTextError"] = { fg = diagnostic.error },
+        ["DiagnosticVirtualTextHint"] = { fg = diagnostic.hint },
+        ["DiagnosticVirtualTextInfo"] = { fg = diagnostic.info },
+        -- [ "DiagnosticVirtualTextOk"] = {},
+        ["DiagnosticVirtualTextWarn"] = { fg = diagnostic.warn },
+        ["DiagnosticWarn"] = { fg = diagnostic.warn },
+
+        -- LspInfo
+        ["LspInfoBorder"] = { fg = colors.fg_04 },
+        -- [ "LspInfoFiletype"] = {},
+        -- [ "LspInfoList"] = {},
+        -- [ "LspInfoTip"] = {},
+        -- [ "LspInfoTitle"] = {},
+
+        -- Codelens
+        ["LspCodeLens"] = { fg = colors.fg_09 },
+        ["LspCodeLensSeparator"] = { fg = colors.fg_09 },
+
+        ------------------------------------------------------------------------------------------
+
+        -- SmiteshP/nvim-navic
+        ["NavicIconsFile"] = { link = "@keyword" },
+        ["NavicIconsModule"] = { link = "@namespace" },
+        ["NavicIconsNamespace"] = { link = "@namespace" },
+        ["NavicIconsPackage"] = { link = "@keyword" },
+        ["NavicIconsClass"] = { link = "@type" },
+        ["NavicIconsMethod"] = { link = "@method" },
+        ["NavicIconsProperty"] = { link = "@property" },
+        ["NavicIconsField"] = { link = "@field" },
+        ["NavicIconsConstructor"] = { link = "@constructor" },
+        ["NavicIconsEnum"] = { link = "@type" },
+        ["NavicIconsInterface"] = { link = "@type" },
+        ["NavicIconsFunction"] = { link = "@function" },
+        ["NavicIconsVariable"] = { link = "@keyword" },
+        ["NavicIconsConstant"] = { link = "@constant" },
+        ["NavicIconsString"] = { link = "@string" },
+        ["NavicIconsNumber"] = { link = "@number" },
+        ["NavicIconsBoolean"] = { link = "@boolean" },
+        ["NavicIconsArray"] = { link = "@keyword" },
+        ["NavicIconsObject"] = { link = "@keyword" },
+        ["NavicIconsKey"] = { link = "@keyword" },
+        ["NavicIconsNull"] = { link = "@keyword" },
+        ["NavicIconsEnumMember"] = { link = "@constant" },
+        ["NavicIconsStruct"] = { link = "@type" },
+        ["NavicIconsEvent"] = { link = "@keyword" },
+        ["NavicIconsOperator"] = { link = "@operator" },
+        ["NavicIconsTypeParameter"] = { link = "@parameter" },
+        ["NavicText"] = { fg = colors.fg_10 },
+        ["NavicSeparator"] = { fg = colors.fg_10 },
+
+        ------------------------------------------------------------------------------------------
+
+        -- williamboman/mason.nvim
+        ["MasonError"] = { fg = diagnostic.error },
+        -- [ "MasonHeader"] = {},
+        -- [ "MasonHeaderSecondary"] = {},
+        -- [ "MasonHeading"] = {},
+        -- [ "MasonHighlight"] = {},
+        -- [ "MasonHighlightBlock"] = {},
+        -- [ "MasonHighlightBlockBold"] = {},
+        -- [ "MasonHighlightBlockBoldSecondary"] = {},
+        -- [ "MasonHighlightBlockSecondary"] = {},
+        -- [ "MasonHighlightSecondary"] = {},
+        -- [ "MasonLink"] = {},
+        -- [ "MasonMuted"] = {},
+        -- [ "MasonMutedBlock"] = {},
+        -- [ "MasonMutedBlockBold"] = {},
+        -- [ "MasonNormal"] = {},
+        ["MasonWarning"] = { fg = diagnostic.warn },
+        -- [ "masonDoc"] = {},
+        -- [ "masonPerlComment"] = {},
+        -- [ "masonPod"] = {},
+
+        ------------------------------------------------------------------------------------------
+
+        -- folke/trouble.nvim
+        ["TroubleCode"] = { fg = colors.blue_06, underline = true },
+        ["TroubleCount"] = { bg = colors.bg_09, fg = colors.fg_14 },
+        -- [ "TroubleError"] = {},
+        ["TroubleFile"] = { fg = colors.fg_13 },
+        ["TroubleFoldIcon"] = { fg = colors.fg_11 },
+        -- [ "TroubleHint"] = {},
+        -- [ "TroubleIndent"] = {},
+        -- [ "TroubleInformation"] = {},
+        ["TroubleLocation"] = { fg = colors.fg_08 },
+        -- [ "TroubleNormal"] = {},
+        -- [ "TroubleOther"] = {},
+        ["TroublePreview"] = { bg = colors.bg_08 },
+        ["TroubleSignError"] = { fg = diagnostic.error },
+        ["TroubleSignHint"] = { fg = diagnostic.hint },
+        ["TroubleSignInformation"] = { fg = diagnostic.info },
+        -- [ "TroubleSignOther"] = {},
+        ["TroubleSignWarning"] = { fg = diagnostic.warn },
+        ["TroubleSource"] = { fg = colors.fg_08 },
+        -- [ "TroubleText"] = {},
+        ["TroubleTextError"] = { fg = colors.fg },
+        ["TroubleTextHint"] = { fg = colors.fg },
+        ["TroubleTextInformation"] = { fg = colors.fg },
+        ["TroubleTextWarning"] = { fg = colors.fg },
+        -- [ "TroubleWarning"] = {},
+
+        ------------------------------------------------------------------------------------------
+
+        -- hrsh7th/nvim-cmp
+        ["CmpDoc"] = {
+            bg = config.transparent_background and colors.none or colors.bg,
+            fg = colors.fg,
+        },
+        ["CmpDocBorder"] = {
+            bg = config.transparent_background and colors.none or colors.bg,
+            fg = colors.bg_11,
+        },
+        -- [ "CmpItemAbbr"] = {},
+        -- [ "CmpItemAbbrDefault"] = {},
+        ["CmpItemAbbrDeprecated"] = { fg = colors.fg_13, strikethrough = true },
+        -- [ "CmpItemAbbrDeprecatedDefault"] = {},
+        ["CmpItemAbbrMatch"] = { fg = colors.blue_05 },
+        -- [ "CmpItemAbbrMatchDefault"] = {},
+        -- [ "CmpItemAbbrMatchFuzzy"] = {},
+        -- [ "CmpItemAbbrMatchFuzzyDefault"] = {},
+        ["CmpItemKind"] = { fg = colors.fg_13 },
+        ["CmpItemKindClass"] = { fg = colors.orange_02 },
+        -- [ "CmpItemKindClassDefault"] = {},
+        ["CmpItemKindColor"] = { fg = colors.fg },
+        -- [ "CmpItemKindColorDefault"] = {},
+        ["CmpItemKindConstant"] = { fg = colors.fg_13 },
+        -- [ "CmpItemKindConstantDefault"] = {},
+        ["CmpItemKindConstructor"] = { fg = colors.purple_01 },
+        -- [ "CmpItemKindConstructorDefault"] = {},
+        -- [ "CmpItemKindDefault"] = {},
+        ["CmpItemKindEnum"] = { fg = colors.orange_02 },
+        -- [ "CmpItemKindEnumDefault"] = {},
+        ["CmpItemKindEnumMember"] = { fg = colors.blue_12 },
+        -- [ "CmpItemKindEnumMemberDefault"] = {},
+        ["CmpItemKindEvent"] = { fg = colors.fg_13 },
+        -- [ "CmpItemKindEventDefault"] = {},
+        ["CmpItemKindField"] = { fg = colors.blue_12 },
+        -- [ "CmpItemKindFieldDefault"] = {},
+        ["CmpItemKindFile"] = { fg = colors.fg_13 },
+        -- [ "CmpItemKindFileDefault"] = {},
+        ["CmpItemKindFolder"] = { fg = colors.yellow_02 },
+        -- [ "CmpItemKindFolderDefault"] = {},
+        ["CmpItemKindFunction"] = { fg = colors.purple_01 },
+        -- [ "CmpItemKindFunctionDefault"] = {},
+        ["CmpItemKindInterface"] = { fg = colors.blue_12 },
+        -- [ "CmpItemKindInterfaceDefault"] = {},
+        ["CmpItemKindKeyword"] = { fg = colors.fg_13 },
+        -- [ "CmpItemKindKeywordDefault"] = {},
+        ["CmpItemKindMethod"] = { fg = colors.purple_01 },
+        -- [ "CmpItemKindMethodDefault"] = {},
+        ["CmpItemKindModule"] = { fg = colors.fg_13 },
+        -- [ "CmpItemKindModuleDefault"] = {},
+        ["CmpItemKindOperator"] = { fg = colors.fg_13 },
+        -- [ "CmpItemKindOperatorDefault"] = {},
+        ["CmpItemKindProperty"] = { fg = colors.blue_12 },
+        -- [ "CmpItemKindPropertyDefault"] = {},
+        ["CmpItemKindReference"] = { fg = colors.fg_13 },
+        -- [ "CmpItemKindReferenceDefault"] = {},
+        ["CmpItemKindSnippet"] = { fg = colors.fg_13 },
+        -- [ "CmpItemKindSnippetDefault"] = {},
+        ["CmpItemKindSnippetFunction"] = { fg = colors.fg_13 },
+        ["CmpItemKindSnippetStruct"] = { fg = colors.fg_13 },
+        ["CmpItemKindStruct"] = { fg = colors.fg_13 },
+        -- [ "CmpItemKindStructDefault"] = {},
+        ["CmpItemKindText"] = { fg = colors.fg_13 },
+        -- [ "CmpItemKindTextDefault"] = {},
+        ["CmpItemKindTypeParameter"] = { fg = colors.fg_13 },
+        -- [ "CmpItemKindTypeParameterDefault"] = {},
+        ["CmpItemKindUnit"] = { fg = colors.fg_13 },
+        -- [ "CmpItemKindUnitDefault"] = {},
+        ["CmpItemKindValue"] = { fg = colors.orange_02 },
+        -- [ "CmpItemKindValueDefault"] = {},
+        ["CmpItemKindVariable"] = { fg = colors.blue_12 },
+        -- [ "CmpItemKindVariableDefault"] = {},
+        -- [ "CmpItemMenu"] = {},
+        -- [ "CmpItemMenuDefault"] = {},
+        ["CmpMenu"] = {
+            bg = config.transparent_background and colors.none or colors.bg,
+            fg = colors.fg,
+        },
+        ["CmpMenuBorder"] = {
+            bg = config.transparent_background and colors.none or colors.bg,
+            fg = colors.bg_11,
+        },
+        ["CmpMenuSel"] = { bg = colors.blue_02, fg = colors.fg_14 },
+
+        ------------------------------------------------------------------------------------------
+
+        -- lewis6991/gitsigns.nvim
+        ["GitSignsAdd"] = { fg = git.signs.add },
+        -- [ "GitSignsAddInline"] = {},
+        -- [ "GitSignsAddLn"] = {},
+        -- [ "GitSignsAddPreview"] = {},
+        ["GitSignsChange"] = { fg = git.signs.change },
+        -- [ "GitSignsChangeInline"] = {},
+        -- [ "GitSignsChangeLn"] = {},
+        -- [ "GitSignsChangeLnInline"] = {},
+        -- [ "GitSignsChangeNr"] = {},
+        -- [ "GitSignsChangedelete"] = {},
+        -- [ "GitSignsChangedeleteLn"] = {},
+        -- [ "GitSignsChangedeleteNr"] = {},
+        -- [ "GitSignsCurrentLineBlame"] = {},
+        ["GitSignsDelete"] = { fg = git.signs.delete },
+        -- [ "GitSignsDelete"] = {},
+        -- [ "GitSignsDeleteInline"] = {},
+        -- [ "GitSignsDeleteLnInline"] = {},
+        -- [ "GitSignsDeleteNr"] = {},
+        -- [ "GitSignsDeletePreview"] = {},
+        -- [ "GitSignsDeleteVirtLn"] = {},
+        -- [ "GitSignsDeleteVirtLnInline"] = {},
+        -- [ "GitSignsStagedAdd"] = {},
+        -- [ "GitSignsStagedAddLn"] = {},
+        -- [ "GitSignsStagedAddNr"] = {},
+        -- [ "GitSignsStagedChange"] = {},
+        -- [ "GitSignsStagedChangeLn"] = {},
+        -- [ "GitSignsStagedChangeNr"] = {},
+        -- [ "GitSignsStagedChangedelete"] = {},
+        -- [ "GitSignsStagedChangedeleteLn"] = {},
+        -- [ "GitSignsStagedChangedeleteNr"] = {},
+        -- [ "GitSignsStagedDelete"] = {},
+        -- [ "GitSignsStagedDeleteNr"] = {},
+        -- [ "GitSignsStagedTopdelete"] = {},
+        -- [ "GitSignsStagedTopdeleteNr"] = {},
+        -- [ "GitSignsTopdelete"] = {},
+        -- [ "GitSignsTopdeleteNr"] = {},
+        -- [ "GitSignsUntracked"] = {},
+        -- [ "GitSignsUntrackedLn"] = {},
+        -- [ "GitSignsUntrackedNr"] = {},
+
+        ------------------------------------------------------------------------------------------
+
+        -- petertriho/nvim-scrollbar
+        -- [ "ScrollbarCursor"] = {},
+        -- [ "ScrollbarCursorHandler"] = {},
+        ["ScrollbarError"] = { fg = diagnostic.error },
+        ["ScrollbarErrorHandle"] = { fg = diagnostic.error },
+        ["ScrollbarGitAdd"] = { fg = git.signs.add },
+        ["ScrollbarGitAddHandle"] = { fg = git.signs.add },
+        ["ScrollbarGitChange"] = { fg = git.signs.change },
+        ["ScrollbarGitChangeHandle"] = { fg = git.signs.change },
+        ["ScrollbarGitDelete"] = { fg = git.signs.delete },
+        ["ScrollbarGitDeleteHandle"] = { fg = git.signs.delete },
+        -- [ "ScrollbarHandle"] = {},
+        ["ScrollbarHint"] = { fg = diagnostic.hint },
+        ["ScrollbarHintHandle"] = { fg = diagnostic.hint },
+        ["ScrollbarInfo"] = { fg = diagnostic.info },
+        ["ScrollbarInfoHandle"] = { fg = diagnostic.info },
+        -- [ "ScrollbarMisc"] = {},
+        -- [ "ScrollbarMiscHandle"] = {},
+        -- [ "ScrollbarSearch"] = {},
+        -- [ "ScrollbarSearcHandle"] = {},
+        ["ScrollbarWarn"] = { fg = diagnostic.warn },
+        ["ScrollbarWarnHandle"] = { fg = diagnostic.warn },
+
+        ------------------------------------------------------------------------------------------
+
+        -- nvim-tree/nvim-tree.lua
+        -- [ "NvimTreeBookmark"] = {},
+        ["NvimTreeClosedFolderIcon"] = { link = "NvimTreeFolderIcon" },
+        -- [ "NvimTreeCursorColumn"] = {},
+        ["NvimTreeCursorLine"] = { bg = config.transparent_background and colors.none or colors.bg_05 },
+        -- [ "NvimTreeCursorLineNr"] = {},
+        -- [ "NvimTreeEmptyFolderName"] = {},
+        -- [ "NvimTreeEndOfBuffer"] = {},
+        -- [ "NvimTreeExecFile"] = {},
+        -- [ "NvimTreeFileDeleted"] = {},
+        -- [ "NvimTreeFileDirty"] = {},
+        -- [ "NvimTreeFileIgnored"] = {},
+        -- [ "NvimTreeFileMerge"] = {},
+        -- [ "NvimTreeFileNew"] = {},
+        -- [ "NvimTreeFileRenamed"] = {},
+        -- [ "NvimTreeFileStaged"] = {},
+        ["NvimTreeFolderIcon"] = { fg = colors.yellow_02 },
+        ["NvimTreeFolderName"] = { fg = colors.fg },
+        ["NvimTreeGitDeleted"] = { fg = git.status.deleted },
+        ["NvimTreeGitDirty"] = { fg = git.status.modified },
+        ["NvimTreeGitIgnored"] = { fg = git.status.ignored },
+        -- [ "NvimTreeGitMerge"] = {},
+        ["NvimTreeGitNew"] = { fg = git.status.untracked },
+        ["NvimTreeGitRenamed"] = { fg = git.status.untracked },
+        ["NvimTreeGitStaged"] = { fg = git.status.staged },
+        -- [ "NvimTreeImageFile"] = {},
+        ["NvimTreeIndentMarker"] = { fg = colors.fg_03 },
+        -- [ "NvimTreeLineNr"] = {},
+        -- [ "NvimTreeLiveFilterPrefix"] = {},
+        -- [ "NvimTreeLiveFilterValue"] = {},
+        ["NvimTreeLspDiagnosticsError"] = { fg = diagnostic.error },
+        ["NvimTreeLspDiagnosticsHint"] = { fg = diagnostic.hint },
+        ["NvimTreeLspDiagnosticsInformation"] = { fg = diagnostic.info },
+        ["NvimTreeLspDiagnosticsWarning"] = { fg = diagnostic.warn },
+        ["NvimTreeModifiedFile"] = { fg = colors.fg },
+        ["NvimTreeNormal"] = { bg = config.transparent_background and colors.none or colors.bg_01 },
+        -- [ "NvimTreeNormalNC"] = {},
+        ["NvimTreeOpenedFile"] = { fg = colors.fg },
+        ["NvimTreeOpenedFolderIcon"] = { link = "NvimTreeFolderIcon" },
+        ["NvimTreeOpenedFolderName"] = { fg = colors.fg },
+        -- [ "NvimTreePopup"] = {},
+        ["NvimTreeRootFolder"] = { fg = colors.fg_13 },
+        -- [ "NvimTreeSignColumn"] = {},
+        -- [ "NvimTreeSpecialFile"] = {},
+        -- [ "NvimTreeStatusLine"] = {},
+        -- [ "NvimTreeStatusLineNC"] = {},
+        -- [ "NvimTreeSymlink"] = {},
+        ["NvimTreeWinSeparator"] = {
+            bg = config.transparent_background and colors.none or colors.bg,
+            fg = colors.bg,
+        },
+        -- [ "NvimTreeWindowPicker"] = {},
+
+        ------------------------------------------------------------------------------------------
+
+        -- akinsho/toggleterm.nvim.git
+        -- [ "ToggleTermNormal"] = {},
+        ["ToggleTermNormalFloat"] = { bg = colors.bg_02 },
+        ["ToggleTermFloatBorder"] = { bg = colors.bg_02, fg = colors.bg_02 },
+
+        ------------------------------------------------------------------------------------------
+
+        -- lukas-reineke/indent-blankline.nvim
+        ["IndentBlanklineChar"] = { fg = colors.bg_07, bg = colors.none },
+        ["IndentBlanklineContextChar"] = { fg = colors.bg_11, bg = colors.none },
+        -- [ "IndentBlanklineContextStart"] = {},
+        -- [ "IndentBlanklineSpaceChar"] = {},
+        -- [ "IndentBlanklineSpaceCharBlankline"] = {},
+
+        ------------------------------------------------------------------------------------------
+
+        -- goolord/alpha-nvim
+        ["AlphaButton"] = { fg = colors.blue_07 },
+        ["AlphaHeader"] = { fg = colors.blue_08 },
+        ["AlphaShorcut"] = { fg = colors.fg_06 },
+
+        ------------------------------------------------------------------------------------------
+
+        -- folke/lazy.nvim
+        ["LazyButton"] = { bg = colors.blue_03 },
+        ["LazyButtonActive"] = { bg = colors.green_02 },
+        ["LazyComment"] = { fg = colors.fg_06 },
+        -- [ "LazyCommitIssue"] = {},
+        -- [ "LazyCommitScope"] = {},
+        -- [ "LazyCommitType"] = {},
+        -- [ "LazyDimmed"] = {},
+        -- [ "LazyDir"] = {},
+        ["LazyH1"] = { bg = colors.green_02 },
+        -- [ "LazyH2"] = {},
+        -- [ "LazyNoCond"] = {},
+        -- [ "LazyNormal"] = {},
+        -- [ "LazyProgressDone"] = {},
+        -- [ "LazyProgressTodo"] = {},
+        -- [ "LazyProp"] = {},
+        -- [ "LazyReasonCmd"] = {},
+        -- [ "LazyReasonEvent"] = {},
+        -- [ "LazyReasonFt"] = {},
+        -- [ "LazyReasonImport"] = {},
+        -- [ "LazyReasonKeys"] = {},
+        -- [ "LazyReasonPlugin"] = {},
+        -- [ "LazyReasonRuntime"] = {},
+        -- [ "LazyReasonSource"] = {},
+        -- [ "LazyReasonStart"] = {},
+        -- [ "LazySpecial"] = {},
+        -- [ "LazyTaskError"] = {},
+        -- [ "LazyTaskOutput"] = {},
+        -- [ "LazyUrl"] = {},
+        -- [ "LazyValue"] = {},
+
+        ------------------------------------------------------------------------------------------
+
+        -- lua
+        ["luaParenError"] = { link = "Normal" },
+
+        ------------------------------------------------------------------------------------------
+
+        -- xml
+        ["xmlAttrib"] = { link = "Variable" },
+        ["xmlProcessingDelim"] = { fg = colors.fg_05 },
+        ["xmlTag"] = { fg = colors.fg_05 },
+        ["xmlTagName"] = { link = "Keyword" },
+    }
 end
 
 return M
