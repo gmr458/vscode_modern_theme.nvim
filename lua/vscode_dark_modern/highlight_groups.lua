@@ -282,7 +282,9 @@ function M.get(config)
         ["@constructor.lua"] = { link = "@punctuation" },
 
         -- Python
+        ["@attribute.python"] = { link = "@function" },
         ["@constructor.python"] = { link = "@function" },
+        ["@variable.builtin.self.python"] = { link = "@keyword" },
 
         -- Ruby
         ["@label.ruby"] = { link = "@variable" },
