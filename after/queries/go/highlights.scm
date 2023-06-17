@@ -1,4 +1,4 @@
 ; extends
 
 ["default"] @keyword.default
-["map"] @keyword
+["map"] @type.builtin.map
