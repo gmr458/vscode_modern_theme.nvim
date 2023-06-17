@@ -5,21 +5,21 @@ local M = {}
 --- @overload fun(config: Config)
 function M.get(config)
     local diagnostic = {
-        error = colors.red_04,
+        error = colors.red_05,
         warn = colors.yellow_03,
-        info = colors.blue_07,
+        info = colors.blue_08,
         hint = colors.green_05,
-        unnecessary = colors.blue_11,
+        unnecessary = colors.blue_12,
     }
 
     local git = {
         signs = {
             add = colors.green_01,
-            delete = colors.red_05,
+            delete = colors.red_06,
             change = colors.blue_01,
         },
         status = {
-            ignored = colors.fg_08,
+            ignored = colors.fg_09,
             untracked = colors.green_06,
             staged = colors.green_07,
             deleted = colors.red_02,
@@ -34,7 +34,6 @@ function M.get(config)
     }
 
     return {
-
         -- Editor
 
         -- [ "ColorColumn"] = {},
@@ -49,7 +48,7 @@ function M.get(config)
         -- [ "CursorLineFold"] = {},
         ["CursorLineNr"] = {
             bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_03 or colors.none),
-            fg = colors.fg_12,
+            fg = colors.fg_13,
         },
         -- [ "CursorLineSign"] = {},
         ["Directory"] = { fg = colors.yellow_02 },
@@ -71,7 +70,7 @@ function M.get(config)
         ["lCursor"] = { bg = colors.bg_13, fg = colors.fg_02 },
         ["LineNr"] = {
             bg = config.transparent_background and colors.none or colors.bg,
-            fg = colors.fg_06,
+            fg = colors.fg_07,
         },
         -- [ "LineNrAbove"] = {},
         -- [ "LineNrBelow"] = {},
@@ -106,7 +105,7 @@ function M.get(config)
         -- [ "SpecialKey"] = {},
         ["SpellBad"] = { sp = colors.red_03, undercurl = true },
         ["SpellCap"] = { sp = colors.yellow_05, undercurl = true },
-        ["SpellLocal"] = { sp = colors.blue_09, undercurl = true },
+        ["SpellLocal"] = { sp = colors.blue_10, undercurl = true },
         ["SpellRare"] = { sp = colors.green_05, undercurl = true },
         ["StatusLine"] = { bg = colors.none },
         -- [ "StatusLineNC"] = {},
@@ -114,17 +113,17 @@ function M.get(config)
         -- [ "TabLine"] = {},
         -- [ "TabLineFill"] = {},
         -- [ "TabLineSel"] = {},
-        ["TermCursor"] = { bg = colors.fg_13, fg = colors.bg_01 },
+        ["TermCursor"] = { bg = colors.fg_14, fg = colors.bg_01 },
         -- [ "TermCursorNC"] = {},
-        ["Title"] = { fg = colors.fg_14 },
+        ["Title"] = { fg = colors.fg_15 },
         -- [ "Tooltip"] = {},
         -- [ "VertSplit"] = {},
-        ["Visual"] = { bg = colors.blue_04 },
+        ["Visual"] = { bg = colors.blue_05 },
         -- [ "VisualNOS"] = {},
         ["WarningMsg"] = { fg = diagnostic.warn },
         -- [ "Whitespace"] = {},
         -- [ "WildMenu"] = {},
-        ["WinBar"] = { fg = colors.fg_10 },
+        ["WinBar"] = { fg = colors.fg_11 },
         -- [ "WinBarNC"] = {},
         ["WinSeparator"] = { fg = "#080A0E" },
 
@@ -132,13 +131,13 @@ function M.get(config)
 
         -- Pmenu
 
-        ["Pmenu"] = { bg = colors.bg_04, fg = colors.fg_13 },
+        ["Pmenu"] = { bg = colors.bg_04, fg = colors.fg_14 },
         -- [ "PmenuExtra"] = {},
         -- [ "PmenuExtraSel"] = {},
         -- [ "PmenuKind"] = {},
         -- [ "PmenuKindSel"] = {},
         ["PmenuSbar"] = { bg = colors.bg_04 },
-        ["PmenuSel"] = { bg = colors.blue_02, fg = colors.fg_14 },
+        ["PmenuSel"] = { bg = colors.blue_02, fg = colors.fg_15 },
         ["PmenuThumb"] = { bg = colors.bg_10 },
 
         ------------------------------------------------------------------------------------------
@@ -147,12 +146,12 @@ function M.get(config)
 
         ["Comment"] = { fg = colors.green_08 },
 
-        ["Variable"] = { fg = colors.blue_13 },
-        ["Constant"] = { fg = colors.blue_09 },
+        ["Variable"] = { fg = colors.blue_14 },
+        ["Constant"] = { fg = colors.blue_10 },
         ["String"] = { fg = colors.orange_01 },
         ["Character"] = { fg = colors.red_03 },
         ["Number"] = { fg = colors.green_09 },
-        ["Boolean"] = { fg = colors.blue_10 },
+        ["Boolean"] = { fg = colors.blue_11 },
         ["Float"] = { fg = colors.green_09 },
 
         ["Identifier"] = { fg = colors.fg },
@@ -163,13 +162,13 @@ function M.get(config)
         ["Repeat"] = { fg = colors.purple_02 },
         ["Label"] = { fg = colors.purple_02 },
         ["Operator"] = { fg = colors.fg },
-        ["Keyword"] = { fg = colors.blue_10 },
+        ["Keyword"] = { fg = colors.blue_11 },
         ["Exception"] = { fg = colors.purple_02 },
 
         ["PreProc"] = { fg = colors.purple_02 },
         ["Include"] = { fg = colors.purple_02 },
         ["Define"] = { fg = colors.purple_02 },
-        ["Macro"] = { fg = colors.blue_10 },
+        ["Macro"] = { fg = colors.blue_11 },
         ["PreCondit"] = { fg = colors.purple_02 },
 
         ["Type"] = { fg = colors.green_05 },
@@ -190,44 +189,44 @@ function M.get(config)
 
         -- nvim-treesitter/nvim-treesitter
         ["@attribute"] = { link = "@type" },
-        ["@boolean"] = { fg = colors.blue_10 },
+        ["@boolean"] = { fg = colors.blue_11 },
         ["@character"] = { fg = colors.orange_01 },
         ["@character.special"] = { fg = colors.yellow_04 },
         ["@comment"] = { fg = colors.green_08 },
         ["@conditional"] = { fg = colors.purple_02 },
-        ["@constant"] = { fg = colors.blue_09 },
+        ["@constant"] = { fg = colors.blue_10 },
         ["@constant.builtin"] = { link = "@keyword" },
-        ["@constant.macro"] = { fg = colors.blue_09 },
+        ["@constant.macro"] = { fg = colors.blue_10 },
         ["@constructor"] = { fg = colors.green_05 },
         -- [ "@debug"] = {},
         ["@define"] = { fg = colors.purple_02 },
         ["@exception"] = { fg = colors.purple_02 },
-        ["@field"] = { fg = colors.blue_13 },
+        ["@field"] = { fg = colors.blue_14 },
         ["@float"] = { fg = colors.green_09 },
         ["@function"] = { fg = colors.yellow_05 },
         ["@function.builtin"] = { fg = colors.yellow_05 },
         ["@function.call"] = { fg = colors.yellow_05 },
-        ["@function.macro"] = { fg = colors.blue_10 },
+        ["@function.macro"] = { fg = colors.blue_11 },
         ["@include"] = { fg = colors.purple_02 },
-        ["@keyword"] = { fg = colors.blue_10 },
+        ["@keyword"] = { fg = colors.blue_11 },
         ["@keyword.return"] = { fg = colors.purple_02 },
         ["@label"] = { fg = colors.purple_02 },
-        ["@macro"] = { fg = colors.blue_10 },
+        ["@macro"] = { fg = colors.blue_11 },
         ["@method"] = { fg = colors.yellow_05 },
         ["@namespace"] = { fg = colors.green_05 },
         ["@number"] = { fg = colors.green_09 },
         ["@operator"] = { fg = colors.fg },
-        ["@parameter"] = { fg = colors.blue_13 },
+        ["@parameter"] = { fg = colors.blue_14 },
         -- [ "@preproc"] = {},
         ["@punctuation"] = { fg = colors.fg },
-        ["@property"] = { fg = colors.blue_13 },
+        ["@property"] = { fg = colors.blue_14 },
         ["@punctuation.delimiter"] = { fg = colors.fg },
         ["@repeat"] = { fg = colors.purple_02 },
-        ["@storageclass"] = { fg = colors.blue_10 },
+        ["@storageclass"] = { fg = colors.blue_11 },
         ["@string"] = { fg = colors.orange_01 },
         ["@string.escape"] = { fg = colors.yellow_04 },
         ["@string.special"] = { fg = colors.yellow_04 },
-        ["@tag"] = { fg = colors.blue_10 },
+        ["@tag"] = { fg = colors.blue_11 },
         ["@tag.attribute"] = { link = "@variable" },
         ["@tag.delimiter"] = { fg = colors.fg_05 },
         ["@text.literal"] = { link = "@string" },
@@ -239,28 +238,29 @@ function M.get(config)
         ["@type"] = { fg = colors.green_05 },
         ["@type.builtin"] = { fg = colors.green_05 },
         ["@type.definition"] = { fg = colors.green_05 },
-        ["@type.qualifier"] = { fg = colors.blue_10 },
-        ["@variable"] = { fg = colors.blue_13 },
+        ["@type.qualifier"] = { fg = colors.blue_11 },
+        ["@variable"] = { fg = colors.blue_14 },
         ["@variable.builtin"] = { link = "@variable" },
 
         -- C#
-        ["@include.c_sharp"] = { fg = colors.blue_10 },
-        ["@type.builtin.c_sharp"] = { fg = colors.blue_10 },
+        ["@include.c_sharp"] = { fg = colors.blue_11 },
+        ["@type.builtin.c_sharp"] = { fg = colors.blue_11 },
 
         -- Go
         ["@keyword.default.go"] = { fg = colors.purple_02 },
+        ["@type.builtin.map.go"] = { link = "@keyword" },
 
         -- Go Mod
         ["@text.uri.gomod"] = { fg = colors.yellow_04, underline = true },
 
         -- HTML
-        ["@constant.html"] = { fg = colors.blue_10 },
+        ["@constant.html"] = { fg = colors.blue_11 },
         ["@text.html"] = { fg = colors.fg },
         ["@text.title.html"] = { fg = colors.fg },
 
         -- Java
         ["@function.builtin.super.java"] = { link = "@keyword" },
-        ["@include.java"] = { fg = colors.blue_10 },
+        ["@include.java"] = { fg = colors.blue_11 },
         ["@variable.builtin.this.java"] = { link = "@keyword" },
 
         -- JavaScript
@@ -291,8 +291,9 @@ function M.get(config)
 
         -- Rust
         ["@constant.builtin.rust"] = { link = "@constant" },
-        ["@include.mod.rust"] = { fg = colors.blue_10 },
-        ["@include.use.rust"] = { fg = colors.blue_10 },
+        ["@include.mod.rust"] = { fg = colors.blue_11 },
+        ["@include.use.rust"] = { fg = colors.blue_11 },
+        ["@keyword.coroutine.await.rust"] = { fg = colors.purple_02 },
         ["@variable.builtin.rust"] = { link = "@keyword" },
 
         -- TypeScript
@@ -313,24 +314,44 @@ function M.get(config)
 
         -- Semantic Tokens
         ["@lsp.type.annotation"] = { link = "Type" },
+        ["@lsp.type.boolean"] = { link = "Boolean" },
+        ["@lsp.type.character"] = { link = "Character" },
         ["@lsp.type.class"] = { link = "@lsp" },
         ["@lsp.type.formatSpecifier"] = { link = "Keyword" },
         ["@lsp.type.parameter"] = { link = "Variable" },
         ["@lsp.type.property"] = { link = "Variable" },
+        ["@lsp.type.method"] = { link = "Function" },
+        ["@lsp.type.number"] = { link = "Number" },
         ["@lsp.type.selfKeyword"] = { link = "Keyword" },
         ["@lsp.type.selfTypeKeyword"] = { link = "Keyword" },
+        ["@lsp.type.string"] = { link = "String" },
         ["@lsp.type.variable"] = { link = "Variable" },
 
+        ["@lsp.typemod.boolean.macro"] = { link = "Boolean" },
+        ["@lsp.typemod.character.macro"] = { link = "Character" },
         ["@lsp.typemod.class.constructor"] = { link = "Function" },
         ["@lsp.typemod.class.importDeclaration"] = { link = "Type" },
         ["@lsp.typemod.class.readonly"] = { link = "Type" },
+        ["@lsp.typemod.enum.declaration"] = { link = "Type" },
         ["@lsp.typemod.enum.public"] = { link = "Type" },
         ["@lsp.typemod.function.declaration"] = { link = "Function" },
         ["@lsp.typemod.function.local"] = { link = "Function" },
+        ["@lsp.typemod.function.macro"] = { link = "Function" },
         ["@lsp.typemod.function.readonly"] = { link = "Function" },
+        ["@lsp.typemod.generic.macro"] = { link = "Variable" },
+        ["@lsp.typemod.method.macro"] = { link = "Function" },
+        ["@lsp.typemod.namespace.macro"] = { fg = colors.green_05 },
+        ["@lsp.typemod.number.macro"] = { link = "Number" },
+        ["@lsp.typemod.parameter.macro"] = { link = "Variable" },
+        ["@lsp.typemod.property.macro"] = { link = "Variable" },
+        ["@lsp.typemod.string.macro"] = { link = "String" },
+        ["@lsp.typemod.struct.macro"] = { link = "Type" },
+        ["@lsp.typemod.variable.constant"] = { link = "Constant" },
+        ["@lsp.typemod.variable.macro"] = { link = "Variable" },
         ["@lsp.typemod.variable.static"] = { link = "Constant" },
 
         ["@lsp.mod.controlFlow"] = { fg = colors.purple_02 },
+        ["@lsp.mod.macro"] = { link = "Macro" },
         ["@lsp.mod.mutable"] = { underline = true },
         ["@lsp.mod.readonly"] = { link = "Constant" },
 
@@ -371,7 +392,7 @@ function M.get(config)
 
         -- nvim-telescope/telescope.nvim
         -- [ "TelescopeBorder"] = {},
-        ["TelescopeMatching"] = { fg = colors.blue_05 },
+        ["TelescopeMatching"] = { fg = colors.blue_06 },
         -- [ "TelescopeMultiIcon"] = {},
         -- [ "TelescopeMultiSelection"] = {},
         -- [ "TelescopeNormal"] = {},
@@ -394,7 +415,7 @@ function M.get(config)
         -- [ "TelescopePreviewRead"] = {},
         -- [ "TelescopePreviewSize"] = {},
         -- [ "TelescopePreviewSocket"] = {},
-        ["TelescopePreviewTitle"] = { bg = colors.blue_01, fg = colors.fg_14 },
+        ["TelescopePreviewTitle"] = { bg = colors.blue_01, fg = colors.fg_15 },
         -- [ "TelescopePreviewUser"] = {},
         -- [ "TelescopePreviewWrite"] = {},
 
@@ -403,7 +424,7 @@ function M.get(config)
         ["TelescopePromptCounter"] = { fg = colors.bg_12 },
         ["TelescopePromptNormal"] = { bg = colors.bg_06, fg = colors.bg_12 },
         -- ["TelescopePromptPrefix"] = {},
-        ["TelescopePromptTitle"] = { bg = colors.blue_01, fg = colors.fg_14 },
+        ["TelescopePromptTitle"] = { bg = colors.blue_01, fg = colors.fg_15 },
 
         -- Telescope Results
         ["TelescopeResultsBorder"] = { bg = colors.bg_04, fg = colors.bg_04 },
@@ -424,11 +445,11 @@ function M.get(config)
         -- ["TelescopeResultsOperator"] = {},
         -- ["TelescopeResultsSpecialComment"] = {},
         -- ["TelescopeResultsStruct"] = {},
-        ["TelescopeResultsTitle"] = { bg = colors.blue_01, fg = colors.fg_14 },
+        ["TelescopeResultsTitle"] = { bg = colors.blue_01, fg = colors.fg_15 },
         -- ["TelescopeResultsVariable"] = {},
 
         -- Telescope Selection
-        ["TelescopeSelection"] = { bg = colors.blue_02, fg = colors.fg_14 },
+        ["TelescopeSelection"] = { bg = colors.blue_02, fg = colors.fg_15 },
         -- ["TelescopeSelectionCaret"] = {},
 
         -- Telescope Title
@@ -483,8 +504,8 @@ function M.get(config)
         -- [ "LspInfoTitle"] = {},
 
         -- Codelens
-        ["LspCodeLens"] = { fg = colors.fg_09 },
-        ["LspCodeLensSeparator"] = { fg = colors.fg_09 },
+        ["LspCodeLens"] = { fg = colors.fg_10 },
+        ["LspCodeLensSeparator"] = { fg = colors.fg_10 },
 
         ------------------------------------------------------------------------------------------
 
@@ -515,8 +536,8 @@ function M.get(config)
         ["NavicIconsEvent"] = { link = "@keyword" },
         ["NavicIconsOperator"] = { link = "@operator" },
         ["NavicIconsTypeParameter"] = { link = "@parameter" },
-        ["NavicText"] = { fg = colors.fg_10 },
-        ["NavicSeparator"] = { fg = colors.fg_10 },
+        ["NavicText"] = { fg = colors.fg_11 },
+        ["NavicSeparator"] = { fg = colors.fg_11 },
 
         ------------------------------------------------------------------------------------------
 
@@ -544,15 +565,15 @@ function M.get(config)
         ------------------------------------------------------------------------------------------
 
         -- folke/trouble.nvim
-        ["TroubleCode"] = { fg = colors.blue_06, underline = true },
-        ["TroubleCount"] = { bg = colors.bg_09, fg = colors.fg_14 },
+        ["TroubleCode"] = { fg = colors.blue_07, underline = true },
+        ["TroubleCount"] = { bg = colors.bg_09, fg = colors.fg_15 },
         -- [ "TroubleError"] = {},
-        ["TroubleFile"] = { fg = colors.fg_13 },
-        ["TroubleFoldIcon"] = { fg = colors.fg_11 },
+        ["TroubleFile"] = { fg = colors.fg_14 },
+        ["TroubleFoldIcon"] = { fg = colors.fg_12 },
         -- [ "TroubleHint"] = {},
         -- [ "TroubleIndent"] = {},
         -- [ "TroubleInformation"] = {},
-        ["TroubleLocation"] = { fg = colors.fg_08 },
+        ["TroubleLocation"] = { fg = colors.fg_09 },
         -- [ "TroubleNormal"] = {},
         -- [ "TroubleOther"] = {},
         ["TroublePreview"] = { bg = colors.bg_08 },
@@ -561,13 +582,35 @@ function M.get(config)
         ["TroubleSignInformation"] = { fg = diagnostic.info },
         -- [ "TroubleSignOther"] = {},
         ["TroubleSignWarning"] = { fg = diagnostic.warn },
-        ["TroubleSource"] = { fg = colors.fg_08 },
+        ["TroubleSource"] = { fg = colors.fg_09 },
         -- [ "TroubleText"] = {},
         ["TroubleTextError"] = { fg = colors.fg },
         ["TroubleTextHint"] = { fg = colors.fg },
         ["TroubleTextInformation"] = { fg = colors.fg },
         ["TroubleTextWarning"] = { fg = colors.fg },
         -- [ "TroubleWarning"] = {},
+
+        ------------------------------------------------------------------------------------------
+
+        -- Dap
+        ["DapBreakpoint"] = { fg = colors.red_04 },
+        ["DapStopped"] = { fg = colors.yellow_06 },
+        ["DapBreakpointRejected"] = { fg = colors.fg_06 },
+
+        -- DapUI
+        ["DapUIScope"] = { fg = colors.fg_14 },
+        ["DapUIVariable"] = { link = "Variable" },
+        ["DapUIType"] = { link = "Type" },
+        ["DapUIValue"] = { fg = colors.fg_06 },
+        ["DapUIDecoration"] = { fg = colors.fg_14 },
+        ["DapUIBreakpointsPath"] = { fg = colors.fg_14 },
+        ["DapUILineNumber"] = { link = "LineNr" },
+        ["DapUIStoppedThread"] = { fg = colors.fg_14 },
+        ["DapUICurrentFrameName"] = { fg = colors.fg_14 },
+        ["DapUISource"] = { fg = colors.fg_14 },
+        ["DapUIThread"] = { fg = colors.fg_14 },
+        ["DapUIWatchesEmpty"] = { fg = colors.fg_06 },
+        ["DapUIWatchesValue"] = { fg = colors.fg_14 },
 
         ------------------------------------------------------------------------------------------
 
@@ -582,65 +625,65 @@ function M.get(config)
         },
         -- [ "CmpItemAbbr"] = {},
         -- [ "CmpItemAbbrDefault"] = {},
-        ["CmpItemAbbrDeprecated"] = { fg = colors.fg_13, strikethrough = true },
+        ["CmpItemAbbrDeprecated"] = { fg = colors.fg_14, strikethrough = true },
         -- [ "CmpItemAbbrDeprecatedDefault"] = {},
-        ["CmpItemAbbrMatch"] = { fg = colors.blue_05 },
+        ["CmpItemAbbrMatch"] = { fg = colors.blue_06 },
         -- [ "CmpItemAbbrMatchDefault"] = {},
         -- [ "CmpItemAbbrMatchFuzzy"] = {},
         -- [ "CmpItemAbbrMatchFuzzyDefault"] = {},
-        ["CmpItemKind"] = { fg = colors.fg_13 },
+        ["CmpItemKind"] = { fg = colors.fg_14 },
         ["CmpItemKindClass"] = { fg = colors.orange_02 },
         -- [ "CmpItemKindClassDefault"] = {},
         ["CmpItemKindColor"] = { fg = colors.fg },
         -- [ "CmpItemKindColorDefault"] = {},
-        ["CmpItemKindConstant"] = { fg = colors.fg_13 },
+        ["CmpItemKindConstant"] = { fg = colors.fg_14 },
         -- [ "CmpItemKindConstantDefault"] = {},
         ["CmpItemKindConstructor"] = { fg = colors.purple_01 },
         -- [ "CmpItemKindConstructorDefault"] = {},
         -- [ "CmpItemKindDefault"] = {},
         ["CmpItemKindEnum"] = { fg = colors.orange_02 },
         -- [ "CmpItemKindEnumDefault"] = {},
-        ["CmpItemKindEnumMember"] = { fg = colors.blue_12 },
+        ["CmpItemKindEnumMember"] = { fg = colors.blue_13 },
         -- [ "CmpItemKindEnumMemberDefault"] = {},
-        ["CmpItemKindEvent"] = { fg = colors.fg_13 },
+        ["CmpItemKindEvent"] = { fg = colors.fg_14 },
         -- [ "CmpItemKindEventDefault"] = {},
-        ["CmpItemKindField"] = { fg = colors.blue_12 },
+        ["CmpItemKindField"] = { fg = colors.blue_13 },
         -- [ "CmpItemKindFieldDefault"] = {},
-        ["CmpItemKindFile"] = { fg = colors.fg_13 },
+        ["CmpItemKindFile"] = { fg = colors.fg_14 },
         -- [ "CmpItemKindFileDefault"] = {},
         ["CmpItemKindFolder"] = { fg = colors.yellow_02 },
         -- [ "CmpItemKindFolderDefault"] = {},
         ["CmpItemKindFunction"] = { fg = colors.purple_01 },
         -- [ "CmpItemKindFunctionDefault"] = {},
-        ["CmpItemKindInterface"] = { fg = colors.blue_12 },
+        ["CmpItemKindInterface"] = { fg = colors.blue_13 },
         -- [ "CmpItemKindInterfaceDefault"] = {},
-        ["CmpItemKindKeyword"] = { fg = colors.fg_13 },
+        ["CmpItemKindKeyword"] = { fg = colors.fg_14 },
         -- [ "CmpItemKindKeywordDefault"] = {},
         ["CmpItemKindMethod"] = { fg = colors.purple_01 },
         -- [ "CmpItemKindMethodDefault"] = {},
-        ["CmpItemKindModule"] = { fg = colors.fg_13 },
+        ["CmpItemKindModule"] = { fg = colors.fg_14 },
         -- [ "CmpItemKindModuleDefault"] = {},
-        ["CmpItemKindOperator"] = { fg = colors.fg_13 },
+        ["CmpItemKindOperator"] = { fg = colors.fg_14 },
         -- [ "CmpItemKindOperatorDefault"] = {},
-        ["CmpItemKindProperty"] = { fg = colors.blue_12 },
+        ["CmpItemKindProperty"] = { fg = colors.blue_13 },
         -- [ "CmpItemKindPropertyDefault"] = {},
-        ["CmpItemKindReference"] = { fg = colors.fg_13 },
+        ["CmpItemKindReference"] = { fg = colors.fg_14 },
         -- [ "CmpItemKindReferenceDefault"] = {},
-        ["CmpItemKindSnippet"] = { fg = colors.fg_13 },
+        ["CmpItemKindSnippet"] = { fg = colors.fg_14 },
         -- [ "CmpItemKindSnippetDefault"] = {},
-        ["CmpItemKindSnippetFunction"] = { fg = colors.fg_13 },
-        ["CmpItemKindSnippetStruct"] = { fg = colors.fg_13 },
-        ["CmpItemKindStruct"] = { fg = colors.fg_13 },
+        ["CmpItemKindSnippetFunction"] = { fg = colors.fg_14 },
+        ["CmpItemKindSnippetStruct"] = { fg = colors.fg_14 },
+        ["CmpItemKindStruct"] = { fg = colors.fg_14 },
         -- [ "CmpItemKindStructDefault"] = {},
-        ["CmpItemKindText"] = { fg = colors.fg_13 },
+        ["CmpItemKindText"] = { fg = colors.fg_14 },
         -- [ "CmpItemKindTextDefault"] = {},
-        ["CmpItemKindTypeParameter"] = { fg = colors.fg_13 },
+        ["CmpItemKindTypeParameter"] = { fg = colors.fg_14 },
         -- [ "CmpItemKindTypeParameterDefault"] = {},
-        ["CmpItemKindUnit"] = { fg = colors.fg_13 },
+        ["CmpItemKindUnit"] = { fg = colors.fg_14 },
         -- [ "CmpItemKindUnitDefault"] = {},
         ["CmpItemKindValue"] = { fg = colors.orange_02 },
         -- [ "CmpItemKindValueDefault"] = {},
-        ["CmpItemKindVariable"] = { fg = colors.blue_12 },
+        ["CmpItemKindVariable"] = { fg = colors.blue_13 },
         -- [ "CmpItemKindVariableDefault"] = {},
         -- [ "CmpItemMenu"] = {},
         -- [ "CmpItemMenuDefault"] = {},
@@ -652,7 +695,7 @@ function M.get(config)
             bg = config.transparent_background and colors.none or colors.bg,
             fg = colors.bg_11,
         },
-        ["CmpMenuSel"] = { bg = colors.blue_02, fg = colors.fg_14 },
+        ["CmpMenuSel"] = { bg = colors.blue_02, fg = colors.fg_15 },
 
         ------------------------------------------------------------------------------------------
 
@@ -765,7 +808,7 @@ function M.get(config)
         ["NvimTreeOpenedFolderIcon"] = { link = "NvimTreeFolderIcon" },
         ["NvimTreeOpenedFolderName"] = { fg = colors.fg },
         -- [ "NvimTreePopup"] = {},
-        ["NvimTreeRootFolder"] = { fg = colors.fg_13 },
+        ["NvimTreeRootFolder"] = { fg = colors.fg_14 },
         -- [ "NvimTreeSignColumn"] = {},
         -- [ "NvimTreeSpecialFile"] = {},
         -- [ "NvimTreeStatusLine"] = {},
@@ -796,16 +839,16 @@ function M.get(config)
         ------------------------------------------------------------------------------------------
 
         -- goolord/alpha-nvim
-        ["AlphaButton"] = { fg = colors.blue_07 },
-        ["AlphaHeader"] = { fg = colors.blue_08 },
-        ["AlphaShorcut"] = { fg = colors.fg_06 },
+        ["AlphaButton"] = { fg = colors.blue_08 },
+        ["AlphaHeader"] = { fg = colors.blue_09 },
+        ["AlphaShorcut"] = { fg = colors.fg_07 },
 
         ------------------------------------------------------------------------------------------
 
         -- folke/lazy.nvim
-        ["LazyButton"] = { bg = colors.blue_03 },
+        ["LazyButton"] = { bg = colors.blue_04 },
         ["LazyButtonActive"] = { bg = colors.green_02 },
-        ["LazyComment"] = { fg = colors.fg_06 },
+        ["LazyComment"] = { fg = colors.fg_07 },
         -- [ "LazyCommitIssue"] = {},
         -- [ "LazyCommitScope"] = {},
         -- [ "LazyCommitType"] = {},

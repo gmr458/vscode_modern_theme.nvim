@@ -5,22 +5,22 @@ local M = {}
 M.palette = function()
     return {
         bg = colors.bg_01,
-        fg = colors.fg_13,
+        fg = colors.fg_14,
         vi_mode_bg = colors.blue_01,
         separator = colors.fg_01,
     }
 end
 
 local diagnostic = {
-    error = colors.red_04,
+    error = colors.red_05,
     warn = colors.yellow_03,
-    info = colors.blue_07,
+    info = colors.blue_08,
     hint = colors.green_05,
 }
 
 local git = {
     added = colors.green_01,
-    deleted = colors.red_05,
+    deleted = colors.red_06,
     changed = colors.blue_01,
 }
 

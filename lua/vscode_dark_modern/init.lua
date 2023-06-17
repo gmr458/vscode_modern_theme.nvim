@@ -90,4 +90,10 @@ local h = vim.api.nvim_set_hl]]),
     file:close()
 end
 
+vim.api.nvim_create_user_command("VSCDarkModernCompile", function()
+    M.compile(M.config)
+    vim.notify("vscode_dark_modern colorscheme compiled")
+    vim.api.nvim_command("colorscheme vscode_dark_modern")
+end, {})
+
 return M
