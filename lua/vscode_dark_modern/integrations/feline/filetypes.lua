@@ -75,6 +75,7 @@ return {
     ["markdown"] = "Markdown",
     ["mason"] = "Mason",
     ["meson"] = "Meson",
+    ["neotest-summary"] = "Neotest Summary",
     ["nim"] = "Nim",
     ["nix"] = "Nix",
     ["objc"] = "Objective-C",
