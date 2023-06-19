@@ -51,11 +51,10 @@ M.components = function()
         },
         {
             provider = function()
-                local msg = "LSP inactive"
                 local buf = vim.api.nvim_get_current_buf()
                 local buf_clients = vim.lsp.get_active_clients({ bufnr = buf })
                 if next(buf_clients) == nil then
-                    return msg
+                    return ""
                 end
 
                 local buf_client_names = {}
