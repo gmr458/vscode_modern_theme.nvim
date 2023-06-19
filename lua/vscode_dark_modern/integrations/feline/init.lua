@@ -57,6 +57,30 @@ M.components = function()
                     return ""
                 end
 
+                for _, client in pairs(buf_clients) do
+                    if client.name == "pyright" then
+                        local virtual_env = os.getenv("VIRTUAL_ENV_PROMPT")
+                        if virtual_env == nil then
+                            return ""
+                        end
+
+                        virtual_env = virtual_env:gsub("%s+", "")
+                        return virtual_env
+                    end
+                end
+
+                return ""
+            end,
+            left_sep = " ",
+        },
+        {
+            provider = function()
+                local buf = vim.api.nvim_get_current_buf()
+                local buf_clients = vim.lsp.get_active_clients({ bufnr = buf })
+                if next(buf_clients) == nil then
+                    return ""
+                end
+
                 local buf_client_names = {}
                 for _, client in pairs(buf_clients) do
                     if client.name ~= "null-ls" then
