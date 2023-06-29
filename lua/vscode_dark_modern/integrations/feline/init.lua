@@ -24,6 +24,10 @@ local git = {
     changed = colors.blue_01,
 }
 
+local function get_diagnostics_count(severity)
+    return vim.tbl_count(vim.diagnostic.get(0, severity and { severity = severity }))
+end
+
 M.components = function()
     local components = { active = {}, inactive = {} }
 
@@ -51,6 +55,10 @@ M.components = function()
         },
         {
             provider = function()
+                if not rawget(vim, "lsp") then
+                    return ""
+                end
+
                 local buf = vim.api.nvim_get_current_buf()
                 local buf_clients = vim.lsp.get_active_clients({ bufnr = buf })
                 if next(buf_clients) == nil then
@@ -75,6 +83,10 @@ M.components = function()
         },
         {
             provider = function()
+                if not rawget(vim, "lsp") then
+                    return ""
+                end
+
                 local buf = vim.api.nvim_get_current_buf()
                 local buf_clients = vim.lsp.get_active_clients({ bufnr = buf })
                 if next(buf_clients) == nil then
@@ -95,6 +107,10 @@ M.components = function()
         },
         {
             provider = function()
+                if not rawget(vim, "lsp") then
+                    return ""
+                end
+
                 local buf_clients = vim.lsp.get_active_clients()
 
                 if next(buf_clients) == nil then
@@ -133,35 +149,79 @@ M.components = function()
             right_sep = " ",
         },
         {
-            provider = "diagnostic_errors",
-            icon = " ",
+            provider = function()
+                if not rawget(vim, "lsp") then
+                    return ""
+                end
+
+                local count = get_diagnostics_count(vim.diagnostic.severity.ERROR)
+                if count > 0 then
+                    return " " .. tostring(count)
+                end
+
+                return ""
+            end,
             hl = { fg = diagnostic.error },
             left_sep = " ",
             right_sep = " ",
         },
         {
-            provider = "diagnostic_warnings",
-            icon = " ",
+            provider = function()
+                if not rawget(vim, "lsp") then
+                    return ""
+                end
+
+                local count = get_diagnostics_count(vim.diagnostic.severity.WARN)
+                if count > 0 then
+                    return " " .. tostring(count)
+                end
+
+                return ""
+            end,
             hl = { fg = diagnostic.warn },
             left_sep = " ",
             right_sep = " ",
         },
         {
-            provider = "diagnostic_hints",
-            icon = " ",
+            provider = function()
+                if not rawget(vim, "lsp") then
+                    return ""
+                end
+
+                local count = get_diagnostics_count(vim.diagnostic.severity.HINT)
+                if count > 0 then
+                    return " " .. tostring(count)
+                end
+
+                return ""
+            end,
             hl = { fg = diagnostic.hint },
             left_sep = " ",
             right_sep = " ",
         },
         {
-            provider = "diagnostic_info",
-            icon = " ",
+            provider = function()
+                if not rawget(vim, "lsp") then
+                    return ""
+                end
+
+                local count = get_diagnostics_count(vim.diagnostic.severity.INFO)
+                if count > 0 then
+                    return " " .. tostring(count)
+                end
+
+                return ""
+            end,
             hl = { fg = diagnostic.info },
             left_sep = " ",
             right_sep = " ",
         },
         {
             provider = function()
+                if not rawget(vim, "lsp") or vim.lsp.status then
+                    return ""
+                end
+
                 local lsp = vim.lsp.util.get_progress_messages()[1]
 
                 if lsp then
