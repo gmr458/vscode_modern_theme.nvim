@@ -36,27 +36,21 @@ function M.get(config)
     return {
         -- Editor
 
-        -- [ "ColorColumn"] = {},
         ["Conceal"] = { bg = colors.bg_11 },
-        -- [ "CurSearch"] = {},
         ["Cursor"] = { bg = colors.bg_13, fg = colors.fg_02 },
         ["CursorIM"] = { bg = colors.bg_13, fg = colors.fg_02 },
-        -- [ "CursorColumn"] = {},
         ["CursorLine"] = {
             bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_03 or colors.none),
         },
-        -- ["CursorLineFold"] = {},
         ["CursorLineNr"] = {
             bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_03 or colors.none),
             fg = colors.fg_13,
         },
-        -- [ "CursorLineSign"] = {},
         ["Directory"] = { fg = colors.yellow_02 },
         ["DiffAdd"] = { bg = git.diff.add },
         ["DiffChange"] = { bg = git.diff.change },
         ["DiffDelete"] = { bg = git.diff.delete },
         ["DiffText"] = { bg = git.diff.text },
-        -- [ "EndOfBuffer"] = {},
         ["Error"] = { fg = diagnostic.error },
         ["ErrorMsg"] = { fg = diagnostic.error },
         ["FoldColumn"] = { bg = colors.bg, fg = colors.bg },
@@ -65,66 +59,28 @@ function M.get(config)
             bg = config.transparent_background and colors.none or colors.bg,
             fg = colors.bg_11,
         },
-        -- [ "FloatTitle"] = {},
-        -- [ "IncSearch"] = {},
         ["lCursor"] = { bg = colors.bg_13, fg = colors.fg_02 },
         ["LineNr"] = {
             bg = config.transparent_background and colors.none or colors.bg,
             fg = colors.fg_07,
         },
-        -- [ "LineNrAbove"] = {},
-        -- [ "LineNrBelow"] = {},
-        -- [ "MatchParen"] = {},
-        -- [ "Menu"] = {},
-        -- [ "ModeMsg"] = {},
-        -- [ "MoreMsg"] = {},
-        -- [ "MsgArea"] = {},
-        -- [ "MsgSeparator"] = {},
-        -- [ "NonText"] = {},
         ["Normal"] = {
             bg = config.transparent_background and colors.none or colors.bg,
             fg = colors.fg,
         },
         ["NormalFloat"] = { bg = config.transparent_background and colors.none or colors.bg },
-        -- [ "NormalNC"] = {},
-        -- [ "NormalSB"] = {},
-        -- [ "Pmenu"] = {},
-        -- [ "PmenuExtra"] = {},
-        -- [ "PmenuExtraSel"] = {},
-        -- [ "PmenuKind"] = {},
-        -- [ "PmenuKindSel"] = {},
-        -- [ "PmenuSbar"] = {},
-        -- [ "PmenuSel"] = {},
-        -- [ "PmenuThumb"] = {},
-        -- [ "Question"] = {},
-        -- [ "QuickFixLine"] = {},
-        -- [ "Scrollbar"] = {},
         ["Search"] = { bg = colors.brown_01 },
         ["SignColumn"] = { bg = colors.none },
-        -- [ "SignColumnSB"] = {},
-        -- [ "SpecialKey"] = {},
         ["SpellBad"] = { sp = colors.red_03, undercurl = true },
         ["SpellCap"] = { sp = colors.yellow_05, undercurl = true },
         ["SpellLocal"] = { sp = colors.blue_11, undercurl = true },
         ["SpellRare"] = { sp = colors.green_05, undercurl = true },
         ["StatusLine"] = { bg = colors.none },
-        -- [ "StatusLineNC"] = {},
-        -- [ "Substitute"] = {},
-        -- [ "TabLine"] = {},
-        -- [ "TabLineFill"] = {},
-        -- [ "TabLineSel"] = {},
         ["TermCursor"] = { bg = colors.fg_14, fg = colors.bg_01 },
-        -- [ "TermCursorNC"] = {},
         ["Title"] = { fg = colors.fg_15 },
-        -- [ "Tooltip"] = {},
-        -- [ "VertSplit"] = {},
         ["Visual"] = { bg = colors.blue_06 },
-        -- [ "VisualNOS"] = {},
         ["WarningMsg"] = { fg = diagnostic.warn },
-        -- [ "Whitespace"] = {},
-        -- [ "WildMenu"] = {},
         ["WinBar"] = { fg = colors.fg_11 },
-        -- [ "WinBarNC"] = {},
         ["WinSeparator"] = { fg = "#080A0E" },
 
         ------------------------------------------------------------------------------------------
@@ -132,10 +88,6 @@ function M.get(config)
         -- Pmenu
 
         ["Pmenu"] = { bg = colors.bg_04, fg = colors.fg_14 },
-        -- [ "PmenuExtra"] = {},
-        -- [ "PmenuExtraSel"] = {},
-        -- [ "PmenuKind"] = {},
-        -- [ "PmenuKindSel"] = {},
         ["PmenuSbar"] = { bg = colors.bg_04 },
         ["PmenuSel"] = { bg = colors.blue_02, fg = colors.fg_15 },
         ["PmenuThumb"] = { bg = colors.bg_10 },
@@ -188,6 +140,7 @@ function M.get(config)
         ------------------------------------------------------------------------------------------
 
         -- nvim-treesitter/nvim-treesitter
+
         ["@attribute"] = { link = "@type" },
         ["@boolean"] = { fg = colors.blue_12 },
         ["@character"] = { fg = colors.orange_01 },
@@ -198,7 +151,6 @@ function M.get(config)
         ["@constant.builtin"] = { link = "@keyword" },
         ["@constant.macro"] = { fg = colors.blue_11 },
         ["@constructor"] = { fg = colors.green_05 },
-        -- [ "@debug"] = {},
         ["@define"] = { fg = colors.purple_02 },
         ["@exception"] = { fg = colors.purple_02 },
         ["@field"] = { fg = colors.blue_15 },
@@ -217,7 +169,6 @@ function M.get(config)
         ["@number"] = { fg = colors.green_09 },
         ["@operator"] = { fg = colors.fg },
         ["@parameter"] = { fg = colors.blue_15 },
-        -- [ "@preproc"] = {},
         ["@punctuation"] = { fg = colors.fg },
         ["@property"] = { fg = colors.blue_15 },
         ["@punctuation.delimiter"] = { fg = colors.fg },
@@ -358,108 +309,55 @@ function M.get(config)
         ------------------------------------------------------------------------------------------
 
         -- nvim-treesitter/nvim-treesitter-context
+
         ["TreesitterContext"] = { bg = config.transparent_background and colors.bg_09 or colors.bg_04 },
-        -- [ "TreesitterContextBottom"] = {},
         ["TreesitterContextLineNumber"] = { bg = config.transparent_background and colors.bg_09 or colors.bg_04 },
 
         ------------------------------------------------------------------------------------------
 
         -- nvim-treesitter/playground
-        -- [ "nodeAnonymous"]= {},
+
         ["nodeNumber"] = { link = "@number" },
-        -- [ "nodeOp"]= {},
         ["nodeType"] = { link = "@type" },
         ["nodeTag"] = { link = "@variable" },
 
         ------------------------------------------------------------------------------------------
 
-        -- ufo
+        -- kevinhwang91/nvim-ufo
+
         ["UfoCursorFoldedLine"] = { bg = colors.blue_05 },
         ["UfoFoldedEllipsis"] = { fg = colors.fg_05 },
 
         ------------------------------------------------------------------------------------------
 
         -- ibhagwan/fzf-lua
+
         ["FzfLuaBorder"] = { fg = colors.fg_04 },
-        -- [ "FzfLuaCursor"] = {},
-        -- [ "FzfLuaCursorLine"] = {},
-        -- [ "FzfLuaCursorLineNr"] = {},
-        -- [ "FzfLuaHelpBorder"] = {},
-        -- [ "FzfLuaHelpNormal"] = {},
-        -- [ "FzfLuaNormal"] = {},
-        -- [ "FzfLuaScrollBorderEmpty"] = {},
-        -- [ "FzfLuaScrollBorderFull"] = {},
-        -- [ "FzfLuaScrollFloatEmpty"] = {},
-        -- [ "FzfLuaScrollFloatFull"] = {},
-        -- [ "FzfLuaSearch"] = {},
-        -- [ "FzfLuaTitle"] = {},
 
         ------------------------------------------------------------------------------------------
 
         -- nvim-telescope/telescope.nvim
-        -- [ "TelescopeBorder"] = {},
+
         ["TelescopeMatching"] = { fg = colors.blue_07 },
-        -- [ "TelescopeMultiIcon"] = {},
-        -- [ "TelescopeMultiSelection"] = {},
-        -- [ "TelescopeNormal"] = {},
 
         -- Telescope Preview
-        -- [ "TelescopePreviewBlock"] = {},
         ["TelescopePreviewBorder"] = { bg = colors.bg_02, fg = colors.bg_02 },
-        -- [ "TelescopePreviewCharDev"] = {},
-        -- [ "TelescopePreviewDate"] = {},
-        -- [ "TelescopePreviewDirectory"] = {},
-        -- [ "TelescopePreviewExecute"] = {},
-        -- [ "TelescopePreviewGroup"] = {},
-        -- [ "TelescopePreviewHyphen"] = {},
-        -- [ "TelescopePreviewLine"] = {},
-        -- [ "TelescopePreviewMatch"] = {},
-        -- [ "TelescopePreviewMessage"] = {},
-        -- [ "TelescopePreviewMessageFillchar"] = {},
         ["TelescopePreviewNormal"] = { bg = colors.bg_02 },
-        -- [ "TelescopePreviewPipe"] = {},
-        -- [ "TelescopePreviewRead"] = {},
-        -- [ "TelescopePreviewSize"] = {},
-        -- [ "TelescopePreviewSocket"] = {},
         ["TelescopePreviewTitle"] = { bg = colors.blue_01, fg = colors.fg_15 },
-        -- [ "TelescopePreviewUser"] = {},
-        -- [ "TelescopePreviewWrite"] = {},
 
         -- Telescope Prompt
         ["TelescopePromptBorder"] = { bg = colors.bg_06, fg = colors.bg_06 },
         ["TelescopePromptCounter"] = { fg = colors.bg_12 },
         ["TelescopePromptNormal"] = { bg = colors.bg_06, fg = colors.bg_12 },
-        -- ["TelescopePromptPrefix"] = {},
         ["TelescopePromptTitle"] = { bg = colors.blue_01, fg = colors.fg_15 },
 
         -- Telescope Results
         ["TelescopeResultsBorder"] = { bg = colors.bg_04, fg = colors.bg_04 },
-        -- ["TelescopeResultsClass"] = {},
-        -- ["TelescopeResultsComment"] = {},
-        -- ["TelescopeResultsConstant"] = {},
-        -- ["TelescopeResultsDiffAdd"] = {},
-        -- ["TelescopeResultsDiffChange"] = {},
-        -- ["TelescopeResultsDiffDelete"] = {},
-        -- ["TelescopeResultsDiffUntracked"] = {},
-        -- ["TelescopeResultsField"] = {},
-        -- ["TelescopeResultsFunction"] = {},
-        -- ["TelescopeResultsIdentifier"] = {},
-        -- ["TelescopeResultsLineNr"] = {},
-        -- ["TelescopeResultsMethod"] = {},
         ["TelescopeResultsNormal"] = { bg = colors.bg_04 },
-        -- ["TelescopeResultsNumber"] = {},
-        -- ["TelescopeResultsOperator"] = {},
-        -- ["TelescopeResultsSpecialComment"] = {},
-        -- ["TelescopeResultsStruct"] = {},
         ["TelescopeResultsTitle"] = { bg = colors.blue_01, fg = colors.fg_15 },
-        -- ["TelescopeResultsVariable"] = {},
 
         -- Telescope Selection
         ["TelescopeSelection"] = { bg = colors.blue_02, fg = colors.fg_15 },
-        -- ["TelescopeSelectionCaret"] = {},
-
-        -- Telescope Title
-        -- ["TelescopeTitle"] = {},
 
         ------------------------------------------------------------------------------------------
 
@@ -467,47 +365,31 @@ function M.get(config)
 
         -- Diagnostics LSP
         ["DiagnosticBorder"] = { bg = colors.bg, fg = colors.fg_04 },
-        -- [ "DiagnosticBufnr"] = {},
         ["DiagnosticDeprecated"] = { strikethrough = true },
         ["DiagnosticError"] = { fg = diagnostic.error },
         ["DiagnosticFloatingError"] = { fg = diagnostic.error },
         ["DiagnosticFloatingHint"] = { fg = diagnostic.hint },
         ["DiagnosticFloatingInfo"] = { fg = diagnostic.info },
-        -- [ "DiagnosticFloatingOk"] = {},
         ["DiagnosticFloatingWarn"] = { fg = diagnostic.warn },
-        -- [ "DiagnosticFname"] = {},
         ["DiagnosticHint"] = { fg = diagnostic.hint },
         ["DiagnosticInfo"] = { fg = diagnostic.info },
-        -- [ "DiagnosticNormal"] = {},
-        -- [ "DiagnosticOk"] = {},
-        -- [ "DiagnosticShowBorder"] = {},
-        -- [ "DiagnosticShowNormal"] = {},
         ["DiagnosticSignError"] = { fg = diagnostic.error },
         ["DiagnosticSignHint"] = { fg = diagnostic.hint },
         ["DiagnosticSignInfo"] = { fg = diagnostic.info },
-        -- [ "DiagnosticSignOk"] = {},
         ["DiagnosticSignWarn"] = { fg = diagnostic.warn },
-        -- [ "DiagnosticSource"] = {},
-        -- [ "DiagnosticText"] = {},
         ["DiagnosticUnderlineError"] = { sp = diagnostic.error, undercurl = true },
         ["DiagnosticUnderlineHint"] = { sp = diagnostic.hint, undercurl = true },
         ["DiagnosticUnderlineInfo"] = { sp = diagnostic.info, undercurl = true },
-        -- [ "DiagnosticUnderlineOk"] = {},
         ["DiagnosticUnderlineWarn"] = { sp = diagnostic.warn, undercurl = true },
         ["DiagnosticUnnecessary"] = { fg = diagnostic.unnecessary },
         ["DiagnosticVirtualTextError"] = { fg = diagnostic.error },
         ["DiagnosticVirtualTextHint"] = { fg = diagnostic.hint },
         ["DiagnosticVirtualTextInfo"] = { fg = diagnostic.info },
-        -- [ "DiagnosticVirtualTextOk"] = {},
         ["DiagnosticVirtualTextWarn"] = { fg = diagnostic.warn },
         ["DiagnosticWarn"] = { fg = diagnostic.warn },
 
         -- LspInfo
         ["LspInfoBorder"] = { fg = colors.fg_04 },
-        -- [ "LspInfoFiletype"] = {},
-        -- [ "LspInfoList"] = {},
-        -- [ "LspInfoTip"] = {},
-        -- [ "LspInfoTitle"] = {},
 
         -- Codelens
         ["LspCodeLens"] = { fg = colors.fg_10 },
@@ -516,6 +398,7 @@ function M.get(config)
         ------------------------------------------------------------------------------------------
 
         -- SmiteshP/nvim-navic
+
         ["NavicIconsFile"] = { fg = colors.fg_14 },
         ["NavicIconsModule"] = { fg = colors.fg_14 },
         ["NavicIconsNamespace"] = { fg = colors.fg_14 },
@@ -548,62 +431,38 @@ function M.get(config)
         ------------------------------------------------------------------------------------------
 
         -- williamboman/mason.nvim
+
         ["MasonError"] = { fg = diagnostic.error },
-        -- [ "MasonHeader"] = {},
-        -- [ "MasonHeaderSecondary"] = {},
-        -- [ "MasonHeading"] = {},
-        -- [ "MasonHighlight"] = {},
-        -- [ "MasonHighlightBlock"] = {},
-        -- [ "MasonHighlightBlockBold"] = {},
-        -- [ "MasonHighlightBlockBoldSecondary"] = {},
-        -- [ "MasonHighlightBlockSecondary"] = {},
-        -- [ "MasonHighlightSecondary"] = {},
-        -- [ "MasonLink"] = {},
-        -- [ "MasonMuted"] = {},
-        -- [ "MasonMutedBlock"] = {},
-        -- [ "MasonMutedBlockBold"] = {},
-        -- [ "MasonNormal"] = {},
         ["MasonWarning"] = { fg = diagnostic.warn },
-        -- [ "masonDoc"] = {},
-        -- [ "masonPerlComment"] = {},
-        -- [ "masonPod"] = {},
 
         ------------------------------------------------------------------------------------------
 
         -- folke/trouble.nvim
+
         ["TroubleCode"] = { fg = colors.blue_08, underline = true },
         ["TroubleCount"] = { bg = colors.bg_09, fg = colors.fg_15 },
-        -- [ "TroubleError"] = {},
         ["TroubleFile"] = { fg = colors.fg_14 },
         ["TroubleFoldIcon"] = { fg = colors.fg_12 },
-        -- [ "TroubleHint"] = {},
-        -- [ "TroubleIndent"] = {},
-        -- [ "TroubleInformation"] = {},
         ["TroubleLocation"] = { fg = colors.fg_09 },
-        -- [ "TroubleNormal"] = {},
-        -- [ "TroubleOther"] = {},
         ["TroublePreview"] = { bg = colors.bg_08 },
         ["TroubleSignError"] = { fg = diagnostic.error },
         ["TroubleSignHint"] = { fg = diagnostic.hint },
         ["TroubleSignInformation"] = { fg = diagnostic.info },
-        -- [ "TroubleSignOther"] = {},
         ["TroubleSignWarning"] = { fg = diagnostic.warn },
         ["TroubleSource"] = { fg = colors.fg_09 },
-        -- [ "TroubleText"] = {},
         ["TroubleTextError"] = { fg = colors.fg },
         ["TroubleTextHint"] = { fg = colors.fg },
         ["TroubleTextInformation"] = { fg = colors.fg },
         ["TroubleTextWarning"] = { fg = colors.fg },
-        -- [ "TroubleWarning"] = {},
 
         ------------------------------------------------------------------------------------------
 
-        -- Dap
+        -- mfussenegger/nvim-dap
         ["DapBreakpoint"] = { fg = colors.red_04 },
         ["DapStopped"] = { fg = colors.yellow_06 },
         ["DapBreakpointRejected"] = { fg = colors.fg_06 },
 
-        -- DapUI
+        -- rcarriga/nvim-dap-ui
         ["DapUIScope"] = { fg = colors.fg_14 },
         ["DapUIVariable"] = { link = "Variable" },
         ["DapUIType"] = { link = "Type" },
@@ -621,6 +480,7 @@ function M.get(config)
         ------------------------------------------------------------------------------------------
 
         -- hrsh7th/nvim-cmp
+
         ["CmpDoc"] = {
             bg = config.transparent_background and colors.none or colors.bg,
             fg = colors.fg,
@@ -629,70 +489,36 @@ function M.get(config)
             bg = config.transparent_background and colors.none or colors.bg,
             fg = colors.bg_11,
         },
-        -- [ "CmpItemAbbr"] = {},
-        -- [ "CmpItemAbbrDefault"] = {},
         ["CmpItemAbbrDeprecated"] = { fg = colors.fg_14, strikethrough = true },
-        -- [ "CmpItemAbbrDeprecatedDefault"] = {},
         ["CmpItemAbbrMatch"] = { fg = colors.blue_07 },
-        -- [ "CmpItemAbbrMatchDefault"] = {},
-        -- [ "CmpItemAbbrMatchFuzzy"] = {},
-        -- [ "CmpItemAbbrMatchFuzzyDefault"] = {},
         ["CmpItemKind"] = { fg = colors.fg_14 },
         ["CmpItemKindClass"] = { fg = colors.orange_02 },
-        -- [ "CmpItemKindClassDefault"] = {},
         ["CmpItemKindColor"] = { fg = colors.fg },
-        -- [ "CmpItemKindColorDefault"] = {},
         ["CmpItemKindConstant"] = { fg = colors.fg_14 },
-        -- [ "CmpItemKindConstantDefault"] = {},
         ["CmpItemKindConstructor"] = { fg = colors.purple_01 },
-        -- [ "CmpItemKindConstructorDefault"] = {},
-        -- [ "CmpItemKindDefault"] = {},
         ["CmpItemKindEnum"] = { fg = colors.orange_02 },
-        -- [ "CmpItemKindEnumDefault"] = {},
         ["CmpItemKindEnumMember"] = { fg = colors.blue_14 },
-        -- [ "CmpItemKindEnumMemberDefault"] = {},
         ["CmpItemKindEvent"] = { fg = colors.fg_14 },
-        -- [ "CmpItemKindEventDefault"] = {},
         ["CmpItemKindField"] = { fg = colors.blue_14 },
-        -- [ "CmpItemKindFieldDefault"] = {},
         ["CmpItemKindFile"] = { fg = colors.fg_14 },
-        -- [ "CmpItemKindFileDefault"] = {},
         ["CmpItemKindFolder"] = { fg = colors.yellow_02 },
-        -- [ "CmpItemKindFolderDefault"] = {},
         ["CmpItemKindFunction"] = { fg = colors.purple_01 },
-        -- [ "CmpItemKindFunctionDefault"] = {},
         ["CmpItemKindInterface"] = { fg = colors.blue_14 },
-        -- [ "CmpItemKindInterfaceDefault"] = {},
         ["CmpItemKindKeyword"] = { fg = colors.fg_14 },
-        -- [ "CmpItemKindKeywordDefault"] = {},
         ["CmpItemKindMethod"] = { fg = colors.purple_01 },
-        -- [ "CmpItemKindMethodDefault"] = {},
         ["CmpItemKindModule"] = { fg = colors.fg_14 },
-        -- [ "CmpItemKindModuleDefault"] = {},
         ["CmpItemKindOperator"] = { fg = colors.fg_14 },
-        -- [ "CmpItemKindOperatorDefault"] = {},
         ["CmpItemKindProperty"] = { fg = colors.blue_14 },
-        -- [ "CmpItemKindPropertyDefault"] = {},
         ["CmpItemKindReference"] = { fg = colors.fg_14 },
-        -- [ "CmpItemKindReferenceDefault"] = {},
         ["CmpItemKindSnippet"] = { fg = colors.fg_14 },
-        -- [ "CmpItemKindSnippetDefault"] = {},
         ["CmpItemKindSnippetFunction"] = { fg = colors.fg_14 },
         ["CmpItemKindSnippetStruct"] = { fg = colors.fg_14 },
         ["CmpItemKindStruct"] = { fg = colors.fg_14 },
-        -- [ "CmpItemKindStructDefault"] = {},
         ["CmpItemKindText"] = { fg = colors.fg_14 },
-        -- [ "CmpItemKindTextDefault"] = {},
         ["CmpItemKindTypeParameter"] = { fg = colors.fg_14 },
-        -- [ "CmpItemKindTypeParameterDefault"] = {},
         ["CmpItemKindUnit"] = { fg = colors.fg_14 },
-        -- [ "CmpItemKindUnitDefault"] = {},
         ["CmpItemKindValue"] = { fg = colors.orange_02 },
-        -- [ "CmpItemKindValueDefault"] = {},
         ["CmpItemKindVariable"] = { fg = colors.blue_14 },
-        -- [ "CmpItemKindVariableDefault"] = {},
-        -- [ "CmpItemMenu"] = {},
-        -- [ "CmpItemMenuDefault"] = {},
         ["CmpMenu"] = {
             bg = config.transparent_background and colors.none or colors.bg,
             fg = colors.fg,
@@ -706,51 +532,15 @@ function M.get(config)
         ------------------------------------------------------------------------------------------
 
         -- lewis6991/gitsigns.nvim
+
         ["GitSignsAdd"] = { fg = git.signs.add },
-        -- [ "GitSignsAddInline"] = {},
-        -- [ "GitSignsAddLn"] = {},
-        -- [ "GitSignsAddPreview"] = {},
         ["GitSignsChange"] = { fg = git.signs.change },
-        -- [ "GitSignsChangeInline"] = {},
-        -- [ "GitSignsChangeLn"] = {},
-        -- [ "GitSignsChangeLnInline"] = {},
-        -- [ "GitSignsChangeNr"] = {},
-        -- [ "GitSignsChangedelete"] = {},
-        -- [ "GitSignsChangedeleteLn"] = {},
-        -- [ "GitSignsChangedeleteNr"] = {},
-        -- [ "GitSignsCurrentLineBlame"] = {},
         ["GitSignsDelete"] = { fg = git.signs.delete },
-        -- [ "GitSignsDelete"] = {},
-        -- [ "GitSignsDeleteInline"] = {},
-        -- [ "GitSignsDeleteLnInline"] = {},
-        -- [ "GitSignsDeleteNr"] = {},
-        -- [ "GitSignsDeletePreview"] = {},
-        -- [ "GitSignsDeleteVirtLn"] = {},
-        -- [ "GitSignsDeleteVirtLnInline"] = {},
-        -- [ "GitSignsStagedAdd"] = {},
-        -- [ "GitSignsStagedAddLn"] = {},
-        -- [ "GitSignsStagedAddNr"] = {},
-        -- [ "GitSignsStagedChange"] = {},
-        -- [ "GitSignsStagedChangeLn"] = {},
-        -- [ "GitSignsStagedChangeNr"] = {},
-        -- [ "GitSignsStagedChangedelete"] = {},
-        -- [ "GitSignsStagedChangedeleteLn"] = {},
-        -- [ "GitSignsStagedChangedeleteNr"] = {},
-        -- [ "GitSignsStagedDelete"] = {},
-        -- [ "GitSignsStagedDeleteNr"] = {},
-        -- [ "GitSignsStagedTopdelete"] = {},
-        -- [ "GitSignsStagedTopdeleteNr"] = {},
-        -- [ "GitSignsTopdelete"] = {},
-        -- [ "GitSignsTopdeleteNr"] = {},
-        -- [ "GitSignsUntracked"] = {},
-        -- [ "GitSignsUntrackedLn"] = {},
-        -- [ "GitSignsUntrackedNr"] = {},
 
         ------------------------------------------------------------------------------------------
 
         -- petertriho/nvim-scrollbar
-        -- [ "ScrollbarCursor"] = {},
-        -- [ "ScrollbarCursorHandler"] = {},
+
         ["ScrollbarError"] = { fg = diagnostic.error },
         ["ScrollbarErrorHandle"] = { fg = diagnostic.error },
         ["ScrollbarGitAdd"] = { fg = git.signs.add },
@@ -759,88 +549,56 @@ function M.get(config)
         ["ScrollbarGitChangeHandle"] = { fg = git.signs.change },
         ["ScrollbarGitDelete"] = { fg = git.signs.delete },
         ["ScrollbarGitDeleteHandle"] = { fg = git.signs.delete },
-        -- [ "ScrollbarHandle"] = {},
         ["ScrollbarHint"] = { fg = diagnostic.hint },
         ["ScrollbarHintHandle"] = { fg = diagnostic.hint },
         ["ScrollbarInfo"] = { fg = diagnostic.info },
         ["ScrollbarInfoHandle"] = { fg = diagnostic.info },
-        -- [ "ScrollbarMisc"] = {},
-        -- [ "ScrollbarMiscHandle"] = {},
-        -- [ "ScrollbarSearch"] = {},
-        -- [ "ScrollbarSearcHandle"] = {},
         ["ScrollbarWarn"] = { fg = diagnostic.warn },
         ["ScrollbarWarnHandle"] = { fg = diagnostic.warn },
 
         ------------------------------------------------------------------------------------------
 
         -- nvim-tree/nvim-tree.lua
-        -- [ "NvimTreeBookmark"] = {},
+
         ["NvimTreeClosedFolderIcon"] = { link = "NvimTreeFolderIcon" },
-        -- [ "NvimTreeCursorColumn"] = {},
         ["NvimTreeCursorLine"] = { bg = config.transparent_background and colors.none or colors.bg_05 },
-        -- [ "NvimTreeCursorLineNr"] = {},
-        -- [ "NvimTreeEmptyFolderName"] = {},
-        -- [ "NvimTreeEndOfBuffer"] = {},
-        -- [ "NvimTreeExecFile"] = {},
-        -- [ "NvimTreeFileDeleted"] = {},
-        -- [ "NvimTreeFileDirty"] = {},
-        -- [ "NvimTreeFileIgnored"] = {},
-        -- [ "NvimTreeFileMerge"] = {},
-        -- [ "NvimTreeFileNew"] = {},
-        -- [ "NvimTreeFileRenamed"] = {},
-        -- [ "NvimTreeFileStaged"] = {},
         ["NvimTreeFolderIcon"] = { fg = colors.yellow_02 },
         ["NvimTreeFolderName"] = { fg = colors.fg },
         ["NvimTreeGitDeleted"] = { fg = git.status.deleted },
         ["NvimTreeGitDirty"] = { fg = git.status.modified },
         ["NvimTreeGitIgnored"] = { fg = git.status.ignored },
-        -- [ "NvimTreeGitMerge"] = {},
         ["NvimTreeGitNew"] = { fg = git.status.untracked },
         ["NvimTreeGitRenamed"] = { fg = git.status.untracked },
         ["NvimTreeGitStaged"] = { fg = git.status.staged },
-        -- [ "NvimTreeImageFile"] = {},
         ["NvimTreeIndentMarker"] = { fg = colors.fg_03 },
-        -- [ "NvimTreeLineNr"] = {},
-        -- [ "NvimTreeLiveFilterPrefix"] = {},
-        -- [ "NvimTreeLiveFilterValue"] = {},
         ["NvimTreeLspDiagnosticsError"] = { fg = diagnostic.error },
         ["NvimTreeLspDiagnosticsHint"] = { fg = diagnostic.hint },
         ["NvimTreeLspDiagnosticsInformation"] = { fg = diagnostic.info },
         ["NvimTreeLspDiagnosticsWarning"] = { fg = diagnostic.warn },
         ["NvimTreeModifiedFile"] = { fg = colors.fg },
         ["NvimTreeNormal"] = { bg = config.transparent_background and colors.none or colors.bg_01 },
-        -- [ "NvimTreeNormalNC"] = {},
         ["NvimTreeOpenedFile"] = { fg = colors.fg },
         ["NvimTreeOpenedFolderIcon"] = { link = "NvimTreeFolderIcon" },
         ["NvimTreeOpenedFolderName"] = { fg = colors.fg },
-        -- [ "NvimTreePopup"] = {},
         ["NvimTreeRootFolder"] = { fg = colors.fg_14 },
-        -- [ "NvimTreeSignColumn"] = {},
-        -- [ "NvimTreeSpecialFile"] = {},
-        -- [ "NvimTreeStatusLine"] = {},
-        -- [ "NvimTreeStatusLineNC"] = {},
-        -- [ "NvimTreeSymlink"] = {},
         ["NvimTreeWinSeparator"] = {
             bg = config.transparent_background and colors.none or colors.bg,
             fg = colors.bg,
         },
-        -- [ "NvimTreeWindowPicker"] = {},
 
         ------------------------------------------------------------------------------------------
 
-        -- akinsho/toggleterm.nvim.git
-        -- [ "ToggleTermNormal"] = {},
+        -- akinsho/toggleterm.nvim
+
         ["ToggleTermNormalFloat"] = { bg = colors.bg_02 },
         ["ToggleTermFloatBorder"] = { bg = colors.bg_02, fg = colors.bg_02 },
 
         ------------------------------------------------------------------------------------------
 
         -- lukas-reineke/indent-blankline.nvim
+
         ["IndentBlanklineChar"] = { fg = colors.bg_07, bg = colors.none },
         ["IndentBlanklineContextChar"] = { fg = colors.bg_11, bg = colors.none },
-        -- [ "IndentBlanklineContextStart"] = {},
-        -- [ "IndentBlanklineSpaceChar"] = {},
-        -- [ "IndentBlanklineSpaceCharBlankline"] = {},
 
         ------------------------------------------------------------------------------------------
 
@@ -852,44 +610,22 @@ function M.get(config)
         ------------------------------------------------------------------------------------------
 
         -- folke/lazy.nvim
+
         ["LazyButton"] = { bg = colors.blue_04 },
         ["LazyButtonActive"] = { bg = colors.green_02 },
         ["LazyComment"] = { fg = colors.fg_07 },
-        -- [ "LazyCommitIssue"] = {},
-        -- [ "LazyCommitScope"] = {},
-        -- [ "LazyCommitType"] = {},
-        -- [ "LazyDimmed"] = {},
-        -- [ "LazyDir"] = {},
         ["LazyH1"] = { bg = colors.green_02 },
-        -- [ "LazyH2"] = {},
-        -- [ "LazyNoCond"] = {},
-        -- [ "LazyNormal"] = {},
-        -- [ "LazyProgressDone"] = {},
-        -- [ "LazyProgressTodo"] = {},
-        -- [ "LazyProp"] = {},
-        -- [ "LazyReasonCmd"] = {},
-        -- [ "LazyReasonEvent"] = {},
-        -- [ "LazyReasonFt"] = {},
-        -- [ "LazyReasonImport"] = {},
-        -- [ "LazyReasonKeys"] = {},
-        -- [ "LazyReasonPlugin"] = {},
-        -- [ "LazyReasonRuntime"] = {},
-        -- [ "LazyReasonSource"] = {},
-        -- [ "LazyReasonStart"] = {},
-        -- [ "LazySpecial"] = {},
-        -- [ "LazyTaskError"] = {},
-        -- [ "LazyTaskOutput"] = {},
-        -- [ "LazyUrl"] = {},
-        -- [ "LazyValue"] = {},
 
         ------------------------------------------------------------------------------------------
 
         -- lua
+
         ["luaParenError"] = { link = "Normal" },
 
         ------------------------------------------------------------------------------------------
 
         -- xml
+
         ["xmlAttrib"] = { link = "Variable" },
         ["xmlProcessingDelim"] = { fg = colors.fg_05 },
         ["xmlTag"] = { fg = colors.fg_05 },
