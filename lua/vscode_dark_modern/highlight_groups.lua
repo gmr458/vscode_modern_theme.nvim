@@ -577,7 +577,10 @@ function M.get(config)
         ["NvimTreeLspDiagnosticsInformation"] = { fg = diagnostic.info },
         ["NvimTreeLspDiagnosticsWarning"] = { fg = diagnostic.warn },
         ["NvimTreeModifiedFile"] = { fg = colors.fg },
-        ["NvimTreeNormal"] = { bg = config.transparent_background and colors.none or colors.bg_01 },
+        ["NvimTreeNormal"] = {
+            bg = config.transparent_background and colors.none
+                or (config.nvim_tree_darker and colors.bg_01 or colors.bg),
+        },
         ["NvimTreeOpenedFile"] = { fg = colors.fg },
         ["NvimTreeOpenedFolderIcon"] = { link = "NvimTreeFolderIcon" },
         ["NvimTreeOpenedFolderName"] = { fg = colors.fg },

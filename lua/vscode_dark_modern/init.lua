@@ -3,12 +3,14 @@ local M = {}
 --- @class Config
 --- @field cursorline boolean
 --- @field transparent_background boolean
+--- @field nvim_tree_darker boolean
 M.config = {
     compile_path = vim.fn.stdpath("cache") .. "/vscode_dark_modern",
     path_sep = jit and (jit.os == "Windows" and "\\" or "/") or package.config:sub(1, 1),
     compiled_filename = "compiled",
     cursorline = false,
     transparent_background = false,
+    nvim_tree_darker = false,
 }
 
 --- @overload fun(config: Config)
