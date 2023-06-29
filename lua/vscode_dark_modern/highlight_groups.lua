@@ -7,9 +7,9 @@ function M.get(config)
     local diagnostic = {
         error = colors.red_05,
         warn = colors.yellow_03,
-        info = colors.blue_08,
+        info = colors.blue_09,
         hint = colors.green_05,
-        unnecessary = colors.blue_12,
+        unnecessary = colors.blue_13,
     }
 
     local git = {
@@ -45,7 +45,7 @@ function M.get(config)
         ["CursorLine"] = {
             bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_03 or colors.none),
         },
-        -- [ "CursorLineFold"] = {},
+        -- ["CursorLineFold"] = {},
         ["CursorLineNr"] = {
             bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_03 or colors.none),
             fg = colors.fg_13,
@@ -59,8 +59,8 @@ function M.get(config)
         -- [ "EndOfBuffer"] = {},
         ["Error"] = { fg = diagnostic.error },
         ["ErrorMsg"] = { fg = diagnostic.error },
-        -- [ "FoldColumn"] = {},
-        -- [ "Folded"] = {},
+        ["FoldColumn"] = { bg = colors.bg, fg = colors.bg },
+        ["Folded"] = { bg = colors.blue_05 },
         ["FloatBorder"] = {
             bg = config.transparent_background and colors.none or colors.bg,
             fg = colors.bg_11,
@@ -105,7 +105,7 @@ function M.get(config)
         -- [ "SpecialKey"] = {},
         ["SpellBad"] = { sp = colors.red_03, undercurl = true },
         ["SpellCap"] = { sp = colors.yellow_05, undercurl = true },
-        ["SpellLocal"] = { sp = colors.blue_10, undercurl = true },
+        ["SpellLocal"] = { sp = colors.blue_11, undercurl = true },
         ["SpellRare"] = { sp = colors.green_05, undercurl = true },
         ["StatusLine"] = { bg = colors.none },
         -- [ "StatusLineNC"] = {},
@@ -118,7 +118,7 @@ function M.get(config)
         ["Title"] = { fg = colors.fg_15 },
         -- [ "Tooltip"] = {},
         -- [ "VertSplit"] = {},
-        ["Visual"] = { bg = colors.blue_05 },
+        ["Visual"] = { bg = colors.blue_06 },
         -- [ "VisualNOS"] = {},
         ["WarningMsg"] = { fg = diagnostic.warn },
         -- [ "Whitespace"] = {},
@@ -146,12 +146,12 @@ function M.get(config)
 
         ["Comment"] = { fg = colors.green_08 },
 
-        ["Variable"] = { fg = colors.blue_14 },
-        ["Constant"] = { fg = colors.blue_10 },
+        ["Variable"] = { fg = colors.blue_15 },
+        ["Constant"] = { fg = colors.blue_11 },
         ["String"] = { fg = colors.orange_01 },
         ["Character"] = { fg = colors.red_03 },
         ["Number"] = { fg = colors.green_09 },
-        ["Boolean"] = { fg = colors.blue_11 },
+        ["Boolean"] = { fg = colors.blue_12 },
         ["Float"] = { fg = colors.green_09 },
 
         ["Identifier"] = { fg = colors.fg },
@@ -162,13 +162,13 @@ function M.get(config)
         ["Repeat"] = { fg = colors.purple_02 },
         ["Label"] = { fg = colors.purple_02 },
         ["Operator"] = { fg = colors.fg },
-        ["Keyword"] = { fg = colors.blue_11 },
+        ["Keyword"] = { fg = colors.blue_12 },
         ["Exception"] = { fg = colors.purple_02 },
 
         ["PreProc"] = { fg = colors.purple_02 },
         ["Include"] = { fg = colors.purple_02 },
         ["Define"] = { fg = colors.purple_02 },
-        ["Macro"] = { fg = colors.blue_11 },
+        ["Macro"] = { fg = colors.blue_12 },
         ["PreCondit"] = { fg = colors.purple_02 },
 
         ["Type"] = { fg = colors.green_05 },
@@ -189,44 +189,44 @@ function M.get(config)
 
         -- nvim-treesitter/nvim-treesitter
         ["@attribute"] = { link = "@type" },
-        ["@boolean"] = { fg = colors.blue_11 },
+        ["@boolean"] = { fg = colors.blue_12 },
         ["@character"] = { fg = colors.orange_01 },
         ["@character.special"] = { fg = colors.yellow_04 },
         ["@comment"] = { fg = colors.green_08 },
         ["@conditional"] = { fg = colors.purple_02 },
-        ["@constant"] = { fg = colors.blue_10 },
+        ["@constant"] = { fg = colors.blue_11 },
         ["@constant.builtin"] = { link = "@keyword" },
-        ["@constant.macro"] = { fg = colors.blue_10 },
+        ["@constant.macro"] = { fg = colors.blue_11 },
         ["@constructor"] = { fg = colors.green_05 },
         -- [ "@debug"] = {},
         ["@define"] = { fg = colors.purple_02 },
         ["@exception"] = { fg = colors.purple_02 },
-        ["@field"] = { fg = colors.blue_14 },
+        ["@field"] = { fg = colors.blue_15 },
         ["@float"] = { fg = colors.green_09 },
         ["@function"] = { fg = colors.yellow_05 },
         ["@function.builtin"] = { fg = colors.yellow_05 },
         ["@function.call"] = { fg = colors.yellow_05 },
-        ["@function.macro"] = { fg = colors.blue_11 },
+        ["@function.macro"] = { fg = colors.blue_12 },
         ["@include"] = { fg = colors.purple_02 },
-        ["@keyword"] = { fg = colors.blue_11 },
+        ["@keyword"] = { fg = colors.blue_12 },
         ["@keyword.return"] = { fg = colors.purple_02 },
         ["@label"] = { fg = colors.purple_02 },
-        ["@macro"] = { fg = colors.blue_11 },
+        ["@macro"] = { fg = colors.blue_12 },
         ["@method"] = { fg = colors.yellow_05 },
         ["@namespace"] = { fg = colors.green_05 },
         ["@number"] = { fg = colors.green_09 },
         ["@operator"] = { fg = colors.fg },
-        ["@parameter"] = { fg = colors.blue_14 },
+        ["@parameter"] = { fg = colors.blue_15 },
         -- [ "@preproc"] = {},
         ["@punctuation"] = { fg = colors.fg },
-        ["@property"] = { fg = colors.blue_14 },
+        ["@property"] = { fg = colors.blue_15 },
         ["@punctuation.delimiter"] = { fg = colors.fg },
         ["@repeat"] = { fg = colors.purple_02 },
-        ["@storageclass"] = { fg = colors.blue_11 },
+        ["@storageclass"] = { fg = colors.blue_12 },
         ["@string"] = { fg = colors.orange_01 },
         ["@string.escape"] = { fg = colors.yellow_04 },
         ["@string.special"] = { fg = colors.yellow_04 },
-        ["@tag"] = { fg = colors.blue_11 },
+        ["@tag"] = { fg = colors.blue_12 },
         ["@tag.attribute"] = { link = "@variable" },
         ["@tag.delimiter"] = { fg = colors.fg_05 },
         ["@text.literal"] = { link = "@string" },
@@ -238,13 +238,13 @@ function M.get(config)
         ["@type"] = { fg = colors.green_05 },
         ["@type.builtin"] = { fg = colors.green_05 },
         ["@type.definition"] = { fg = colors.green_05 },
-        ["@type.qualifier"] = { fg = colors.blue_11 },
-        ["@variable"] = { fg = colors.blue_14 },
+        ["@type.qualifier"] = { fg = colors.blue_12 },
+        ["@variable"] = { fg = colors.blue_15 },
         ["@variable.builtin"] = { link = "@variable" },
 
         -- C#
-        ["@include.c_sharp"] = { fg = colors.blue_11 },
-        ["@type.builtin.c_sharp"] = { fg = colors.blue_11 },
+        ["@include.c_sharp"] = { fg = colors.blue_12 },
+        ["@type.builtin.c_sharp"] = { fg = colors.blue_12 },
 
         -- Go
         ["@keyword.default.go"] = { fg = colors.purple_02 },
@@ -254,13 +254,13 @@ function M.get(config)
         ["@text.uri.gomod"] = { fg = colors.yellow_04, underline = true },
 
         -- HTML
-        ["@constant.html"] = { fg = colors.blue_11 },
+        ["@constant.html"] = { fg = colors.blue_12 },
         ["@text.html"] = { fg = colors.fg },
         ["@text.title.html"] = { fg = colors.fg },
 
         -- Java
         ["@function.builtin.super.java"] = { link = "@keyword" },
-        ["@include.java"] = { fg = colors.blue_11 },
+        ["@include.java"] = { fg = colors.blue_12 },
         ["@variable.builtin.this.java"] = { link = "@keyword" },
 
         -- JavaScript
@@ -291,8 +291,8 @@ function M.get(config)
 
         -- Rust
         ["@constant.builtin.rust"] = { link = "@constant" },
-        ["@include.mod.rust"] = { fg = colors.blue_11 },
-        ["@include.use.rust"] = { fg = colors.blue_11 },
+        ["@include.mod.rust"] = { fg = colors.blue_12 },
+        ["@include.use.rust"] = { fg = colors.blue_12 },
         ["@keyword.coroutine.await.rust"] = { fg = colors.purple_02 },
         ["@variable.builtin.rust"] = { link = "@keyword" },
 
@@ -373,6 +373,12 @@ function M.get(config)
 
         ------------------------------------------------------------------------------------------
 
+        -- ufo
+        ["UfoCursorFoldedLine"] = { bg = colors.blue_05 },
+        ["UfoFoldedEllipsis"] = { fg = colors.fg_05 },
+
+        ------------------------------------------------------------------------------------------
+
         -- ibhagwan/fzf-lua
         ["FzfLuaBorder"] = { fg = colors.fg_04 },
         -- [ "FzfLuaCursor"] = {},
@@ -392,7 +398,7 @@ function M.get(config)
 
         -- nvim-telescope/telescope.nvim
         -- [ "TelescopeBorder"] = {},
-        ["TelescopeMatching"] = { fg = colors.blue_06 },
+        ["TelescopeMatching"] = { fg = colors.blue_07 },
         -- [ "TelescopeMultiIcon"] = {},
         -- [ "TelescopeMultiSelection"] = {},
         -- [ "TelescopeNormal"] = {},
@@ -516,13 +522,13 @@ function M.get(config)
         ["NavicIconsPackage"] = { fg = colors.fg_14 },
         ["NavicIconsClass"] = { fg = colors.orange_02 },
         ["NavicIconsMethod"] = { fg = colors.purple_01 },
-        ["NavicIconsProperty"] = { fg = colors.blue_13 },
-        ["NavicIconsField"] = { fg = colors.blue_13 },
+        ["NavicIconsProperty"] = { fg = colors.blue_14 },
+        ["NavicIconsField"] = { fg = colors.blue_14 },
         ["NavicIconsConstructor"] = { fg = colors.purple_01 },
         ["NavicIconsEnum"] = { fg = colors.orange_02 },
-        ["NavicIconsInterface"] = { fg = colors.blue_13 },
+        ["NavicIconsInterface"] = { fg = colors.blue_14 },
         ["NavicIconsFunction"] = { fg = colors.purple_01 },
-        ["NavicIconsVariable"] = { fg = colors.blue_13 },
+        ["NavicIconsVariable"] = { fg = colors.blue_14 },
         ["NavicIconsConstant"] = { fg = colors.fg_14 },
         ["NavicIconsString"] = { fg = colors.fg_14 },
         ["NavicIconsNumber"] = { fg = colors.fg_14 },
@@ -531,7 +537,7 @@ function M.get(config)
         ["NavicIconsObject"] = { fg = colors.fg_14 },
         ["NavicIconsKey"] = { fg = colors.fg_14 },
         ["NavicIconsNull"] = { fg = colors.fg_14 },
-        ["NavicIconsEnumMember"] = { fg = colors.blue_13 },
+        ["NavicIconsEnumMember"] = { fg = colors.blue_14 },
         ["NavicIconsStruct"] = { fg = colors.fg_14 },
         ["NavicIconsEvent"] = { fg = colors.fg_14 },
         ["NavicIconsOperator"] = { fg = colors.fg_14 },
@@ -565,7 +571,7 @@ function M.get(config)
         ------------------------------------------------------------------------------------------
 
         -- folke/trouble.nvim
-        ["TroubleCode"] = { fg = colors.blue_07, underline = true },
+        ["TroubleCode"] = { fg = colors.blue_08, underline = true },
         ["TroubleCount"] = { bg = colors.bg_09, fg = colors.fg_15 },
         -- [ "TroubleError"] = {},
         ["TroubleFile"] = { fg = colors.fg_14 },
@@ -627,7 +633,7 @@ function M.get(config)
         -- [ "CmpItemAbbrDefault"] = {},
         ["CmpItemAbbrDeprecated"] = { fg = colors.fg_14, strikethrough = true },
         -- [ "CmpItemAbbrDeprecatedDefault"] = {},
-        ["CmpItemAbbrMatch"] = { fg = colors.blue_06 },
+        ["CmpItemAbbrMatch"] = { fg = colors.blue_07 },
         -- [ "CmpItemAbbrMatchDefault"] = {},
         -- [ "CmpItemAbbrMatchFuzzy"] = {},
         -- [ "CmpItemAbbrMatchFuzzyDefault"] = {},
@@ -643,11 +649,11 @@ function M.get(config)
         -- [ "CmpItemKindDefault"] = {},
         ["CmpItemKindEnum"] = { fg = colors.orange_02 },
         -- [ "CmpItemKindEnumDefault"] = {},
-        ["CmpItemKindEnumMember"] = { fg = colors.blue_13 },
+        ["CmpItemKindEnumMember"] = { fg = colors.blue_14 },
         -- [ "CmpItemKindEnumMemberDefault"] = {},
         ["CmpItemKindEvent"] = { fg = colors.fg_14 },
         -- [ "CmpItemKindEventDefault"] = {},
-        ["CmpItemKindField"] = { fg = colors.blue_13 },
+        ["CmpItemKindField"] = { fg = colors.blue_14 },
         -- [ "CmpItemKindFieldDefault"] = {},
         ["CmpItemKindFile"] = { fg = colors.fg_14 },
         -- [ "CmpItemKindFileDefault"] = {},
@@ -655,7 +661,7 @@ function M.get(config)
         -- [ "CmpItemKindFolderDefault"] = {},
         ["CmpItemKindFunction"] = { fg = colors.purple_01 },
         -- [ "CmpItemKindFunctionDefault"] = {},
-        ["CmpItemKindInterface"] = { fg = colors.blue_13 },
+        ["CmpItemKindInterface"] = { fg = colors.blue_14 },
         -- [ "CmpItemKindInterfaceDefault"] = {},
         ["CmpItemKindKeyword"] = { fg = colors.fg_14 },
         -- [ "CmpItemKindKeywordDefault"] = {},
@@ -665,7 +671,7 @@ function M.get(config)
         -- [ "CmpItemKindModuleDefault"] = {},
         ["CmpItemKindOperator"] = { fg = colors.fg_14 },
         -- [ "CmpItemKindOperatorDefault"] = {},
-        ["CmpItemKindProperty"] = { fg = colors.blue_13 },
+        ["CmpItemKindProperty"] = { fg = colors.blue_14 },
         -- [ "CmpItemKindPropertyDefault"] = {},
         ["CmpItemKindReference"] = { fg = colors.fg_14 },
         -- [ "CmpItemKindReferenceDefault"] = {},
@@ -683,7 +689,7 @@ function M.get(config)
         -- [ "CmpItemKindUnitDefault"] = {},
         ["CmpItemKindValue"] = { fg = colors.orange_02 },
         -- [ "CmpItemKindValueDefault"] = {},
-        ["CmpItemKindVariable"] = { fg = colors.blue_13 },
+        ["CmpItemKindVariable"] = { fg = colors.blue_14 },
         -- [ "CmpItemKindVariableDefault"] = {},
         -- [ "CmpItemMenu"] = {},
         -- [ "CmpItemMenuDefault"] = {},
@@ -839,8 +845,8 @@ function M.get(config)
         ------------------------------------------------------------------------------------------
 
         -- goolord/alpha-nvim
-        ["AlphaButton"] = { fg = colors.blue_08 },
-        ["AlphaHeader"] = { fg = colors.blue_09 },
+        ["AlphaButton"] = { fg = colors.blue_09 },
+        ["AlphaHeader"] = { fg = colors.blue_10 },
         ["AlphaShorcut"] = { fg = colors.fg_07 },
 
         ------------------------------------------------------------------------------------------
