@@ -51,6 +51,7 @@ function M.get(config)
         ["DiffChange"] = { bg = git.diff.change },
         ["DiffDelete"] = { bg = git.diff.delete },
         ["DiffText"] = { bg = git.diff.text },
+        ["EndOfBuffer"] = { fg = colors.bg },
         ["Error"] = { fg = diagnostic.error },
         ["ErrorMsg"] = { fg = diagnostic.error },
         ["FoldColumn"] = { bg = colors.bg, fg = colors.bg },
