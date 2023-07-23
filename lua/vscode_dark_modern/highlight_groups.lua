@@ -202,8 +202,11 @@ function M.get(config)
         ["@keyword.default.go"] = { fg = colors.purple_02 },
         ["@type.builtin.map.go"] = { link = "@keyword" },
 
-        -- Go Mod
-        ["@text.uri.gomod"] = { fg = colors.yellow_04, underline = true },
+        -- Go Checksum File
+        ["@attribute.gosum"] = { fg = colors.fg },
+        ["@number.gosum"] = { fg = colors.blue_12 },
+        ["@string.special.gosum"] = { fg = colors.blue_12 },
+        ["@symbol.gosum"] = { fg = colors.orange_01 },
 
         -- HTML
         ["@constant.html"] = { fg = colors.blue_12 },
