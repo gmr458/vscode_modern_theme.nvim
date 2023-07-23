@@ -82,6 +82,7 @@ return {
     ["objcpp"] = "Objective-C++",
     ["ocaml"] = "OCaml",
     ["opam"] = "opam",
+    ["out"] = "Binary",
     ["p6"] = "Perl 6",
     ["pascal"] = "Pascal",
     ["perl"] = "Perl",
