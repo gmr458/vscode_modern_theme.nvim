@@ -107,6 +107,7 @@ return {
     ["sql"] = "SQL",
     ["svelte"] = "Svelte",
     ["swift"] = "Swift",
+    ["swayconfig"] = "Sway Config",
     ["teal"] = "Teal",
     ["template"] = "Go Template File",
     ["tex"] = "LaTeX",
