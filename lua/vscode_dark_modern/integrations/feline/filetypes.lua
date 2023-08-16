@@ -78,6 +78,7 @@ return {
     ["neotest-summary"] = "Neotest Summary",
     ["nim"] = "Nim",
     ["nix"] = "Nix",
+    ["noice"] = "Noice",
     ["objc"] = "Objective-C",
     ["objcpp"] = "Objective-C++",
     ["ocaml"] = "OCaml",
