@@ -1,4 +1,5 @@
 local colors = require("vscode_dark_modern.palette")
+local term_supports_undercurl = require("vscode_dark_modern").term_supports_undercurl
 
 local M = {}
 
@@ -72,10 +73,10 @@ function M.get(config)
         ["NormalFloat"] = { bg = config.transparent_background and colors.none or colors.bg },
         ["Search"] = { bg = colors.brown_01 },
         ["SignColumn"] = { bg = colors.none },
-        ["SpellBad"] = { sp = colors.red_03, undercurl = true },
-        ["SpellCap"] = { sp = colors.yellow_05, undercurl = true },
-        ["SpellLocal"] = { sp = colors.blue_11, undercurl = true },
-        ["SpellRare"] = { sp = colors.green_05, undercurl = true },
+        ["SpellBad"] = { sp = colors.red_03, undercurl = config.undercurl and term_supports_undercurl() },
+        ["SpellCap"] = { sp = colors.yellow_05, undercurl = config.undercurl and term_supports_undercurl() },
+        ["SpellLocal"] = { sp = colors.blue_11, undercurl = config.undercurl and term_supports_undercurl() },
+        ["SpellRare"] = { sp = colors.green_05, undercurl = config.undercurl and term_supports_undercurl() },
         ["StatusLine"] = { bg = colors.none },
         ["TermCursor"] = { bg = colors.fg_14, fg = colors.bg_01 },
         ["Title"] = { fg = colors.fg_15 },
@@ -381,10 +382,22 @@ function M.get(config)
         ["DiagnosticSignHint"] = { fg = diagnostic.hint },
         ["DiagnosticSignInfo"] = { fg = diagnostic.info },
         ["DiagnosticSignWarn"] = { fg = diagnostic.warn },
-        ["DiagnosticUnderlineError"] = { sp = diagnostic.error, undercurl = true },
-        ["DiagnosticUnderlineHint"] = { sp = diagnostic.hint, undercurl = true },
-        ["DiagnosticUnderlineInfo"] = { sp = diagnostic.info, undercurl = true },
-        ["DiagnosticUnderlineWarn"] = { sp = diagnostic.warn, undercurl = true },
+        ["DiagnosticUnderlineError"] = {
+            sp = diagnostic.error,
+            undercurl = config.undercurl and term_supports_undercurl(),
+        },
+        ["DiagnosticUnderlineHint"] = {
+            sp = diagnostic.hint,
+            undercurl = config.undercurl and term_supports_undercurl(),
+        },
+        ["DiagnosticUnderlineInfo"] = {
+            sp = diagnostic.info,
+            undercurl = config.undercurl and term_supports_undercurl(),
+        },
+        ["DiagnosticUnderlineWarn"] = {
+            sp = diagnostic.warn,
+            undercurl = config.undercurl and term_supports_undercurl(),
+        },
         ["DiagnosticUnnecessary"] = { fg = diagnostic.unnecessary },
         ["DiagnosticVirtualTextError"] = { fg = diagnostic.error },
         ["DiagnosticVirtualTextHint"] = { fg = diagnostic.hint },

@@ -11,6 +11,7 @@ M.config = {
     cursorline = false,
     transparent_background = false,
     nvim_tree_darker = false,
+    undercurl = true,
 }
 
 --- @overload fun(config: Config)
@@ -97,5 +98,19 @@ vim.api.nvim_create_user_command("VSCDarkModernCompile", function()
     vim.notify("vscode_dark_modern colorscheme compiled")
     vim.api.nvim_command("colorscheme vscode_dark_modern")
 end, {})
+
+function M.term_supports_undercurl()
+    local term = os.getenv("TERM")
+
+    local terminals = {
+        ["alacritty"] = true,
+        ["wezterm"] = true,
+        ["foot"] = false,
+        ["xterm-256color"] = true,
+        ["xterm-kitty"] = true,
+    }
+
+    return terminals[term]
+end
 
 return M
