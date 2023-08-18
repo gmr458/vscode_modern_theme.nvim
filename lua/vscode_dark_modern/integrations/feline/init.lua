@@ -271,48 +271,48 @@ M.components = function()
             right_sep = { str = " | ", hl = { fg = "separator" } },
         },
         { provider = "line_percentage" },
-        {
-            provider = function()
-                local total_lines = vim.fn.line("$")
-                local total_visible_lines = vim.fn.line("w$")
+        -- {
+        --     provider = function()
+        --         local total_lines = vim.fn.line("$")
+        --         local total_visible_lines = vim.fn.line("w$")
 
-                if total_lines <= total_visible_lines then
-                    return ""
-                end
+        --         if total_lines <= total_visible_lines then
+        --             return ""
+        --         end
 
-                return total_lines .. " lines"
-            end,
-            icon = " ",
-            left_sep = { str = " | ", hl = { fg = "separator" } },
-        },
-        {
-            provider = { name = "file_info", opts = { file_readonly_icon = " ", file_modified_icon = "" } },
-            left_sep = { str = " | ", hl = { fg = "separator" } },
-        },
-        {
-            provider = function()
-                local word = vim.bo.expandtab and "Spaces" or "Tab Size"
-                return word .. ": " .. ((vim.bo.tabstop ~= "" and vim.bo.tabstop) or vim.o.tabstop)
-            end,
-            left_sep = { str = " | ", hl = { fg = "separator" } },
-        },
-        {
-            provider = function()
-                return ((vim.bo.fenc ~= "" and vim.bo.fenc) or vim.o.enc):upper()
-            end,
-            left_sep = { str = " | ", hl = { fg = "separator" } },
-        },
-        {
-            provider = function()
-                local fileformat = ((vim.bo.fileformat ~= "" and vim.bo.fileformat) or vim.o.fileformat)
-                if fileformat == "unix" then
-                    return "LF"
-                else
-                    return "CRLF"
-                end
-            end,
-            left_sep = { str = " | ", hl = { fg = "separator" } },
-        },
+        --         return total_lines .. " lines"
+        --     end,
+        --     icon = " ",
+        --     left_sep = { str = " | ", hl = { fg = "separator" } },
+        -- },
+        -- {
+        --     provider = { name = "file_info", opts = { file_readonly_icon = " ", file_modified_icon = "" } },
+        --     left_sep = { str = " | ", hl = { fg = "separator" } },
+        -- },
+        -- {
+        --     provider = function()
+        --         local word = vim.bo.expandtab and "Spaces" or "Tab Size"
+        --         return word .. ": " .. ((vim.bo.tabstop ~= "" and vim.bo.tabstop) or vim.o.tabstop)
+        --     end,
+        --     left_sep = { str = " | ", hl = { fg = "separator" } },
+        -- },
+        -- {
+        --     provider = function()
+        --         return ((vim.bo.fenc ~= "" and vim.bo.fenc) or vim.o.enc):upper()
+        --     end,
+        --     left_sep = { str = " | ", hl = { fg = "separator" } },
+        -- },
+        -- {
+        --     provider = function()
+        --         local fileformat = ((vim.bo.fileformat ~= "" and vim.bo.fileformat) or vim.o.fileformat)
+        --         if fileformat == "unix" then
+        --             return "LF"
+        --         else
+        --             return "CRLF"
+        --         end
+        --     end,
+        --     left_sep = { str = " | ", hl = { fg = "separator" } },
+        -- },
         {
             provider = function()
                 local ft = vim.bo.filetype
