@@ -314,7 +314,6 @@ M.components = function()
             left_sep = { str = " | ", hl = { fg = "separator" } },
         },
         {
-            -- provider = "file_type",
             provider = function()
                 local ft = vim.bo.filetype
 
