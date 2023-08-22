@@ -37,9 +37,9 @@ function M.get(config)
     return {
         -- Editor
 
-        ["Conceal"] = { bg = colors.bg_11 },
-        ["Cursor"] = { bg = colors.bg_13, fg = colors.fg_02 },
-        ["CursorIM"] = { bg = colors.bg_13, fg = colors.fg_02 },
+        ["Conceal"] = { bg = colors.bg_12 },
+        ["Cursor"] = { bg = colors.bg_14, fg = colors.fg_02 },
+        ["CursorIM"] = { bg = colors.bg_14, fg = colors.fg_02 },
         ["CursorLine"] = {
             bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_03 or colors.none),
         },
@@ -59,9 +59,9 @@ function M.get(config)
         ["Folded"] = { bg = colors.blue_05 },
         ["FloatBorder"] = {
             bg = config.transparent_background and colors.none or colors.bg,
-            fg = colors.bg_11,
+            fg = colors.bg_12,
         },
-        ["lCursor"] = { bg = colors.bg_13, fg = colors.fg_02 },
+        ["lCursor"] = { bg = colors.bg_14, fg = colors.fg_02 },
         ["LineNr"] = {
             bg = config.transparent_background and colors.none or colors.bg,
             fg = colors.fg_07,
@@ -89,10 +89,10 @@ function M.get(config)
 
         -- Pmenu
 
-        ["Pmenu"] = { bg = colors.bg_04, fg = colors.fg_14 },
-        ["PmenuSbar"] = { bg = colors.bg_04 },
+        ["Pmenu"] = { bg = colors.bg_05, fg = colors.fg_14 },
+        ["PmenuSbar"] = { bg = colors.bg_05 },
         ["PmenuSel"] = { bg = colors.blue_02, fg = colors.fg_15 },
-        ["PmenuThumb"] = { bg = colors.bg_10 },
+        ["PmenuThumb"] = { bg = colors.bg_11 },
 
         ------------------------------------------------------------------------------------------
 
@@ -315,8 +315,8 @@ function M.get(config)
 
         -- nvim-treesitter/nvim-treesitter-context
 
-        ["TreesitterContext"] = { bg = config.transparent_background and colors.bg_09 or colors.bg_04 },
-        ["TreesitterContextLineNumber"] = { bg = config.transparent_background and colors.bg_09 or colors.bg_04 },
+        ["TreesitterContext"] = { bg = config.transparent_background and colors.bg_10 or colors.bg_04 },
+        ["TreesitterContextLineNumber"] = { bg = config.transparent_background and colors.bg_10 or colors.bg_04 },
 
         ------------------------------------------------------------------------------------------
 
@@ -351,14 +351,14 @@ function M.get(config)
         ["TelescopePreviewTitle"] = { bg = colors.blue_01, fg = colors.fg_15 },
 
         -- Telescope Prompt
-        ["TelescopePromptBorder"] = { bg = colors.bg_06, fg = colors.bg_06 },
-        ["TelescopePromptCounter"] = { fg = colors.bg_12 },
-        ["TelescopePromptNormal"] = { bg = colors.bg_06, fg = colors.bg_12 },
+        ["TelescopePromptBorder"] = { bg = colors.bg_07, fg = colors.bg_07 },
+        ["TelescopePromptCounter"] = { fg = colors.bg_13 },
+        ["TelescopePromptNormal"] = { bg = colors.bg_07, fg = colors.bg_13 },
         ["TelescopePromptTitle"] = { bg = colors.blue_01, fg = colors.fg_15 },
 
         -- Telescope Results
-        ["TelescopeResultsBorder"] = { bg = colors.bg_04, fg = colors.bg_04 },
-        ["TelescopeResultsNormal"] = { bg = colors.bg_04 },
+        ["TelescopeResultsBorder"] = { bg = colors.bg_05, fg = colors.bg_05 },
+        ["TelescopeResultsNormal"] = { bg = colors.bg_05 },
         ["TelescopeResultsTitle"] = { bg = colors.blue_01, fg = colors.fg_15 },
 
         -- Telescope Selection
@@ -457,11 +457,11 @@ function M.get(config)
         -- folke/trouble.nvim
 
         ["TroubleCode"] = { fg = colors.blue_08, underline = true },
-        ["TroubleCount"] = { bg = colors.bg_09, fg = colors.fg_15 },
+        ["TroubleCount"] = { bg = colors.bg_10, fg = colors.fg_15 },
         ["TroubleFile"] = { fg = colors.fg_14 },
         ["TroubleFoldIcon"] = { fg = colors.fg_12 },
         ["TroubleLocation"] = { fg = colors.fg_09 },
-        ["TroublePreview"] = { bg = colors.bg_08 },
+        ["TroublePreview"] = { bg = colors.bg_09 },
         ["TroubleSignError"] = { fg = diagnostic.error },
         ["TroubleSignHint"] = { fg = diagnostic.hint },
         ["TroubleSignInformation"] = { fg = diagnostic.info },
@@ -504,7 +504,7 @@ function M.get(config)
         },
         ["CmpDocBorder"] = {
             bg = config.transparent_background and colors.none or colors.bg,
-            fg = colors.bg_11,
+            fg = colors.bg_12,
         },
         ["CmpItemAbbrDeprecated"] = { fg = colors.fg_14, strikethrough = true },
         ["CmpItemAbbrMatch"] = { fg = colors.blue_07 },
@@ -542,7 +542,7 @@ function M.get(config)
         },
         ["CmpMenuBorder"] = {
             bg = config.transparent_background and colors.none or colors.bg,
-            fg = colors.bg_11,
+            fg = colors.bg_12,
         },
         ["CmpMenuSel"] = { bg = colors.blue_02, fg = colors.fg_15 },
 
@@ -578,7 +578,7 @@ function M.get(config)
         -- nvim-tree/nvim-tree.lua
 
         ["NvimTreeClosedFolderIcon"] = { link = "NvimTreeFolderIcon" },
-        ["NvimTreeCursorLine"] = { bg = config.transparent_background and colors.none or colors.bg_05 },
+        ["NvimTreeCursorLine"] = { bg = config.transparent_background and colors.none or colors.bg_06 },
         ["NvimTreeFolderIcon"] = { fg = colors.yellow_02 },
         ["NvimTreeFolderName"] = { fg = colors.fg },
         ["NvimTreeGitDeleted"] = { fg = git.status.deleted },
@@ -617,8 +617,8 @@ function M.get(config)
 
         -- lukas-reineke/indent-blankline.nvim
 
-        ["IndentBlanklineChar"] = { fg = colors.bg_07, bg = colors.none },
-        ["IndentBlanklineContextChar"] = { fg = colors.bg_11, bg = colors.none },
+        ["IndentBlanklineChar"] = { fg = colors.bg_08, bg = colors.none },
+        ["IndentBlanklineContextChar"] = { fg = colors.bg_12, bg = colors.none },
 
         ------------------------------------------------------------------------------------------
 
