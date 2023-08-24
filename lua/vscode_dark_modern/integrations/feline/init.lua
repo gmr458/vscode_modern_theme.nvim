@@ -266,7 +266,7 @@ M.components = function()
         },
         {
             provider = "git_branch",
-            icon = { str = "󰘬 ", hl = { fg = colors.orange_03 } },
+            icon = { str = " ", hl = { fg = colors.orange_03 } },
             left_sep = "  ",
             right_sep = { str = " | ", hl = { fg = "separator" } },
         },
