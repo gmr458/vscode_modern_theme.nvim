@@ -1,5 +1,5 @@
-local colors = require("vscode_dark_modern.palette")
-local term_supports_undercurl = require("vscode_dark_modern").term_supports_undercurl
+local colors = require("dark_modern.palette")
+local term_supports_undercurl = require("dark_modern").term_supports_undercurl
 
 local M = {}
 

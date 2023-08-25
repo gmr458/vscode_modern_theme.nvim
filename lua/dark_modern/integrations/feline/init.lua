@@ -1,4 +1,4 @@
-local colors = require("vscode_dark_modern.palette")
+local colors = require("dark_modern.palette")
 
 local M = {}
 
@@ -330,7 +330,7 @@ M.components = function()
                     end
                 end
 
-                local filetypes = require("vscode_dark_modern.integrations.feline.filetypes")
+                local filetypes = require("dark_modern.integrations.feline.filetypes")
                 return filetypes[ft]
             end,
             left_sep = { str = " | ", hl = { fg = "separator" } },

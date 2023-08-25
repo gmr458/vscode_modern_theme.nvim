@@ -5,7 +5,7 @@ local M = {}
 --- @field transparent_background boolean
 --- @field nvim_tree_darker boolean
 M.config = {
-    compile_path = vim.fn.stdpath("cache") .. "/vscode_dark_modern",
+    compile_path = vim.fn.stdpath("cache") .. "/dark_modern",
     path_sep = jit and (jit.os == "Windows" and "\\" or "/") or package.config:sub(1, 1),
     compiled_filename = "compiled",
     cursorline = false,
@@ -51,7 +51,7 @@ return string.dump(function()
 vim.o.termguicolors = true
 if vim.g.colors_name then vim.cmd("hi clear") end
 vim.o.background = "dark"
-vim.g.colors_name = "vscode_dark_modern"
+vim.g.colors_name = "dark_modern"
 local h = vim.api.nvim_set_hl]]),
     }
 
@@ -59,7 +59,7 @@ local h = vim.api.nvim_set_hl]]),
         config.compile_path = config.compile_path:gsub("/", "\\")
     end
 
-    local hgs = require("vscode_dark_modern.highlight_groups").get(config)
+    local hgs = require("dark_modern.highlight_groups").get(config)
     for group, color in pairs(hgs) do
         table.insert(lines, string.format([[h(0, "%s", %s)]], group, inspect(color)))
     end
@@ -71,8 +71,8 @@ local h = vim.api.nvim_set_hl]]),
 
     local f = loadstring(table.concat(lines, "\n"))
     if not f then
-        local err_path = (config.path_sep == "/" and "/tmp" or os.getenv("TMP")) .. "/vscode_dark_modern_error.lua"
-        print(string.format("VSCode Dark Modern (error): Open %s for debugging", err_path))
+        local err_path = (config.path_sep == "/" and "/tmp" or os.getenv("TMP")) .. "/dark_modern_error.lua"
+        print(string.format("Dark Modern (error): Open %s for debugging", err_path))
         local err = io.open(err_path, "wb")
         if err then
             err:write(table.concat(lines, "\n"))
@@ -93,10 +93,10 @@ local h = vim.api.nvim_set_hl]]),
     file:close()
 end
 
-vim.api.nvim_create_user_command("VSCDarkModernCompile", function()
+vim.api.nvim_create_user_command("DarkModernCompile", function()
     M.compile(M.config)
-    vim.notify("vscode_dark_modern colorscheme compiled")
-    vim.api.nvim_command("colorscheme vscode_dark_modern")
+    vim.notify("dark_modern colorscheme compiled")
+    vim.api.nvim_command("colorscheme dark_modern")
 end, {})
 
 function M.term_supports_undercurl()
