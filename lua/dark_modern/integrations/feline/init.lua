@@ -4,8 +4,7 @@ local M = {}
 
 M.palette = function()
     return {
-        bg = "NONE",
-        bg_solid = colors.bg_01,
+        bg = colors.bg_01,
         fg = colors.fg_14,
         vi_mode_bg = colors.blue_01,
         separator = colors.fg_01,
@@ -57,13 +56,13 @@ M.components = function()
         {
             provider = function()
                 if not rawget(vim, "lsp") then
-                    return "LSP inactive"
+                    return ""
                 end
 
                 local buf = vim.api.nvim_get_current_buf()
                 local buf_clients = vim.lsp.get_active_clients({ bufnr = buf })
                 if next(buf_clients) == nil then
-                    return "LSP inactive"
+                    return ""
                 end
 
                 for _, client in pairs(buf_clients) do
@@ -80,8 +79,7 @@ M.components = function()
 
                 return ""
             end,
-            left_sep = { str = " ", hl = { bg = "bg_solid" } },
-            hl = { bg = "bg_solid" },
+            left_sep = " ",
         },
         {
             provider = function()
@@ -105,8 +103,7 @@ M.components = function()
                 local unique_client_names = vim.fn.uniq(buf_client_names)
                 return table.concat(unique_client_names, " ")
             end,
-            left_sep = { str = " ", hl = { bg = "bg_solid" } },
-            hl = { bg = "bg_solid" },
+            left_sep = " ",
         },
         {
             provider = function()
@@ -148,8 +145,8 @@ M.components = function()
 
                 return table.concat(sources_registered, " ")
             end,
-            left_sep = { str = " ", hl = { bg = "bg_solid" } },
-            hl = { bg = "bg_solid" },
+            left_sep = " ",
+            right_sep = " ",
         },
         {
             provider = function()
@@ -164,8 +161,9 @@ M.components = function()
 
                 return ""
             end,
-            hl = { bg = "bg_solid", fg = diagnostic.error },
-            left_sep = { str = " ", hl = { bg = "bg_solid" } },
+            hl = { fg = diagnostic.error },
+            left_sep = " ",
+            right_sep = " ",
         },
         {
             provider = function()
@@ -180,8 +178,9 @@ M.components = function()
 
                 return ""
             end,
-            hl = { bg = "bg_solid", fg = diagnostic.warn },
-            left_sep = { str = " ", hl = { bg = "bg_solid" } },
+            hl = { fg = diagnostic.warn },
+            left_sep = " ",
+            right_sep = " ",
         },
         {
             provider = function()
@@ -196,8 +195,9 @@ M.components = function()
 
                 return ""
             end,
-            hl = { bg = "bg_solid", fg = diagnostic.hint },
-            left_sep = { str = " ", hl = { bg = "bg_solid" } },
+            hl = { fg = diagnostic.hint },
+            left_sep = " ",
+            right_sep = " ",
         },
         {
             provider = function()
@@ -212,12 +212,9 @@ M.components = function()
 
                 return ""
             end,
-            hl = { bg = "bg_solid", fg = diagnostic.info },
-            left_sep = { str = " ", hl = { bg = "bg_solid" } },
-        },
-        {
-            provider = "",
-            hl = { fg = "bg_solid" },
+            hl = { fg = diagnostic.info },
+            left_sep = " ",
+            right_sep = " ",
         },
         {
             provider = function()
@@ -253,34 +250,27 @@ M.components = function()
     }
     components.active[2] = {
         {
-            provider = "",
-            hl = { fg = "bg_solid" },
-        },
-        {
             provider = "git_diff_added",
-            icon = "+",
-            hl = { bg = "bg_solid", fg = git.added },
-            right_sep = { str = " ", hl = { bg = "bg_solid" } },
+            icon = " +",
+            hl = { fg = git.added },
         },
         {
             provider = "git_diff_changed",
-            icon = "~",
-            hl = { bg = "bg_solid", fg = git.changed },
-            right_sep = { str = " ", hl = { bg = "bg_solid" } },
+            icon = " ~",
+            hl = { fg = git.changed },
         },
         {
             provider = "git_diff_removed",
-            icon = "-",
-            hl = { bg = "bg_solid", fg = git.deleted },
-            right_sep = { str = " ", hl = { bg = "bg_solid" } },
+            icon = " -",
+            hl = { fg = git.deleted },
         },
         {
             provider = "git_branch",
             icon = { str = " ", hl = { fg = colors.orange_03 } },
-            right_sep = { str = " | ", hl = { bg = "bg_solid", fg = "separator" } },
-            hl = { bg = "bg_solid" },
+            left_sep = "  ",
+            right_sep = { str = " | ", hl = { fg = "separator" } },
         },
-        { provider = "line_percentage", hl = { bg = "bg_solid" } },
+        { provider = "line_percentage" },
         -- {
         --     provider = function()
         --         local total_lines = vim.fn.line("$")
@@ -343,9 +333,8 @@ M.components = function()
                 local filetypes = require("dark_modern.integrations.feline.filetypes")
                 return filetypes[ft]
             end,
-            left_sep = { str = " | ", hl = { bg = "bg_solid", fg = "separator" } },
-            right_sep = { str = " ", hl = { bg = "bg_solid" } },
-            hl = { bg = "bg_solid" },
+            left_sep = { str = " | ", hl = { fg = "separator" } },
+            right_sep = "  ",
         },
     }
     components.inactive[1] = {
