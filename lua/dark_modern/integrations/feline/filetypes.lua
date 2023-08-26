@@ -96,6 +96,7 @@ return {
     ["python"] = "Python",
     ["query"] = "Query",
     ["r"] = "R",
+    ["requirements.txt"] = "pip requirements",
     ["rasi"] = "RASI",
     ["ruby"] = "Ruby",
     ["rust"] = "Rust",
