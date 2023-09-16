@@ -240,6 +240,7 @@ function M.get(config)
         -- Python
         ["@attribute.python"] = { link = "@function" },
         ["@constructor.python"] = { link = "@function" },
+        ["@keyword.coroutine.await.python"] = { fg = colors.purple_02 },
         ["@variable.builtin.self.python"] = { link = "@keyword" },
 
         -- Ruby
