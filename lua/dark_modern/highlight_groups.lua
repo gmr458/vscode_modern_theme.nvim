@@ -346,21 +346,44 @@ function M.get(config)
 
         ["TelescopeMatching"] = { fg = colors.blue_07 },
 
+        ["TelescopeMultiSelection"] = { fg = colors.fg },
+
         -- Telescope Preview
-        ["TelescopePreviewBorder"] = { bg = colors.bg_02, fg = colors.bg_02 },
-        ["TelescopePreviewNormal"] = { bg = colors.bg_02 },
-        ["TelescopePreviewTitle"] = { bg = colors.blue_01, fg = colors.fg_15 },
+        ["TelescopePreviewBorder"] = {
+            bg = config.transparent_background and colors.none or colors.bg_02,
+            fg = config.transparent_background and colors.fg_11 or colors.bg_02,
+        },
+        ["TelescopePreviewNormal"] = { bg = config.transparent_background and colors.none or colors.bg_02 },
+        ["TelescopePreviewTitle"] = {
+            bg = config.transparent_background and colors.none or colors.blue_01,
+            fg = colors.fg_15,
+        },
 
         -- Telescope Prompt
-        ["TelescopePromptBorder"] = { bg = colors.bg_07, fg = colors.bg_07 },
+        ["TelescopePromptBorder"] = {
+            bg = config.transparent_background and colors.none or colors.bg_07,
+            fg = config.transparent_background and colors.fg_11 or colors.bg_07,
+        },
         ["TelescopePromptCounter"] = { fg = colors.bg_13 },
-        ["TelescopePromptNormal"] = { bg = colors.bg_07, fg = colors.bg_13 },
-        ["TelescopePromptTitle"] = { bg = colors.blue_01, fg = colors.fg_15 },
+        ["TelescopePromptNormal"] = {
+            bg = config.transparent_background and colors.none or colors.bg_07,
+            fg = colors.bg_13,
+        },
+        ["TelescopePromptTitle"] = {
+            bg = config.transparent_background and colors.none or colors.blue_01,
+            fg = colors.fg_15,
+        },
 
         -- Telescope Results
-        ["TelescopeResultsBorder"] = { bg = colors.bg_05, fg = colors.bg_05 },
-        ["TelescopeResultsNormal"] = { bg = colors.bg_05 },
-        ["TelescopeResultsTitle"] = { bg = colors.blue_01, fg = colors.fg_15 },
+        ["TelescopeResultsBorder"] = {
+            bg = config.transparent_background and colors.none or colors.bg_05,
+            fg = config.transparent_background and colors.fg_11 or colors.bg_05,
+        },
+        ["TelescopeResultsNormal"] = { bg = config.transparent_background and colors.none or colors.bg_05 },
+        ["TelescopeResultsTitle"] = {
+            bg = config.transparent_background and colors.none or colors.blue_01,
+            fg = colors.fg_15,
+        },
 
         -- Telescope Selection
         ["TelescopeSelection"] = { bg = colors.blue_02, fg = colors.fg_15 },
