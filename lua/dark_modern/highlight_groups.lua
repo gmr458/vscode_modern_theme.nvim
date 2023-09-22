@@ -196,7 +196,6 @@ function M.get(config)
         ["@variable.builtin"] = { link = "@variable" },
 
         -- C#
-        ["@include.c_sharp"] = { fg = colors.blue_12 },
         ["@type.builtin.c_sharp"] = { fg = colors.blue_12, italic = config.italic_keyword },
 
         -- Go
@@ -216,7 +215,6 @@ function M.get(config)
 
         -- Java
         ["@function.builtin.super.java"] = { link = "@keyword" },
-        ["@include.java"] = { fg = colors.blue_12 },
         ["@variable.builtin.this.java"] = { link = "@keyword" },
 
         -- JavaScript
@@ -248,8 +246,6 @@ function M.get(config)
 
         -- Rust
         ["@constant.builtin.rust"] = { link = "@constant" },
-        ["@include.mod.rust"] = { fg = colors.blue_12 },
-        ["@include.use.rust"] = { fg = colors.blue_12 },
         ["@keyword.coroutine.await.rust"] = { fg = colors.purple_02 },
         ["@variable.builtin.rust"] = { link = "@keyword" },
 
