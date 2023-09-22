@@ -334,7 +334,7 @@ M.components = function()
                 return filetypes[ft]
             end,
             left_sep = { str = " | ", hl = { fg = "separator" } },
-            right_sep = "  ",
+            right_sep = " ",
         },
     }
     components.inactive[1] = {
