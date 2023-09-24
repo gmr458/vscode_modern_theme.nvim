@@ -268,9 +268,18 @@ M.components = function()
             provider = "git_branch",
             icon = { str = " ", hl = { fg = colors.orange_03 } },
             left_sep = "  ",
-            right_sep = { str = " | ", hl = { fg = "separator" } },
+            right_sep = " ",
         },
-        { provider = "line_percentage" },
+        {
+            provider = function()
+                local current_line = vim.api.nvim_win_get_cursor(0)[1]
+                local lines = vim.api.nvim_buf_line_count(0)
+
+                return string.format("%d%%%%", math.ceil(current_line / lines * 100))
+            end,
+            left_sep = " ",
+            right_sep = " ",
+        },
         -- {
         --     provider = function()
         --         local total_lines = vim.fn.line("$")
@@ -283,24 +292,28 @@ M.components = function()
         --         return total_lines .. " lines"
         --     end,
         --     icon = " ",
-        --     left_sep = { str = " | ", hl = { fg = "separator" } },
+        --     right_sep = " ",
+        --     left_sep = " ",
         -- },
         -- {
         --     provider = { name = "file_info", opts = { file_readonly_icon = " ", file_modified_icon = "" } },
-        --     left_sep = { str = " | ", hl = { fg = "separator" } },
+        --     right_sep = " ",
+        --     left_sep = " ",
         -- },
         -- {
         --     provider = function()
         --         local word = vim.bo.expandtab and "Spaces" or "Tab Size"
         --         return word .. ": " .. ((vim.bo.tabstop ~= "" and vim.bo.tabstop) or vim.o.tabstop)
         --     end,
-        --     left_sep = { str = " | ", hl = { fg = "separator" } },
+        --     right_sep = " ",
+        --     left_sep = " ",
         -- },
         -- {
         --     provider = function()
         --         return ((vim.bo.fenc ~= "" and vim.bo.fenc) or vim.o.enc):upper()
         --     end,
-        --     left_sep = { str = " | ", hl = { fg = "separator" } },
+        --     right_sep = " ",
+        --     left_sep = " ",
         -- },
         -- {
         --     provider = function()
@@ -311,7 +324,8 @@ M.components = function()
         --             return "CRLF"
         --         end
         --     end,
-        --     left_sep = { str = " | ", hl = { fg = "separator" } },
+        --     right_sep = " ",
+        --     left_sep = " ",
         -- },
         {
             provider = function()
@@ -333,8 +347,8 @@ M.components = function()
                 local filetypes = require("dark_modern.integrations.feline.filetypes")
                 return filetypes[ft]
             end,
-            left_sep = { str = " | ", hl = { fg = "separator" } },
             right_sep = " ",
+            left_sep = " ",
         },
     }
     components.inactive[1] = {
