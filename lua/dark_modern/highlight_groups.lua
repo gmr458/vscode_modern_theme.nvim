@@ -83,7 +83,7 @@ function M.get(config)
         ["Visual"] = { bg = colors.blue_06 },
         ["WarningMsg"] = { fg = diagnostic.warn },
         ["WinBar"] = { fg = colors.fg_11 },
-        ["WinSeparator"] = { fg = "#080A0E" },
+        ["WinSeparator"] = { fg = config.transparent_background and colors.bg or "#080A0E" },
 
         ------------------------------------------------------------------------------------------
 
