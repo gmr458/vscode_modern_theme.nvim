@@ -638,8 +638,8 @@ function M.get(config)
 
         -- lukas-reineke/indent-blankline.nvim
 
-        ["IndentBlanklineChar"] = { fg = colors.bg_08, bg = colors.none },
-        ["IndentBlanklineContextChar"] = { fg = colors.bg_12, bg = colors.none },
+        ["IblIndent"] = { fg = colors.bg_08, bg = colors.none },
+        ["IblScope"] = { fg = colors.bg_12, bg = colors.none },
 
         ------------------------------------------------------------------------------------------
 
