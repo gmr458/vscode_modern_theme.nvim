@@ -345,6 +345,9 @@ M.components = function()
                 end
 
                 local filetypes = require("dark_modern.integrations.feline.filetypes")
+                if filetypes[ft] == nil then
+                    return filetypes[""]
+                end
                 return filetypes[ft]
             end,
             right_sep = " ",
