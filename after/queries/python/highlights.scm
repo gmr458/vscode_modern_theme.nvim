@@ -1,5 +1,7 @@
 ; extends
 
+["with"] @keyword.with
+
 ; (class_definition
 ;     body: (block
 ;         (expression_statement
