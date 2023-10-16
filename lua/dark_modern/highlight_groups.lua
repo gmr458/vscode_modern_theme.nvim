@@ -313,8 +313,8 @@ function M.get(config)
 
         -- nvim-treesitter/nvim-treesitter-context
 
-        ["TreesitterContext"] = { bg = config.transparent_background and colors.bg_10 or colors.bg_04 },
-        ["TreesitterContextLineNumber"] = { bg = config.transparent_background and colors.bg_10 or colors.bg_04 },
+        ["TreesitterContext"] = { bg = colors.bg_04 },
+        ["TreesitterContextLineNumber"] = { bg = colors.bg_04 },
 
         ------------------------------------------------------------------------------------------
 
