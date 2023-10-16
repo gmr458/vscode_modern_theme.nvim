@@ -36,7 +36,6 @@ function M.get(config)
 
     return {
         -- Editor
-
         ["Conceal"] = { bg = colors.bg_12 },
         ["Cursor"] = { bg = colors.bg_14, fg = colors.fg_02 },
         ["CursorIM"] = { bg = colors.bg_14, fg = colors.fg_02 },
@@ -85,19 +84,13 @@ function M.get(config)
         ["WinBar"] = { fg = colors.fg_11 },
         ["WinSeparator"] = { fg = config.transparent_background and colors.bg or "#080A0E" },
 
-        ------------------------------------------------------------------------------------------
-
         -- Pmenu
-
         ["Pmenu"] = { bg = colors.bg_05, fg = colors.fg_14 },
         ["PmenuSbar"] = { bg = colors.bg_05 },
         ["PmenuSel"] = { bg = colors.blue_02, fg = colors.fg_15 },
         ["PmenuThumb"] = { bg = colors.bg_11 },
 
-        ------------------------------------------------------------------------------------------
-
         -- Sintax
-
         ["Comment"] = { fg = colors.green_08 },
 
         ["Variable"] = { fg = colors.blue_15 },
@@ -139,10 +132,7 @@ function M.get(config)
 
         ["Todo"] = { fg = colors.magenta_01 },
 
-        ------------------------------------------------------------------------------------------
-
         -- nvim-treesitter/nvim-treesitter
-
         ["@attribute"] = { link = "@type" },
         ["@boolean"] = { fg = colors.blue_12, italic = config.italic_keyword },
         ["@character"] = { fg = colors.orange_01 },
@@ -309,38 +299,23 @@ function M.get(config)
         ["@lsp.mod.mutable"] = { underline = true },
         ["@lsp.mod.readonly"] = { link = "Constant" },
 
-        ------------------------------------------------------------------------------------------
-
         -- nvim-treesitter/nvim-treesitter-context
-
         ["TreesitterContext"] = { bg = colors.bg_04 },
         ["TreesitterContextLineNumber"] = { bg = colors.bg_04 },
 
-        ------------------------------------------------------------------------------------------
-
         -- nvim-treesitter/playground
-
         ["nodeNumber"] = { link = "@number" },
         ["nodeType"] = { link = "@type" },
         ["nodeTag"] = { link = "@variable" },
 
-        ------------------------------------------------------------------------------------------
-
         -- kevinhwang91/nvim-ufo
-
         ["UfoCursorFoldedLine"] = { bg = colors.blue_05 },
         ["UfoFoldedEllipsis"] = { fg = colors.fg_05 },
 
-        ------------------------------------------------------------------------------------------
-
         -- ibhagwan/fzf-lua
-
         ["FzfLuaBorder"] = { fg = colors.fg_04 },
 
-        ------------------------------------------------------------------------------------------
-
         -- nvim-telescope/telescope.nvim
-
         ["TelescopeMatching"] = { fg = colors.blue_07 },
 
         ["TelescopeMultiSelection"] = { fg = colors.fg },
@@ -384,8 +359,6 @@ function M.get(config)
 
         -- Telescope Selection
         ["TelescopeSelection"] = { bg = colors.blue_02, fg = colors.fg_15 },
-
-        ------------------------------------------------------------------------------------------
 
         -- neovim/nvim-lspconfig
 
@@ -433,10 +406,7 @@ function M.get(config)
         ["LspCodeLens"] = { fg = colors.fg_10 },
         ["LspCodeLensSeparator"] = { fg = colors.fg_10 },
 
-        ------------------------------------------------------------------------------------------
-
         -- SmiteshP/nvim-navic
-
         ["NavicIconsFile"] = { fg = colors.fg_14 },
         ["NavicIconsModule"] = { fg = colors.fg_14 },
         ["NavicIconsNamespace"] = { fg = colors.fg_14 },
@@ -466,17 +436,11 @@ function M.get(config)
         ["NavicText"] = { fg = colors.fg_11 },
         ["NavicSeparator"] = { fg = colors.fg_11 },
 
-        ------------------------------------------------------------------------------------------
-
         -- williamboman/mason.nvim
-
         ["MasonError"] = { fg = diagnostic.error },
         ["MasonWarning"] = { fg = diagnostic.warn },
 
-        ------------------------------------------------------------------------------------------
-
         -- folke/trouble.nvim
-
         ["TroubleCode"] = { fg = colors.blue_08, underline = true },
         ["TroubleCount"] = { bg = colors.bg_10, fg = colors.fg_15 },
         ["TroubleFile"] = { fg = colors.fg_14 },
@@ -492,8 +456,6 @@ function M.get(config)
         ["TroubleTextHint"] = { fg = colors.fg },
         ["TroubleTextInformation"] = { fg = colors.fg },
         ["TroubleTextWarning"] = { fg = colors.fg },
-
-        ------------------------------------------------------------------------------------------
 
         -- mfussenegger/nvim-dap
         ["DapBreakpoint"] = { fg = colors.red_04 },
@@ -515,10 +477,7 @@ function M.get(config)
         ["DapUIWatchesEmpty"] = { fg = colors.fg_06 },
         ["DapUIWatchesValue"] = { fg = colors.fg_14 },
 
-        ------------------------------------------------------------------------------------------
-
         -- hrsh7th/nvim-cmp
-
         ["CmpDoc"] = {
             bg = config.transparent_background and colors.none or colors.bg,
             fg = colors.fg,
@@ -567,18 +526,12 @@ function M.get(config)
         },
         ["CmpMenuSel"] = { bg = colors.blue_02, fg = colors.fg_15 },
 
-        ------------------------------------------------------------------------------------------
-
         -- lewis6991/gitsigns.nvim
-
         ["GitSignsAdd"] = { fg = git.signs.add },
         ["GitSignsChange"] = { fg = git.signs.change },
         ["GitSignsDelete"] = { fg = git.signs.delete },
 
-        ------------------------------------------------------------------------------------------
-
         -- petertriho/nvim-scrollbar
-
         ["ScrollbarError"] = { fg = diagnostic.error },
         ["ScrollbarErrorHandle"] = { fg = diagnostic.error },
         ["ScrollbarGitAdd"] = { fg = git.signs.add },
@@ -594,10 +547,7 @@ function M.get(config)
         ["ScrollbarWarn"] = { fg = diagnostic.warn },
         ["ScrollbarWarnHandle"] = { fg = diagnostic.warn },
 
-        ------------------------------------------------------------------------------------------
-
         -- nvim-tree/nvim-tree.lua
-
         ["NvimTreeClosedFolderIcon"] = { link = "NvimTreeFolderIcon" },
         ["NvimTreeCursorLine"] = { bg = config.transparent_background and colors.none or colors.bg_06 },
         ["NvimTreeFolderIcon"] = { fg = colors.yellow_02 },
@@ -627,46 +577,29 @@ function M.get(config)
             fg = colors.bg,
         },
 
-        ------------------------------------------------------------------------------------------
-
         -- akinsho/toggleterm.nvim
-
         ["ToggleTermNormalFloat"] = { bg = colors.bg_02 },
         ["ToggleTermFloatBorder"] = { bg = colors.bg_02, fg = colors.bg_02 },
 
-        ------------------------------------------------------------------------------------------
-
         -- lukas-reineke/indent-blankline.nvim
-
         ["IblIndent"] = { fg = colors.bg_08, bg = colors.none },
         ["IblScope"] = { fg = colors.bg_12, bg = colors.none },
-
-        ------------------------------------------------------------------------------------------
 
         -- goolord/alpha-nvim
         ["AlphaButton"] = { fg = colors.blue_09 },
         ["AlphaHeader"] = { fg = colors.blue_10 },
         ["AlphaShorcut"] = { fg = colors.fg_07 },
 
-        ------------------------------------------------------------------------------------------
-
         -- folke/lazy.nvim
-
         ["LazyButton"] = { bg = colors.blue_04 },
         ["LazyButtonActive"] = { bg = colors.green_02 },
         ["LazyComment"] = { fg = colors.fg_07 },
         ["LazyH1"] = { bg = colors.green_02 },
 
-        ------------------------------------------------------------------------------------------
-
         -- lua
-
         ["luaParenError"] = { link = "Normal" },
 
-        ------------------------------------------------------------------------------------------
-
         -- xml
-
         ["xmlAttrib"] = { link = "Variable" },
         ["xmlProcessingDelim"] = { fg = colors.fg_05 },
         ["xmlTag"] = { fg = colors.fg_05 },
