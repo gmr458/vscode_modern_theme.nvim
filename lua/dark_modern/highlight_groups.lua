@@ -581,7 +581,11 @@ function M.get(config)
         ["ToggleTermNormalFloat"] = { bg = colors.bg_02 },
         ["ToggleTermFloatBorder"] = { bg = colors.bg_02, fg = colors.bg_02 },
 
-        -- lukas-reineke/indent-blankline.nvim
+        -- lukas-reineke/indent-blankline.nvim v2
+        ["IndentBlanklineChar"] = { fg = colors.bg_08, bg = colors.none },
+        ["IndentBlanklineContextChar"] = { fg = colors.bg_12, bg = colors.none },
+
+        -- lukas-reineke/indent-blankline.nvim v3
         ["IblIndent"] = { fg = colors.bg_08, bg = colors.none },
         ["IblScope"] = { fg = colors.bg_12, bg = colors.none },
 
