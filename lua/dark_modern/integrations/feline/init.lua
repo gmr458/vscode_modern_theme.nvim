@@ -225,7 +225,7 @@ M.components = function()
                 local lsp = vim.lsp.util.get_progress_messages()[1]
 
                 if lsp then
-                    local msg = lsp.message or ""
+                    local msg = (lsp.message ~= nil and string.find(lsp.message, "%%") == nil and lsp.message) or ""
                     local percentage = lsp.percentage or 0
                     local title = lsp.title or ""
 
