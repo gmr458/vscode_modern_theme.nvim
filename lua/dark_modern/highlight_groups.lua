@@ -37,8 +37,8 @@ function M.get(config)
     return {
         -- Editor
         ["Conceal"] = { bg = colors.bg_12 },
-        ["Cursor"] = { bg = colors.bg_14, fg = colors.fg_02 },
-        ["CursorIM"] = { bg = colors.bg_14, fg = colors.fg_02 },
+        ["Cursor"] = { bg = colors.bg_15, fg = colors.fg_02 },
+        ["CursorIM"] = { bg = colors.bg_15, fg = colors.fg_02 },
         ["CursorLine"] = {
             bg = config.transparent_background and colors.none or (config.cursorline and colors.bg_03 or colors.none),
         },
@@ -60,11 +60,12 @@ function M.get(config)
             bg = config.transparent_background and colors.none or colors.bg,
             fg = colors.bg_12,
         },
-        ["lCursor"] = { bg = colors.bg_14, fg = colors.fg_02 },
+        ["lCursor"] = { bg = colors.bg_15, fg = colors.fg_02 },
         ["LineNr"] = {
             bg = config.transparent_background and colors.none or colors.bg,
             fg = colors.fg_07,
         },
+        ["MatchParen"] = { bg = colors.bg_13 },
         ["Normal"] = {
             bg = config.transparent_background and colors.none or colors.bg,
             fg = colors.fg,
@@ -336,10 +337,10 @@ function M.get(config)
             bg = config.transparent_background and colors.none or colors.bg_07,
             fg = config.transparent_background and colors.fg_11 or colors.bg_07,
         },
-        ["TelescopePromptCounter"] = { fg = colors.bg_13 },
+        ["TelescopePromptCounter"] = { fg = colors.bg_14 },
         ["TelescopePromptNormal"] = {
             bg = config.transparent_background and colors.none or colors.bg_07,
-            fg = colors.bg_13,
+            fg = colors.bg_14,
         },
         ["TelescopePromptTitle"] = {
             bg = config.transparent_background and colors.none or colors.blue_01,

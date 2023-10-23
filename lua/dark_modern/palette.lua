@@ -15,8 +15,9 @@ local colors = {
     bg_10 = "#4d4d4d",
     bg_11 = "#515151",
     bg_12 = "#707070",
-    bg_13 = "#a6a6a6",
-    bg_14 = "#aeafad",
+    bg_13 = "#888888",
+    bg_14 = "#a6a6a6",
+    bg_15 = "#aeafad",
 
     -- foregrounds
     fg_01 = "#2a2a2a",
