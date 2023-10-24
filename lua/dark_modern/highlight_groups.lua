@@ -362,6 +362,12 @@ function M.get(config)
             fg = colors.fg_15,
         },
 
+        -- Telescope Results Diff
+        ["TelescopeResultsDiffAdd"] = { fg = git.signs.add },
+        ["TelescopeResultsDiffChange"] = { fg = git.signs.change },
+        ["TelescopeResultsDiffDelete"] = { fg = git.signs.delete },
+        ["TelescopeResultsDiffUntracked"] = { fg = git.status.untracked },
+
         -- Telescope Selection
         ["TelescopeSelection"] = { bg = colors.blue_02, fg = colors.fg_15 },
 
