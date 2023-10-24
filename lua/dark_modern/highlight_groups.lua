@@ -189,6 +189,10 @@ function M.get(config)
         -- C#
         ["@type.builtin.c_sharp"] = { fg = colors.blue_12, italic = config.italic_keyword },
 
+        -- Diff
+        ["@text.diff.add.diff"] = { fg = git.signs.add },
+        ["@text.diff.delete.diff"] = { fg = git.signs.delete },
+
         -- Go
         ["@keyword.default.go"] = { fg = colors.purple_02 },
         ["@type.builtin.map.go"] = { link = "@keyword" },
