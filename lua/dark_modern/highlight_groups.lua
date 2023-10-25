@@ -47,6 +47,8 @@ function M.get(config)
             fg = colors.fg_13,
         },
         ["Directory"] = { fg = colors.yellow_02 },
+        ["diffAdded"] = { fg = git.signs.add },
+        ["diffRemoved"] = { fg = git.signs.delete },
         ["DiffAdd"] = { bg = git.diff.add },
         ["DiffChange"] = { bg = git.diff.change },
         ["DiffDelete"] = { bg = git.diff.delete },
