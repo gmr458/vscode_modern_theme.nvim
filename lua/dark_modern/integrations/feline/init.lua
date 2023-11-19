@@ -1,4 +1,4 @@
-local colors = require("dark_modern.palette")
+local colors = require 'dark_modern.palette'
 
 local M = {}
 
@@ -25,115 +25,117 @@ local git = {
 }
 
 local function get_diagnostics_count(severity)
-    return vim.tbl_count(vim.diagnostic.get(0, severity and { severity = severity }))
+    return vim.tbl_count(
+        vim.diagnostic.get(0, severity and { severity = severity })
+    )
 end
 
 M.components = function()
     local components = { active = {}, inactive = {} }
 
-    local vi_mode_utils = require("feline.providers.vi_mode")
+    local vi_mode_utils = require 'feline.providers.vi_mode'
 
     components.active[1] = {
         {
-            provider = " ",
-            hl = { bg = "vi_mode_bg" },
+            provider = ' ',
+            hl = { bg = 'vi_mode_bg' },
         },
         {
-            provider = "vi_mode",
+            provider = 'vi_mode',
             hl = function()
                 return {
                     name = vi_mode_utils.get_mode_highlight_name(),
-                    style = "NONE",
-                    bg = "vi_mode_bg",
+                    style = 'NONE',
+                    bg = 'vi_mode_bg',
                 }
             end,
-            icon = "",
+            icon = '',
         },
         {
-            provider = " ",
-            hl = { bg = "vi_mode_bg" },
+            provider = ' ',
+            hl = { bg = 'vi_mode_bg' },
         },
         {
             provider = function()
-                if not rawget(vim, "lsp") then
-                    return ""
+                if not rawget(vim, 'lsp') then
+                    return ''
                 end
 
                 local buf = vim.api.nvim_get_current_buf()
-                local buf_clients = vim.lsp.get_active_clients({ bufnr = buf })
+                local buf_clients = vim.lsp.get_active_clients { bufnr = buf }
                 if next(buf_clients) == nil then
-                    return ""
+                    return ''
                 end
 
                 for _, client in pairs(buf_clients) do
-                    if client.name == "pyright" then
-                        local virtual_env = os.getenv("VIRTUAL_ENV_PROMPT")
+                    if client.name == 'pyright' then
+                        local virtual_env = os.getenv 'VIRTUAL_ENV_PROMPT'
                         if virtual_env == nil then
-                            return ""
+                            return ''
                         end
 
-                        virtual_env = virtual_env:gsub("%s+", "")
+                        virtual_env = virtual_env:gsub('%s+', '')
                         return virtual_env
                     end
                 end
 
-                return ""
+                return ''
             end,
-            left_sep = " ",
+            left_sep = ' ',
         },
         {
             provider = function()
-                if not rawget(vim, "lsp") then
-                    return ""
+                if not rawget(vim, 'lsp') then
+                    return ''
                 end
 
                 local buf = vim.api.nvim_get_current_buf()
-                local buf_clients = vim.lsp.get_active_clients({ bufnr = buf })
+                local buf_clients = vim.lsp.get_active_clients { bufnr = buf }
                 if next(buf_clients) == nil then
-                    return ""
+                    return ''
                 end
 
                 local buf_client_names = {}
                 for _, client in pairs(buf_clients) do
-                    if client.name ~= "null-ls" then
+                    if client.name ~= 'null-ls' then
                         table.insert(buf_client_names, client.name)
                     end
                 end
 
                 local unique_client_names = vim.fn.uniq(buf_client_names)
-                return table.concat(unique_client_names, " ")
+                return table.concat(unique_client_names, ' ')
             end,
-            left_sep = " ",
+            left_sep = ' ',
         },
         {
             provider = function()
-                if not rawget(vim, "lsp") then
-                    return ""
+                if not rawget(vim, 'lsp') then
+                    return ''
                 end
 
                 local buf_clients = vim.lsp.get_active_clients()
 
                 if next(buf_clients) == nil then
-                    return ""
+                    return ''
                 end
 
                 local null_ls_running = false
 
                 for _, client in pairs(buf_clients) do
-                    if client.name == "null-ls" then
+                    if client.name == 'null-ls' then
                         null_ls_running = true
                     end
                 end
 
                 if not null_ls_running then
-                    return ""
+                    return ''
                 end
 
                 local filetype = vim.bo.filetype
 
-                local ok, sources = pcall(require, "null-ls.sources")
+                local ok, sources = pcall(require, 'null-ls.sources')
                 if not ok then
-                    return ""
+                    return ''
                 end
 
                 local available_sources = sources.get_available(filetype)
@@ -143,142 +145,165 @@ M.components = function()
                     table.insert(sources_registered, source.name)
                 end
 
-                return table.concat(sources_registered, " ")
+                return table.concat(sources_registered, ' ')
             end,
-            left_sep = " ",
-            right_sep = " ",
+            left_sep = ' ',
+            right_sep = ' ',
         },
         {
             provider = function()
-                if not rawget(vim, "lsp") then
-                    return ""
+                if not rawget(vim, 'lsp') then
+                    return ''
                 end
 
-                local count = get_diagnostics_count(vim.diagnostic.severity.ERROR)
+                local count =
+                    get_diagnostics_count(vim.diagnostic.severity.ERROR)
                 if count > 0 then
-                    return " " .. tostring(count)
+                    return ' ' .. tostring(count)
                 end
 
-                return ""
+                return ''
             end,
             hl = { fg = diagnostic.error },
-            left_sep = " ",
-            right_sep = " ",
+            left_sep = ' ',
+            right_sep = ' ',
         },
         {
             provider = function()
-                if not rawget(vim, "lsp") then
-                    return ""
+                if not rawget(vim, 'lsp') then
+                    return ''
                 end
 
-                local count = get_diagnostics_count(vim.diagnostic.severity.WARN)
+                local count =
+                    get_diagnostics_count(vim.diagnostic.severity.WARN)
                 if count > 0 then
-                    return " " .. tostring(count)
+                    return ' ' .. tostring(count)
                 end
 
-                return ""
+                return ''
             end,
             hl = { fg = diagnostic.warn },
-            left_sep = " ",
-            right_sep = " ",
+            left_sep = ' ',
+            right_sep = ' ',
         },
         {
             provider = function()
-                if not rawget(vim, "lsp") then
-                    return ""
+                if not rawget(vim, 'lsp') then
+                    return ''
                 end
 
-                local count = get_diagnostics_count(vim.diagnostic.severity.HINT)
+                local count =
+                    get_diagnostics_count(vim.diagnostic.severity.HINT)
                 if count > 0 then
-                    return " " .. tostring(count)
+                    return ' ' .. tostring(count)
                 end
 
-                return ""
+                return ''
             end,
             hl = { fg = diagnostic.hint },
-            left_sep = " ",
-            right_sep = " ",
+            left_sep = ' ',
+            right_sep = ' ',
         },
         {
             provider = function()
-                if not rawget(vim, "lsp") then
-                    return ""
+                if not rawget(vim, 'lsp') then
+                    return ''
                 end
 
-                local count = get_diagnostics_count(vim.diagnostic.severity.INFO)
+                local count =
+                    get_diagnostics_count(vim.diagnostic.severity.INFO)
                 if count > 0 then
-                    return " " .. tostring(count)
+                    return ' ' .. tostring(count)
                 end
 
-                return ""
+                return ''
             end,
             hl = { fg = diagnostic.info },
-            left_sep = " ",
-            right_sep = " ",
+            left_sep = ' ',
+            right_sep = ' ',
         },
         {
             provider = function()
-                if not rawget(vim, "lsp") or vim.lsp.status then
-                    return ""
+                if not rawget(vim, 'lsp') or vim.lsp.status then
+                    return ''
                 end
 
                 local lsp = vim.lsp.util.get_progress_messages()[1]
 
                 if lsp then
-                    local msg = (lsp.message ~= nil and string.find(lsp.message, "%%") == nil and lsp.message) or ""
+                    local msg = (
+                        lsp.message ~= nil
+                        and string.find(lsp.message, '%%') == nil
+                        and lsp.message
+                    ) or ''
                     local percentage = lsp.percentage or 0
-                    local title = lsp.title or ""
+                    local title = lsp.title or ''
 
-                    local spinners = { "", "󰀚", "" }
+                    local spinners = { '', '󰀚', '' }
 
-                    local success_icon = { "", "", "" }
+                    local success_icon = { '', '', '' }
 
                     local ms = vim.loop.hrtime() / 1000000
                     local frame = math.floor(ms / 120) % #spinners
 
                     if percentage >= 70 then
-                        return string.format(" %%<%s %s %s (%s%%%%)", success_icon[frame + 1], title, msg, percentage)
+                        return string.format(
+                            ' %%<%s %s %s (%s%%%%)',
+                            success_icon[frame + 1],
+                            title,
+                            msg,
+                            percentage
+                        )
                     end
 
-                    return string.format(" %%<%s %s %s (%s%%%%)", spinners[frame + 1], title, msg, percentage)
+                    return string.format(
+                        ' %%<%s %s %s (%s%%%%)',
+                        spinners[frame + 1],
+                        title,
+                        msg,
+                        percentage
+                    )
                 end
 
-                return ""
+                return ''
             end,
             hl = { fg = diagnostic.info },
         },
     }
     components.active[2] = {
         {
-            provider = "git_diff_added",
-            icon = " +",
+            provider = 'git_diff_added',
+            icon = ' +',
             hl = { fg = git.added },
         },
         {
-            provider = "git_diff_changed",
-            icon = " ~",
+            provider = 'git_diff_changed',
+            icon = ' ~',
             hl = { fg = git.changed },
         },
         {
-            provider = "git_diff_removed",
-            icon = " -",
+            provider = 'git_diff_removed',
+            icon = ' -',
             hl = { fg = git.deleted },
         },
         {
-            provider = "git_branch",
-            icon = { str = " ", hl = { fg = colors.orange_03 } },
-            left_sep = "  ",
-            right_sep = " ",
+            provider = 'git_branch',
+            icon = { str = ' ', hl = { fg = colors.orange_03 } },
+            left_sep = '  ',
+            right_sep = ' ',
         },
         {
             provider = function()
                 local current_line = vim.api.nvim_win_get_cursor(0)[1]
                 local lines = vim.api.nvim_buf_line_count(0)
 
-                return string.format("%d%%%%", math.ceil(current_line / lines * 100))
+                return string.format(
+                    '%d%%%%',
+                    math.ceil(current_line / lines * 100)
+                )
             end,
-            left_sep = " ",
-            right_sep = " ",
+            left_sep = ' ',
+            right_sep = ' ',
         },
         -- {
         --     provider = function()
@@ -331,42 +356,43 @@ M.components = function()
             provider = function()
                 local ft = vim.bo.filetype
 
-                if ft == "" then
-                    ft = vim.fn.expand("%:e")
+                if ft == '' then
+                    ft = vim.fn.expand '%:e'
 
-                    if ft == "" then
+                    if ft == '' then
                         local buf = vim.api.nvim_get_current_buf()
                         local bufname = vim.api.nvim_buf_get_name(buf)
 
                         if bufname == vim.loop.cwd() then
-                            return "Directory"
+                            return 'Directory'
                         end
                     end
                 end
 
-                local filetypes = require("dark_modern.integrations.feline.filetypes")
+                local filetypes =
+                    require 'dark_modern.integrations.feline.filetypes'
                 if filetypes[ft] == nil then
-                    return filetypes[""]
+                    return filetypes['']
                 end
                 return filetypes[ft]
             end,
-            right_sep = " ",
-            left_sep = " ",
+            right_sep = ' ',
+            left_sep = ' ',
         },
     }
     components.inactive[1] = {
         {
-            provider = " ",
-            hl = { bg = "vi_mode_bg" },
+            provider = ' ',
+            hl = { bg = 'vi_mode_bg' },
         },
         {
-            provider = "file_type",
-            hl = { bg = "vi_mode_bg" },
+            provider = 'file_type',
+            hl = { bg = 'vi_mode_bg' },
         },
         {
-            provider = " ",
-            hl = { bg = "vi_mode_bg" },
-            right_sep = { " " },
+            provider = ' ',
+            hl = { bg = 'vi_mode_bg' },
+            right_sep = { ' ' },
         },
     }
     components.inactive[2] = {}
