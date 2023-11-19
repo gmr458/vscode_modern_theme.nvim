@@ -53,27 +53,29 @@ function M.get(config)
         ["DiffChange"] = { bg = git.diff.change },
         ["DiffDelete"] = { bg = git.diff.delete },
         ["DiffText"] = { bg = git.diff.text },
-        ["EndOfBuffer"] = { fg = colors.bg },
+        ["EndOfBuffer"] = { fg = config.custom_background or colors.bg },
         ["Error"] = { fg = diagnostic.error },
         ["ErrorMsg"] = { fg = diagnostic.error },
-        ["FoldColumn"] = { bg = colors.bg, fg = colors.bg },
+        ["FoldColumn"] = { bg = config.custom_background or colors.bg, fg = config.custom_background or colors.bg },
         ["Folded"] = { bg = colors.blue_05 },
         ["FloatBorder"] = {
-            bg = config.transparent_background and colors.none or colors.bg,
+            bg = config.transparent_background and colors.none or (config.custom_background or colors.bg),
             fg = colors.bg_12,
         },
         ["lCursor"] = { bg = colors.bg_15, fg = colors.fg_02 },
         ["LineNr"] = {
-            bg = config.transparent_background and colors.none or colors.bg,
+            bg = config.transparent_background and colors.none or (config.custom_background or colors.bg),
             fg = colors.fg_07,
         },
         ["MatchParen"] = { bg = colors.bg_13 },
         ["NonText"] = { fg = colors.bg_08, bg = colors.none },
         ["Normal"] = {
-            bg = config.transparent_background and colors.none or colors.bg,
+            bg = config.transparent_background and colors.none or (config.custom_background or colors.bg),
             fg = colors.fg,
         },
-        ["NormalFloat"] = { bg = config.transparent_background and colors.none or colors.bg },
+        ["NormalFloat"] = {
+            bg = config.transparent_background and colors.none or (config.custom_background or colors.bg),
+        },
         ["Search"] = { bg = colors.brown_01 },
         ["SignColumn"] = { bg = colors.none },
         ["SpellBad"] = { sp = colors.red_03, undercurl = config.undercurl and term_supports_undercurl() },
@@ -87,7 +89,9 @@ function M.get(config)
         ["WarningMsg"] = { fg = diagnostic.warn },
         ["Whitespace"] = { fg = colors.bg_08, bg = colors.none },
         ["WinBar"] = { fg = colors.fg_11 },
-        ["WinSeparator"] = { fg = config.transparent_background and colors.bg or "#080A0E" },
+        ["WinSeparator"] = {
+            fg = config.transparent_background and (config.custom_background or colors.bg) or "#080A0E",
+        },
 
         -- Pmenu
         ["Pmenu"] = { bg = colors.bg_05, fg = colors.fg_14 },
@@ -378,7 +382,7 @@ function M.get(config)
         -- neovim/nvim-lspconfig
 
         -- Diagnostics LSP
-        ["DiagnosticBorder"] = { bg = colors.bg, fg = colors.fg_04 },
+        ["DiagnosticBorder"] = { bg = config.custom_background or colors.bg, fg = colors.fg_04 },
         ["DiagnosticDeprecated"] = { strikethrough = true },
         ["DiagnosticError"] = { fg = diagnostic.error },
         ["DiagnosticFloatingError"] = { fg = diagnostic.error },
@@ -494,11 +498,11 @@ function M.get(config)
 
         -- hrsh7th/nvim-cmp
         ["CmpDoc"] = {
-            bg = config.transparent_background and colors.none or colors.bg,
+            bg = config.transparent_background and colors.none or (config.custom_background or colors.bg),
             fg = colors.fg,
         },
         ["CmpDocBorder"] = {
-            bg = config.transparent_background and colors.none or colors.bg,
+            bg = config.transparent_background and colors.none or (config.custom_background or colors.bg),
             fg = colors.bg_12,
         },
         ["CmpItemAbbrDeprecated"] = { fg = colors.fg_14, strikethrough = true },
@@ -532,11 +536,11 @@ function M.get(config)
         ["CmpItemKindValue"] = { fg = colors.orange_02 },
         ["CmpItemKindVariable"] = { fg = colors.blue_14 },
         ["CmpMenu"] = {
-            bg = config.transparent_background and colors.none or colors.bg,
+            bg = config.transparent_background and colors.none or (config.custom_background or colors.bg),
             fg = colors.fg,
         },
         ["CmpMenuBorder"] = {
-            bg = config.transparent_background and colors.none or colors.bg,
+            bg = config.transparent_background and colors.none or (config.custom_background or colors.bg),
             fg = colors.bg_12,
         },
         ["CmpMenuSel"] = { bg = colors.blue_02, fg = colors.fg_15 },
@@ -581,15 +585,15 @@ function M.get(config)
         ["NvimTreeModifiedFile"] = { fg = colors.fg },
         ["NvimTreeNormal"] = {
             bg = config.transparent_background and colors.none
-                or (config.nvim_tree_darker and colors.bg_01 or colors.bg),
+                or (config.nvim_tree_darker and colors.bg_01 or (config.custom_background or colors.bg)),
         },
         ["NvimTreeOpenedFile"] = { fg = colors.fg },
         ["NvimTreeOpenedFolderIcon"] = { link = "NvimTreeFolderIcon" },
         ["NvimTreeOpenedFolderName"] = { fg = colors.fg },
         ["NvimTreeRootFolder"] = { fg = colors.fg_14 },
         ["NvimTreeWinSeparator"] = {
-            bg = config.transparent_background and colors.none or colors.bg,
-            fg = colors.bg,
+            bg = config.transparent_background and colors.none or (config.custom_background or colors.bg),
+            fg = (config.custom_background or colors.bg),
         },
 
         -- akinsho/toggleterm.nvim

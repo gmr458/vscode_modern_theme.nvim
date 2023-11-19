@@ -5,6 +5,7 @@ local M = {}
 --- @field transparent_background boolean
 --- @field nvim_tree_darker boolean
 --- @field italic_keyword boolean
+--- @field custom_background string | nil
 M.config = {
     compile_path = vim.fn.stdpath("cache") .. "/dark_modern",
     path_sep = jit and (jit.os == "Windows" and "\\" or "/") or package.config:sub(1, 1),
@@ -14,6 +15,7 @@ M.config = {
     nvim_tree_darker = false,
     undercurl = true,
     italic_keyword = false,
+    custom_background = nil,
 }
 
 --- @overload fun(config: Config)
