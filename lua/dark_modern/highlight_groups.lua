@@ -68,6 +68,7 @@ function M.get(config)
             fg = colors.fg_07,
         },
         ["MatchParen"] = { bg = colors.bg_13 },
+        ["NonText"] = { fg = colors.bg_08, bg = colors.none },
         ["Normal"] = {
             bg = config.transparent_background and colors.none or colors.bg,
             fg = colors.fg,
@@ -84,6 +85,7 @@ function M.get(config)
         ["Title"] = { fg = colors.fg_15 },
         ["Visual"] = { bg = colors.blue_06 },
         ["WarningMsg"] = { fg = diagnostic.warn },
+        ["Whitespace"] = { fg = colors.bg_08, bg = colors.none },
         ["WinBar"] = { fg = colors.fg_11 },
         ["WinSeparator"] = { fg = config.transparent_background and colors.bg or "#080A0E" },
 
