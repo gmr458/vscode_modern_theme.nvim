@@ -82,7 +82,7 @@ function M.get(config)
         ["SpellCap"] = { sp = colors.yellow_05, undercurl = config.undercurl and term_supports_undercurl() },
         ["SpellLocal"] = { sp = colors.blue_11, undercurl = config.undercurl and term_supports_undercurl() },
         ["SpellRare"] = { sp = colors.green_05, undercurl = config.undercurl and term_supports_undercurl() },
-        ["StatusLine"] = { bg = colors.none },
+        ["StatusLine"] = { bg = colors.bg_01, fg = colors.fg_14 },
         ["TermCursor"] = { bg = colors.fg_14, fg = colors.bg_01 },
         ["Title"] = { fg = colors.fg_15 },
         ["Visual"] = { bg = colors.blue_06 },
@@ -627,6 +627,33 @@ function M.get(config)
         ["xmlProcessingDelim"] = { fg = colors.fg_05 },
         ["xmlTag"] = { fg = colors.fg_05 },
         ["xmlTagName"] = { link = "Keyword" },
+
+        -- my custom statusline
+        StatusLineMode = { bg = colors.blue_01 },
+        StatusLineLspError = { bg = colors.bg_01, fg = diagnostic.error },
+        StatusLineLspWarn = { bg = colors.bg_01, fg = diagnostic.warn },
+        StatusLineLspHint = { bg = colors.bg_01, fg = diagnostic.hint },
+        StatusLineLspInfo = { bg = colors.bg_01, fg = diagnostic.info },
+        StatusLineLspMessages = {
+            bg = colors.bg_01,
+            fg = diagnostic.info,
+        },
+        StatusLineGitDiffAdded = {
+            bg = colors.bg_01,
+            fg = git.signs.add,
+        },
+        StatusLineGitDiffChanged = {
+            bg = colors.bg_01,
+            fg = git.signs.change,
+        },
+        StatusLineGitDiffRemoved = {
+            bg = colors.bg_01,
+            fg = git.signs.delete,
+        },
+        StatusLineGitBranchIcon = {
+            bg = colors.bg_01,
+            fg = colors.orange_03,
+        },
     }
 end
 
