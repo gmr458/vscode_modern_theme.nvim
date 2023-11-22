@@ -1,6 +1,7 @@
 local M = {}
 
 --- @class Config
+--- @field compile_path string
 --- @field cursorline boolean
 --- @field transparent_background boolean
 --- @field nvim_tree_darker boolean
@@ -10,7 +11,7 @@ M.config = {
     compile_path = vim.fn.stdpath 'cache' .. '/dark_modern',
     path_sep = jit and (jit.os == 'Windows' and '\\' or '/')
         or package.config:sub(1, 1),
-    compiled_filename = 'compiled',
+    compiled_filename = { 'dark', 'light' },
     cursorline = false,
     transparent_background = false,
     nvim_tree_darker = false,
@@ -25,14 +26,24 @@ function M.setup(config)
 end
 
 function M.load()
+    for _, value in ipairs(M.config.compiled_filename) do
+        local compiled_path = M.config.compile_path
+            .. M.config.path_sep
+            .. value
+
+        local f = loadfile(compiled_path)
+        if not f then
+            local palette = require 'dark_modern.palette'
+            local theme = require('dark_modern.themes')[value](palette)
+            M.compile(M.config, theme, value)
+        end
+    end
+
     local compiled_path = M.config.compile_path
         .. M.config.path_sep
-        .. M.config.compiled_filename
-    local f = loadfile(compiled_path)
-    if not f then
-        M.compile(M.config)
-        f = assert(loadfile(compiled_path), 'Could not load cache')
-    end
+        .. vim.o.background
+
+    local f = assert(loadfile(compiled_path), 'Could not load cache')
     f()
 end
 
@@ -51,22 +62,26 @@ local function inspect(t)
     return string.format([[{ %s }]], table.concat(list, ', '))
 end
 
-function M.compile(config)
+--- @overload fun(config: Config, theme: Theme, compiled_filename: string)
+function M.compile(config, theme, compiled_filename)
     local lines = {
-        string.format [[
+        string.format(
+            [[
 return string.dump(function()
 vim.o.termguicolors = true
 if vim.g.colors_name then vim.cmd("hi clear") end
-vim.o.background = "dark"
 vim.g.colors_name = "dark_modern"
+vim.o.background = "%s"
 local h = vim.api.nvim_set_hl]],
+            compiled_filename
+        ),
     }
 
     if config.path_sep == '\\' then
         config.compile_path = config.compile_path:gsub('/', '\\')
     end
 
-    local hgs = require('dark_modern.highlight_groups').get(config)
+    local hgs = require('dark_modern.highlight_groups').get(config, theme)
     for group, color in pairs(hgs) do
         table.insert(
             lines,
@@ -100,20 +115,26 @@ local h = vim.api.nvim_set_hl]],
 
     local file = assert(
         io.open(
-            config.compile_path .. config.path_sep .. config.compiled_filename,
+            config.compile_path .. config.path_sep .. compiled_filename,
             'wb'
         ),
         'Permission denied while writing compiled file to '
             .. config.compile_path
             .. config.path_sep
-            .. config.compiled_filename
+            .. compiled_filename
     )
     file:write(f())
     file:close()
 end
 
 vim.api.nvim_create_user_command('DarkModernCompile', function()
-    M.compile(M.config)
+    for _, value in ipairs(M.config.compiled_filename) do
+        local palette = require 'dark_modern.palette'
+        local theme = require('dark_modern.themes')[value](palette)
+
+        M.compile(M.config, theme, value)
+    end
+
     vim.notify 'dark_modern colorscheme compiled'
     vim.api.nvim_command 'colorscheme dark_modern'
 end, {})

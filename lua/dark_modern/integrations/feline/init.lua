@@ -4,10 +4,9 @@ local M = {}
 
 M.palette = function()
     return {
-        bg = colors.bg_01,
-        fg = colors.fg_14,
+        bg = colors.dark_03,
+        fg = colors.light_07,
         vi_mode_bg = colors.blue_01,
-        separator = colors.fg_01,
     }
 end
 

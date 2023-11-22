@@ -1,323 +1,336 @@
-local colors = require 'dark_modern.palette'
 local term_supports_undercurl = require('dark_modern').term_supports_undercurl
 
 local M = {}
 
---- @overload fun(config: Config)
-function M.get(config)
-    local diagnostic = {
-        error = colors.red_05,
-        warn = colors.yellow_03,
-        info = colors.blue_09,
-        hint = colors.green_05,
-        unnecessary = colors.blue_13,
-    }
-
-    local git = {
-        signs = {
-            add = colors.green_01,
-            delete = colors.red_06,
-            change = colors.blue_01,
-        },
-        status = {
-            ignored = colors.fg_09,
-            untracked = colors.green_06,
-            staged = colors.green_07,
-            deleted = colors.red_02,
-            modified = colors.yellow_01,
-        },
-        diff = {
-            add = colors.green_04,
-            change = colors.green_03,
-            delete = colors.red_01,
-            text = colors.green_04,
-        },
-    }
+--- @overload fun(config: Config, theme: Theme)
+function M.get(config, theme)
+    local palette = theme.palette
 
     return {
         -- Editor
-        ['Conceal'] = { bg = colors.bg_12 },
-        ['Cursor'] = { bg = colors.bg_15, fg = colors.fg_02 },
-        ['CursorIM'] = { bg = colors.bg_15, fg = colors.fg_02 },
+        ['Conceal'] = { bg = palette.grey_17 },
+        ['Cursor'] = { bg = theme.ui.cursor.bg, fg = theme.ui.cursor.fg },
+        ['CursorIM'] = { bg = theme.ui.cursor.bg, fg = theme.ui.cursor.fg },
         ['CursorLine'] = {
-            bg = config.transparent_background and colors.none
-                or (config.cursorline and colors.bg_03 or colors.none),
+            bg = config.transparent_background and palette.none
+                or (
+                    config.cursorline and theme.ui.cursor.line.bg
+                    or palette.none
+                ),
         },
         ['CursorLineNr'] = {
-            bg = config.transparent_background and colors.none
-                or (config.cursorline and colors.bg_03 or colors.none),
-            fg = colors.fg_13,
+            bg = config.transparent_background and palette.none
+                or (
+                    config.cursorline and theme.ui.cursor.line.nr.bg
+                    or palette.none
+                ),
+            fg = theme.ui.cursor.line.nr.fg,
         },
-        ['Directory'] = { fg = colors.yellow_02 },
-        ['diffAdded'] = { fg = git.signs.add },
-        ['diffRemoved'] = { fg = git.signs.delete },
-        ['DiffAdd'] = { bg = git.diff.add },
-        ['DiffChange'] = { bg = git.diff.change },
-        ['DiffDelete'] = { bg = git.diff.delete },
-        ['DiffText'] = { bg = git.diff.text },
-        ['EndOfBuffer'] = { fg = config.custom_background or colors.bg },
-        ['Error'] = { fg = diagnostic.error },
-        ['ErrorMsg'] = { fg = diagnostic.error },
+        ['Directory'] = { fg = theme.ui.directory.fg },
+        ['diffAdded'] = { fg = theme.git.signs.add },
+        ['diffRemoved'] = { fg = theme.git.signs.delete },
+        ['DiffAdd'] = { bg = theme.git.diff.add },
+        ['DiffChange'] = { bg = theme.git.diff.change },
+        ['DiffDelete'] = { bg = theme.git.diff.delete },
+        ['DiffText'] = { bg = theme.git.diff.text },
+        ['EndOfBuffer'] = { fg = config.custom_background or theme.ui.bg },
+        ['ErrorMsg'] = { fg = theme.diagnostics.error },
         ['FoldColumn'] = {
-            bg = config.custom_background or colors.bg,
-            fg = config.custom_background or colors.bg,
+            bg = config.custom_background or theme.ui.bg,
+            fg = config.custom_background or theme.ui.bg,
         },
-        ['Folded'] = { bg = colors.blue_05 },
+        ['Folded'] = { bg = theme.ui.folded.bg },
         ['FloatBorder'] = {
-            bg = config.transparent_background and colors.none
-                or (config.custom_background or colors.bg),
-            fg = colors.bg_12,
+            bg = config.transparent_background and palette.none
+                or (config.custom_background or theme.ui.float.border.bg),
+            fg = theme.ui.float.border.fg,
         },
-        ['lCursor'] = { bg = colors.bg_15, fg = colors.fg_02 },
+        ['lCursor'] = { bg = theme.ui.cursor.bg, fg = theme.ui.cursor.fg },
         ['LineNr'] = {
-            bg = config.transparent_background and colors.none
-                or (config.custom_background or colors.bg),
-            fg = colors.fg_07,
+            bg = config.transparent_background and palette.none
+                or (config.custom_background or theme.ui.line_nr.bg),
+            fg = theme.ui.line_nr.fg,
         },
-        ['MatchParen'] = { bg = colors.bg_13 },
-        ['NonText'] = { fg = colors.bg_08, bg = colors.none },
+        ['MatchParen'] = { bg = theme.ui.match_paren.bg },
+        ['NonText'] = { fg = theme.ui.indent_guide.fg, bg = palette.none },
         ['Normal'] = {
-            bg = config.transparent_background and colors.none
-                or (config.custom_background or colors.bg),
-            fg = colors.fg,
+            bg = config.transparent_background and palette.none
+                or (config.custom_background or theme.ui.bg),
+            fg = theme.ui.fg,
         },
         ['NormalFloat'] = {
-            bg = config.transparent_background and colors.none
-                or (config.custom_background or colors.bg),
+            bg = config.transparent_background and palette.none
+                or (config.custom_background or theme.ui.float.bg),
         },
-        ['Search'] = { bg = colors.brown_01 },
-        ['SignColumn'] = { bg = colors.none },
+        ['Search'] = { bg = theme.ui.search.bg },
+        ['SignColumn'] = { bg = palette.none },
         ['SpellBad'] = {
-            sp = colors.red_03,
+            sp = theme.diagnostics.error,
             undercurl = config.undercurl and term_supports_undercurl(),
         },
         ['SpellCap'] = {
-            sp = colors.yellow_05,
+            sp = theme.diagnostics.warn,
             undercurl = config.undercurl and term_supports_undercurl(),
         },
         ['SpellLocal'] = {
-            sp = colors.blue_11,
+            sp = theme.diagnostics.info,
             undercurl = config.undercurl and term_supports_undercurl(),
         },
         ['SpellRare'] = {
-            sp = colors.green_05,
+            sp = theme.diagnostics.hint,
             undercurl = config.undercurl and term_supports_undercurl(),
         },
-        ['StatusLine'] = { bg = colors.bg_01, fg = colors.fg_14 },
-        ['TermCursor'] = { bg = colors.fg_14, fg = colors.bg_01 },
-        ['Title'] = { fg = colors.fg_15 },
-        ['Visual'] = { bg = colors.blue_06 },
-        ['WarningMsg'] = { fg = diagnostic.warn },
-        ['Whitespace'] = { fg = colors.bg_08, bg = colors.none },
-        ['WinBar'] = { fg = colors.fg_11 },
+        ['StatusLine'] = {
+            bg = theme.ui.status_line.bg,
+            fg = theme.ui.status_line.fg,
+        },
+        ['TermCursor'] = {
+            bg = theme.ui.cursor.term.bg,
+            fg = theme.ui.cursor.term.fg,
+        },
+        ['Title'] = { fg = palette.light_15 },
+        ['Visual'] = { bg = theme.ui.visual.bg },
+        ['WarningMsg'] = { fg = theme.diagnostics.warn },
+        ['Whitespace'] = { fg = theme.ui.indent_guide.fg, bg = palette.none },
+        ['WinBar'] = { fg = palette.light_02 },
         ['WinSeparator'] = {
             fg = config.transparent_background
-                    and (config.custom_background or colors.bg)
-                or '#080A0E',
+                    and (config.custom_background or theme.ui.bg)
+                or theme.ui.win_separator.fg,
         },
 
         -- Pmenu
-        ['Pmenu'] = { bg = colors.bg_05, fg = colors.fg_14 },
-        ['PmenuSbar'] = { bg = colors.bg_05 },
-        ['PmenuSel'] = { bg = colors.blue_02, fg = colors.fg_15 },
-        ['PmenuThumb'] = { bg = colors.bg_11 },
+        ['Pmenu'] = { bg = theme.ui.pmenu.bg, fg = theme.ui.pmenu.fg },
+        ['PmenuSbar'] = { bg = theme.ui.pmenu.sbar.bg },
+        ['PmenuSel'] = {
+            bg = theme.ui.pmenu.sel.bg,
+            fg = theme.ui.pmenu.sel.fg,
+        },
+        ['PmenuThumb'] = { bg = theme.ui.pmenu.thumb.bg },
 
         -- Sintax
-        ['Comment'] = { fg = colors.green_08 },
+        ['Comment'] = { fg = theme.sintax.comment },
 
-        ['Variable'] = { fg = colors.blue_15 },
-        ['Constant'] = { fg = colors.blue_11 },
-        ['String'] = { fg = colors.orange_01 },
-        ['Character'] = { fg = colors.red_03 },
-        ['Number'] = { fg = colors.green_09 },
-        ['Boolean'] = { fg = colors.blue_12, italic = config.italic_keyword },
-        ['Float'] = { fg = colors.green_09 },
+        ['Variable'] = { fg = theme.sintax.variable },
+        ['Constant'] = { fg = theme.sintax.constant },
+        ['String'] = { fg = theme.sintax.string },
+        ['Character'] = { fg = theme.sintax.character },
+        ['Number'] = { fg = theme.sintax.number },
+        ['Boolean'] = {
+            fg = theme.sintax.keyword,
+            italic = config.italic_keyword,
+        },
+        ['Float'] = { fg = theme.sintax.number },
 
-        ['Identifier'] = { fg = colors.fg },
-        ['Function'] = { fg = colors.yellow_05 },
+        ['Identifier'] = { fg = theme.sintax.identifier },
+        ['Function'] = { fg = theme.sintax.function_name },
 
         ['Statement'] = {
-            fg = colors.purple_02,
+            fg = theme.sintax.keyword_control_flow,
             italic = config.italic_keyword,
         },
         ['Conditional'] = {
-            fg = colors.purple_02,
+            fg = theme.sintax.keyword_control_flow,
             italic = config.italic_keyword,
         },
-        ['Repeat'] = { fg = colors.purple_02, italic = config.italic_keyword },
-        ['Label'] = { fg = colors.purple_02, italic = config.italic_keyword },
-        ['Operator'] = { fg = colors.fg },
-        ['Keyword'] = { fg = colors.blue_12, italic = config.italic_keyword },
+        ['Repeat'] = {
+            fg = theme.sintax.keyword_control_flow,
+            italic = config.italic_keyword,
+        },
+        ['Label'] = {
+            fg = theme.sintax.keyword_control_flow,
+            italic = config.italic_keyword,
+        },
+        ['Operator'] = { fg = theme.sintax.operator },
+        ['Keyword'] = {
+            fg = theme.sintax.keyword,
+            italic = config.italic_keyword,
+        },
         ['Exception'] = {
-            fg = colors.purple_02,
+            fg = theme.sintax.keyword_control_flow,
             italic = config.italic_keyword,
         },
 
-        ['PreProc'] = { fg = colors.purple_02 },
-        ['Include'] = { fg = colors.purple_02, italic = config.italic_keyword },
-        ['Define'] = { fg = colors.purple_02 },
-        ['Macro'] = { fg = colors.blue_12, italic = config.italic_keyword },
-        ['PreCondit'] = { fg = colors.purple_02 },
+        ['PreProc'] = { fg = theme.sintax.keyword_control_flow },
+        ['Include'] = {
+            fg = theme.sintax.keyword_control_flow,
+            italic = config.italic_keyword,
+        },
+        ['Define'] = { fg = theme.sintax.keyword_control_flow },
+        ['Macro'] = {
+            fg = theme.sintax.keyword,
+            italic = config.italic_keyword,
+        },
+        ['PreCondit'] = { fg = theme.sintax.keyword_control_flow },
 
-        ['Type'] = { fg = colors.green_05 },
-        ['StorageClass'] = { fg = colors.green_05 },
-        ['Structure'] = { fg = colors.green_05 },
-        ['Typedef'] = { fg = colors.green_05 },
+        ['Type'] = { fg = theme.sintax.type },
+        ['StorageClass'] = { fg = theme.sintax.type },
+        ['Structure'] = { fg = theme.sintax.type },
+        ['Typedef'] = { fg = theme.sintax.type },
 
-        ['Special'] = { fg = colors.yellow_04 },
-        ['SpecialChar'] = { fg = colors.yellow_04 },
-        ['Tag'] = { fg = colors.yellow_04 },
-        ['Delimiter'] = { fg = colors.yellow_04 },
-        ['SpecialComment'] = { fg = colors.yellow_04 },
-        ['Debug'] = { fg = colors.yellow_04 },
+        ['Special'] = { fg = theme.sintax.special },
+        ['SpecialChar'] = { fg = theme.sintax.special_char },
+        ['Tag'] = { fg = theme.sintax.tag },
+        ['Delimiter'] = { fg = theme.sintax.delimiter },
+        ['SpecialComment'] = { fg = theme.sintax.special_comment },
+        ['Debug'] = { fg = theme.sintax.debug },
 
-        ['Todo'] = { fg = colors.magenta_01 },
+        ['Underlined'] = { underline = true },
+
+        -- ['Ignore'] = {},
+
+        ['Error'] = { fg = theme.diagnostics.error },
+
+        ['Todo'] = { fg = theme.sintax.todo },
 
         -- nvim-treesitter/nvim-treesitter
         ['@attribute'] = { link = '@type' },
-        ['@boolean'] = { fg = colors.blue_12, italic = config.italic_keyword },
-        ['@character'] = { fg = colors.orange_01 },
-        ['@character.special'] = { fg = colors.yellow_04 },
-        ['@comment'] = { fg = colors.green_08 },
-        ['@conditional'] = {
-            fg = colors.purple_02,
-            italic = config.italic_keyword,
-        },
-        ['@constant'] = { fg = colors.blue_11 },
+        ['@boolean'] = { link = 'Boolean' },
+        ['@character'] = { link = 'String' },
+        ['@character.special'] = { link = 'SpecialChar' },
+        ['@comment'] = { link = 'Comment' },
+        ['@conditional'] = { link = 'Conditional' },
+        ['@constant'] = { link = 'Constant' },
         ['@constant.builtin'] = { link = '@keyword' },
-        ['@constant.macro'] = { fg = colors.blue_11 },
-        ['@constructor'] = { fg = colors.green_05 },
-        ['@define'] = { fg = colors.purple_02 },
-        ['@exception'] = {
-            fg = colors.purple_02,
-            italic = config.italic_keyword,
-        },
-        ['@field'] = { fg = colors.blue_15 },
-        ['@float'] = { fg = colors.green_09 },
-        ['@function'] = { fg = colors.yellow_05 },
-        ['@function.builtin'] = { fg = colors.yellow_05 },
-        ['@function.call'] = { fg = colors.yellow_05 },
-        ['@function.macro'] = { fg = colors.blue_12 },
-        ['@include'] = { fg = colors.purple_02, italic = config.italic_keyword },
-        ['@keyword'] = { fg = colors.blue_12, italic = config.italic_keyword },
+        ['@constant.macro'] = { link = 'Macro' },
+        ['@constructor'] = { link = 'Type' },
+        ['@define'] = { link = 'Define' },
+        ['@exception'] = { link = 'Exception' },
+        ['@field'] = { link = 'Variable' },
+        ['@float'] = { link = 'Number' },
+        ['@function'] = { link = 'Function' },
+        ['@function.builtin'] = { link = 'Function' },
+        ['@function.call'] = { link = 'Function' },
+        ['@function.macro'] = { link = 'Macro' },
+        ['@include'] = { link = 'Include' },
+        ['@keyword'] = { link = 'Keyword' },
         ['@keyword.return'] = {
-            fg = colors.purple_02,
+            fg = theme.sintax.keyword_control_flow,
             italic = config.italic_keyword,
         },
-        ['@label'] = { fg = colors.purple_02, italic = config.italic_keyword },
-        ['@macro'] = { fg = colors.blue_12 },
-        ['@method'] = { fg = colors.yellow_05 },
-        ['@namespace'] = { fg = colors.green_05 },
-        ['@number'] = { fg = colors.green_09 },
-        ['@operator'] = { fg = colors.fg },
-        ['@parameter'] = { fg = colors.blue_15 },
-        ['@punctuation'] = { fg = colors.fg },
-        ['@property'] = { fg = colors.blue_15 },
-        ['@punctuation.delimiter'] = { fg = colors.fg },
-        ['@repeat'] = { fg = colors.purple_02, italic = config.italic_keyword },
-        ['@storageclass'] = {
-            fg = colors.blue_12,
-            italic = config.italic_keyword,
-        },
-        ['@string'] = { fg = colors.orange_01 },
-        ['@string.escape'] = { fg = colors.yellow_04 },
-        ['@string.special'] = { fg = colors.yellow_04 },
-        ['@tag'] = { fg = colors.blue_12 },
-        ['@tag.attribute'] = { link = '@variable' },
-        ['@tag.delimiter'] = { fg = colors.fg_05 },
-        ['@text.literal'] = { link = '@string' },
-        ['@text.reference'] = { link = '@constant' },
+        ['@label'] = { link = 'Label' },
+        ['@macro'] = { link = 'Macro' },
+        ['@method'] = { link = 'Function' },
+        ['@namespace'] = { fg = theme.sintax.namespace },
+        ['@number'] = { link = 'Number' },
+        ['@operator'] = { link = 'Operator' },
+        ['@parameter'] = { link = 'Variable' },
+        ['@punctuation'] = { fg = theme.sintax.punctuation },
+        ['@property'] = { link = 'Variable' },
+        ['@punctuation.delimiter'] = { fg = theme.sintax.punctuation },
+        ['@repeat'] = { link = 'Repeat' },
+        ['@storageclass'] = { link = 'StorageClass' },
+        ['@string'] = { link = 'String' },
+        ['@string.escape'] = { link = 'SpecialChar' },
+        ['@string.special'] = { link = 'SpecialChar' },
+        ['@tag'] = { fg = theme.sintax.xml_tag },
+        ['@tag.attribute'] = { link = 'Variable' },
+        ['@tag.delimiter'] = { fg = theme.sintax.xml_delimiter },
+        ['@text.literal'] = { link = 'String' },
+        ['@text.reference'] = { link = 'Constant' },
         ['@text.title'] = { link = 'Title' },
         ['@text.todo'] = { link = 'Todo' },
-        ['@text.underline'] = { underline = true },
-        ['@text.uri'] = { fg = colors.orange_01, underline = true },
-        ['@type'] = { fg = colors.green_05 },
-        ['@type.builtin'] = { fg = colors.green_05 },
-        ['@type.definition'] = { fg = colors.green_05 },
-        ['@type.qualifier'] = {
-            fg = colors.blue_12,
-            italic = config.italic_keyword,
-        },
-        ['@variable'] = { fg = colors.blue_15 },
-        ['@variable.builtin'] = { link = '@variable' },
+        ['@text.underline'] = { link = 'Underlined' },
+        ['@text.uri'] = { fg = theme.sintax.string, underline = true },
+        ['@type'] = { link = 'Type' },
+        ['@type.builtin'] = { link = 'Type' },
+        ['@type.definition'] = { link = 'Type' },
+        ['@type.qualifier'] = { link = 'Keyword' },
+        ['@variable'] = { link = 'Variable' },
+        ['@variable.builtin'] = { link = 'Variable' },
 
         -- C#
-        ['@type.builtin.c_sharp'] = {
-            fg = colors.blue_12,
-            italic = config.italic_keyword,
-        },
+        ['@type.builtin.c_sharp'] = { link = 'Keyword' },
 
         -- Diff
-        ['@text.diff.add.diff'] = { fg = git.signs.add },
-        ['@text.diff.delete.diff'] = { fg = git.signs.delete },
+        ['@text.diff.add.diff'] = { fg = theme.git.signs.add },
+        ['@text.diff.delete.diff'] = { fg = theme.git.signs.delete },
 
         -- Go
-        ['@keyword.default.go'] = { fg = colors.purple_02 },
-        ['@type.builtin.map.go'] = { link = '@keyword' },
+        ['@keyword.default.go'] = { fg = theme.sintax.keyword_control_flow },
+        ['@type.builtin.map.go'] = { link = 'Keyword' },
 
         -- Go Checksum File
-        ['@attribute.gosum'] = { fg = colors.fg },
-        ['@number.gosum'] = { fg = colors.blue_12 },
-        ['@string.special.gosum'] = { fg = colors.blue_12 },
-        ['@symbol.gosum'] = { fg = colors.orange_01 },
+        ['@attribute.gosum'] = { link = 'Identifier' },
+        ['@number.gosum'] = { link = 'Keyword' },
+        ['@string.special.gosum'] = { link = 'Keyword' },
+        ['@symbol.gosum'] = { link = 'String' },
 
         -- HTML
-        ['@constant.html'] = { fg = colors.blue_12 },
-        ['@text.html'] = { fg = colors.fg },
-        ['@text.title.html'] = { fg = colors.fg },
+        ['@constant.html'] = { link = 'Keyword' },
+        ['@text.html'] = { link = 'Identifier' },
+        ['@text.title.html'] = { link = 'Identifier' },
 
         -- Java
-        ['@function.builtin.super.java'] = { link = '@keyword' },
-        ['@variable.builtin.this.java'] = { link = '@keyword' },
+        ['@function.builtin.super.java'] = { link = 'Keyword' },
+        ['@variable.builtin.this.java'] = { link = 'Keyword' },
 
         -- JavaScript
-        ['@constructor.constructor.javascript'] = { link = '@keyword' },
-        ['@keyword.coroutine.await.javascript'] = { fg = colors.purple_02 },
-        ['@keyword.default.javascript'] = { fg = colors.purple_02 },
-        ['@keyword.export.javascript'] = { fg = colors.purple_02 },
-        ['@number.infinity.javascript'] = { link = '@keyword' },
-        ['@variable.builtin.this.javascript'] = { link = '@keyword' },
-        ['@variable.builtin.super.javascript'] = { link = '@keyword' },
+        ['@constructor.constructor.javascript'] = { link = 'Keyword' },
+        ['@keyword.coroutine.await.javascript'] = {
+            fg = theme.sintax.keyword_control_flow,
+        },
+        ['@keyword.default.javascript'] = {
+            fg = theme.sintax.keyword_control_flow,
+        },
+        ['@keyword.export.javascript'] = {
+            fg = theme.sintax.keyword_control_flow,
+        },
+        ['@number.infinity.javascript'] = { link = 'Keyword' },
+        ['@variable.builtin.this.javascript'] = { link = 'Keyword' },
+        ['@variable.builtin.super.javascript'] = { link = 'Keyword' },
 
         -- JSON
-        ['@label.json'] = { link = '@variable' },
+        ['@label.json'] = { link = 'Variable' },
 
         -- JSON with comments
-        ['@label.jsonc'] = { link = '@variable' },
+        ['@label.jsonc'] = { link = 'Variable' },
 
         -- Lua
         ['@constructor.lua'] = { link = '@punctuation' },
 
         -- Python
-        ['@attribute.python'] = { link = '@function' },
-        ['@constructor.python'] = { link = '@function' },
-        ['@keyword.with'] = { fg = colors.purple_02 },
-        ['@keyword.coroutine.await.python'] = { fg = colors.purple_02 },
-        ['@variable.builtin.self.python'] = { link = '@keyword' },
+        ['@attribute.python'] = { link = 'Function' },
+        ['@constructor.python'] = { link = 'Function' },
+        ['@keyword.with'] = { fg = theme.sintax.keyword_control_flow },
+        ['@keyword.coroutine.await.python'] = {
+            fg = theme.sintax.keyword_control_flow,
+        },
+        ['@variable.builtin.self.python'] = { link = 'Keyword' },
 
         -- Ruby
-        ['@label.ruby'] = { link = '@variable' },
+        ['@label.ruby'] = { link = 'Variable' },
 
         -- Rust
-        ['@constant.builtin.rust'] = { link = '@constant' },
-        ['@keyword.coroutine.await.rust'] = { fg = colors.purple_02 },
-        ['@variable.builtin.rust'] = { link = '@keyword' },
+        ['@constant.builtin.rust'] = { link = 'Constant' },
+        ['@keyword.coroutine.await.rust'] = {
+            fg = theme.sintax.keyword_control_flow,
+        },
+        ['@variable.builtin.rust'] = { link = 'Keyword' },
 
         -- TypeScript
-        ['@constructor.constructor.typescript'] = { link = '@keyword' },
-        ['@constant.builtin.undefined.typescript'] = { link = '@keyword' },
-        ['@keyword.coroutine.await.typescript'] = { fg = colors.purple_02 },
-        ['@keyword.default.typescript'] = { fg = colors.purple_02 },
-        ['@keyword.export.typescript'] = { fg = colors.purple_02 },
-        ['@number.infinity.typescript'] = { link = '@keyword' },
-        ['@variable.builtin.super.typescript'] = { link = '@keyword' },
-        ['@variable.builtin.this.typescript'] = { link = '@keyword' },
+        ['@constructor.constructor.typescript'] = { link = 'Keyword' },
+        ['@constant.builtin.undefined.typescript'] = { link = 'Keyword' },
+        ['@keyword.coroutine.await.typescript'] = {
+            fg = theme.sintax.keyword_control_flow,
+        },
+        ['@keyword.default.typescript'] = {
+            fg = theme.sintax.keyword_control_flow,
+        },
+        ['@keyword.export.typescript'] = {
+            fg = theme.sintax.keyword_control_flow,
+        },
+        ['@number.infinity.typescript'] = { link = 'Keyword' },
+        ['@variable.builtin.super.typescript'] = { link = 'Keyword' },
+        ['@variable.builtin.this.typescript'] = { link = 'Keyword' },
 
         -- TypeScript JSX
-        ['@keyword.as.tsx'] = { fg = colors.purple_02 },
-        ['@keyword.coroutine.await.tsx'] = { fg = colors.purple_02 },
-        ['@keyword.default.tsx'] = { fg = colors.purple_02 },
-        ['@keyword.export.tsx'] = { fg = colors.purple_02 },
+        ['@keyword.as.tsx'] = { fg = theme.sintax.keyword_control_flow },
+        ['@keyword.coroutine.await.tsx'] = {
+            fg = theme.sintax.keyword_control_flow,
+        },
+        ['@keyword.default.tsx'] = { fg = theme.sintax.keyword_control_flow },
+        ['@keyword.export.tsx'] = { fg = theme.sintax.keyword_control_flow },
 
         -- Semantic Tokens
         ['@lsp.type.annotation'] = { link = 'Type' },
@@ -347,7 +360,7 @@ function M.get(config)
         ['@lsp.typemod.function.readonly'] = { link = 'Function' },
         ['@lsp.typemod.generic.macro'] = { link = 'Variable' },
         ['@lsp.typemod.method.macro'] = { link = 'Function' },
-        ['@lsp.typemod.namespace.macro'] = { fg = colors.green_05 },
+        ['@lsp.typemod.namespace.macro'] = { link = 'Type' },
         ['@lsp.typemod.number.macro'] = { link = 'Number' },
         ['@lsp.typemod.parameter.macro'] = { link = 'Variable' },
         ['@lsp.typemod.property.macro'] = { link = 'Variable' },
@@ -358,374 +371,420 @@ function M.get(config)
         ['@lsp.typemod.variable.static'] = { link = 'Constant' },
 
         ['@lsp.mod.controlFlow'] = {
-            fg = colors.purple_02,
+            fg = theme.sintax.keyword_control_flow,
             italic = config.italic_keyword,
         },
         ['@lsp.mod.macro'] = { link = 'Macro' },
-        ['@lsp.mod.mutable'] = { underline = true },
+        ['@lsp.mod.mutable'] = { link = 'Underlined' },
         ['@lsp.mod.readonly'] = { link = 'Constant' },
 
         -- nvim-treesitter/nvim-treesitter-context
-        ['TreesitterContext'] = { bg = colors.bg_04 },
-        ['TreesitterContextLineNumber'] = { bg = colors.bg_04 },
+        ['TreesitterContext'] = { bg = theme.ui.context.bg },
+        ['TreesitterContextLineNumber'] = { bg = theme.ui.context.bg },
 
         -- nvim-treesitter/playground
-        ['nodeNumber'] = { link = '@number' },
-        ['nodeType'] = { link = '@type' },
-        ['nodeTag'] = { link = '@variable' },
+        ['nodeNumber'] = { link = 'Number' },
+        ['nodeType'] = { link = 'Type' },
+        ['nodeTag'] = { link = 'Variable' },
 
         -- kevinhwang91/nvim-ufo
-        ['UfoCursorFoldedLine'] = { bg = colors.blue_05 },
-        ['UfoFoldedEllipsis'] = { fg = colors.fg_05 },
+        ['UfoCursorFoldedLine'] = { bg = theme.ui.folded.bg },
+        ['UfoFoldedEllipsis'] = { fg = palette.grey_19 },
 
         -- ibhagwan/fzf-lua
-        ['FzfLuaBorder'] = { fg = colors.fg_04 },
+        ['FzfLuaBorder'] = { fg = palette.grey_18 },
 
         -- nvim-telescope/telescope.nvim
-        ['TelescopeMatching'] = { fg = colors.blue_07 },
+        ['TelescopeMatching'] = { fg = theme.ui.telescope.matching.fg },
 
-        ['TelescopeMultiSelection'] = { fg = colors.fg },
+        ['TelescopeMultiSelection'] = { fg = theme.ui.fg },
 
         -- Telescope Preview
         ['TelescopePreviewBorder'] = {
-            bg = config.transparent_background and colors.none or colors.bg_02,
-            fg = config.transparent_background and colors.fg_11 or colors.bg_02,
+            bg = config.transparent_background and palette.none
+                or theme.ui.telescope.preview.border.bg,
+            fg = config.transparent_background and palette.light_02
+                or theme.ui.telescope.preview.border.fg,
         },
         ['TelescopePreviewNormal'] = {
-            bg = config.transparent_background and colors.none or colors.bg_02,
+            bg = config.transparent_background and palette.none
+                or theme.ui.telescope.preview.bg,
         },
         ['TelescopePreviewTitle'] = {
-            bg = config.transparent_background and colors.none
-                or colors.blue_01,
-            fg = colors.fg_15,
+            bg = config.transparent_background and palette.none
+                or theme.ui.telescope.preview.title.bg,
+            fg = theme.ui.telescope.preview.title.fg,
         },
 
         -- Telescope Prompt
         ['TelescopePromptBorder'] = {
-            bg = config.transparent_background and colors.none or colors.bg_07,
-            fg = config.transparent_background and colors.fg_11 or colors.bg_07,
+            bg = config.transparent_background and palette.none
+                or theme.ui.telescope.prompt.border.bg,
+            fg = config.transparent_background and palette.light_02
+                or theme.ui.telescope.prompt.border.fg,
         },
-        ['TelescopePromptCounter'] = { fg = colors.bg_14 },
+        ['TelescopePromptCounter'] = {
+            fg = theme.ui.telescope.prompt.counter.fg,
+        },
         ['TelescopePromptNormal'] = {
-            bg = config.transparent_background and colors.none or colors.bg_07,
-            fg = colors.bg_14,
+            bg = config.transparent_background and palette.none
+                or theme.ui.telescope.prompt.bg,
+            fg = theme.ui.telescope.prompt.fg,
         },
         ['TelescopePromptTitle'] = {
-            bg = config.transparent_background and colors.none
-                or colors.blue_01,
-            fg = colors.fg_15,
+            bg = config.transparent_background and palette.none
+                or theme.ui.telescope.prompt.title.bg,
+            fg = theme.ui.telescope.prompt.title.fg,
         },
 
         -- Telescope Results
         ['TelescopeResultsBorder'] = {
-            bg = config.transparent_background and colors.none or colors.bg_05,
-            fg = config.transparent_background and colors.fg_11 or colors.bg_05,
+            bg = config.transparent_background and palette.none
+                or theme.ui.telescope.results.border.bg,
+            fg = config.transparent_background and palette.light_02
+                or theme.ui.telescope.results.border.fg,
         },
         ['TelescopeResultsNormal'] = {
-            bg = config.transparent_background and colors.none or colors.bg_05,
+            bg = config.transparent_background and palette.none
+                or theme.ui.telescope.results.bg,
         },
         ['TelescopeResultsTitle'] = {
-            bg = config.transparent_background and colors.none
-                or colors.blue_01,
-            fg = colors.fg_15,
+            bg = config.transparent_background and palette.none
+                or theme.ui.telescope.results.title.bg,
+            fg = theme.ui.telescope.results.title.fg,
         },
 
         -- Telescope Results Diff
-        ['TelescopeResultsDiffAdd'] = { fg = git.signs.add },
-        ['TelescopeResultsDiffChange'] = { fg = git.signs.change },
-        ['TelescopeResultsDiffDelete'] = { fg = git.signs.delete },
-        ['TelescopeResultsDiffUntracked'] = { fg = git.status.untracked },
+        ['TelescopeResultsDiffAdd'] = { fg = theme.git.signs.add },
+        ['TelescopeResultsDiffChange'] = { fg = theme.git.signs.change },
+        ['TelescopeResultsDiffDelete'] = { fg = theme.git.signs.delete },
+        ['TelescopeResultsDiffUntracked'] = { fg = theme.git.status.untracked },
 
         -- Telescope Selection
-        ['TelescopeSelection'] = { bg = colors.blue_02, fg = colors.fg_15 },
+        ['TelescopeSelection'] = {
+            bg = theme.ui.telescope.selection.bg,
+            fg = theme.ui.telescope.selection.fg,
+        },
 
         -- neovim/nvim-lspconfig
 
         -- Diagnostics LSP
         ['DiagnosticBorder'] = {
-            bg = config.custom_background or colors.bg,
-            fg = colors.fg_04,
+            bg = config.custom_background or theme.ui.float.border.bg,
+            fg = theme.ui.float.border.fg,
         },
         ['DiagnosticDeprecated'] = { strikethrough = true },
-        ['DiagnosticError'] = { fg = diagnostic.error },
-        ['DiagnosticFloatingError'] = { fg = diagnostic.error },
-        ['DiagnosticFloatingHint'] = { fg = diagnostic.hint },
-        ['DiagnosticFloatingInfo'] = { fg = diagnostic.info },
-        ['DiagnosticFloatingWarn'] = { fg = diagnostic.warn },
-        ['DiagnosticHint'] = { fg = diagnostic.hint },
-        ['DiagnosticInfo'] = { fg = diagnostic.info },
-        ['DiagnosticSignError'] = { fg = diagnostic.error },
-        ['DiagnosticSignHint'] = { fg = diagnostic.hint },
-        ['DiagnosticSignInfo'] = { fg = diagnostic.info },
-        ['DiagnosticSignWarn'] = { fg = diagnostic.warn },
+        ['DiagnosticError'] = { fg = theme.diagnostics.error },
+        ['DiagnosticFloatingError'] = { fg = theme.diagnostics.error },
+        ['DiagnosticFloatingHint'] = { fg = theme.diagnostics.hint },
+        ['DiagnosticFloatingInfo'] = { fg = theme.diagnostics.info },
+        ['DiagnosticFloatingWarn'] = { fg = theme.diagnostics.warn },
+        ['DiagnosticHint'] = { fg = theme.diagnostics.hint },
+        ['DiagnosticInfo'] = { fg = theme.diagnostics.info },
+        ['DiagnosticSignError'] = { fg = theme.diagnostics.error },
+        ['DiagnosticSignHint'] = { fg = theme.diagnostics.hint },
+        ['DiagnosticSignInfo'] = { fg = theme.diagnostics.info },
+        ['DiagnosticSignWarn'] = { fg = theme.diagnostics.warn },
         ['DiagnosticUnderlineError'] = {
-            sp = diagnostic.error,
+            sp = theme.diagnostics.error,
             undercurl = config.undercurl and term_supports_undercurl(),
         },
         ['DiagnosticUnderlineHint'] = {
-            sp = diagnostic.hint,
+            sp = theme.diagnostics.hint,
             undercurl = config.undercurl and term_supports_undercurl(),
         },
         ['DiagnosticUnderlineInfo'] = {
-            sp = diagnostic.info,
+            sp = theme.diagnostics.info,
             undercurl = config.undercurl and term_supports_undercurl(),
         },
         ['DiagnosticUnderlineWarn'] = {
-            sp = diagnostic.warn,
+            sp = theme.diagnostics.warn,
             undercurl = config.undercurl and term_supports_undercurl(),
         },
-        ['DiagnosticUnnecessary'] = { fg = diagnostic.unnecessary },
-        ['DiagnosticVirtualTextError'] = { fg = diagnostic.error },
-        ['DiagnosticVirtualTextHint'] = { fg = diagnostic.hint },
-        ['DiagnosticVirtualTextInfo'] = { fg = diagnostic.info },
-        ['DiagnosticVirtualTextWarn'] = { fg = diagnostic.warn },
-        ['DiagnosticWarn'] = { fg = diagnostic.warn },
+        ['DiagnosticUnnecessary'] = { fg = theme.diagnostics.unnecessary },
+        ['DiagnosticVirtualTextError'] = { fg = theme.diagnostics.error },
+        ['DiagnosticVirtualTextHint'] = { fg = theme.diagnostics.hint },
+        ['DiagnosticVirtualTextInfo'] = { fg = theme.diagnostics.info },
+        ['DiagnosticVirtualTextWarn'] = { fg = theme.diagnostics.warn },
+        ['DiagnosticWarn'] = { fg = theme.diagnostics.warn },
 
         -- LspInfo
-        ['LspInfoBorder'] = { fg = colors.fg_04 },
+        ['LspInfoBorder'] = { fg = theme.ui.float.border.fg },
 
         -- Codelens
-        ['LspCodeLens'] = { fg = colors.fg_10 },
-        ['LspCodeLensSeparator'] = { fg = colors.fg_10 },
+        ['LspCodeLens'] = { fg = palette.grey_26 },
+        ['LspCodeLensSeparator'] = { fg = palette.grey_26 },
 
         -- SmiteshP/nvim-navic
-        ['NavicIconsFile'] = { fg = colors.fg_14 },
-        ['NavicIconsModule'] = { fg = colors.fg_14 },
-        ['NavicIconsNamespace'] = { fg = colors.fg_14 },
-        ['NavicIconsPackage'] = { fg = colors.fg_14 },
-        ['NavicIconsClass'] = { fg = colors.orange_02 },
-        ['NavicIconsMethod'] = { fg = colors.purple_01 },
-        ['NavicIconsProperty'] = { fg = colors.blue_14 },
-        ['NavicIconsField'] = { fg = colors.blue_14 },
-        ['NavicIconsConstructor'] = { fg = colors.purple_01 },
-        ['NavicIconsEnum'] = { fg = colors.orange_02 },
-        ['NavicIconsInterface'] = { fg = colors.blue_14 },
-        ['NavicIconsFunction'] = { fg = colors.purple_01 },
-        ['NavicIconsVariable'] = { fg = colors.blue_14 },
-        ['NavicIconsConstant'] = { fg = colors.fg_14 },
-        ['NavicIconsString'] = { fg = colors.fg_14 },
-        ['NavicIconsNumber'] = { fg = colors.fg_14 },
-        ['NavicIconsBoolean'] = { fg = colors.fg_14 },
-        ['NavicIconsArray'] = { fg = colors.fg_14 },
-        ['NavicIconsObject'] = { fg = colors.fg_14 },
-        ['NavicIconsKey'] = { fg = colors.fg_14 },
-        ['NavicIconsNull'] = { fg = colors.fg_14 },
-        ['NavicIconsEnumMember'] = { fg = colors.blue_14 },
-        ['NavicIconsStruct'] = { fg = colors.fg_14 },
-        ['NavicIconsEvent'] = { fg = colors.fg_14 },
-        ['NavicIconsOperator'] = { fg = colors.fg_14 },
-        ['NavicIconsTypeParameter'] = { fg = colors.fg_14 },
-        ['NavicText'] = { fg = colors.fg_11 },
-        ['NavicSeparator'] = { fg = colors.fg_11 },
+        ['NavicIconsFile'] = { fg = theme.ui.fg },
+        ['NavicIconsModule'] = { fg = theme.ui.fg },
+        ['NavicIconsNamespace'] = { fg = theme.ui.fg },
+        ['NavicIconsPackage'] = { fg = theme.ui.fg },
+        ['NavicIconsClass'] = { fg = palette.orange_02 },
+        ['NavicIconsMethod'] = { fg = palette.purple_01 },
+        ['NavicIconsProperty'] = { fg = palette.blue_14 },
+        ['NavicIconsField'] = { fg = palette.blue_14 },
+        ['NavicIconsConstructor'] = { fg = palette.purple_01 },
+        ['NavicIconsEnum'] = { fg = palette.orange_02 },
+        ['NavicIconsInterface'] = { fg = palette.blue_14 },
+        ['NavicIconsFunction'] = { fg = palette.purple_01 },
+        ['NavicIconsVariable'] = { fg = palette.blue_14 },
+        ['NavicIconsConstant'] = { fg = theme.ui.fg },
+        ['NavicIconsString'] = { fg = theme.ui.fg },
+        ['NavicIconsNumber'] = { fg = theme.ui.fg },
+        ['NavicIconsBoolean'] = { fg = theme.ui.fg },
+        ['NavicIconsArray'] = { fg = theme.ui.fg },
+        ['NavicIconsObject'] = { fg = theme.ui.fg },
+        ['NavicIconsKey'] = { fg = theme.ui.fg },
+        ['NavicIconsNull'] = { fg = theme.ui.fg },
+        ['NavicIconsEnumMember'] = { fg = palette.blue_14 },
+        ['NavicIconsStruct'] = { fg = theme.ui.fg },
+        ['NavicIconsEvent'] = { fg = theme.ui.fg },
+        ['NavicIconsOperator'] = { fg = theme.ui.fg },
+        ['NavicIconsTypeParameter'] = { fg = theme.ui.fg },
+        ['NavicText'] = { fg = palette.light_02 },
+        ['NavicSeparator'] = { fg = palette.light_02 },
 
         -- williamboman/mason.nvim
-        ['MasonError'] = { fg = diagnostic.error },
-        ['MasonWarning'] = { fg = diagnostic.warn },
+        ['MasonError'] = { fg = theme.diagnostics.error },
+        ['MasonWarning'] = { fg = theme.diagnostics.warn },
 
         -- folke/trouble.nvim
-        ['TroubleCode'] = { fg = colors.blue_08, underline = true },
-        ['TroubleCount'] = { bg = colors.bg_10, fg = colors.fg_15 },
-        ['TroubleFile'] = { fg = colors.fg_14 },
-        ['TroubleFoldIcon'] = { fg = colors.fg_12 },
-        ['TroubleLocation'] = { fg = colors.fg_09 },
-        ['TroublePreview'] = { bg = colors.bg_09 },
-        ['TroubleSignError'] = { fg = diagnostic.error },
-        ['TroubleSignHint'] = { fg = diagnostic.hint },
-        ['TroubleSignInformation'] = { fg = diagnostic.info },
-        ['TroubleSignWarning'] = { fg = diagnostic.warn },
-        ['TroubleSource'] = { fg = colors.fg_09 },
-        ['TroubleTextError'] = { fg = colors.fg },
-        ['TroubleTextHint'] = { fg = colors.fg },
-        ['TroubleTextInformation'] = { fg = colors.fg },
-        ['TroubleTextWarning'] = { fg = colors.fg },
+        ['TroubleCode'] = { fg = palette.blue_08, underline = true },
+        ['TroubleCount'] = { bg = palette.grey_11, fg = palette.light_15 },
+        ['TroubleFile'] = { fg = theme.ui.fg },
+        ['TroubleFoldIcon'] = { fg = palette.light_05 },
+        ['TroubleLocation'] = { fg = palette.grey_25 },
+        ['TroublePreview'] = { bg = palette.grey_10 },
+        ['TroubleSignError'] = { fg = theme.diagnostics.error },
+        ['TroubleSignHint'] = { fg = theme.diagnostics.hint },
+        ['TroubleSignInformation'] = { fg = theme.diagnostics.info },
+        ['TroubleSignWarning'] = { fg = theme.diagnostics.warn },
+        ['TroubleSource'] = { fg = palette.grey_25 },
+        ['TroubleTextError'] = { fg = theme.ui.fg },
+        ['TroubleTextHint'] = { fg = theme.ui.fg },
+        ['TroubleTextInformation'] = { fg = theme.ui.fg },
+        ['TroubleTextWarning'] = { fg = theme.ui.fg },
 
         -- mfussenegger/nvim-dap
-        ['DapBreakpoint'] = { fg = colors.red_04 },
-        ['DapStopped'] = { fg = colors.yellow_06 },
-        ['DapBreakpointRejected'] = { fg = colors.fg_06 },
+        ['DapBreakpoint'] = { fg = palette.red_04 },
+        ['DapStopped'] = { fg = palette.yellow_06 },
+        ['DapBreakpointRejected'] = { fg = palette.grey_20 },
 
         -- rcarriga/nvim-dap-ui
-        ['DapUIScope'] = { fg = colors.fg_14 },
+        ['DapUIScope'] = { fg = theme.ui.fg },
         ['DapUIVariable'] = { link = 'Variable' },
         ['DapUIType'] = { link = 'Type' },
-        ['DapUIValue'] = { fg = colors.fg_06 },
-        ['DapUIDecoration'] = { fg = colors.fg_14 },
-        ['DapUIBreakpointsPath'] = { fg = colors.fg_14 },
+        ['DapUIValue'] = { fg = palette.grey_20 },
+        ['DapUIDecoration'] = { fg = theme.ui.fg },
+        ['DapUIBreakpointsPath'] = { fg = theme.ui.fg },
         ['DapUILineNumber'] = { link = 'LineNr' },
-        ['DapUIStoppedThread'] = { fg = colors.fg_14 },
-        ['DapUICurrentFrameName'] = { fg = colors.fg_14 },
-        ['DapUISource'] = { fg = colors.fg_14 },
-        ['DapUIThread'] = { fg = colors.fg_14 },
-        ['DapUIWatchesEmpty'] = { fg = colors.fg_06 },
-        ['DapUIWatchesValue'] = { fg = colors.fg_14 },
+        ['DapUIStoppedThread'] = { fg = theme.ui.fg },
+        ['DapUICurrentFrameName'] = { fg = theme.ui.fg },
+        ['DapUISource'] = { fg = theme.ui.fg },
+        ['DapUIThread'] = { fg = theme.ui.fg },
+        ['DapUIWatchesEmpty'] = { fg = palette.grey_20 },
+        ['DapUIWatchesValue'] = { fg = theme.ui.fg },
 
         -- hrsh7th/nvim-cmp
         ['CmpDoc'] = {
-            bg = config.transparent_background and colors.none
-                or (config.custom_background or colors.bg),
-            fg = colors.fg,
+            bg = config.transparent_background and palette.none
+                or (config.custom_background or theme.ui.bg),
+            fg = theme.ui.fg,
         },
         ['CmpDocBorder'] = {
-            bg = config.transparent_background and colors.none
-                or (config.custom_background or colors.bg),
-            fg = colors.bg_12,
+            bg = config.transparent_background and palette.none
+                or (config.custom_background or theme.ui.float.border.bg),
+            fg = theme.ui.float.border.fg,
         },
-        ['CmpItemAbbrDeprecated'] = { fg = colors.fg_14, strikethrough = true },
-        ['CmpItemAbbrMatch'] = { fg = colors.blue_07 },
-        ['CmpItemKind'] = { fg = colors.fg_14 },
-        ['CmpItemKindClass'] = { fg = colors.orange_02 },
-        ['CmpItemKindColor'] = { fg = colors.fg },
-        ['CmpItemKindConstant'] = { fg = colors.fg_14 },
-        ['CmpItemKindConstructor'] = { fg = colors.purple_01 },
-        ['CmpItemKindEnum'] = { fg = colors.orange_02 },
-        ['CmpItemKindEnumMember'] = { fg = colors.blue_14 },
-        ['CmpItemKindEvent'] = { fg = colors.fg_14 },
-        ['CmpItemKindField'] = { fg = colors.blue_14 },
-        ['CmpItemKindFile'] = { fg = colors.fg_14 },
-        ['CmpItemKindFolder'] = { fg = colors.yellow_02 },
-        ['CmpItemKindFunction'] = { fg = colors.purple_01 },
-        ['CmpItemKindInterface'] = { fg = colors.blue_14 },
-        ['CmpItemKindKeyword'] = { fg = colors.fg_14 },
-        ['CmpItemKindMethod'] = { fg = colors.purple_01 },
-        ['CmpItemKindModule'] = { fg = colors.fg_14 },
-        ['CmpItemKindOperator'] = { fg = colors.fg_14 },
-        ['CmpItemKindProperty'] = { fg = colors.blue_14 },
-        ['CmpItemKindReference'] = { fg = colors.fg_14 },
-        ['CmpItemKindSnippet'] = { fg = colors.fg_14 },
-        ['CmpItemKindSnippetFunction'] = { fg = colors.fg_14 },
-        ['CmpItemKindSnippetStruct'] = { fg = colors.fg_14 },
-        ['CmpItemKindStruct'] = { fg = colors.fg_14 },
-        ['CmpItemKindText'] = { fg = colors.fg_14 },
-        ['CmpItemKindTypeParameter'] = { fg = colors.fg_14 },
-        ['CmpItemKindUnit'] = { fg = colors.fg_14 },
-        ['CmpItemKindValue'] = { fg = colors.orange_02 },
-        ['CmpItemKindVariable'] = { fg = colors.blue_14 },
+        ['CmpItemAbbrDeprecated'] = {
+            fg = theme.ui.fg,
+            strikethrough = true,
+        },
+        ['CmpItemAbbrMatch'] = { fg = palette.blue_07 },
+        ['CmpItemKind'] = { fg = theme.ui.fg },
+        ['CmpItemKindClass'] = { fg = palette.orange_02 },
+        ['CmpItemKindColor'] = { fg = theme.ui.fg },
+        ['CmpItemKindConstant'] = { fg = theme.ui.fg },
+        ['CmpItemKindConstructor'] = { fg = palette.purple_01 },
+        ['CmpItemKindEnum'] = { fg = palette.orange_02 },
+        ['CmpItemKindEnumMember'] = { fg = palette.blue_14 },
+        ['CmpItemKindEvent'] = { fg = theme.ui.fg },
+        ['CmpItemKindField'] = { fg = palette.blue_14 },
+        ['CmpItemKindFile'] = { fg = theme.ui.fg },
+        ['CmpItemKindFolder'] = { fg = palette.yellow_02 },
+        ['CmpItemKindFunction'] = { fg = palette.purple_01 },
+        ['CmpItemKindInterface'] = { fg = palette.blue_14 },
+        ['CmpItemKindKeyword'] = { fg = theme.ui.fg },
+        ['CmpItemKindMethod'] = { fg = palette.purple_01 },
+        ['CmpItemKindModule'] = { fg = theme.ui.fg },
+        ['CmpItemKindOperator'] = { fg = theme.ui.fg },
+        ['CmpItemKindProperty'] = { fg = palette.blue_14 },
+        ['CmpItemKindReference'] = { fg = theme.ui.fg },
+        ['CmpItemKindSnippet'] = { fg = theme.ui.fg },
+        ['CmpItemKindSnippetFunction'] = { fg = theme.ui.fg },
+        ['CmpItemKindSnippetStruct'] = { fg = theme.ui.fg },
+        ['CmpItemKindStruct'] = { fg = theme.ui.fg },
+        ['CmpItemKindText'] = { fg = theme.ui.fg },
+        ['CmpItemKindTypeParameter'] = { fg = theme.ui.fg },
+        ['CmpItemKindUnit'] = { fg = theme.ui.fg },
+        ['CmpItemKindValue'] = { fg = palette.orange_02 },
+        ['CmpItemKindVariable'] = { fg = palette.blue_14 },
         ['CmpMenu'] = {
-            bg = config.transparent_background and colors.none
-                or (config.custom_background or colors.bg),
-            fg = colors.fg,
+            bg = config.transparent_background and palette.none
+                or (config.custom_background or theme.ui.bg),
+            fg = theme.ui.fg,
         },
         ['CmpMenuBorder'] = {
-            bg = config.transparent_background and colors.none
-                or (config.custom_background or colors.bg),
-            fg = colors.bg_12,
+            bg = config.transparent_background and palette.none
+                or (config.custom_background or theme.ui.float.border.bg),
+            fg = theme.ui.float.border.fg,
         },
-        ['CmpMenuSel'] = { bg = colors.blue_02, fg = colors.fg_15 },
+        ['CmpMenuSel'] = { bg = palette.blue_02, fg = palette.light_15 },
 
         -- lewis6991/gitsigns.nvim
-        ['GitSignsAdd'] = { fg = git.signs.add },
-        ['GitSignsChange'] = { fg = git.signs.change },
-        ['GitSignsDelete'] = { fg = git.signs.delete },
+        ['GitSignsAdd'] = { fg = theme.git.signs.add },
+        ['GitSignsChange'] = { fg = theme.git.signs.change },
+        ['GitSignsDelete'] = { fg = theme.git.signs.delete },
 
         -- petertriho/nvim-scrollbar
-        ['ScrollbarError'] = { fg = diagnostic.error },
-        ['ScrollbarErrorHandle'] = { fg = diagnostic.error },
-        ['ScrollbarGitAdd'] = { fg = git.signs.add },
-        ['ScrollbarGitAddHandle'] = { fg = git.signs.add },
-        ['ScrollbarGitChange'] = { fg = git.signs.change },
-        ['ScrollbarGitChangeHandle'] = { fg = git.signs.change },
-        ['ScrollbarGitDelete'] = { fg = git.signs.delete },
-        ['ScrollbarGitDeleteHandle'] = { fg = git.signs.delete },
-        ['ScrollbarHint'] = { fg = diagnostic.hint },
-        ['ScrollbarHintHandle'] = { fg = diagnostic.hint },
-        ['ScrollbarInfo'] = { fg = diagnostic.info },
-        ['ScrollbarInfoHandle'] = { fg = diagnostic.info },
-        ['ScrollbarWarn'] = { fg = diagnostic.warn },
-        ['ScrollbarWarnHandle'] = { fg = diagnostic.warn },
+        ['ScrollbarError'] = { fg = theme.diagnostics.error },
+        ['ScrollbarErrorHandle'] = { fg = theme.diagnostics.error },
+        ['ScrollbarGitAdd'] = { fg = theme.git.signs.add },
+        ['ScrollbarGitAddHandle'] = { fg = theme.git.signs.add },
+        ['ScrollbarGitChange'] = { fg = theme.git.signs.change },
+        ['ScrollbarGitChangeHandle'] = { fg = theme.git.signs.change },
+        ['ScrollbarGitDelete'] = { fg = theme.git.signs.delete },
+        ['ScrollbarGitDeleteHandle'] = { fg = theme.git.signs.delete },
+        ['ScrollbarHint'] = { fg = theme.diagnostics.hint },
+        ['ScrollbarHintHandle'] = { fg = theme.diagnostics.hint },
+        ['ScrollbarInfo'] = { fg = theme.diagnostics.info },
+        ['ScrollbarInfoHandle'] = { fg = theme.diagnostics.info },
+        ['ScrollbarWarn'] = { fg = theme.diagnostics.warn },
+        ['ScrollbarWarnHandle'] = { fg = theme.diagnostics.warn },
 
         -- nvim-tree/nvim-tree.lua
         ['NvimTreeClosedFolderIcon'] = { link = 'NvimTreeFolderIcon' },
         ['NvimTreeCursorLine'] = {
-            bg = config.transparent_background and colors.none or colors.bg_06,
+            bg = config.transparent_background and palette.none
+                or theme.ui.cursor.line.bg,
         },
-        ['NvimTreeFolderIcon'] = { fg = colors.yellow_02 },
-        ['NvimTreeFolderName'] = { fg = colors.fg },
-        ['NvimTreeGitDeleted'] = { fg = git.status.deleted },
-        ['NvimTreeGitDirty'] = { fg = git.status.modified },
-        ['NvimTreeGitIgnored'] = { fg = git.status.ignored },
-        ['NvimTreeGitNew'] = { fg = git.status.untracked },
-        ['NvimTreeGitRenamed'] = { fg = git.status.untracked },
-        ['NvimTreeGitStaged'] = { fg = git.status.staged },
-        ['NvimTreeIndentMarker'] = { fg = colors.fg_03 },
-        ['NvimTreeLspDiagnosticsError'] = { fg = diagnostic.error },
-        ['NvimTreeLspDiagnosticsHint'] = { fg = diagnostic.hint },
-        ['NvimTreeLspDiagnosticsInformation'] = { fg = diagnostic.info },
-        ['NvimTreeLspDiagnosticsWarning'] = { fg = diagnostic.warn },
-        ['NvimTreeModifiedFile'] = { fg = colors.fg },
+        ['NvimTreeFolderIcon'] = { fg = theme.ui.directory.fg },
+        ['NvimTreeFolderName'] = { fg = theme.ui.fg },
+        ['NvimTreeGitDeleted'] = { fg = theme.git.status.deleted },
+        ['NvimTreeGitDirty'] = { fg = theme.git.status.modified },
+        ['NvimTreeGitIgnored'] = { fg = theme.git.status.ignored },
+        ['NvimTreeGitNew'] = { fg = theme.git.status.untracked },
+        ['NvimTreeGitRenamed'] = { fg = theme.git.status.untracked },
+        ['NvimTreeGitStaged'] = { fg = theme.git.status.staged },
+        ['NvimTreeIndentMarker'] = { fg = theme.ui.indent_guide.fg },
+        ['NvimTreeLspDiagnosticsError'] = { fg = theme.diagnostics.error },
+        ['NvimTreeLspDiagnosticsHint'] = { fg = theme.diagnostics.hint },
+        ['NvimTreeLspDiagnosticsInformation'] = { fg = theme.diagnostics.info },
+        ['NvimTreeLspDiagnosticsWarning'] = { fg = theme.diagnostics.warn },
+        ['NvimTreeModifiedFile'] = { fg = theme.ui.fg },
         ['NvimTreeNormal'] = {
-            bg = config.transparent_background and colors.none
+            bg = config.transparent_background and palette.none
                 or (
-                    config.nvim_tree_darker and colors.bg_01
-                    or (config.custom_background or colors.bg)
+                    config.nvim_tree_darker and theme.ui.bg_darker_01
+                    or (config.custom_background or theme.ui.bg)
                 ),
         },
-        ['NvimTreeOpenedFile'] = { fg = colors.fg },
+        ['NvimTreeOpenedFile'] = { fg = theme.ui.fg },
         ['NvimTreeOpenedFolderIcon'] = { link = 'NvimTreeFolderIcon' },
-        ['NvimTreeOpenedFolderName'] = { fg = colors.fg },
-        ['NvimTreeRootFolder'] = { fg = colors.fg_14 },
+        ['NvimTreeOpenedFolderName'] = { fg = theme.ui.fg },
+        ['NvimTreeRootFolder'] = { fg = theme.ui.fg },
         ['NvimTreeWinSeparator'] = {
-            bg = config.transparent_background and colors.none
-                or (config.custom_background or colors.bg),
-            fg = (config.custom_background or colors.bg),
+            bg = config.transparent_background and palette.none
+                or (config.custom_background or theme.ui.bg),
+            fg = (config.custom_background or theme.ui.bg),
         },
 
         -- akinsho/toggleterm.nvim
-        ['ToggleTermNormalFloat'] = { bg = colors.bg_02 },
-        ['ToggleTermFloatBorder'] = { bg = colors.bg_02, fg = colors.bg_02 },
+        ['ToggleTermNormalFloat'] = { bg = palette.grey_01 },
+        ['ToggleTermFloatBorder'] = {
+            bg = palette.grey_01,
+            fg = palette.grey_01,
+        },
 
         -- lukas-reineke/indent-blankline.nvim v2
-        ['IndentBlanklineChar'] = { fg = colors.bg_08, bg = colors.none },
-        ['IndentBlanklineContextChar'] = { fg = colors.bg_12, bg = colors.none },
+        ['IndentBlanklineChar'] = {
+            fg = theme.ui.indent_guide.fg,
+            bg = palette.none,
+        },
+        ['IndentBlanklineContextChar'] = {
+            fg = theme.ui.indent_guide.active.fg,
+            bg = palette.none,
+        },
 
         -- lukas-reineke/indent-blankline.nvim v3
-        ['IblIndent'] = { fg = colors.bg_08, bg = colors.none },
-        ['IblScope'] = { fg = colors.bg_12, bg = colors.none },
+        ['IblIndent'] = { fg = theme.ui.indent_guide.fg, bg = palette.none },
+        ['IblScope'] = {
+            fg = theme.ui.indent_guide.active.fg,
+            bg = palette.none,
+        },
 
         -- goolord/alpha-nvim
-        ['AlphaButton'] = { fg = colors.blue_09 },
-        ['AlphaHeader'] = { fg = colors.blue_10 },
-        ['AlphaShorcut'] = { fg = colors.fg_07 },
+        ['AlphaButton'] = { fg = palette.blue_09 },
+        ['AlphaHeader'] = { fg = palette.blue_10 },
+        ['AlphaShorcut'] = { fg = palette.grey_21 },
 
         -- folke/lazy.nvim
-        ['LazyButton'] = { bg = colors.blue_04 },
-        ['LazyButtonActive'] = { bg = colors.green_02 },
-        ['LazyComment'] = { fg = colors.fg_07 },
-        ['LazyH1'] = { bg = colors.green_02 },
+        ['LazyButton'] = { bg = theme.ui.title.bg, fg = theme.ui.title.fg },
+        ['LazyButtonActive'] = { bg = palette.green_02, fg = theme.ui.title.fg },
+        ['LazyComment'] = { fg = palette.grey_21 },
+        ['LazyH1'] = { bg = palette.green_02, fg = theme.ui.title.fg },
+        ['LazySpecial'] = { fg = palette.light_07 },
 
         -- lua
         ['luaParenError'] = { link = 'Normal' },
 
         -- xml
         ['xmlAttrib'] = { link = 'Variable' },
-        ['xmlProcessingDelim'] = { fg = colors.fg_05 },
-        ['xmlTag'] = { fg = colors.fg_05 },
+        ['xmlProcessingDelim'] = { fg = theme.sintax.xml_delimiter },
+        ['xmlTag'] = { fg = theme.sintax.xml_delimiter },
         ['xmlTagName'] = { link = 'Keyword' },
 
         -- my custom statusline
-        StatusLineMode = { bg = colors.blue_01 },
-        StatusLineLspError = { bg = colors.bg_01, fg = diagnostic.error },
-        StatusLineLspWarn = { bg = colors.bg_01, fg = diagnostic.warn },
-        StatusLineLspHint = { bg = colors.bg_01, fg = diagnostic.hint },
-        StatusLineLspInfo = { bg = colors.bg_01, fg = diagnostic.info },
+        StatusLineMode = {
+            bg = theme.ui.status_line.mode.bg,
+            fg = theme.ui.status_line.mode.fg,
+        },
+        StatusLineLspError = {
+            bg = theme.ui.status_line.bg,
+            fg = theme.diagnostics.error,
+        },
+        StatusLineLspWarn = {
+            bg = theme.ui.status_line.bg,
+            fg = theme.diagnostics.warn,
+        },
+        StatusLineLspHint = {
+            bg = theme.ui.status_line.bg,
+            fg = theme.diagnostics.hint,
+        },
+        StatusLineLspInfo = {
+            bg = theme.ui.status_line.bg,
+            fg = theme.diagnostics.info,
+        },
         StatusLineLspMessages = {
-            bg = colors.bg_01,
-            fg = diagnostic.info,
+            bg = theme.ui.status_line.bg,
+            fg = theme.diagnostics.info,
         },
         StatusLineGitDiffAdded = {
-            bg = colors.bg_01,
-            fg = git.signs.add,
+            bg = theme.ui.status_line.bg,
+            fg = theme.git.signs.add,
         },
         StatusLineGitDiffChanged = {
-            bg = colors.bg_01,
-            fg = git.signs.change,
+            bg = theme.ui.status_line.bg,
+            fg = theme.git.signs.change,
         },
         StatusLineGitDiffRemoved = {
-            bg = colors.bg_01,
-            fg = git.signs.delete,
+            bg = theme.ui.status_line.bg,
+            fg = theme.git.signs.delete,
         },
         StatusLineGitBranchIcon = {
-            bg = colors.bg_01,
-            fg = colors.orange_03,
+            bg = theme.ui.status_line.bg,
+            fg = theme.ui.status_line.branch_icon.fg,
         },
     }
 end
