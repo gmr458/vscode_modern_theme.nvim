@@ -1,4 +1,4 @@
-# Dark Modern theme for Neovim
+# VSCode Modern theme for Neovim, Dark & Light versions
 
 ![screenshot-01](./screenshots/01.png)
 
@@ -22,7 +22,7 @@
 [lazy.nvim](https://github.com/folke/lazy.nvim)
 ```lua
 {
-    "gmr458/dark_modern.nvim",
+    "gmr458/vscode_modern_theme.nvim",
     lazy = false,
     priority = 1000,
     config = function()
