@@ -1,4 +1,4 @@
-local term_supports_undercurl = require('dark_modern').term_supports_undercurl
+local term_supports_undercurl = require('vscode_modern').term_supports_undercurl
 
 local M = {}
 

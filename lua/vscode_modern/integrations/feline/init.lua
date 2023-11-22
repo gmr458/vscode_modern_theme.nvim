@@ -1,4 +1,4 @@
-local colors = require 'dark_modern.palette'
+local colors = require 'vscode_modern.palette'
 
 local M = {}
 
@@ -369,7 +369,7 @@ M.components = function()
                 end
 
                 local filetypes =
-                    require 'dark_modern.integrations.feline.filetypes'
+                    require 'vscode_modern.integrations.feline.filetypes'
                 if filetypes[ft] == nil then
                     return filetypes['']
                 end

@@ -8,7 +8,7 @@ local M = {}
 --- @field italic_keyword boolean
 --- @field custom_background string | nil
 M.config = {
-    compile_path = vim.fn.stdpath 'cache' .. '/dark_modern',
+    compile_path = vim.fn.stdpath 'cache' .. '/vscode_modern',
     path_sep = jit and (jit.os == 'Windows' and '\\' or '/')
         or package.config:sub(1, 1),
     compiled_filename = { 'dark', 'light' },
@@ -33,8 +33,8 @@ function M.load()
 
         local f = loadfile(compiled_path)
         if not f then
-            local palette = require 'dark_modern.palette'
-            local theme = require('dark_modern.themes')[value](palette)
+            local palette = require 'vscode_modern.palette'
+            local theme = require('vscode_modern.themes')[value](palette)
             M.compile(M.config, theme, value)
         end
     end
@@ -70,7 +70,7 @@ function M.compile(config, theme, compiled_filename)
 return string.dump(function()
 vim.o.termguicolors = true
 if vim.g.colors_name then vim.cmd("hi clear") end
-vim.g.colors_name = "dark_modern"
+vim.g.colors_name = "vscode_modern"
 vim.o.background = "%s"
 local h = vim.api.nvim_set_hl]],
             compiled_filename
@@ -81,7 +81,7 @@ local h = vim.api.nvim_set_hl]],
         config.compile_path = config.compile_path:gsub('/', '\\')
     end
 
-    local hgs = require('dark_modern.highlight_groups').get(config, theme)
+    local hgs = require('vscode_modern.highlight_groups').get(config, theme)
     for group, color in pairs(hgs) do
         table.insert(
             lines,
@@ -97,7 +97,7 @@ local h = vim.api.nvim_set_hl]],
     local f = loadstring(table.concat(lines, '\n'))
     if not f then
         local err_path = (config.path_sep == '/' and '/tmp' or os.getenv 'TMP')
-            .. '/dark_modern_error.lua'
+            .. '/vscode_modern_error.lua'
         print(
             string.format(
                 'Dark Modern (error): Open %s for debugging',
@@ -129,14 +129,14 @@ end
 
 vim.api.nvim_create_user_command('DarkModernCompile', function()
     for _, value in ipairs(M.config.compiled_filename) do
-        local palette = require 'dark_modern.palette'
-        local theme = require('dark_modern.themes')[value](palette)
+        local palette = require 'vscode_modern.palette'
+        local theme = require('vscode_modern.themes')[value](palette)
 
         M.compile(M.config, theme, value)
     end
 
-    vim.notify 'dark_modern colorscheme compiled'
-    vim.api.nvim_command 'colorscheme dark_modern'
+    vim.notify 'vscode_modern colorscheme compiled'
+    vim.api.nvim_command 'colorscheme vscode_modern'
 end, {})
 
 function M.term_supports_undercurl()
