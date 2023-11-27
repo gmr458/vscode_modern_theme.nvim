@@ -123,7 +123,7 @@ local h = vim.api.nvim_set_hl]],
     file:close()
 end
 
-vim.api.nvim_create_user_command('DarkModernCompile', function()
+vim.api.nvim_create_user_command('VSCodeModernCompile', function()
     for _, value in ipairs(filenames_compiled_colorschemes) do
         local palette = require 'vscode_modern.palette'
         local theme = require('vscode_modern.themes')[value](palette, M.config)
