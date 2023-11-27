@@ -4,6 +4,7 @@ local M = {}
 --- @field cursorline boolean
 --- @field transparent_background boolean
 --- @field nvim_tree_darker boolean
+--- @field undercurl boolean
 --- @field italic_keyword boolean
 --- @field custom_dark_background string | nil
 --- @field custom_light_background string | nil
