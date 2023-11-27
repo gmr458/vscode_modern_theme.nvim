@@ -249,12 +249,22 @@
 
 return {
     --- @param palette Palette
+    --- @param config Config
     --- @return Theme
-    dark = function(palette)
+    dark = function(palette, config)
+        local background = palette.dark_04
+
+        if
+            config.custom_dark_background ~= nil
+            and type(config.custom_dark_background) == 'string'
+        then
+            background = config.custom_dark_background
+        end
+
         return {
             palette = palette,
             ui = {
-                bg = palette.dark_04,
+                bg = background,
                 bg_darker_01 = palette.dark_03,
                 fg = palette.light_07,
                 cursor = {
@@ -279,14 +289,14 @@ return {
                     fg = palette.yellow_02,
                 },
                 float = {
-                    bg = palette.dark_04,
+                    bg = background,
                     border = {
-                        bg = palette.dark_04,
+                        bg = background,
                         fg = palette.grey_17,
                     },
                 },
                 line_nr = {
-                    bg = palette.dark_04,
+                    bg = background,
                     fg = palette.grey_21,
                 },
                 match_paren = {
@@ -455,12 +465,22 @@ return {
     end,
 
     --- @param palette Palette
+    --- @param config Config
     --- @return Theme
-    light = function(palette)
+    light = function(palette, config)
+        local background = palette.light_15
+
+        if
+            config.custom_light_background ~= nil
+            and type(config.custom_light_background) == 'string'
+        then
+            background = config.custom_light_background
+        end
+
         return {
             palette = palette,
             ui = {
-                bg = palette.light_15,
+                bg = background,
                 bg_darker_01 = palette.light_13,
                 bg_darker_02 = palette.light_14,
                 fg = palette.grey_07,
@@ -493,7 +513,7 @@ return {
                     },
                 },
                 line_nr = {
-                    bg = palette.light_15,
+                    bg = background,
                     fg = palette.grey_16,
                 },
                 match_paren = {

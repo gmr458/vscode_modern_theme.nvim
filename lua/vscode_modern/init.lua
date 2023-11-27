@@ -6,7 +6,8 @@ local M = {}
 --- @field transparent_background boolean
 --- @field nvim_tree_darker boolean
 --- @field italic_keyword boolean
---- @field custom_background string | nil
+--- @field custom_dark_background string | nil
+--- @field custom_light_background string | nil
 M.config = {
     compile_path = vim.fn.stdpath 'cache' .. '/vscode_modern',
     path_sep = jit and (jit.os == 'Windows' and '\\' or '/')
@@ -17,7 +18,8 @@ M.config = {
     nvim_tree_darker = false,
     undercurl = true,
     italic_keyword = false,
-    custom_background = nil,
+    custom_dark_background = nil,
+    custom_light_background = nil,
 }
 
 --- @overload fun(config: Config)
@@ -34,7 +36,8 @@ function M.load()
         local f = loadfile(compiled_path)
         if not f then
             local palette = require 'vscode_modern.palette'
-            local theme = require('vscode_modern.themes')[value](palette)
+            local theme =
+                require('vscode_modern.themes')[value](palette, M.config)
             M.compile(M.config, theme, value)
         end
     end
@@ -130,7 +133,7 @@ end
 vim.api.nvim_create_user_command('DarkModernCompile', function()
     for _, value in ipairs(M.config.compiled_filename) do
         local palette = require 'vscode_modern.palette'
-        local theme = require('vscode_modern.themes')[value](palette)
+        local theme = require('vscode_modern.themes')[value](palette, M.config)
 
         M.compile(M.config, theme, value)
     end

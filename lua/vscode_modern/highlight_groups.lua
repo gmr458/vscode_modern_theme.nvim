@@ -33,34 +33,33 @@ function M.get(config, theme)
         ['DiffChange'] = { bg = theme.git.diff.change },
         ['DiffDelete'] = { bg = theme.git.diff.delete },
         ['DiffText'] = { bg = theme.git.diff.text },
-        ['EndOfBuffer'] = { fg = config.custom_background or theme.ui.bg },
+        ['EndOfBuffer'] = { fg = theme.ui.bg },
         ['ErrorMsg'] = { fg = theme.diagnostics.error },
         ['FoldColumn'] = {
-            bg = config.custom_background or theme.ui.bg,
-            fg = config.custom_background or theme.ui.bg,
+            bg = theme.ui.bg,
+            fg = theme.ui.bg,
         },
         ['Folded'] = { bg = theme.ui.folded.bg },
         ['FloatBorder'] = {
             bg = config.transparent_background and palette.none
-                or (config.custom_background or theme.ui.float.border.bg),
+                or theme.ui.float.border.bg,
             fg = theme.ui.float.border.fg,
         },
         ['lCursor'] = { bg = theme.ui.cursor.bg, fg = theme.ui.cursor.fg },
         ['LineNr'] = {
             bg = config.transparent_background and palette.none
-                or (config.custom_background or theme.ui.line_nr.bg),
+                or theme.ui.line_nr.bg,
             fg = theme.ui.line_nr.fg,
         },
         ['MatchParen'] = { bg = theme.ui.match_paren.bg },
         ['NonText'] = { fg = theme.ui.indent_guide.fg, bg = palette.none },
         ['Normal'] = {
-            bg = config.transparent_background and palette.none
-                or (config.custom_background or theme.ui.bg),
+            bg = config.transparent_background and palette.none or theme.ui.bg,
             fg = theme.ui.fg,
         },
         ['NormalFloat'] = {
             bg = config.transparent_background and palette.none
-                or (config.custom_background or theme.ui.float.bg),
+                or theme.ui.float.bg,
         },
         ['Search'] = { bg = theme.ui.search.bg },
         ['SignColumn'] = { bg = palette.none },
@@ -94,8 +93,7 @@ function M.get(config, theme)
         ['Whitespace'] = { fg = theme.ui.indent_guide.fg, bg = palette.none },
         ['WinBar'] = { fg = palette.light_02 },
         ['WinSeparator'] = {
-            fg = config.transparent_background
-                    and (config.custom_background or theme.ui.bg)
+            fg = config.transparent_background and theme.ui.bg
                 or theme.ui.win_separator.fg,
         },
 
@@ -470,7 +468,7 @@ function M.get(config, theme)
 
         -- Diagnostics LSP
         ['DiagnosticBorder'] = {
-            bg = config.custom_background or theme.ui.float.border.bg,
+            bg = theme.ui.float.border.bg,
             fg = theme.ui.float.border.fg,
         },
         ['DiagnosticDeprecated'] = { strikethrough = true },
@@ -588,13 +586,12 @@ function M.get(config, theme)
 
         -- hrsh7th/nvim-cmp
         ['CmpDoc'] = {
-            bg = config.transparent_background and palette.none
-                or (config.custom_background or theme.ui.bg),
+            bg = config.transparent_background and palette.none or theme.ui.bg,
             fg = theme.ui.fg,
         },
         ['CmpDocBorder'] = {
             bg = config.transparent_background and palette.none
-                or (config.custom_background or theme.ui.float.border.bg),
+                or theme.ui.float.border.bg,
             fg = theme.ui.float.border.fg,
         },
         ['CmpItemAbbrDeprecated'] = {
@@ -631,13 +628,12 @@ function M.get(config, theme)
         ['CmpItemKindValue'] = { fg = palette.orange_02 },
         ['CmpItemKindVariable'] = { fg = palette.blue_14 },
         ['CmpMenu'] = {
-            bg = config.transparent_background and palette.none
-                or (config.custom_background or theme.ui.bg),
+            bg = config.transparent_background and palette.none or theme.ui.bg,
             fg = theme.ui.fg,
         },
         ['CmpMenuBorder'] = {
             bg = config.transparent_background and palette.none
-                or (config.custom_background or theme.ui.float.border.bg),
+                or theme.ui.float.border.bg,
             fg = theme.ui.float.border.fg,
         },
         ['CmpMenuSel'] = { bg = palette.blue_02, fg = palette.light_15 },
@@ -687,7 +683,7 @@ function M.get(config, theme)
             bg = config.transparent_background and palette.none
                 or (
                     config.nvim_tree_darker and theme.ui.bg_darker_01
-                    or (config.custom_background or theme.ui.bg)
+                    or theme.ui.bg
                 ),
         },
         ['NvimTreeOpenedFile'] = { fg = theme.ui.fg },
@@ -695,9 +691,8 @@ function M.get(config, theme)
         ['NvimTreeOpenedFolderName'] = { fg = theme.ui.fg },
         ['NvimTreeRootFolder'] = { fg = theme.ui.fg },
         ['NvimTreeWinSeparator'] = {
-            bg = config.transparent_background and palette.none
-                or (config.custom_background or theme.ui.bg),
-            fg = (config.custom_background or theme.ui.bg),
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+            fg = theme.ui.bg,
         },
 
         -- akinsho/toggleterm.nvim
