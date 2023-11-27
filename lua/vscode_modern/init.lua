@@ -1,7 +1,6 @@
 local M = {}
 
 --- @class Config
---- @field compile_path string
 --- @field cursorline boolean
 --- @field transparent_background boolean
 --- @field nvim_tree_darker boolean
@@ -9,10 +8,6 @@ local M = {}
 --- @field custom_dark_background string | nil
 --- @field custom_light_background string | nil
 M.config = {
-    compile_path = vim.fn.stdpath 'cache' .. '/vscode_modern',
-    path_sep = jit and (jit.os == 'Windows' and '\\' or '/')
-        or package.config:sub(1, 1),
-    compiled_filename = { 'dark', 'light' },
     cursorline = false,
     transparent_background = false,
     nvim_tree_darker = false,
@@ -22,16 +17,19 @@ M.config = {
     custom_light_background = nil,
 }
 
+local compile_path = vim.fn.stdpath 'cache' .. '/vscode_modern'
+local path_sep = jit and (jit.os == 'Windows' and '\\' or '/')
+    or package.config:sub(1, 1)
+local filenames_compiled_colorschemes = { 'dark', 'light' }
+
 --- @overload fun(config: Config)
 function M.setup(config)
     M.config = vim.tbl_deep_extend('force', M.config, config or {})
 end
 
 function M.load()
-    for _, value in ipairs(M.config.compiled_filename) do
-        local compiled_path = M.config.compile_path
-            .. M.config.path_sep
-            .. value
+    for _, value in ipairs(filenames_compiled_colorschemes) do
+        local compiled_path = compile_path .. path_sep .. value
 
         local f = loadfile(compiled_path)
         if not f then
@@ -42,9 +40,7 @@ function M.load()
         end
     end
 
-    local compiled_path = M.config.compile_path
-        .. M.config.path_sep
-        .. vim.o.background
+    local compiled_path = compile_path .. path_sep .. vim.o.background
 
     local f = assert(loadfile(compiled_path), 'Could not load cache')
     f()
@@ -65,8 +61,8 @@ local function inspect(t)
     return string.format([[{ %s }]], table.concat(list, ', '))
 end
 
---- @overload fun(config: Config, theme: Theme, compiled_filename: string)
-function M.compile(config, theme, compiled_filename)
+--- @overload fun(config: Config, theme: Theme, filename_compiled_colorscheme: string)
+function M.compile(config, theme, filename_compiled_colorscheme)
     local lines = {
         string.format(
             [[
@@ -76,12 +72,12 @@ if vim.g.colors_name then vim.cmd("hi clear") end
 vim.g.colors_name = "vscode_modern"
 vim.o.background = "%s"
 local h = vim.api.nvim_set_hl]],
-            compiled_filename
+            filename_compiled_colorscheme
         ),
     }
 
-    if config.path_sep == '\\' then
-        config.compile_path = config.compile_path:gsub('/', '\\')
+    if path_sep == '\\' then
+        compile_path = compile_path:gsub('/', '\\')
     end
 
     local hgs = require('vscode_modern.highlight_groups').get(config, theme)
@@ -93,13 +89,13 @@ local h = vim.api.nvim_set_hl]],
     end
     table.insert(lines, 'end, true)')
 
-    if vim.fn.isdirectory(config.compile_path) == 0 then
-        vim.fn.mkdir(config.compile_path, 'p')
+    if vim.fn.isdirectory(compile_path) == 0 then
+        vim.fn.mkdir(compile_path, 'p')
     end
 
     local f = loadstring(table.concat(lines, '\n'))
     if not f then
-        local err_path = (config.path_sep == '/' and '/tmp' or os.getenv 'TMP')
+        local err_path = (path_sep == '/' and '/tmp' or os.getenv 'TMP')
             .. '/vscode_modern_error.lua'
         print(
             string.format(
@@ -117,21 +113,18 @@ local h = vim.api.nvim_set_hl]],
     end
 
     local file = assert(
-        io.open(
-            config.compile_path .. config.path_sep .. compiled_filename,
-            'wb'
-        ),
+        io.open(compile_path .. path_sep .. filename_compiled_colorscheme, 'wb'),
         'Permission denied while writing compiled file to '
-            .. config.compile_path
-            .. config.path_sep
-            .. compiled_filename
+            .. compile_path
+            .. path_sep
+            .. filename_compiled_colorscheme
     )
     file:write(f())
     file:close()
 end
 
 vim.api.nvim_create_user_command('DarkModernCompile', function()
-    for _, value in ipairs(M.config.compiled_filename) do
+    for _, value in ipairs(filenames_compiled_colorschemes) do
         local palette = require 'vscode_modern.palette'
         local theme = require('vscode_modern.themes')[value](palette, M.config)
 
