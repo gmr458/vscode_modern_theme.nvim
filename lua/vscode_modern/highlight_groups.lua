@@ -92,6 +92,7 @@ function M.get(config, theme)
         ['WarningMsg'] = { fg = theme.diagnostics.warn },
         ['Whitespace'] = { fg = theme.ui.indent_guide.fg, bg = palette.none },
         ['WinBar'] = { fg = palette.light_02 },
+        ['WinBarNC'] = { bg = theme.ui.bg },
         ['WinSeparator'] = {
             fg = config.transparent_background and theme.ui.bg
                 or theme.ui.win_separator.fg,
