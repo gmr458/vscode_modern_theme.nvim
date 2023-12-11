@@ -45,7 +45,7 @@ local palette = {
     light_15 = '#f8f8f8',
     light_16 = '#ffffff',
 
-    -- gren
+    -- green
     green_01 = '#007100',
     green_02 = '#008000',
     green_03 = '#098658',
