@@ -6,21 +6,21 @@ M.palette = function()
     return {
         bg = colors.dark_03,
         fg = colors.light_07,
-        vi_mode_bg = colors.blue_01,
+        vi_mode_bg = colors.blue_06,
     }
 end
 
 local diagnostic = {
-    error = colors.red_05,
-    warn = colors.yellow_03,
-    info = colors.blue_09,
-    hint = colors.green_05,
+    error = colors.red_08,
+    warn = colors.yellow_05,
+    info = colors.blue_18,
+    hint = colors.green_10,
 }
 
 local git = {
-    added = colors.green_01,
-    deleted = colors.red_06,
-    changed = colors.blue_01,
+    added = colors.green_04,
+    deleted = colors.red_09,
+    changed = colors.blue_06,
 }
 
 local function get_diagnostics_count(severity)
@@ -287,7 +287,7 @@ M.components = function()
         },
         {
             provider = 'git_branch',
-            icon = { str = ' ', hl = { fg = colors.orange_03 } },
+            icon = { str = ' ', hl = { fg = colors.orange_04 } },
             left_sep = '  ',
             right_sep = ' ',
         },

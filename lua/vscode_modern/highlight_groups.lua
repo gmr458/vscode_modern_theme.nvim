@@ -8,7 +8,7 @@ function M.get(config, theme)
 
     return {
         -- Editor
-        ['Conceal'] = { bg = palette.grey_17 },
+        ['Conceal'] = { bg = palette.grey_14 },
         ['Cursor'] = { bg = theme.ui.cursor.bg, fg = theme.ui.cursor.fg },
         ['CursorIM'] = { bg = theme.ui.cursor.bg, fg = theme.ui.cursor.fg },
         ['CursorLine'] = {
@@ -87,7 +87,7 @@ function M.get(config, theme)
             bg = theme.ui.cursor.term.bg,
             fg = theme.ui.cursor.term.fg,
         },
-        ['Title'] = { fg = palette.light_15 },
+        ['Title'] = { fg = palette.light_16 },
         ['Visual'] = { bg = theme.ui.visual.bg },
         ['WarningMsg'] = { fg = theme.lsp.diagnostics.warn },
         ['Whitespace'] = { fg = theme.ui.indent_guide.fg, bg = palette.none },
@@ -388,10 +388,10 @@ function M.get(config, theme)
 
         -- kevinhwang91/nvim-ufo
         ['UfoCursorFoldedLine'] = { bg = theme.ui.folded.bg },
-        ['UfoFoldedEllipsis'] = { fg = palette.grey_19 },
+        ['UfoFoldedEllipsis'] = { fg = palette.grey_15 },
 
         -- ibhagwan/fzf-lua
-        ['FzfLuaBorder'] = { fg = palette.grey_18 },
+        ['FzfLuaBorder'] = { fg = palette.grey_14 },
 
         -- nvim-telescope/telescope.nvim
         ['TelescopeMatching'] = { fg = theme.ui.telescope.matching.fg },
@@ -511,8 +511,8 @@ function M.get(config, theme)
         ['LspInfoBorder'] = { fg = theme.ui.float.border.fg },
 
         -- Codelens
-        ['LspCodeLens'] = { fg = palette.grey_26 },
-        ['LspCodeLensSeparator'] = { fg = palette.grey_26 },
+        ['LspCodeLens'] = { fg = palette.grey_22 },
+        ['LspCodeLensSeparator'] = { fg = palette.grey_22 },
 
         -- References
         ['LspReferenceWrite'] = { bg = theme.lsp.references.write },
@@ -525,14 +525,14 @@ function M.get(config, theme)
         ['NavicIconsNamespace'] = { fg = theme.ui.fg },
         ['NavicIconsPackage'] = { fg = theme.ui.fg },
         ['NavicIconsClass'] = { fg = palette.orange_02 },
-        ['NavicIconsMethod'] = { fg = palette.purple_01 },
-        ['NavicIconsProperty'] = { fg = palette.blue_14 },
-        ['NavicIconsField'] = { fg = palette.blue_14 },
-        ['NavicIconsConstructor'] = { fg = palette.purple_01 },
+        ['NavicIconsMethod'] = { fg = palette.purple_02 },
+        ['NavicIconsProperty'] = { fg = palette.blue_23 },
+        ['NavicIconsField'] = { fg = palette.blue_23 },
+        ['NavicIconsConstructor'] = { fg = palette.purple_02 },
         ['NavicIconsEnum'] = { fg = palette.orange_02 },
-        ['NavicIconsInterface'] = { fg = palette.blue_14 },
-        ['NavicIconsFunction'] = { fg = palette.purple_01 },
-        ['NavicIconsVariable'] = { fg = palette.blue_14 },
+        ['NavicIconsInterface'] = { fg = palette.blue_23 },
+        ['NavicIconsFunction'] = { fg = palette.purple_02 },
+        ['NavicIconsVariable'] = { fg = palette.blue_23 },
         ['NavicIconsConstant'] = { fg = theme.ui.fg },
         ['NavicIconsString'] = { fg = theme.ui.fg },
         ['NavicIconsNumber'] = { fg = theme.ui.fg },
@@ -541,7 +541,7 @@ function M.get(config, theme)
         ['NavicIconsObject'] = { fg = theme.ui.fg },
         ['NavicIconsKey'] = { fg = theme.ui.fg },
         ['NavicIconsNull'] = { fg = theme.ui.fg },
-        ['NavicIconsEnumMember'] = { fg = palette.blue_14 },
+        ['NavicIconsEnumMember'] = { fg = palette.blue_23 },
         ['NavicIconsStruct'] = { fg = theme.ui.fg },
         ['NavicIconsEvent'] = { fg = theme.ui.fg },
         ['NavicIconsOperator'] = { fg = theme.ui.fg },
@@ -554,32 +554,32 @@ function M.get(config, theme)
         ['MasonWarning'] = { fg = theme.lsp.diagnostics.warn },
 
         -- folke/trouble.nvim
-        ['TroubleCode'] = { fg = palette.blue_08, underline = true },
-        ['TroubleCount'] = { bg = palette.grey_11, fg = palette.light_15 },
+        ['TroubleCode'] = { fg = palette.blue_17, underline = true },
+        ['TroubleCount'] = { bg = palette.grey_10, fg = palette.light_16 },
         ['TroubleFile'] = { fg = theme.ui.fg },
         ['TroubleFoldIcon'] = { fg = palette.light_05 },
-        ['TroubleLocation'] = { fg = palette.grey_25 },
-        ['TroublePreview'] = { bg = palette.grey_10 },
+        ['TroubleLocation'] = { fg = palette.grey_21 },
+        ['TroublePreview'] = { bg = palette.grey_08 },
         ['TroubleSignError'] = { fg = theme.lsp.diagnostics.error },
         ['TroubleSignHint'] = { fg = theme.lsp.diagnostics.hint },
         ['TroubleSignInformation'] = { fg = theme.lsp.diagnostics.info },
         ['TroubleSignWarning'] = { fg = theme.lsp.diagnostics.warn },
-        ['TroubleSource'] = { fg = palette.grey_25 },
+        ['TroubleSource'] = { fg = palette.grey_21 },
         ['TroubleTextError'] = { fg = theme.ui.fg },
         ['TroubleTextHint'] = { fg = theme.ui.fg },
         ['TroubleTextInformation'] = { fg = theme.ui.fg },
         ['TroubleTextWarning'] = { fg = theme.ui.fg },
 
         -- mfussenegger/nvim-dap
-        ['DapBreakpoint'] = { fg = palette.red_04 },
-        ['DapStopped'] = { fg = palette.yellow_06 },
-        ['DapBreakpointRejected'] = { fg = palette.grey_20 },
+        ['DapBreakpoint'] = { fg = palette.red_06 },
+        ['DapStopped'] = { fg = palette.yellow_09 },
+        ['DapBreakpointRejected'] = { fg = palette.grey_22 },
 
         -- rcarriga/nvim-dap-ui
         ['DapUIScope'] = { fg = theme.ui.fg },
         ['DapUIVariable'] = { link = 'Variable' },
         ['DapUIType'] = { link = 'Type' },
-        ['DapUIValue'] = { fg = palette.grey_20 },
+        ['DapUIValue'] = { fg = palette.grey_22 },
         ['DapUIDecoration'] = { fg = theme.ui.fg },
         ['DapUIBreakpointsPath'] = { fg = theme.ui.fg },
         ['DapUILineNumber'] = { link = 'LineNr' },
@@ -587,7 +587,7 @@ function M.get(config, theme)
         ['DapUICurrentFrameName'] = { fg = theme.ui.fg },
         ['DapUISource'] = { fg = theme.ui.fg },
         ['DapUIThread'] = { fg = theme.ui.fg },
-        ['DapUIWatchesEmpty'] = { fg = palette.grey_20 },
+        ['DapUIWatchesEmpty'] = { fg = palette.grey_22 },
         ['DapUIWatchesValue'] = { fg = theme.ui.fg },
 
         -- hrsh7th/nvim-cmp
@@ -604,25 +604,25 @@ function M.get(config, theme)
             fg = theme.ui.fg,
             strikethrough = true,
         },
-        ['CmpItemAbbrMatch'] = { fg = palette.blue_07 },
+        ['CmpItemAbbrMatch'] = { fg = palette.blue_16 },
         ['CmpItemKind'] = { fg = theme.ui.fg },
         ['CmpItemKindClass'] = { fg = palette.orange_02 },
         ['CmpItemKindColor'] = { fg = theme.ui.fg },
         ['CmpItemKindConstant'] = { fg = theme.ui.fg },
-        ['CmpItemKindConstructor'] = { fg = palette.purple_01 },
+        ['CmpItemKindConstructor'] = { fg = palette.purple_02 },
         ['CmpItemKindEnum'] = { fg = palette.orange_02 },
-        ['CmpItemKindEnumMember'] = { fg = palette.blue_14 },
+        ['CmpItemKindEnumMember'] = { fg = palette.blue_23 },
         ['CmpItemKindEvent'] = { fg = theme.ui.fg },
-        ['CmpItemKindField'] = { fg = palette.blue_14 },
+        ['CmpItemKindField'] = { fg = palette.blue_23 },
         ['CmpItemKindFile'] = { fg = theme.ui.fg },
-        ['CmpItemKindFolder'] = { fg = palette.yellow_02 },
-        ['CmpItemKindFunction'] = { fg = palette.purple_01 },
-        ['CmpItemKindInterface'] = { fg = palette.blue_14 },
+        ['CmpItemKindFolder'] = { fg = palette.yellow_04 },
+        ['CmpItemKindFunction'] = { fg = palette.purple_02 },
+        ['CmpItemKindInterface'] = { fg = palette.blue_23 },
         ['CmpItemKindKeyword'] = { fg = theme.ui.fg },
-        ['CmpItemKindMethod'] = { fg = palette.purple_01 },
+        ['CmpItemKindMethod'] = { fg = palette.purple_02 },
         ['CmpItemKindModule'] = { fg = theme.ui.fg },
         ['CmpItemKindOperator'] = { fg = theme.ui.fg },
-        ['CmpItemKindProperty'] = { fg = palette.blue_14 },
+        ['CmpItemKindProperty'] = { fg = palette.blue_23 },
         ['CmpItemKindReference'] = { fg = theme.ui.fg },
         ['CmpItemKindSnippet'] = { fg = theme.ui.fg },
         ['CmpItemKindSnippetFunction'] = { fg = theme.ui.fg },
@@ -632,7 +632,7 @@ function M.get(config, theme)
         ['CmpItemKindTypeParameter'] = { fg = theme.ui.fg },
         ['CmpItemKindUnit'] = { fg = theme.ui.fg },
         ['CmpItemKindValue'] = { fg = palette.orange_02 },
-        ['CmpItemKindVariable'] = { fg = palette.blue_14 },
+        ['CmpItemKindVariable'] = { fg = palette.blue_23 },
         ['CmpMenu'] = {
             bg = config.transparent_background and palette.none or theme.ui.bg,
             fg = theme.ui.fg,
@@ -642,7 +642,7 @@ function M.get(config, theme)
                 or theme.ui.float.border.bg,
             fg = theme.ui.float.border.fg,
         },
-        ['CmpMenuSel'] = { bg = palette.blue_02, fg = palette.light_15 },
+        ['CmpMenuSel'] = { bg = palette.blue_08, fg = palette.light_16 },
 
         -- lewis6991/gitsigns.nvim
         ['GitSignsAdd'] = { fg = theme.git.signs.add },
@@ -728,15 +728,15 @@ function M.get(config, theme)
         },
 
         -- goolord/alpha-nvim
-        ['AlphaButton'] = { fg = palette.blue_09 },
-        ['AlphaHeader'] = { fg = palette.blue_10 },
-        ['AlphaShorcut'] = { fg = palette.grey_21 },
+        ['AlphaButton'] = { fg = palette.blue_18 },
+        ['AlphaHeader'] = { fg = palette.blue_19 },
+        ['AlphaShorcut'] = { fg = palette.grey_17 },
 
         -- folke/lazy.nvim
         ['LazyButton'] = { bg = theme.ui.title.bg, fg = theme.ui.title.fg },
-        ['LazyButtonActive'] = { bg = palette.green_02, fg = theme.ui.title.fg },
-        ['LazyComment'] = { fg = palette.grey_21 },
-        ['LazyH1'] = { bg = palette.green_02, fg = theme.ui.title.fg },
+        ['LazyButtonActive'] = { bg = palette.green_05, fg = theme.ui.title.fg },
+        ['LazyComment'] = { fg = palette.grey_17 },
+        ['LazyH1'] = { bg = palette.green_05, fg = theme.ui.title.fg },
         ['LazySpecial'] = { fg = palette.light_07 },
 
         -- lua
