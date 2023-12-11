@@ -34,7 +34,7 @@ function M.get(config, theme)
         ['DiffDelete'] = { bg = theme.git.diff.delete },
         ['DiffText'] = { bg = theme.git.diff.text },
         ['EndOfBuffer'] = { fg = theme.ui.bg },
-        ['ErrorMsg'] = { fg = theme.diagnostics.error },
+        ['ErrorMsg'] = { fg = theme.lsp.diagnostics.error },
         ['FoldColumn'] = {
             bg = theme.ui.bg,
             fg = theme.ui.bg,
@@ -64,19 +64,19 @@ function M.get(config, theme)
         ['Search'] = { bg = theme.ui.search.bg },
         ['SignColumn'] = { bg = palette.none },
         ['SpellBad'] = {
-            sp = theme.diagnostics.error,
+            sp = theme.lsp.diagnostics.error,
             undercurl = config.undercurl and term_supports_undercurl(),
         },
         ['SpellCap'] = {
-            sp = theme.diagnostics.warn,
+            sp = theme.lsp.diagnostics.warn,
             undercurl = config.undercurl and term_supports_undercurl(),
         },
         ['SpellLocal'] = {
-            sp = theme.diagnostics.info,
+            sp = theme.lsp.diagnostics.info,
             undercurl = config.undercurl and term_supports_undercurl(),
         },
         ['SpellRare'] = {
-            sp = theme.diagnostics.hint,
+            sp = theme.lsp.diagnostics.hint,
             undercurl = config.undercurl and term_supports_undercurl(),
         },
         ['StatusLine'] = {
@@ -89,7 +89,7 @@ function M.get(config, theme)
         },
         ['Title'] = { fg = palette.light_15 },
         ['Visual'] = { bg = theme.ui.visual.bg },
-        ['WarningMsg'] = { fg = theme.diagnostics.warn },
+        ['WarningMsg'] = { fg = theme.lsp.diagnostics.warn },
         ['Whitespace'] = { fg = theme.ui.indent_guide.fg, bg = palette.none },
         ['WinBar'] = { fg = palette.light_02 },
         ['WinBarNC'] = { bg = theme.ui.bg },
@@ -178,7 +178,7 @@ function M.get(config, theme)
 
         -- ['Ignore'] = {},
 
-        ['Error'] = { fg = theme.diagnostics.error },
+        ['Error'] = { fg = theme.lsp.diagnostics.error },
 
         ['Todo'] = { fg = theme.sintax.todo },
 
@@ -473,39 +473,39 @@ function M.get(config, theme)
             fg = theme.ui.float.border.fg,
         },
         ['DiagnosticDeprecated'] = { strikethrough = true },
-        ['DiagnosticError'] = { fg = theme.diagnostics.error },
-        ['DiagnosticFloatingError'] = { fg = theme.diagnostics.error },
-        ['DiagnosticFloatingHint'] = { fg = theme.diagnostics.hint },
-        ['DiagnosticFloatingInfo'] = { fg = theme.diagnostics.info },
-        ['DiagnosticFloatingWarn'] = { fg = theme.diagnostics.warn },
-        ['DiagnosticHint'] = { fg = theme.diagnostics.hint },
-        ['DiagnosticInfo'] = { fg = theme.diagnostics.info },
-        ['DiagnosticSignError'] = { fg = theme.diagnostics.error },
-        ['DiagnosticSignHint'] = { fg = theme.diagnostics.hint },
-        ['DiagnosticSignInfo'] = { fg = theme.diagnostics.info },
-        ['DiagnosticSignWarn'] = { fg = theme.diagnostics.warn },
+        ['DiagnosticError'] = { fg = theme.lsp.diagnostics.error },
+        ['DiagnosticFloatingError'] = { fg = theme.lsp.diagnostics.error },
+        ['DiagnosticFloatingHint'] = { fg = theme.lsp.diagnostics.hint },
+        ['DiagnosticFloatingInfo'] = { fg = theme.lsp.diagnostics.info },
+        ['DiagnosticFloatingWarn'] = { fg = theme.lsp.diagnostics.warn },
+        ['DiagnosticHint'] = { fg = theme.lsp.diagnostics.hint },
+        ['DiagnosticInfo'] = { fg = theme.lsp.diagnostics.info },
+        ['DiagnosticSignError'] = { fg = theme.lsp.diagnostics.error },
+        ['DiagnosticSignHint'] = { fg = theme.lsp.diagnostics.hint },
+        ['DiagnosticSignInfo'] = { fg = theme.lsp.diagnostics.info },
+        ['DiagnosticSignWarn'] = { fg = theme.lsp.diagnostics.warn },
         ['DiagnosticUnderlineError'] = {
-            sp = theme.diagnostics.error,
+            sp = theme.lsp.diagnostics.error,
             undercurl = config.undercurl and term_supports_undercurl(),
         },
         ['DiagnosticUnderlineHint'] = {
-            sp = theme.diagnostics.hint,
+            sp = theme.lsp.diagnostics.hint,
             undercurl = config.undercurl and term_supports_undercurl(),
         },
         ['DiagnosticUnderlineInfo'] = {
-            sp = theme.diagnostics.info,
+            sp = theme.lsp.diagnostics.info,
             undercurl = config.undercurl and term_supports_undercurl(),
         },
         ['DiagnosticUnderlineWarn'] = {
-            sp = theme.diagnostics.warn,
+            sp = theme.lsp.diagnostics.warn,
             undercurl = config.undercurl and term_supports_undercurl(),
         },
-        ['DiagnosticUnnecessary'] = { fg = theme.diagnostics.unnecessary },
-        ['DiagnosticVirtualTextError'] = { fg = theme.diagnostics.error },
-        ['DiagnosticVirtualTextHint'] = { fg = theme.diagnostics.hint },
-        ['DiagnosticVirtualTextInfo'] = { fg = theme.diagnostics.info },
-        ['DiagnosticVirtualTextWarn'] = { fg = theme.diagnostics.warn },
-        ['DiagnosticWarn'] = { fg = theme.diagnostics.warn },
+        ['DiagnosticUnnecessary'] = { fg = theme.lsp.diagnostics.unnecessary },
+        ['DiagnosticVirtualTextError'] = { fg = theme.lsp.diagnostics.error },
+        ['DiagnosticVirtualTextHint'] = { fg = theme.lsp.diagnostics.hint },
+        ['DiagnosticVirtualTextInfo'] = { fg = theme.lsp.diagnostics.info },
+        ['DiagnosticVirtualTextWarn'] = { fg = theme.lsp.diagnostics.warn },
+        ['DiagnosticWarn'] = { fg = theme.lsp.diagnostics.warn },
 
         -- LspInfo
         ['LspInfoBorder'] = { fg = theme.ui.float.border.fg },
@@ -513,6 +513,11 @@ function M.get(config, theme)
         -- Codelens
         ['LspCodeLens'] = { fg = palette.grey_26 },
         ['LspCodeLensSeparator'] = { fg = palette.grey_26 },
+
+        -- References
+        ['LspReferenceWrite'] = { bg = theme.lsp.references.write },
+        ['LspReferenceRead'] = { bg = theme.lsp.references.read },
+        ['LspReferenceText'] = { bg = theme.lsp.references.text },
 
         -- SmiteshP/nvim-navic
         ['NavicIconsFile'] = { fg = theme.ui.fg },
@@ -545,8 +550,8 @@ function M.get(config, theme)
         ['NavicSeparator'] = { fg = palette.light_02 },
 
         -- williamboman/mason.nvim
-        ['MasonError'] = { fg = theme.diagnostics.error },
-        ['MasonWarning'] = { fg = theme.diagnostics.warn },
+        ['MasonError'] = { fg = theme.lsp.diagnostics.error },
+        ['MasonWarning'] = { fg = theme.lsp.diagnostics.warn },
 
         -- folke/trouble.nvim
         ['TroubleCode'] = { fg = palette.blue_08, underline = true },
@@ -555,10 +560,10 @@ function M.get(config, theme)
         ['TroubleFoldIcon'] = { fg = palette.light_05 },
         ['TroubleLocation'] = { fg = palette.grey_25 },
         ['TroublePreview'] = { bg = palette.grey_10 },
-        ['TroubleSignError'] = { fg = theme.diagnostics.error },
-        ['TroubleSignHint'] = { fg = theme.diagnostics.hint },
-        ['TroubleSignInformation'] = { fg = theme.diagnostics.info },
-        ['TroubleSignWarning'] = { fg = theme.diagnostics.warn },
+        ['TroubleSignError'] = { fg = theme.lsp.diagnostics.error },
+        ['TroubleSignHint'] = { fg = theme.lsp.diagnostics.hint },
+        ['TroubleSignInformation'] = { fg = theme.lsp.diagnostics.info },
+        ['TroubleSignWarning'] = { fg = theme.lsp.diagnostics.warn },
         ['TroubleSource'] = { fg = palette.grey_25 },
         ['TroubleTextError'] = { fg = theme.ui.fg },
         ['TroubleTextHint'] = { fg = theme.ui.fg },
@@ -645,20 +650,20 @@ function M.get(config, theme)
         ['GitSignsDelete'] = { fg = theme.git.signs.delete },
 
         -- petertriho/nvim-scrollbar
-        ['ScrollbarError'] = { fg = theme.diagnostics.error },
-        ['ScrollbarErrorHandle'] = { fg = theme.diagnostics.error },
+        ['ScrollbarError'] = { fg = theme.lsp.diagnostics.error },
+        ['ScrollbarErrorHandle'] = { fg = theme.lsp.diagnostics.error },
         ['ScrollbarGitAdd'] = { fg = theme.git.signs.add },
         ['ScrollbarGitAddHandle'] = { fg = theme.git.signs.add },
         ['ScrollbarGitChange'] = { fg = theme.git.signs.change },
         ['ScrollbarGitChangeHandle'] = { fg = theme.git.signs.change },
         ['ScrollbarGitDelete'] = { fg = theme.git.signs.delete },
         ['ScrollbarGitDeleteHandle'] = { fg = theme.git.signs.delete },
-        ['ScrollbarHint'] = { fg = theme.diagnostics.hint },
-        ['ScrollbarHintHandle'] = { fg = theme.diagnostics.hint },
-        ['ScrollbarInfo'] = { fg = theme.diagnostics.info },
-        ['ScrollbarInfoHandle'] = { fg = theme.diagnostics.info },
-        ['ScrollbarWarn'] = { fg = theme.diagnostics.warn },
-        ['ScrollbarWarnHandle'] = { fg = theme.diagnostics.warn },
+        ['ScrollbarHint'] = { fg = theme.lsp.diagnostics.hint },
+        ['ScrollbarHintHandle'] = { fg = theme.lsp.diagnostics.hint },
+        ['ScrollbarInfo'] = { fg = theme.lsp.diagnostics.info },
+        ['ScrollbarInfoHandle'] = { fg = theme.lsp.diagnostics.info },
+        ['ScrollbarWarn'] = { fg = theme.lsp.diagnostics.warn },
+        ['ScrollbarWarnHandle'] = { fg = theme.lsp.diagnostics.warn },
 
         -- nvim-tree/nvim-tree.lua
         ['NvimTreeClosedFolderIcon'] = { link = 'NvimTreeFolderIcon' },
@@ -675,10 +680,12 @@ function M.get(config, theme)
         ['NvimTreeGitRenamed'] = { fg = theme.git.status.untracked },
         ['NvimTreeGitStaged'] = { fg = theme.git.status.staged },
         ['NvimTreeIndentMarker'] = { fg = theme.ui.indent_guide.fg },
-        ['NvimTreeLspDiagnosticsError'] = { fg = theme.diagnostics.error },
-        ['NvimTreeLspDiagnosticsHint'] = { fg = theme.diagnostics.hint },
-        ['NvimTreeLspDiagnosticsInformation'] = { fg = theme.diagnostics.info },
-        ['NvimTreeLspDiagnosticsWarning'] = { fg = theme.diagnostics.warn },
+        ['NvimTreeLspDiagnosticsError'] = { fg = theme.lsp.diagnostics.error },
+        ['NvimTreeLspDiagnosticsHint'] = { fg = theme.lsp.diagnostics.hint },
+        ['NvimTreeLspDiagnosticsInformation'] = {
+            fg = theme.lsp.diagnostics.info,
+        },
+        ['NvimTreeLspDiagnosticsWarning'] = { fg = theme.lsp.diagnostics.warn },
         ['NvimTreeModifiedFile'] = { fg = theme.ui.fg },
         ['NvimTreeNormal'] = {
             bg = config.transparent_background and palette.none
@@ -748,23 +755,23 @@ function M.get(config, theme)
         },
         StatusLineLspError = {
             bg = theme.ui.status_line.bg,
-            fg = theme.diagnostics.error,
+            fg = theme.lsp.diagnostics.error,
         },
         StatusLineLspWarn = {
             bg = theme.ui.status_line.bg,
-            fg = theme.diagnostics.warn,
+            fg = theme.lsp.diagnostics.warn,
         },
         StatusLineLspHint = {
             bg = theme.ui.status_line.bg,
-            fg = theme.diagnostics.hint,
+            fg = theme.lsp.diagnostics.hint,
         },
         StatusLineLspInfo = {
             bg = theme.ui.status_line.bg,
-            fg = theme.diagnostics.info,
+            fg = theme.lsp.diagnostics.info,
         },
         StatusLineLspMessages = {
             bg = theme.ui.status_line.bg,
-            fg = theme.diagnostics.info,
+            fg = theme.lsp.diagnostics.info,
         },
         StatusLineGitDiffAdded = {
             bg = theme.ui.status_line.bg,

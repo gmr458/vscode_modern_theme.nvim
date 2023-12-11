@@ -14,6 +14,7 @@ local palette = {
     grey_08 = '#3c3c3c',
     grey_09 = '#404040',
     grey_10 = '#424548',
+    grey_27 = '#484848',
     grey_11 = '#4d4d4d',
     grey_12 = '#515052',
     grey_13 = '#515151',
@@ -121,6 +122,8 @@ local palette = {
     blue_26 = '#e6f3ff',
     blue_27 = '#0066BF',
     blue_28 = '#007acc',
+    blue_29 = '#093E5B',
+    blue_30 = '#C3D8E6',
 
     -- orange
     orange_01 = '#ce9178',

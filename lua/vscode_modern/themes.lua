@@ -240,12 +240,21 @@
 --- @field hint string
 --- @field unnecessary string
 
+--- @class References
+--- @field write string
+--- @field read string
+--- @field text string
+
+--- @class Lsp
+--- @field diagnostics Diagnostics
+--- @field references References
+
 --- @class Theme
 --- @field palette Palette
 --- @field ui Ui
 --- @field sintax Sintax
 --- @field git Git
---- @field diagnostics Diagnostics
+--- @field lsp Lsp
 
 return {
     --- @param palette Palette
@@ -454,12 +463,19 @@ return {
                     text = palette.green_14,
                 },
             },
-            diagnostics = {
-                error = palette.red_06,
-                warn = palette.yellow_03,
-                info = palette.blue_09,
-                hint = palette.blue_14,
-                unnecessary = palette.blue_13,
+            lsp = {
+                diagnostics = {
+                    error = palette.red_06,
+                    warn = palette.yellow_03,
+                    info = palette.blue_09,
+                    hint = palette.blue_14,
+                    unnecessary = palette.blue_13,
+                },
+                references = {
+                    write = palette.blue_29,
+                    read = palette.grey_27,
+                    text = palette.grey_27,
+                },
             },
         }
     end,
@@ -670,12 +686,19 @@ return {
                     text = palette.green_17,
                 },
             },
-            diagnostics = {
-                error = palette.red_06,
-                warn = palette.yellow_10,
-                info = palette.blue_25,
-                hint = palette.blue_28,
-                unnecessary = palette.blue_18,
+            lsp = {
+                diagnostics = {
+                    error = palette.red_06,
+                    warn = palette.yellow_10,
+                    info = palette.blue_25,
+                    hint = palette.blue_28,
+                    unnecessary = palette.blue_18,
+                },
+                references = {
+                    write = palette.blue_30,
+                    read = palette.light_09,
+                    text = palette.light_09,
+                },
             },
         }
     end,
