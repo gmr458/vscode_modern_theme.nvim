@@ -200,14 +200,9 @@
 --- @field macro string
 --- @field type string
 --- @field namespace string
---- @field special string
 --- @field special_char string
---- @field tag string
 --- @field xml_tag string
 --- @field xml_delimiter string
---- @field delimiter string
---- @field special_comment string
---- @field debug string
 --- @field todo string
 
 --- @class GitSigns
@@ -431,16 +426,11 @@ return {
                 keyword = palette.blue_21,
                 keyword_control_flow = palette.purple_03,
                 macro = palette.blue_21,
-                type = palette.green_10,
-                namespace = palette.green_10,
-                special = palette.yellow_09,
-                special_char = palette.yellow_09,
-                tag = palette.yellow_09,
+                type = palette.green_08,
+                namespace = palette.green_08,
+                special_char = palette.yellow_06,
                 xml_tag = palette.blue_21,
                 xml_delimiter = palette.grey_15,
-                delimiter = palette.yellow_09,
-                special_comment = palette.yellow_09,
-                debug = palette.yellow_09,
                 todo = palette.magenta_01,
             },
             git = {
@@ -656,14 +646,9 @@ return {
                 macro = palette.blue_01,
                 type = palette.blue_15,
                 namespace = palette.blue_15,
-                special = palette.red_07,
                 special_char = palette.red_07,
-                tag = palette.red_07,
                 xml_tag = palette.blue_01,
                 xml_delimiter = palette.blue_21,
-                delimiter = palette.red_07,
-                special_comment = palette.red_07,
-                debug = palette.red_07,
                 todo = palette.magenta_01,
             },
             git = {

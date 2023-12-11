@@ -167,12 +167,12 @@ function M.get(config, theme)
         ['Structure'] = { fg = theme.sintax.type },
         ['Typedef'] = { fg = theme.sintax.type },
 
-        ['Special'] = { fg = theme.sintax.special },
+        -- ['Special'] = {},
         ['SpecialChar'] = { fg = theme.sintax.special_char },
-        ['Tag'] = { fg = theme.sintax.tag },
-        ['Delimiter'] = { fg = theme.sintax.delimiter },
-        ['SpecialComment'] = { fg = theme.sintax.special_comment },
-        ['Debug'] = { fg = theme.sintax.debug },
+        -- ['Tag'] = {},
+        -- ['Delimiter'] = {},
+        -- ['SpecialComment'] = {},
+        -- ['Debug'] = {},
 
         ['Underlined'] = { underline = true },
 
