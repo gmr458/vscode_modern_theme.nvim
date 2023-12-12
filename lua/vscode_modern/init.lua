@@ -1,13 +1,13 @@
 local M = {}
 
 --- @class Config
---- @field cursorline boolean
---- @field transparent_background boolean
---- @field nvim_tree_darker boolean
---- @field undercurl boolean
---- @field italic_keyword boolean
---- @field custom_dark_background string | nil
---- @field custom_light_background string | nil
+--- @field cursorline? boolean
+--- @field transparent_background? boolean
+--- @field nvim_tree_darker? boolean
+--- @field undercurl? boolean
+--- @field italic_keyword? boolean
+--- @field custom_dark_background? string
+--- @field custom_light_background? string
 M.config = {
     cursorline = false,
     transparent_background = false,
@@ -23,7 +23,7 @@ local path_sep = jit and (jit.os == 'Windows' and '\\' or '/')
     or package.config:sub(1, 1)
 local filenames_compiled_colorschemes = { 'dark', 'light' }
 
---- @overload fun(config: Config)
+--- @overload fun(config?: Config)
 function M.setup(config)
     M.config = vim.tbl_deep_extend('force', M.config, config or {})
 end
