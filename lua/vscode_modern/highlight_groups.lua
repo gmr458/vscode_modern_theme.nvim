@@ -94,7 +94,7 @@ function M.get(config, theme)
         ['WinBar'] = { fg = palette.light_02 },
         ['WinBarNC'] = { bg = theme.ui.bg },
         ['WinSeparator'] = {
-            fg = config.transparent_background and theme.ui.bg
+            fg = config.transparent_background and theme.ui.fg
                 or theme.ui.win_separator.fg,
         },
 
@@ -700,8 +700,11 @@ function M.get(config, theme)
         ['NvimTreeRootFolder'] = { fg = theme.ui.fg },
         ['NvimTreeWinSeparator'] = {
             bg = config.transparent_background and palette.none or theme.ui.bg,
-            fg = config.nvim_tree_darker and theme.ui.bg
-                or theme.ui.win_separator.fg,
+            fg = config.transparent_background and theme.ui.fg
+                or (
+                    config.nvim_tree_darker and theme.ui.bg
+                    or theme.ui.win_separator.fg
+                ),
         },
 
         -- akinsho/toggleterm.nvim
