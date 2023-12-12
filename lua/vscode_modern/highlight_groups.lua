@@ -92,7 +92,9 @@ function M.get(config, theme)
         ['WarningMsg'] = { fg = theme.lsp.diagnostics.warn },
         ['Whitespace'] = { fg = theme.ui.indent_guide.fg, bg = palette.none },
         ['WinBar'] = { fg = palette.light_02 },
-        ['WinBarNC'] = { bg = theme.ui.bg },
+        ['WinBarNC'] = {
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+        },
         ['WinSeparator'] = {
             fg = config.transparent_background and theme.ui.fg
                 or theme.ui.win_separator.fg,
