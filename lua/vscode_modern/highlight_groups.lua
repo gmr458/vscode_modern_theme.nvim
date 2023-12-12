@@ -700,7 +700,8 @@ function M.get(config, theme)
         ['NvimTreeRootFolder'] = { fg = theme.ui.fg },
         ['NvimTreeWinSeparator'] = {
             bg = config.transparent_background and palette.none or theme.ui.bg,
-            fg = theme.ui.bg,
+            fg = config.nvim_tree_darker and theme.ui.bg
+                or theme.ui.win_separator.fg,
         },
 
         -- akinsho/toggleterm.nvim
