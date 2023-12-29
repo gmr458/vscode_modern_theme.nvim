@@ -248,8 +248,15 @@ function M.get(config, theme)
         ['@text.diff.delete.diff'] = { fg = theme.git.signs.delete },
 
         -- Go
+        ['@keyword.break.go'] = { fg = theme.sintax.keyword_control_flow },
+        ['@keyword.continue.go'] = { fg = theme.sintax.keyword_control_flow },
         ['@keyword.default.go'] = { fg = theme.sintax.keyword_control_flow },
+        ['@keyword.coroutine.go.go'] = {
+            fg = theme.sintax.keyword_control_flow,
+        },
+        ['@keyword.goto.go'] = { fg = theme.sintax.keyword_control_flow },
         ['@type.builtin.map.go'] = { link = 'Keyword' },
+        ['@keyword.select.go'] = { fg = theme.sintax.keyword_control_flow },
 
         -- Go Checksum File
         ['@attribute.gosum'] = { link = 'Identifier' },
