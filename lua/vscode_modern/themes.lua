@@ -257,12 +257,20 @@ return {
     --- @return Theme
     dark = function(palette, config)
         local background = palette.dark_04
+        local statusline_bg = palette.dark_03
 
         if
             config.custom_dark_background ~= nil
             and type(config.custom_dark_background) == 'string'
         then
             background = config.custom_dark_background
+        end
+
+        if
+            config.custom_statusline_dark_background ~= nil
+            and type(config.custom_statusline_dark_background)
+        then
+            statusline_bg = config.custom_statusline_dark_background
         end
 
         return {
@@ -311,7 +319,7 @@ return {
                     fg = palette.grey_07,
                 },
                 status_line = {
-                    bg = palette.dark_03,
+                    bg = statusline_bg,
                     fg = palette.light_07,
                     mode = {
                         bg = palette.blue_06,

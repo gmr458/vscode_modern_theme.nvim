@@ -8,6 +8,7 @@ local M = {}
 --- @field italic_keyword? boolean
 --- @field custom_dark_background? string
 --- @field custom_light_background? string
+--- @field custom_statusline_dark_background? string
 M.config = {
     cursorline = false,
     transparent_background = false,
@@ -16,6 +17,7 @@ M.config = {
     italic_keyword = false,
     custom_dark_background = nil,
     custom_light_background = nil,
+    custom_statusline_dark_background = nil,
 }
 
 local compile_path = vim.fn.stdpath 'cache' .. '/vscode_modern'
