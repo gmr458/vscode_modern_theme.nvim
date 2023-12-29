@@ -320,7 +320,7 @@ return {
                 },
                 status_line = {
                     bg = statusline_bg,
-                    fg = palette.light_07,
+                    fg = palette.grey_17,
                     mode = {
                         bg = palette.blue_06,
                         fg = palette.light_16,
