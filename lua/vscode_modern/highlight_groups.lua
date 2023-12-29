@@ -762,45 +762,49 @@ function M.get(config, theme)
         ['xmlTagName'] = { link = 'Keyword' },
 
         -- my custom statusline
-        StatusLineMode = {
+        ['StatusLineMode'] = {
             bg = theme.ui.status_line.mode.bg,
             fg = theme.ui.status_line.mode.fg,
         },
-        StatusLineLspError = {
+        ['StatusLineLspError'] = {
             bg = theme.ui.status_line.bg,
             fg = theme.lsp.diagnostics.error,
         },
-        StatusLineLspWarn = {
+        ['StatusLineLspWarn'] = {
             bg = theme.ui.status_line.bg,
             fg = theme.lsp.diagnostics.warn,
         },
-        StatusLineLspHint = {
+        ['StatusLineLspHint'] = {
             bg = theme.ui.status_line.bg,
             fg = theme.lsp.diagnostics.hint,
         },
-        StatusLineLspInfo = {
+        ['StatusLineLspInfo'] = {
             bg = theme.ui.status_line.bg,
             fg = theme.lsp.diagnostics.info,
         },
-        StatusLineLspMessages = {
+        ['StatusLineLspMessages'] = {
             bg = theme.ui.status_line.bg,
             fg = theme.lsp.diagnostics.info,
         },
-        StatusLineGitDiffAdded = {
+        ['StatusLineGitDiffAdded'] = {
             bg = theme.ui.status_line.bg,
             fg = theme.git.signs.add,
         },
-        StatusLineGitDiffChanged = {
+        ['StatusLineGitDiffChanged'] = {
             bg = theme.ui.status_line.bg,
             fg = theme.git.signs.change,
         },
-        StatusLineGitDiffRemoved = {
+        ['StatusLineGitDiffRemoved'] = {
             bg = theme.ui.status_line.bg,
             fg = theme.git.signs.delete,
         },
-        StatusLineGitBranchIcon = {
+        ['StatusLineGitBranchIcon'] = {
             bg = theme.ui.status_line.bg,
             fg = theme.ui.status_line.branch_icon.fg,
+        },
+        ['StatusLineUnsavedFileIcon'] = {
+            bg = theme.ui.status_line.bg,
+            fg = theme.lsp.diagnostics.warn,
         },
     }
 end
