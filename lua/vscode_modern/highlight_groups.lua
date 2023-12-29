@@ -349,6 +349,7 @@ function M.get(config, theme)
         ['@lsp.type.parameter'] = { link = 'Variable' },
         ['@lsp.type.property'] = { link = 'Variable' },
         ['@lsp.type.method'] = { link = 'Function' },
+        ['@lsp.type.module'] = { fg = theme.sintax.namespace },
         ['@lsp.type.number'] = { link = 'Number' },
         ['@lsp.type.selfKeyword'] = { link = 'Keyword' },
         ['@lsp.type.selfTypeKeyword'] = { link = 'Keyword' },
