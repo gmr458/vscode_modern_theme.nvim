@@ -767,6 +767,11 @@ function M.get(config, theme)
             bg = theme.ui.status_line.mode.bg,
             fg = theme.ui.status_line.mode.fg,
         },
+        ['StatusLineNeovimLogo'] = {
+            bg = theme.ui.status_line.bg,
+            fg = '#55913d',
+        },
+
         ['StatusLineLspError'] = {
             bg = theme.ui.status_line.bg,
             fg = theme.lsp.diagnostics.error,
