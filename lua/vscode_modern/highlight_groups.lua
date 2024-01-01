@@ -95,10 +95,7 @@ function M.get(config, theme)
         ['WinBarNC'] = {
             bg = config.transparent_background and palette.none or theme.ui.bg,
         },
-        ['WinSeparator'] = {
-            fg = config.transparent_background and theme.ui.fg
-                or theme.ui.win_separator.fg,
-        },
+        ['WinSeparator'] = { fg = theme.ui.win_separator.fg },
 
         -- Pmenu
         ['Pmenu'] = { bg = theme.ui.pmenu.bg, fg = theme.ui.pmenu.fg },
@@ -710,7 +707,7 @@ function M.get(config, theme)
         ['NvimTreeRootFolder'] = { fg = theme.ui.fg },
         ['NvimTreeWinSeparator'] = {
             bg = config.transparent_background and palette.none or theme.ui.bg,
-            fg = config.transparent_background and theme.ui.fg
+            fg = config.transparent_background and theme.ui.win_separator.fg
                 or (
                     config.nvim_tree_darker and theme.ui.bg
                     or theme.ui.win_separator.fg

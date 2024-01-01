@@ -343,7 +343,8 @@ return {
                     fg = palette.grey_07,
                 },
                 win_separator = {
-                    fg = palette.dark_02,
+                    fg = config.transparent_background and palette.grey_07
+                        or palette.dark_02,
                 },
                 pmenu = {
                     bg = palette.grey_04,

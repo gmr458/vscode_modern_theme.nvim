@@ -1,0 +1,1 @@
+print(vim.o.lines)
