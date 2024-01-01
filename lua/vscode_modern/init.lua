@@ -20,10 +20,10 @@ M.config = {
     custom_statusline_dark_background = nil,
 }
 
-local compile_path = vim.fn.stdpath 'cache' .. '/vscode_modern'
+local path_compiled_files =
+    string.format('%s%s', vim.fn.stdpath 'cache', '/vscode_modern')
 local path_sep = jit and (jit.os == 'Windows' and '\\' or '/')
     or package.config:sub(1, 1)
-local filenames_compiled_colorschemes = { 'dark', 'light' }
 
 --- @overload fun(config?: Config)
 function M.setup(config)
@@ -31,37 +31,29 @@ function M.setup(config)
 end
 
 function M.load()
-    for _, value in ipairs(filenames_compiled_colorschemes) do
-        local compiled_path = compile_path .. path_sep .. value
-
-        local f = loadfile(compiled_path)
-        if not f then
-            local palette = require 'vscode_modern.palette'
-            local theme =
-                require('vscode_modern.themes')[value](palette, M.config)
-            M.compile(M.config, theme, value)
-        end
+    local dark_compiled =
+        string.format('%s%s%s', path_compiled_files, path_sep, 'dark')
+    if not vim.loop.fs_stat(dark_compiled) then
+        local palette = require 'vscode_modern.palette'
+        local theme = require('vscode_modern.themes').dark(palette, M.config)
+        M.compile(M.config, theme, 'dark')
     end
 
-    local compiled_path = compile_path .. path_sep .. vim.o.background
+    local light_compiled =
+        string.format('%s%s%s', path_compiled_files, path_sep, 'light')
+    if not vim.loop.fs_stat(light_compiled) then
+        local palette = require 'vscode_modern.palette'
+        local theme = require('vscode_modern.themes').dark(palette, M.config)
+        M.compile(M.config, theme, 'light')
+    end
 
-    local f = assert(loadfile(compiled_path), 'Could not load cache')
+    local path_compiled =
+        string.format('%s%s%s', path_compiled_files, path_sep, vim.o.background)
+    local f = assert(
+        loadfile(path_compiled),
+        '[vscode_modern.nvim] could not load cache'
+    )
     f()
-end
-
-local function inspect(t)
-    local list = {}
-    for k, v in pairs(t) do
-        local tv = type(v)
-        if tv == 'string' then
-            table.insert(list, string.format([[%s = "%s"]], k, v))
-        elseif tv == 'table' then
-            table.insert(list, string.format([[%s = %s]], k, inspect(v)))
-        else
-            table.insert(list, string.format([[%s = %s]], k, tostring(v)))
-        end
-    end
-    return string.format([[{ %s }]], table.concat(list, ', '))
 end
 
 --- @overload fun(config: Config, theme: Theme, filename_compiled_colorscheme: string)
@@ -70,30 +62,34 @@ function M.compile(config, theme, filename_compiled_colorscheme)
         string.format(
             [[
 return string.dump(function()
-vim.o.termguicolors = true
-if vim.g.colors_name then vim.cmd("hi clear") end
-vim.g.colors_name = "vscode_modern"
-vim.o.background = "%s"
-local h = vim.api.nvim_set_hl]],
+vim.o.termguicolors=true
+if vim.g.colors_name then vim.cmd "hi clear" end
+vim.g.colors_name="vscode_modern"
+vim.o.background="%s"
+local h=vim.api.nvim_set_hl]],
             filename_compiled_colorscheme
         ),
     }
 
     if path_sep == '\\' then
-        compile_path = compile_path:gsub('/', '\\')
+        path_compiled_files = path_compiled_files:gsub('/', '\\')
     end
 
     local hgs = require('vscode_modern.highlight_groups').get(config, theme)
     for group, color in pairs(hgs) do
         table.insert(
             lines,
-            string.format([[h(0, "%s", %s)]], group, inspect(color))
+            string.format(
+                [[h(0,"%s",%s)]],
+                group,
+                vim.inspect(color, { newline = '', indent = '' })
+            )
         )
     end
-    table.insert(lines, 'end, true)')
+    table.insert(lines, 'end,true)')
 
-    if vim.fn.isdirectory(compile_path) == 0 then
-        vim.fn.mkdir(compile_path, 'p')
+    if vim.fn.isdirectory(path_compiled_files) == 0 then
+        vim.fn.mkdir(path_compiled_files, 'p')
     end
 
     local f = loadstring(table.concat(lines, '\n'))
@@ -102,7 +98,7 @@ local h = vim.api.nvim_set_hl]],
             .. '/vscode_modern_error.lua'
         print(
             string.format(
-                'Dark Modern (error): Open %s for debugging',
+                '[vscode_modern.nvim] error, open %s for debugging',
                 err_path
             )
         )
@@ -111,31 +107,37 @@ local h = vim.api.nvim_set_hl]],
             err:write(table.concat(lines, '\n'))
             err:close()
         end
-        dofile(err_path)
         return
     end
 
+    local err_msg = string.format(
+        '[vscode_modern.nvim] permission denied while writing compiled file to %s%s%s',
+        path_compiled_files,
+        path_sep,
+        filename_compiled_colorscheme
+    )
     local file = assert(
-        io.open(compile_path .. path_sep .. filename_compiled_colorscheme, 'wb'),
-        'Permission denied while writing compiled file to '
-            .. compile_path
-            .. path_sep
-            .. filename_compiled_colorscheme
+        io.open(
+            path_compiled_files .. path_sep .. filename_compiled_colorscheme,
+            'wb'
+        ),
+        err_msg
     )
     file:write(f())
     file:close()
 end
 
 vim.api.nvim_create_user_command('VSCodeModernCompile', function()
-    for _, value in ipairs(filenames_compiled_colorschemes) do
-        local palette = require 'vscode_modern.palette'
-        local theme = require('vscode_modern.themes')[value](palette, M.config)
+    local palette = require 'vscode_modern.palette'
 
-        M.compile(M.config, theme, value)
-    end
+    local dark_theme = require('vscode_modern.themes').dark(palette, M.config)
+    M.compile(M.config, dark_theme, 'dark')
 
-    vim.notify 'vscode_modern colorscheme compiled'
-    vim.api.nvim_command 'colorscheme vscode_modern'
+    local light_theme = require('vscode_modern.themes').light(palette, M.config)
+    M.compile(M.config, light_theme, 'light')
+
+    vim.notify '[vscode_modern.nvim] colorscheme compiled'
+    vim.cmd.colorscheme 'vscode_modern'
 end, {})
 
 function M.term_supports_undercurl()
