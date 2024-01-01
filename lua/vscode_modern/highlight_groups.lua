@@ -398,7 +398,7 @@ function M.get(config, theme)
         ['UfoFoldedEllipsis'] = { fg = palette.grey_15 },
 
         -- ibhagwan/fzf-lua
-        ['FzfLuaBorder'] = { fg = palette.grey_14 },
+        ['FzfLuaBorder'] = { fg = theme.ui.float.border.fg },
 
         -- nvim-telescope/telescope.nvim
         ['TelescopeMatching'] = { fg = theme.ui.telescope.matching.fg },
