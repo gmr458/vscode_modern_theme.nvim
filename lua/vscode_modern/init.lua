@@ -43,7 +43,7 @@ function M.load()
         string.format('%s%s%s', path_compiled_files, path_sep, 'light')
     if not vim.loop.fs_stat(light_compiled) then
         local palette = require 'vscode_modern.palette'
-        local theme = require('vscode_modern.themes').dark(palette, M.config)
+        local theme = require('vscode_modern.themes').light(palette, M.config)
         M.compile(M.config, theme, 'light')
     end
 
