@@ -85,6 +85,10 @@ function M.get(config, theme)
             bg = theme.ui.status_line.bg,
             fg = theme.ui.status_line.fg,
         },
+        ['StatusLineNC'] = {
+            bg = theme.ui.status_line.bg,
+            fg = theme.ui.status_line.fg,
+        },
         ['TermCursor'] = {
             bg = theme.ui.cursor.term.bg,
             fg = theme.ui.cursor.term.fg,
@@ -766,49 +770,65 @@ function M.get(config, theme)
             bg = theme.ui.status_line.mode.bg,
             fg = theme.ui.status_line.mode.fg,
         },
+        ['StatusLineMedium'] = {
+            bg = theme.ui.status_line.medium.bg,
+            fg = theme.ui.status_line.medium.fg,
+        },
         ['StatusLineNeovimLogo'] = {
-            bg = theme.ui.status_line.bg,
-            fg = '#55913d',
+            bg = theme.ui.status_line.mode.bg,
+            fg = theme.ui.status_line.mode.fg,
         },
 
         ['StatusLineLspError'] = {
-            bg = theme.ui.status_line.bg,
+            bg = theme.ui.status_line.medium.bg,
             fg = theme.lsp.diagnostics.error,
         },
         ['StatusLineLspWarn'] = {
-            bg = theme.ui.status_line.bg,
+            bg = theme.ui.status_line.medium.bg,
             fg = theme.lsp.diagnostics.warn,
         },
         ['StatusLineLspHint'] = {
-            bg = theme.ui.status_line.bg,
+            bg = theme.ui.status_line.medium.bg,
             fg = theme.lsp.diagnostics.hint,
         },
         ['StatusLineLspInfo'] = {
-            bg = theme.ui.status_line.bg,
+            bg = theme.ui.status_line.medium.bg,
             fg = theme.lsp.diagnostics.info,
         },
         ['StatusLineLspMessages'] = {
             bg = theme.ui.status_line.bg,
             fg = theme.lsp.diagnostics.info,
         },
+        ['StatusLineLspActive'] = {
+            bg = theme.ui.status_line.medium.bg,
+            fg = theme.ui.status_line.icon.lsp.active.fg,
+        },
+        ['StatusLineLspInactive'] = {
+            bg = theme.ui.status_line.medium.bg,
+            fg = theme.lsp.diagnostics.error,
+        },
         ['StatusLineGitDiffAdded'] = {
-            bg = theme.ui.status_line.bg,
+            bg = theme.ui.status_line.medium.bg,
             fg = theme.git.signs.add,
         },
         ['StatusLineGitDiffChanged'] = {
-            bg = theme.ui.status_line.bg,
+            bg = theme.ui.status_line.medium.bg,
             fg = theme.git.signs.change,
         },
         ['StatusLineGitDiffRemoved'] = {
-            bg = theme.ui.status_line.bg,
+            bg = theme.ui.status_line.medium.bg,
             fg = theme.git.signs.delete,
         },
         ['StatusLineGitBranchIcon'] = {
-            bg = theme.ui.status_line.bg,
-            fg = theme.ui.status_line.branch_icon.fg,
+            bg = theme.ui.status_line.medium.bg,
+            fg = theme.ui.status_line.icon.branch.fg,
         },
         ['StatusLineUnsavedFileIcon'] = {
-            bg = theme.ui.status_line.bg,
+            bg = theme.ui.status_line.medium.bg,
+            fg = theme.lsp.diagnostics.warn,
+        },
+        ['WinBarUnsavedSymbol'] = {
+            bg = theme.ui.bg,
             fg = theme.lsp.diagnostics.warn,
         },
     }

@@ -4,7 +4,7 @@ local M = {}
 
 M.palette = function()
     return {
-        bg = colors.dark_03,
+        bg = colors.dark_05,
         fg = colors.light_07,
         vi_mode_bg = colors.blue_06,
     }

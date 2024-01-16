@@ -3,7 +3,7 @@ return {
     --- @param config Config
     --- @return ThemeDark
     dark = function(palette, config)
-        local background = palette.dark_04
+        local background = palette.dark_06
         local statusline_bg = palette.dark_03
 
         if
@@ -25,14 +25,14 @@ return {
             palette = palette,
             ui = {
                 bg = background,
-                bg_darker_01 = palette.dark_03,
+                bg_darker_01 = palette.dark_05,
                 fg = palette.light_07,
                 cursor = {
                     bg = palette.light_03,
                     fg = palette.grey_11,
                     term = {
                         bg = palette.light_07,
-                        fg = palette.dark_03,
+                        fg = palette.dark_05,
                     },
                     line = {
                         bg = palette.grey_02,
@@ -69,12 +69,23 @@ return {
                 status_line = {
                     bg = statusline_bg,
                     fg = palette.grey_17,
+                    medium = {
+                        bg = palette.dark_04,
+                        fg = palette.grey_17,
+                    },
                     mode = {
                         bg = palette.blue_06,
                         fg = palette.light_16,
                     },
-                    branch_icon = {
-                        fg = palette.orange_04,
+                    icon = {
+                        branch = {
+                            fg = palette.orange_04,
+                        },
+                        lsp = {
+                            active = {
+                                fg = palette.green_04,
+                            },
+                        },
                     },
                 },
                 search = {
@@ -292,12 +303,23 @@ return {
                 status_line = {
                     bg = palette.light_08,
                     fg = palette.grey_05,
+                    medium = {
+                        bg = palette.light_05,
+                        fg = palette.grey_05,
+                    },
                     mode = {
                         bg = palette.blue_06,
                         fg = palette.light_16,
                     },
-                    branch_icon = {
-                        fg = palette.orange_04,
+                    icon = {
+                        branch = {
+                            fg = palette.orange_04,
+                        },
+                        lsp = {
+                            active = {
+                                fg = palette.green_04,
+                            },
+                        },
                     },
                 },
                 search = {
