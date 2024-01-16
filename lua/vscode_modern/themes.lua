@@ -1,7 +1,7 @@
 return {
     --- @param palette Palette
     --- @param config Config
-    --- @return Theme
+    --- @return ThemeDark
     dark = function(palette, config)
         local background = palette.dark_04
         local statusline_bg = palette.dark_03
@@ -20,7 +20,8 @@ return {
             statusline_bg = config.custom_statusline_dark_background
         end
 
-        return {
+        --- @class ThemeDark
+        local theme = {
             palette = palette,
             ui = {
                 bg = background,
@@ -224,11 +225,13 @@ return {
                 },
             },
         }
+
+        return theme
     end,
 
     --- @param palette Palette
     --- @param config Config
-    --- @return Theme
+    --- @return ThemeLight
     light = function(palette, config)
         local background = palette.light_16
 
@@ -239,7 +242,8 @@ return {
             background = config.custom_light_background
         end
 
-        return {
+        --- @class ThemeLight
+        local theme = {
             palette = palette,
             ui = {
                 bg = background,
@@ -442,5 +446,7 @@ return {
                 },
             },
         }
+
+        return theme
     end,
 }

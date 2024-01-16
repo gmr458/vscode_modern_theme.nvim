@@ -2,7 +2,9 @@ local term_supports_undercurl = require('vscode_modern').term_supports_undercurl
 
 local M = {}
 
---- @overload fun(config: Config, theme: Theme)
+--- @param config Config
+--- @param theme ThemeDark | ThemeLight
+--- @return table
 function M.get(config, theme)
     local palette = theme.palette
 

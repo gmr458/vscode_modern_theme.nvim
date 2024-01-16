@@ -56,7 +56,9 @@ function M.load()
     f()
 end
 
---- @overload fun(config: Config, theme: Theme, filename_compiled_colorscheme: string)
+--- @param config Config
+--- @param theme ThemeDark | ThemeLight
+--- @param filename_compiled_colorscheme string
 function M.compile(config, theme, filename_compiled_colorscheme)
     local lines = {
         string.format(
