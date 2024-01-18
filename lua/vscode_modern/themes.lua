@@ -283,10 +283,10 @@ return {
                     fg = palette.yellow_04,
                 },
                 float = {
-                    bg = palette.light_09,
+                    bg = background,
                     border = {
-                        bg = palette.light_09,
-                        fg = palette.light_09,
+                        bg = background,
+                        fg = palette.grey_22,
                     },
                 },
                 line_nr = {
