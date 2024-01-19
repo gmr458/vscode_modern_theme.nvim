@@ -10,7 +10,7 @@ function M.get(config, theme)
 
     return {
         -- Editor
-        ['Conceal'] = { bg = palette.grey_14 },
+        ['Conceal'] = { bg = palette.grey_15 },
         ['Cursor'] = { bg = theme.ui.cursor.bg, fg = theme.ui.cursor.fg },
         ['CursorIM'] = { bg = theme.ui.cursor.bg, fg = theme.ui.cursor.fg },
         ['CursorLine'] = {
@@ -93,7 +93,7 @@ function M.get(config, theme)
             bg = theme.ui.cursor.term.bg,
             fg = theme.ui.cursor.term.fg,
         },
-        ['Title'] = { fg = palette.light_16 },
+        ['Title'] = { fg = palette.light_17 },
         ['Visual'] = { bg = theme.ui.visual.bg },
         ['WarningMsg'] = { fg = theme.lsp.diagnostics.warn },
         ['Whitespace'] = { fg = theme.ui.indent_guide.fg, bg = palette.none },
@@ -401,7 +401,7 @@ function M.get(config, theme)
 
         -- kevinhwang91/nvim-ufo
         ['UfoCursorFoldedLine'] = { bg = theme.ui.folded.bg },
-        ['UfoFoldedEllipsis'] = { fg = palette.grey_15 },
+        ['UfoFoldedEllipsis'] = { fg = palette.grey_16 },
 
         -- ibhagwan/fzf-lua
         ['FzfLuaBorder'] = { fg = theme.ui.float.border.fg },
@@ -524,13 +524,19 @@ function M.get(config, theme)
         ['LspInfoBorder'] = { fg = theme.ui.float.border.fg },
 
         -- Codelens
-        ['LspCodeLens'] = { fg = palette.grey_22 },
-        ['LspCodeLensSeparator'] = { fg = palette.grey_22 },
+        ['LspCodeLens'] = { fg = palette.grey_24 },
+        ['LspCodeLensSeparator'] = { fg = palette.grey_24 },
 
         -- References
         ['LspReferenceWrite'] = { bg = theme.lsp.references.write },
         ['LspReferenceRead'] = { bg = theme.lsp.references.read },
         ['LspReferenceText'] = { bg = theme.lsp.references.text },
+
+        -- Inlay Hints
+        ['LspInlayHint'] = {
+            bg = theme.lsp.inlay_hint.bg,
+            fg = theme.lsp.inlay_hint.fg,
+        },
 
         -- SmiteshP/nvim-navic
         ['NavicIconsFile'] = { fg = theme.ui.fg },
@@ -568,16 +574,16 @@ function M.get(config, theme)
 
         -- folke/trouble.nvim
         ['TroubleCode'] = { fg = palette.blue_17, underline = true },
-        ['TroubleCount'] = { bg = palette.grey_10, fg = palette.light_16 },
+        ['TroubleCount'] = { bg = palette.grey_11, fg = palette.light_17 },
         ['TroubleFile'] = { fg = theme.ui.fg },
         ['TroubleFoldIcon'] = { fg = palette.light_05 },
-        ['TroubleLocation'] = { fg = palette.grey_21 },
-        ['TroublePreview'] = { bg = palette.grey_08 },
+        ['TroubleLocation'] = { fg = palette.grey_23 },
+        ['TroublePreview'] = { bg = palette.grey_09 },
         ['TroubleSignError'] = { fg = theme.lsp.diagnostics.error },
         ['TroubleSignHint'] = { fg = theme.lsp.diagnostics.hint },
         ['TroubleSignInformation'] = { fg = theme.lsp.diagnostics.info },
         ['TroubleSignWarning'] = { fg = theme.lsp.diagnostics.warn },
-        ['TroubleSource'] = { fg = palette.grey_21 },
+        ['TroubleSource'] = { fg = palette.grey_23 },
         ['TroubleTextError'] = { fg = theme.ui.fg },
         ['TroubleTextHint'] = { fg = theme.ui.fg },
         ['TroubleTextInformation'] = { fg = theme.ui.fg },
@@ -586,13 +592,13 @@ function M.get(config, theme)
         -- mfussenegger/nvim-dap
         ['DapBreakpoint'] = { fg = palette.red_06 },
         ['DapStopped'] = { fg = palette.yellow_09 },
-        ['DapBreakpointRejected'] = { fg = palette.grey_22 },
+        ['DapBreakpointRejected'] = { fg = palette.grey_24 },
 
         -- rcarriga/nvim-dap-ui
         ['DapUIScope'] = { fg = theme.ui.fg },
         ['DapUIVariable'] = { link = 'Variable' },
         ['DapUIType'] = { link = 'Type' },
-        ['DapUIValue'] = { fg = palette.grey_22 },
+        ['DapUIValue'] = { fg = palette.grey_24 },
         ['DapUIDecoration'] = { fg = theme.ui.fg },
         ['DapUIBreakpointsPath'] = { fg = theme.ui.fg },
         ['DapUILineNumber'] = { link = 'LineNr' },
@@ -600,7 +606,7 @@ function M.get(config, theme)
         ['DapUICurrentFrameName'] = { fg = theme.ui.fg },
         ['DapUISource'] = { fg = theme.ui.fg },
         ['DapUIThread'] = { fg = theme.ui.fg },
-        ['DapUIWatchesEmpty'] = { fg = palette.grey_22 },
+        ['DapUIWatchesEmpty'] = { fg = palette.grey_24 },
         ['DapUIWatchesValue'] = { fg = theme.ui.fg },
 
         -- hrsh7th/nvim-cmp
@@ -655,7 +661,7 @@ function M.get(config, theme)
                 or theme.ui.float.border.bg,
             fg = theme.ui.float.border.fg,
         },
-        ['CmpMenuSel'] = { bg = palette.blue_08, fg = palette.light_16 },
+        ['CmpMenuSel'] = { bg = palette.blue_08, fg = palette.light_17 },
 
         -- lewis6991/gitsigns.nvim
         ['GitSignsAdd'] = { fg = theme.git.signs.add },
@@ -747,12 +753,12 @@ function M.get(config, theme)
         -- goolord/alpha-nvim
         ['AlphaButton'] = { fg = palette.blue_18 },
         ['AlphaHeader'] = { fg = palette.blue_19 },
-        ['AlphaShorcut'] = { fg = palette.grey_17 },
+        ['AlphaShorcut'] = { fg = palette.grey_18 },
 
         -- folke/lazy.nvim
         ['LazyButton'] = { bg = theme.ui.title.bg, fg = theme.ui.title.fg },
         ['LazyButtonActive'] = { bg = palette.green_05, fg = theme.ui.title.fg },
-        ['LazyComment'] = { fg = palette.grey_17 },
+        ['LazyComment'] = { fg = palette.grey_18 },
         ['LazyH1'] = { bg = palette.green_05, fg = theme.ui.title.fg },
         ['LazySpecial'] = { fg = palette.light_07 },
 

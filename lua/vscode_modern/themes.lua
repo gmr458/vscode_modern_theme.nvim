@@ -29,21 +29,21 @@ return {
                 fg = palette.light_07,
                 cursor = {
                     bg = palette.light_03,
-                    fg = palette.grey_11,
+                    fg = palette.grey_12,
                     term = {
                         bg = palette.light_07,
                         fg = palette.dark_05,
                     },
                     line = {
-                        bg = palette.grey_02,
+                        bg = palette.grey_03,
                         nr = {
-                            bg = palette.grey_02,
+                            bg = palette.grey_03,
                             fg = palette.light_06,
                         },
                     },
                 },
                 context = {
-                    bg = palette.grey_03,
+                    bg = palette.grey_04,
                 },
                 directory = {
                     fg = palette.yellow_04,
@@ -52,30 +52,30 @@ return {
                     bg = background,
                     border = {
                         bg = background,
-                        fg = palette.grey_14,
+                        fg = palette.grey_15,
                     },
                 },
                 line_nr = {
                     bg = background,
-                    fg = palette.grey_17,
+                    fg = palette.grey_18,
                 },
                 match_paren = {
-                    bg = palette.grey_18,
+                    bg = palette.grey_19,
                 },
                 non_text = {
                     bg = palette.none,
-                    fg = palette.grey_07,
+                    fg = palette.grey_08,
                 },
                 status_line = {
                     bg = statusline_bg,
-                    fg = palette.grey_17,
+                    fg = palette.grey_18,
                     medium = {
                         bg = palette.dark_04,
-                        fg = palette.grey_17,
+                        fg = palette.grey_18,
                     },
                     mode = {
                         bg = palette.blue_06,
-                        fg = palette.light_16,
+                        fg = palette.light_17,
                     },
                     icon = {
                         branch = {
@@ -99,30 +99,30 @@ return {
                 },
                 whitespace = {
                     bg = palette.none,
-                    fg = palette.grey_07,
+                    fg = palette.grey_08,
                 },
                 win_separator = {
-                    fg = config.transparent_background and palette.grey_07
+                    fg = config.transparent_background and palette.grey_08
                         or palette.dark_02,
                 },
                 pmenu = {
-                    bg = palette.grey_04,
+                    bg = palette.grey_05,
                     fg = palette.light_07,
                     sbar = {
-                        bg = palette.grey_04,
+                        bg = palette.grey_05,
                     },
                     sel = {
                         bg = palette.blue_08,
-                        fg = palette.light_16,
+                        fg = palette.light_17,
                     },
                     thumb = {
-                        bg = palette.grey_12,
+                        bg = palette.grey_13,
                     },
                 },
                 indent_guide = {
-                    fg = palette.grey_07,
+                    fg = palette.grey_08,
                     active = {
-                        fg = palette.grey_14,
+                        fg = palette.grey_15,
                     },
                 },
                 folded = {
@@ -130,7 +130,7 @@ return {
                 },
                 title = {
                     bg = palette.blue_10,
-                    fg = palette.light_16,
+                    fg = palette.light_17,
                 },
                 telescope = {
                     matching = {
@@ -144,38 +144,38 @@ return {
                         },
                         title = {
                             bg = palette.blue_06,
-                            fg = palette.light_16,
+                            fg = palette.light_17,
                         },
                     },
                     prompt = {
-                        bg = palette.grey_06,
+                        bg = palette.grey_07,
                         fg = palette.light_01,
                         border = {
-                            bg = palette.grey_06,
-                            fg = palette.grey_06,
+                            bg = palette.grey_07,
+                            fg = palette.grey_07,
                         },
                         counter = {
                             fg = palette.light_01,
                         },
                         title = {
                             bg = palette.blue_06,
-                            fg = palette.light_16,
+                            fg = palette.light_17,
                         },
                     },
                     results = {
-                        bg = palette.grey_04,
+                        bg = palette.grey_05,
                         border = {
-                            bg = palette.grey_04,
-                            fg = palette.grey_04,
+                            bg = palette.grey_05,
+                            fg = palette.grey_05,
                         },
                         title = {
                             bg = palette.blue_06,
-                            fg = palette.light_16,
+                            fg = palette.light_17,
                         },
                     },
                     selection = {
                         bg = palette.blue_08,
-                        fg = palette.light_16,
+                        fg = palette.light_17,
                     },
                 },
             },
@@ -198,7 +198,7 @@ return {
                 namespace = palette.green_08,
                 special_char = palette.yellow_06,
                 xml_tag = palette.blue_21,
-                xml_delimiter = palette.grey_15,
+                xml_delimiter = palette.grey_16,
                 todo = palette.magenta_01,
             },
             git = {
@@ -208,7 +208,7 @@ return {
                     change = palette.blue_06,
                 },
                 status = {
-                    ignored = palette.grey_19,
+                    ignored = palette.grey_20,
                     untracked = palette.green_11,
                     staged = palette.green_12,
                     deleted = palette.red_04,
@@ -231,8 +231,12 @@ return {
                 },
                 references = {
                     write = palette.blue_09,
-                    read = palette.grey_09,
-                    text = palette.grey_09,
+                    read = palette.grey_10,
+                    text = palette.grey_10,
+                },
+                inlay_hint = {
+                    bg = palette.grey_02,
+                    fg = palette.grey_22,
                 },
             },
         }
@@ -244,7 +248,7 @@ return {
     --- @param config Config
     --- @return ThemeLight
     light = function(palette, config)
-        local background = palette.light_16
+        local background = palette.light_17
 
         if
             config.custom_light_background ~= nil
@@ -260,13 +264,13 @@ return {
                 bg = background,
                 bg_darker_01 = palette.light_13,
                 bg_darker_02 = palette.light_15,
-                fg = palette.grey_05,
+                fg = palette.grey_06,
                 cursor = {
                     bg = palette.dark_01,
-                    fg = palette.light_16,
+                    fg = palette.light_17,
                     term = {
                         bg = palette.blue_03,
-                        fg = palette.light_16,
+                        fg = palette.light_17,
                     },
                     line = {
                         bg = palette.light_14,
@@ -286,12 +290,12 @@ return {
                     bg = background,
                     border = {
                         bg = background,
-                        fg = palette.grey_22,
+                        fg = palette.grey_24,
                     },
                 },
                 line_nr = {
                     bg = background,
-                    fg = palette.grey_13,
+                    fg = palette.grey_14,
                 },
                 match_paren = {
                     bg = palette.light_11,
@@ -302,14 +306,14 @@ return {
                 },
                 status_line = {
                     bg = palette.light_08,
-                    fg = palette.grey_05,
+                    fg = palette.grey_06,
                     medium = {
                         bg = palette.light_05,
-                        fg = palette.grey_05,
+                        fg = palette.grey_06,
                     },
                     mode = {
                         bg = palette.blue_06,
-                        fg = palette.light_16,
+                        fg = palette.light_17,
                     },
                     icon = {
                         branch = {
@@ -340,7 +344,7 @@ return {
                 },
                 pmenu = {
                     bg = palette.light_09,
-                    fg = palette.grey_05,
+                    fg = palette.grey_06,
                     sbar = {
                         bg = palette.light_09,
                     },
@@ -355,7 +359,7 @@ return {
                 indent_guide = {
                     fg = palette.light_08,
                     active = {
-                        fg = palette.grey_14,
+                        fg = palette.grey_15,
                     },
                 },
                 folded = {
@@ -363,7 +367,7 @@ return {
                 },
                 title = {
                     bg = palette.blue_10,
-                    fg = palette.light_16,
+                    fg = palette.light_17,
                 },
                 telescope = {
                     matching = {
@@ -377,18 +381,18 @@ return {
                         },
                         title = {
                             bg = palette.blue_06,
-                            fg = palette.light_16,
+                            fg = palette.light_17,
                         },
                     },
                     prompt = {
                         bg = palette.light_08,
-                        fg = palette.grey_05,
+                        fg = palette.grey_06,
                         border = {
                             bg = palette.light_08,
                             fg = palette.light_08,
                         },
                         counter = {
-                            fg = palette.grey_05,
+                            fg = palette.grey_06,
                         },
                         title = {
                             bg = palette.blue_06,
@@ -419,8 +423,8 @@ return {
                 string = palette.red_02,
                 character = palette.red_07,
                 number = palette.green_03,
-                identifier = palette.grey_05,
-                punctuation = palette.grey_05,
+                identifier = palette.grey_06,
+                punctuation = palette.grey_06,
                 function_name = palette.yellow_01,
                 operator = palette.dark_01,
                 keyword = palette.blue_01,
@@ -440,7 +444,7 @@ return {
                     change = palette.blue_03,
                 },
                 status = {
-                    ignored = palette.grey_20,
+                    ignored = palette.grey_21,
                     untracked = palette.green_01,
                     staged = palette.green_09,
                     deleted = palette.red_03,
@@ -465,6 +469,10 @@ return {
                     write = palette.blue_28,
                     read = palette.light_09,
                     text = palette.light_09,
+                },
+                inlay_hint = {
+                    bg = palette.light_16,
+                    fg = palette.grey_22,
                 },
             },
         }
