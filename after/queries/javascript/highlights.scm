@@ -1,11 +1,11 @@
 ; extends
 
-["export"] @keyword.export
-["default"] @keyword.default
 ["await"] @keyword.coroutine.await
+["break"] @keyword.break
+["export"] @keyword.export
 
-(this) @variable.builtin.this
 (super) @variable.builtin.super
+(this) @variable.builtin.this
 
 ((property_identifier) @constructor.constructor
     (#match? @constructor.constructor "^constructor$"))

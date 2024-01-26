@@ -14,11 +14,11 @@ local diagnostic = {
     error = colors.red_08,
     warn = colors.yellow_05,
     info = colors.blue_18,
-    hint = colors.green_10,
+    hint = colors.green_11,
 }
 
 local git = {
-    added = colors.green_04,
+    added = colors.green_05,
     deleted = colors.red_09,
     changed = colors.blue_06,
 }

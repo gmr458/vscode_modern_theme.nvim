@@ -130,7 +130,7 @@ function M.get(config, theme)
         ['Function'] = { fg = theme.sintax.function_name },
 
         ['Statement'] = {
-            fg = theme.sintax.keyword_control_flow,
+            fg = theme.sintax.keyword,
             italic = config.italic_keyword,
         },
         ['Conditional'] = {
@@ -168,14 +168,14 @@ function M.get(config, theme)
         ['PreCondit'] = { fg = theme.sintax.keyword_control_flow },
 
         ['Type'] = { fg = theme.sintax.type },
-        ['StorageClass'] = { fg = theme.sintax.type },
+        ['StorageClass'] = { fg = theme.sintax.keyword },
         ['Structure'] = { fg = theme.sintax.type },
         ['Typedef'] = { fg = theme.sintax.type },
 
         -- ['Special'] = {},
         ['SpecialChar'] = { fg = theme.sintax.special_char },
         -- ['Tag'] = {},
-        -- ['Delimiter'] = {},
+        ['Delimiter'] = { fg = theme.sintax.delimiter },
         -- ['SpecialComment'] = {},
         -- ['Debug'] = {},
 
@@ -188,91 +188,69 @@ function M.get(config, theme)
         ['Todo'] = { fg = theme.sintax.todo },
 
         -- nvim-treesitter/nvim-treesitter
-        ['@attribute'] = { link = '@type' },
-        ['@boolean'] = { link = 'Boolean' },
-        ['@character'] = { link = 'String' },
-        ['@character.special'] = { link = 'SpecialChar' },
-        ['@comment'] = { link = 'Comment' },
-        ['@comment.error'] = { fg = theme.lsp.diagnostics.error },
-        ['@comment.warning'] = { fg = theme.lsp.diagnostics.warn },
-        ['@comment.hint'] = { fg = theme.lsp.diagnostics.hint },
-        ['@comment.info'] = { fg = theme.lsp.diagnostics.info },
-        ['@comment.todo'] = { link = 'Label' },
-        ['@keyword.conditional'] = { link = 'Conditional' },
-        ['@constant'] = { link = 'Constant' },
-        ['@constant.builtin'] = { link = '@keyword' },
-        ['@constant.macro'] = { link = 'Macro' },
-        ['@constructor'] = { link = 'Type' },
-        ['@keyword.directive'] = { link = 'Define' },
-        ['@keyword.exception'] = { link = 'Exception' },
+        ['@variable'] = { link = 'Variable' },
         ['@variable.member'] = { link = 'Variable' },
-        ['@number.float'] = { link = 'Number' },
-        ['@function'] = { link = 'Function' },
+        ['@variable.parameter'] = { link = 'Variable' },
+        ['@variable.builtin'] = { link = 'Variable' },
         ['@function.builtin'] = { link = 'Function' },
-        ['@function.call'] = { link = 'Function' },
-        ['@function.macro'] = { link = 'Macro' },
-        ['@function.method'] = { link = 'Function' },
-        ['@function.method.call'] = { link = 'Function' },
-        ['@keyword.import'] = { link = 'Include' },
-        ['@keyword'] = { link = 'Keyword' },
         ['@keyword.return'] = {
             fg = theme.sintax.keyword_control_flow,
             italic = config.italic_keyword,
         },
-        ['@label'] = { link = 'Label' },
-        ['@macro'] = { link = 'Macro' },
-        ['@module'] = { fg = theme.sintax.namespace },
-        ['@number'] = { link = 'Number' },
-        ['@operator'] = { link = 'Operator' },
-        ['@variable.parameter'] = { link = 'Variable' },
-        ['@punctuation'] = { fg = theme.sintax.punctuation },
-        ['@property'] = { link = 'Variable' },
-        ['@punctuation.delimiter'] = { fg = theme.sintax.punctuation },
-        ['@keyword.repeat'] = { link = 'Repeat' },
-        ['@keyword.storage'] = { link = 'StorageClass' },
-        ['@string'] = { link = 'String' },
-        ['@string.escape'] = { link = 'SpecialChar' },
-        ['@markup.link.label'] = { link = 'String' },
-        ['@markup.link.url'] = {
-            fg = theme.sintax.identifier,
-            underline = true,
-        },
-        ['@string.special.url'] = { fg = theme.sintax.string, underline = true },
         ['@tag'] = { fg = theme.sintax.xml_tag },
         ['@tag.attribute'] = { link = 'Variable' },
         ['@tag.delimiter'] = { fg = theme.sintax.xml_delimiter },
-        ['@type'] = { link = 'Type' },
         ['@type.builtin'] = { link = 'Type' },
-        ['@type.definition'] = { link = 'Type' },
+        ['@property'] = { link = 'Variable' },
+        ['@constructor'] = { link = 'Type' },
+        ['@constant.builtin'] = { link = 'Keyword' },
+        ['@keyword.operator'] = { link = 'Keyword' },
         ['@type.qualifier'] = { link = 'Keyword' },
-        ['@variable'] = { link = 'Variable' },
-        ['@variable.builtin'] = { link = 'Variable' },
-        ['@diff.plus'] = { fg = theme.git.signs.add },
-        ['@diff.minus'] = { fg = theme.git.signs.delete },
-        ['@diff.delta'] = { fg = theme.git.signs.change },
+        ['@punctuation'] = { fg = theme.sintax.punctuation },
+        ['@punctuation.special'] = { link = '@punctuation' },
 
         -- C#
         ['@type.builtin.c_sharp'] = { link = 'Keyword' },
+        ['@constructor.c_sharp'] = { link = 'Keyword' },
+        ['@keyword.coroutine.await.c_sharp'] = {
+            fg = theme.sintax.keyword_control_flow,
+        },
 
         -- Go
         ['@keyword.break.go'] = { fg = theme.sintax.keyword_control_flow },
         ['@keyword.continue.go'] = { fg = theme.sintax.keyword_control_flow },
         ['@keyword.default.go'] = { fg = theme.sintax.keyword_control_flow },
+        ['@keyword.fallthrough.go'] = { fg = theme.sintax.keyword_control_flow },
         ['@keyword.coroutine.go.go'] = {
             fg = theme.sintax.keyword_control_flow,
         },
         ['@keyword.goto.go'] = { fg = theme.sintax.keyword_control_flow },
         ['@type.builtin.map.go'] = { link = 'Keyword' },
+        ['@type.builtin.chan.go'] = { link = 'Keyword' },
         ['@keyword.select.go'] = { fg = theme.sintax.keyword_control_flow },
+
+        -- Go Mod File
+        ['@string.special.url.gomod'] = {
+            fg = theme.sintax.string,
+            underline = true,
+        },
 
         -- Go Checksum File
         ['@attribute.gosum'] = { link = 'Identifier' },
         ['@number.gosum'] = { link = 'Keyword' },
         ['@string.special.gosum'] = { link = 'Keyword' },
+        ['@string.special.url.gosum'] = { link = 'String' },
         ['@string.special.symbol.gosum'] = { link = 'String' },
 
         -- HTML
         ['@constant.html'] = { link = 'Keyword' },
+        ['@markup.heading.html'] = { link = 'Identifier' },
+        ['@markup.heading.1.html'] = { link = 'Identifier' },
+        ['@markup.heading.2.html'] = { link = 'Identifier' },
+        ['@markup.heading.3.html'] = { link = 'Identifier' },
+        ['@markup.heading.4.html'] = { link = 'Identifier' },
+        ['@markup.heading.5.html'] = { link = 'Identifier' },
+        ['@markup.heading.6.html'] = { link = 'Identifier' },
 
         -- Java
         ['@function.builtin.super.java'] = { link = 'Keyword' },
@@ -283,27 +261,21 @@ function M.get(config, theme)
         ['@keyword.coroutine.await.javascript'] = {
             fg = theme.sintax.keyword_control_flow,
         },
-        ['@keyword.default.javascript'] = {
+        ['@keyword.export.javascript'] = {
             fg = theme.sintax.keyword_control_flow,
         },
-        ['@keyword.export.javascript'] = {
+        ['@keyword.break.javascript'] = {
             fg = theme.sintax.keyword_control_flow,
         },
         ['@number.infinity.javascript'] = { link = 'Keyword' },
         ['@variable.builtin.this.javascript'] = { link = 'Keyword' },
         ['@variable.builtin.super.javascript'] = { link = 'Keyword' },
-
-        -- JSON
-        ['@label.json'] = { link = 'Variable' },
-
-        -- JSON with comments
-        ['@label.jsonc'] = { link = 'Variable' },
+        ['@punctuation.special.javascript'] = { link = 'Keyword' },
 
         -- Lua
         ['@constructor.lua'] = { link = '@punctuation' },
 
         -- Markdown
-        ['@label.markdown'] = { link = 'Identifier' },
         ['@markup.heading.1.markdown'] = { link = 'Keyword' },
         ['@markup.heading.1.marker.markdown'] = { link = 'Keyword' },
         ['@markup.heading.2.markdown'] = { link = 'Keyword' },
@@ -316,29 +288,35 @@ function M.get(config, theme)
         ['@markup.heading.5.marker.markdown'] = { link = 'Keyword' },
         ['@markup.heading.6.markdown'] = { link = 'Keyword' },
         ['@markup.heading.6.marker.markdown'] = { link = 'Keyword' },
+        ['@markup.raw.block.markdown'] = { link = 'Identifier' },
+        ['@markup.raw.delimiter.markdown'] = { link = 'Identifier' },
+        ['@conceal.markdown'] = { link = 'Identifier' },
+
+        -- Markdown Inline
+        ['@markup.raw.markdown_inline'] = { link = 'String' },
+        ['@markup.link.label.markdown_inline'] = { link = 'String' },
+        ['@markup.raw.delimiter.markdown_inline'] = { link = 'String' },
 
         -- Python
         ['@attribute.python'] = { link = 'Function' },
         ['@constructor.python'] = { link = 'Function' },
         ['@keyword.with'] = { fg = theme.sintax.keyword_control_flow },
+        ['@keyword.as'] = { fg = theme.sintax.keyword_control_flow },
         ['@keyword.coroutine.await.python'] = {
             fg = theme.sintax.keyword_control_flow,
         },
-        ['@variable.builtin.self.python'] = { link = 'Keyword' },
-
-        -- Ruby
-        ['@label.ruby'] = { link = 'Variable' },
 
         -- Rust
         ['@constant.builtin.rust'] = { link = 'Constant' },
+        ['@keyword.import.mod.rust'] = { link = 'Keyword' },
         ['@keyword.coroutine.await.rust'] = {
             fg = theme.sintax.keyword_control_flow,
         },
         ['@variable.builtin.rust'] = { link = 'Keyword' },
+        ['@punctuation.special.rust'] = { link = '@punctuation' },
 
         -- TypeScript
         ['@constructor.constructor.typescript'] = { link = 'Keyword' },
-        ['@constant.builtin.undefined.typescript'] = { link = 'Keyword' },
         ['@keyword.coroutine.await.typescript'] = {
             fg = theme.sintax.keyword_control_flow,
         },
@@ -348,12 +326,18 @@ function M.get(config, theme)
         ['@keyword.export.typescript'] = {
             fg = theme.sintax.keyword_control_flow,
         },
+        ['@keyword.break.typescript'] = {
+            fg = theme.sintax.keyword_control_flow,
+        },
         ['@number.infinity.typescript'] = { link = 'Keyword' },
         ['@variable.builtin.super.typescript'] = { link = 'Keyword' },
         ['@variable.builtin.this.typescript'] = { link = 'Keyword' },
+        ['@punctuation.special.typescript'] = { link = 'Keyword' },
 
         -- TypeScript JSX
-        ['@keyword.as.tsx'] = { fg = theme.sintax.keyword_control_flow },
+        ['@keyword.operator.as.tsx'] = {
+            fg = theme.sintax.keyword_control_flow,
+        },
         ['@keyword.coroutine.await.tsx'] = {
             fg = theme.sintax.keyword_control_flow,
         },
@@ -707,6 +691,7 @@ function M.get(config, theme)
             bg = config.transparent_background and palette.none
                 or theme.ui.cursor.line.bg,
         },
+        ['NvimTreeExecFile'] = { link = 'Identifier' },
         ['NvimTreeFolderIcon'] = { fg = theme.ui.directory.fg },
         ['NvimTreeFolderName'] = { fg = theme.ui.fg },
         ['NvimTreeGitDeleted'] = { fg = theme.git.status.deleted },
@@ -774,9 +759,9 @@ function M.get(config, theme)
 
         -- folke/lazy.nvim
         ['LazyButton'] = { bg = theme.ui.title.bg, fg = theme.ui.title.fg },
-        ['LazyButtonActive'] = { bg = palette.green_05, fg = theme.ui.title.fg },
+        ['LazyButtonActive'] = { bg = palette.green_06, fg = theme.ui.title.fg },
         ['LazyComment'] = { fg = palette.grey_18 },
-        ['LazyH1'] = { bg = palette.green_05, fg = theme.ui.title.fg },
+        ['LazyH1'] = { bg = palette.green_06, fg = theme.ui.title.fg },
         ['LazySpecial'] = { fg = palette.light_07 },
 
         -- lua

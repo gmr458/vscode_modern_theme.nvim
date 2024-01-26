@@ -1,7 +1,7 @@
 ; extends
 
 (require_directive
-  (require_spec
-    (version) @keyword
-  )
+    (require_spec
+        (version) @keyword
+    )
 )

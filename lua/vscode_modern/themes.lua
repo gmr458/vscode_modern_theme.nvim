@@ -60,7 +60,7 @@ return {
                     fg = palette.grey_18,
                 },
                 match_paren = {
-                    bg = palette.grey_19,
+                    bg = palette.green_04,
                 },
                 non_text = {
                     bg = palette.none,
@@ -83,7 +83,7 @@ return {
                         },
                         lsp = {
                             active = {
-                                fg = palette.green_04,
+                                fg = palette.green_05,
                             },
                         },
                     },
@@ -180,12 +180,12 @@ return {
                 },
             },
             sintax = {
-                comment = palette.green_10,
+                comment = palette.green_11,
                 variable = palette.blue_25,
                 constant = palette.blue_20,
                 string = palette.orange_01,
-                character = palette.red_05,
-                number = palette.green_13,
+                character = palette.yellow_06,
+                number = palette.green_14,
                 boolean = palette.blue_21,
                 identifier = palette.light_07,
                 punctuation = palette.light_07,
@@ -194,31 +194,32 @@ return {
                 keyword = palette.blue_21,
                 keyword_control_flow = palette.purple_03,
                 macro = palette.blue_21,
-                type = palette.green_08,
-                namespace = palette.green_08,
+                type = palette.green_09,
+                namespace = palette.green_09,
                 special_char = palette.yellow_06,
+                delimiter = palette.light_07,
                 xml_tag = palette.blue_21,
                 xml_delimiter = palette.grey_16,
                 todo = palette.magenta_01,
             },
             git = {
                 signs = {
-                    add = palette.green_04,
+                    add = palette.green_05,
                     delete = palette.red_09,
                     change = palette.blue_06,
                 },
                 status = {
                     ignored = palette.grey_20,
-                    untracked = palette.green_11,
-                    staged = palette.green_12,
+                    untracked = palette.green_12,
+                    staged = palette.green_13,
                     deleted = palette.red_04,
                     modified = palette.yellow_08,
                 },
                 diff = {
-                    add = palette.green_07,
-                    change = palette.green_06,
+                    add = palette.green_08,
+                    change = palette.green_07,
                     delete = palette.red_01,
-                    text = palette.green_07,
+                    text = palette.green_08,
                 },
             },
             lsp = {
@@ -321,7 +322,7 @@ return {
                         },
                         lsp = {
                             active = {
-                                fg = palette.green_04,
+                                fg = palette.green_05,
                             },
                         },
                     },
@@ -433,28 +434,29 @@ return {
                 type = palette.blue_15,
                 namespace = palette.blue_15,
                 special_char = palette.red_07,
+                delimiter = palette.grey_06,
                 xml_tag = palette.blue_01,
                 xml_delimiter = palette.blue_21,
                 todo = palette.magenta_01,
             },
             git = {
                 signs = {
-                    add = palette.green_04,
+                    add = palette.green_05,
                     delete = palette.red_09,
                     change = palette.blue_03,
                 },
                 status = {
                     ignored = palette.grey_21,
                     untracked = palette.green_01,
-                    staged = palette.green_09,
+                    staged = palette.green_10,
                     deleted = palette.red_03,
                     modified = palette.yellow_02,
                 },
                 diff = {
-                    add = palette.green_14,
-                    change = palette.green_15,
+                    add = palette.green_15,
+                    change = palette.green_16,
                     delete = palette.red_10,
-                    text = palette.green_14,
+                    text = palette.green_15,
                 },
             },
             lsp = {
