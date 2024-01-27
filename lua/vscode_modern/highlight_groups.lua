@@ -10,7 +10,7 @@ function M.get(config, theme)
 
     return {
         -- Editor
-        ['Conceal'] = { bg = palette.grey_15 },
+        ['Conceal'] = { fg = theme.ui.conceal.fg },
         ['Cursor'] = { bg = theme.ui.cursor.bg, fg = theme.ui.cursor.fg },
         ['CursorIM'] = { bg = theme.ui.cursor.bg, fg = theme.ui.cursor.fg },
         ['CursorLine'] = {

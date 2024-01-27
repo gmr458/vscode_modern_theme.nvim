@@ -42,6 +42,9 @@ return {
                         },
                     },
                 },
+                conceal = {
+                    fg = palette.light_06,
+                },
                 context = {
                     bg = palette.grey_04,
                 },
@@ -280,6 +283,9 @@ return {
                             fg = palette.blue_11,
                         },
                     },
+                },
+                conceal = {
+                    fg = palette.blue_11,
                 },
                 context = {
                     bg = palette.light_12,
