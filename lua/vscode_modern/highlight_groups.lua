@@ -11,6 +11,7 @@ function M.get(config, theme)
     return {
         -- Editor
         ['Conceal'] = { fg = theme.ui.conceal.fg },
+        ['CurSearch'] = { bg = theme.ui.cursor.search.bg },
         ['Cursor'] = { bg = theme.ui.cursor.bg, fg = theme.ui.cursor.fg },
         ['CursorIM'] = { bg = theme.ui.cursor.bg, fg = theme.ui.cursor.fg },
         ['CursorLine'] = {
@@ -592,7 +593,7 @@ function M.get(config, theme)
 
         -- mfussenegger/nvim-dap
         ['DapBreakpoint'] = { fg = palette.red_06 },
-        ['DapStopped'] = { fg = palette.yellow_09 },
+        ['DapStopped'] = { fg = palette.yellow_10 },
         ['DapBreakpointRejected'] = { fg = palette.grey_24 },
 
         -- rcarriga/nvim-dap-ui
@@ -635,7 +636,7 @@ function M.get(config, theme)
         ['CmpItemKindEvent'] = { fg = theme.ui.fg },
         ['CmpItemKindField'] = { fg = palette.blue_23 },
         ['CmpItemKindFile'] = { fg = theme.ui.fg },
-        ['CmpItemKindFolder'] = { fg = palette.yellow_04 },
+        ['CmpItemKindFolder'] = { fg = palette.yellow_05 },
         ['CmpItemKindFunction'] = { fg = palette.purple_02 },
         ['CmpItemKindInterface'] = { fg = palette.blue_23 },
         ['CmpItemKindKeyword'] = { fg = theme.ui.fg },

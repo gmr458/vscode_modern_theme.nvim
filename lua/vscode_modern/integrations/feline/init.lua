@@ -12,7 +12,7 @@ end
 
 local diagnostic = {
     error = colors.red_08,
-    warn = colors.yellow_05,
+    warn = colors.yellow_06,
     info = colors.blue_18,
     hint = colors.green_11,
 }

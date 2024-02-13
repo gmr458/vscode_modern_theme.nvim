@@ -41,6 +41,9 @@ return {
                             fg = palette.light_06,
                         },
                     },
+                    search = {
+                        bg = palette.yellow_03,
+                    },
                 },
                 conceal = {
                     fg = palette.light_06,
@@ -49,7 +52,7 @@ return {
                     bg = palette.grey_04,
                 },
                 directory = {
-                    fg = palette.yellow_04,
+                    fg = palette.yellow_05,
                 },
                 float = {
                     bg = background,
@@ -187,19 +190,19 @@ return {
                 variable = palette.blue_25,
                 constant = palette.blue_20,
                 string = palette.orange_01,
-                character = palette.yellow_06,
-                number = palette.green_14,
+                character = palette.yellow_07,
+                number = palette.green_15,
                 boolean = palette.blue_21,
                 identifier = palette.light_07,
                 punctuation = palette.light_07,
-                function_name = palette.yellow_07,
+                function_name = palette.yellow_08,
                 operator = palette.light_07,
                 keyword = palette.blue_21,
                 keyword_control_flow = palette.purple_03,
                 macro = palette.blue_21,
                 type = palette.green_09,
                 namespace = palette.green_09,
-                special_char = palette.yellow_06,
+                special_char = palette.yellow_07,
                 delimiter = palette.light_07,
                 xml_tag = palette.blue_21,
                 xml_delimiter = palette.grey_16,
@@ -216,7 +219,7 @@ return {
                     untracked = palette.green_12,
                     staged = palette.green_13,
                     deleted = palette.red_04,
-                    modified = palette.yellow_08,
+                    modified = palette.yellow_09,
                 },
                 diff = {
                     add = palette.green_08,
@@ -228,7 +231,7 @@ return {
             lsp = {
                 diagnostics = {
                     error = palette.red_09,
-                    warn = palette.yellow_05,
+                    warn = palette.yellow_06,
                     info = palette.blue_18,
                     hint = palette.blue_23,
                     unnecessary = palette.blue_22,
@@ -283,6 +286,9 @@ return {
                             fg = palette.blue_11,
                         },
                     },
+                    search = {
+                        bg = palette.green_14,
+                    },
                 },
                 conceal = {
                     fg = palette.blue_11,
@@ -291,7 +297,7 @@ return {
                     bg = palette.light_12,
                 },
                 directory = {
-                    fg = palette.yellow_04,
+                    fg = palette.yellow_05,
                 },
                 float = {
                     bg = background,
@@ -459,16 +465,16 @@ return {
                     modified = palette.yellow_02,
                 },
                 diff = {
-                    add = palette.green_15,
-                    change = palette.green_16,
+                    add = palette.green_16,
+                    change = palette.green_17,
                     delete = palette.red_10,
-                    text = palette.green_15,
+                    text = palette.green_16,
                 },
             },
             lsp = {
                 diagnostics = {
                     error = palette.red_09,
-                    warn = palette.yellow_03,
+                    warn = palette.yellow_04,
                     info = palette.blue_12,
                     hint = palette.blue_07,
                     unnecessary = palette.blue_24,
