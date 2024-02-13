@@ -194,6 +194,7 @@ function M.get(config, theme)
         ['@variable.parameter'] = { link = 'Variable' },
         ['@variable.builtin'] = { link = 'Variable' },
         ['@function.builtin'] = { link = 'Function' },
+        ['@function.macro'] = { link = 'Macro' },
         ['@keyword.return'] = {
             fg = theme.sintax.keyword_control_flow,
             italic = config.italic_keyword,
@@ -209,6 +210,10 @@ function M.get(config, theme)
         ['@type.qualifier'] = { link = 'Keyword' },
         ['@punctuation'] = { fg = theme.sintax.punctuation },
         ['@punctuation.special'] = { link = '@punctuation' },
+        ['@keyword.conditional'] = { link = 'Conditional' },
+        ['@keyword.repeat'] = { link = 'Repeat' },
+        ['@keyword.import'] = { link = 'Include' },
+        ['@keyword.exception'] = { link = 'Exception' },
 
         -- C#
         ['@type.builtin.c_sharp'] = { link = 'Keyword' },
@@ -344,15 +349,18 @@ function M.get(config, theme)
         },
         ['@keyword.default.tsx'] = { fg = theme.sintax.keyword_control_flow },
         ['@keyword.export.tsx'] = { fg = theme.sintax.keyword_control_flow },
+        ['@tag.tsx'] = { link = 'Type' },
 
         -- Semantic Tokens
         ['@lsp.type.annotation'] = { link = 'Type' },
         ['@lsp.type.boolean'] = { link = 'Boolean' },
         ['@lsp.type.character'] = { link = 'Character' },
         ['@lsp.type.class'] = { link = '@lsp' },
+        ['@lsp.type.decorator'] = { link = 'Function' },
         ['@lsp.type.formatSpecifier'] = { link = 'Keyword' },
         ['@lsp.type.parameter'] = { link = 'Variable' },
         ['@lsp.type.property'] = { link = 'Variable' },
+        ['@lsp.type.macro'] = { link = 'Macro' },
         ['@lsp.type.method'] = { link = 'Function' },
         ['@lsp.type.module'] = { fg = theme.sintax.namespace },
         ['@lsp.type.number'] = { link = 'Number' },
@@ -373,6 +381,7 @@ function M.get(config, theme)
         ['@lsp.typemod.function.macro'] = { link = 'Function' },
         ['@lsp.typemod.function.readonly'] = { link = 'Function' },
         ['@lsp.typemod.generic.macro'] = { link = 'Variable' },
+        ['@lsp.typemod.keyword.crateRoot'] = { link = 'Keyword' },
         ['@lsp.typemod.method.macro'] = { link = 'Function' },
         ['@lsp.typemod.namespace.macro'] = { link = 'Type' },
         ['@lsp.typemod.number.macro'] = { link = 'Number' },
