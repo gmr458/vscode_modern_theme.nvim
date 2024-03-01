@@ -1,5 +1,3 @@
-local term_supports_undercurl = require('vscode_modern').term_supports_undercurl
-
 local M = {}
 
 --- @param config Config
@@ -67,19 +65,19 @@ function M.get(config, theme)
         ['SignColumn'] = { bg = palette.none },
         ['SpellBad'] = {
             sp = theme.lsp.diagnostics.error,
-            undercurl = config.undercurl and term_supports_undercurl(),
+            undercurl = config.undercurl,
         },
         ['SpellCap'] = {
             sp = theme.lsp.diagnostics.warn,
-            undercurl = config.undercurl and term_supports_undercurl(),
+            undercurl = config.undercurl,
         },
         ['SpellLocal'] = {
             sp = theme.lsp.diagnostics.info,
-            undercurl = config.undercurl and term_supports_undercurl(),
+            undercurl = config.undercurl,
         },
         ['SpellRare'] = {
             sp = theme.lsp.diagnostics.hint,
-            undercurl = config.undercurl and term_supports_undercurl(),
+            undercurl = config.undercurl,
         },
         ['StatusLine'] = {
             bg = theme.ui.status_line.bg,
@@ -516,19 +514,19 @@ function M.get(config, theme)
         ['DiagnosticSignWarn'] = { fg = theme.lsp.diagnostics.warn },
         ['DiagnosticUnderlineError'] = {
             sp = theme.lsp.diagnostics.error,
-            undercurl = config.undercurl and term_supports_undercurl(),
+            undercurl = config.undercurl,
         },
         ['DiagnosticUnderlineHint'] = {
             sp = theme.lsp.diagnostics.hint,
-            undercurl = config.undercurl and term_supports_undercurl(),
+            undercurl = config.undercurl,
         },
         ['DiagnosticUnderlineInfo'] = {
             sp = theme.lsp.diagnostics.info,
-            undercurl = config.undercurl and term_supports_undercurl(),
+            undercurl = config.undercurl,
         },
         ['DiagnosticUnderlineWarn'] = {
             sp = theme.lsp.diagnostics.warn,
-            undercurl = config.undercurl and term_supports_undercurl(),
+            undercurl = config.undercurl,
         },
         ['DiagnosticUnnecessary'] = { fg = theme.lsp.diagnostics.unnecessary },
         ['DiagnosticVirtualTextError'] = { fg = theme.lsp.diagnostics.error },
