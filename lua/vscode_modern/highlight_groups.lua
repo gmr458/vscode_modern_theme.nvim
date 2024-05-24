@@ -766,11 +766,11 @@ function M.get(config, theme)
         },
 
         -- nvim-neotest/neotest
-        ['NeotestPassed'] = { fg = palette.green_02 },
+        ['NeotestPassed'] = { fg = palette.green_04 },
         ['NeotestFailed'] = { fg = palette.red_07 },
         ['NeotestRunning'] = { fg = palette.yellow_09 },
         ['NeotestSkipped'] = { fg = palette.blue_05 },
-        ['NeotestFile'] = { fg = palette.orange_02 },
+        ['NeotestFile'] = { fg = palette.blue_05 },
         ['NeotestNamespace'] = { fg = palette.orange_02 },
         ['NeotestDir'] = { fg = palette.blue_05 },
         ['NeotestFocused'] = {
@@ -782,53 +782,7 @@ function M.get(config, theme)
         ['NeotestIndent'] = { fg = palette.yellow_09 },
         ['NeotestExpandMarker'] = { fg = palette.yellow_09 },
         ['NeotestWinSelect'] = { fg = palette.yellow_09, bold = true },
-        ['NeotestTest'] = { fg = palette.grey_09 },
-        -- nvim-neo-tree/neo-tree.nvim
-        ['NeoTreeDirectoryIcon'] = { fg = theme.ui.directory.fg },
-        ['NeoTreeDirectoryName'] = { fg = theme.ui.fg },
-        ['NeoTreeFloatBorder'] = {
-            fg = config.transparent_background and palette.none
-                or theme.ui.bg_darker_01,
-        },
-        ['NeoTreeGitConflict'] = { fg = theme.git.status.deleted },
-        ['NeoTreeGitDeleted'] = { fg = theme.git.status.deleted },
-        ['NeoTreeGitIgnored'] = { fg = theme.git.status.ignored },
-        ['NeoTreeGitModified'] = { fg = theme.git.status.modified },
-        ['NeoTreeGitStaged'] = { fg = theme.git.status.staged },
-        ['NeoTreeGitUnstaged'] = { fg = theme.git.status.deleted },
-        ['NeoTreeGitUntracked'] = { fg = theme.git.status.untracked },
-        ['NeoTreeIndent'] = { fg = theme.ui.indent_guide.fg },
-        ['NeoTreeNormal'] = {
-            bg = config.transparent_background and palette.none
-                or (
-                    config.nvim_tree_darker and theme.ui.bg_darker_01
-                    or theme.ui.bg
-                ),
-        },
-        ['NeoTreeNormalNC'] = {
-            bg = config.transparent_background and palette.none
-                or (
-                    config.nvim_tree_darker and theme.ui.bg_darker_01
-                    or theme.ui.bg
-                ),
-        },
-        ['NeoTreeRootName'] = { fg = theme.ui.fg },
-        ['NeoTreeTabActive'] = { fg = theme.ui.fg },
-        ['NeoTreeTabInactive'] = { fg = theme.ui.indent_guide.fg },
-        ['NeoTreeTabSeparatorActive'] = {
-            fg = config.transparent_background and palette.none
-                or theme.ui.bg_darker_01,
-            bg = config.transparent_background and palette.none
-                or theme.ui.bg_darker_01,
-        },
-        ['NeoTreeTabSeparatorInactive'] = { fg = theme.ui.bg },
-        ['NeoTreeWinSeparator'] = {
-            fg = config.transparent_background and theme.ui.win_separator.fg
-                or (
-                    config.nvim_tree_darker and theme.ui.bg
-                    or theme.ui.win_separator.fg
-                ),
-        },
+        ['NeotestTest'] = { fg = palette.yellow_07 },
 
         -- goolord/alpha-nvim
         ['AlphaButton'] = { fg = palette.blue_18 },
