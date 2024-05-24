@@ -765,6 +765,25 @@ function M.get(config, theme)
             bg = palette.none,
         },
 
+        -- nvim-neotest/neotest
+        ['NeotestPassed'] = { fg = palette.green_02 },
+        ['NeotestFailed'] = { fg = palette.red_07 },
+        ['NeotestRunning'] = { fg = palette.yellow_09 },
+        ['NeotestSkipped'] = { fg = palette.blue_05 },
+        ['NeotestFile'] = { fg = palette.orange_02 },
+        ['NeotestNamespace'] = { fg = palette.orange_02 },
+        ['NeotestDir'] = { fg = palette.blue_05 },
+        ['NeotestFocused'] = {
+            fg = palette.magenta_01,
+            bold = true,
+            underline = true,
+        },
+        ['NeotestAdapterName'] = { fg = palette.red_07 },
+        ['NeotestIndent'] = { fg = palette.yellow_09 },
+        ['NeotestExpandMarker'] = { fg = palette.yellow_09 },
+        ['NeotestWinSelect'] = { fg = palette.yellow_09, bold = true },
+        ['NeotestTest'] = { fg = palette.grey_09 },
+
         -- goolord/alpha-nvim
         ['AlphaButton'] = { fg = palette.blue_18 },
         ['AlphaHeader'] = { fg = palette.blue_19 },
