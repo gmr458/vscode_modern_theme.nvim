@@ -741,6 +741,25 @@ function M.get(config, theme)
                 ),
         },
 
+        -- nvim-neotest/neotest
+        ['NeotestPassed'] = { fg = palette.green_04 },
+        ['NeotestFailed'] = { fg = palette.red_07 },
+        ['NeotestRunning'] = { fg = palette.yellow_09 },
+        ['NeotestSkipped'] = { fg = palette.blue_05 },
+        ['NeotestFile'] = { fg = palette.blue_05 },
+        ['NeotestNamespace'] = { fg = palette.orange_02 },
+        ['NeotestDir'] = { fg = palette.blue_05 },
+        ['NeotestFocused'] = {
+            fg = palette.magenta_01,
+            bold = true,
+            underline = true,
+        },
+        ['NeotestAdapterName'] = { fg = palette.red_07 },
+        ['NeotestIndent'] = { fg = palette.yellow_09 },
+        ['NeotestExpandMarker'] = { fg = palette.yellow_09 },
+        ['NeotestWinSelect'] = { fg = palette.yellow_09, bold = true },
+        ['NeotestTest'] = { fg = palette.yellow_07 },
+
         -- akinsho/toggleterm.nvim
         ['ToggleTermNormalFloat'] = { bg = palette.grey_01 },
         ['ToggleTermFloatBorder'] = {
