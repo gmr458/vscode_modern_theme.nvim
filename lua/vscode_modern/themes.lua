@@ -239,6 +239,25 @@ return {
                     fg = palette.grey_22,
                 },
             },
+            neotest = {
+                ui = {
+                    file = palette.blue_05,
+                    namespace = palette.orange_02,
+                    dir = palette.blue_05,
+                    adapter = palette.red_07,
+                    indent = palette.yellow_09,
+                    marker = palette.yellow_09,
+                    select = palette.yellow_09,
+                    test = palette.yellow_07,
+                },
+                process = {
+                    error = palette.red_07,
+                    success = palette.green_04,
+                    run = palette.yellow_09,
+                    skip = palette.blue_05,
+                    focus = palette.magenta_01,
+                },
+            },
         }
 
         return theme
@@ -473,6 +492,25 @@ return {
                 inlay_hint = {
                     bg = palette.light_16,
                     fg = palette.grey_22,
+                },
+            },
+            neotest = {
+                ui = {
+                    file = palette.blue_05,
+                    namespace = palette.orange_02,
+                    dir = palette.blue_05,
+                    adapter = palette.red_07,
+                    indent = palette.yellow_09,
+                    marker = palette.yellow_09,
+                    select = palette.yellow_09,
+                    test = palette.light_07,
+                },
+                process = {
+                    error = palette.red_07,
+                    success = palette.green_04,
+                    run = palette.yellow_09,
+                    skip = palette.blue_05,
+                    focus = palette.magenta_01,
                 },
             },
         }
