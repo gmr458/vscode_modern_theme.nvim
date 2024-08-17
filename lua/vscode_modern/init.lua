@@ -67,8 +67,7 @@ vim.opt.termguicolors=true]],
     }
 
     table.insert(lines, 'if vim.o.background == \'dark\' then')
-    local hgs_dark =
-        require('vscode_modern.hlgroups').get(config, theme_dark)
+    local hgs_dark = require('vscode_modern.hlgroups').get(config, theme_dark)
     for group, color in pairs(hgs_dark) do
         table.insert(
             lines,
@@ -82,8 +81,7 @@ vim.opt.termguicolors=true]],
 
     table.insert(lines, 'else')
 
-    local hgs_light =
-        require('vscode_modern.hlgroups').get(config, theme_light)
+    local hgs_light = require('vscode_modern.hlgroups').get(config, theme_light)
     for group, color in pairs(hgs_light) do
         table.insert(
             lines,
