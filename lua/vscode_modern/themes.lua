@@ -1,7 +1,7 @@
 return {
-    --- @param palette Palette
-    --- @param config Config
-    --- @return ThemeDark
+    --- @param palette VSCodeModernPalette
+    --- @param config VSCodeModernConfig
+    --- @return VSCodeModernThemeDark
     dark = function(palette, config)
         local background = palette.dark_06
         local statusline_bg = palette.dark_03
@@ -20,7 +20,7 @@ return {
             statusline_bg = config.custom_statusline_dark_background
         end
 
-        --- @class ThemeDark
+        --- @class VSCodeModernThemeDark
         local theme = {
             palette = palette,
             ui = {
@@ -263,9 +263,9 @@ return {
         return theme
     end,
 
-    --- @param palette Palette
-    --- @param config Config
-    --- @return ThemeLight
+    --- @param palette VSCodeModernPalette
+    --- @param config VSCodeModernConfig
+    --- @return VSCodeModernThemeLight
     light = function(palette, config)
         local background = palette.light_17
 
@@ -276,7 +276,7 @@ return {
             background = config.custom_light_background
         end
 
-        --- @class ThemeLight
+        --- @class VSCodeModernThemeLight
         local theme = {
             palette = palette,
             ui = {

@@ -1,4 +1,4 @@
---- @class Palette
+--- @class VSCodeModernPalette
 local palette = {
     dark_01 = '#000000',
     dark_02 = '#080a0e',

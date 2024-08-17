@@ -1,6 +1,6 @@
 local M = {}
 
---- @class Config
+--- @class VSCodeModernConfig
 --- @field cursorline? boolean
 --- @field transparent_background? boolean
 --- @field nvim_tree_darker? boolean
@@ -22,7 +22,7 @@ M.config = {
     cache_path = vim.fn.stdpath 'cache' .. '/vscode_modern_theme/cache',
 }
 
---- @overload fun(config?: Config)
+--- @overload fun(config?: VSCodeModernConfig)
 function M.setup(config)
     M.config = vim.tbl_deep_extend('force', M.config, config or {})
 end
@@ -54,9 +54,9 @@ function M.load()
     end
 end
 
---- @param config Config
---- @param theme_dark ThemeDark
---- @param theme_light ThemeLight
+--- @param config VSCodeModernConfig
+--- @param theme_dark VSCodeModernThemeDark
+--- @param theme_light VSCodeModernThemeLight
 function M.compile(config, theme_dark, theme_light)
     local lines = {
         string.format [[return string.dump(function()
