@@ -236,7 +236,7 @@ return {
                 },
                 inlay_hint = {
                     bg = palette.grey_02,
-                    fg = palette.grey_22,
+                    fg = palette.grey_23,
                 },
             },
             neotest = {
@@ -309,7 +309,7 @@ return {
                     bg = background,
                     border = {
                         bg = background,
-                        fg = palette.grey_24,
+                        fg = palette.grey_25,
                     },
                 },
                 line_nr = {
@@ -378,7 +378,7 @@ return {
                 indent_guide = {
                     fg = palette.light_08,
                     active = {
-                        fg = palette.grey_15,
+                        fg = palette.grey_22,
                     },
                 },
                 folded = {
@@ -491,7 +491,7 @@ return {
                 },
                 inlay_hint = {
                     bg = palette.light_16,
-                    fg = palette.grey_22,
+                    fg = palette.grey_23,
                 },
             },
             neotest = {

@@ -539,8 +539,8 @@ function M.get(config, theme)
         ['LspInfoBorder'] = { fg = theme.ui.float.border.fg },
 
         -- Codelens
-        ['LspCodeLens'] = { fg = palette.grey_24 },
-        ['LspCodeLensSeparator'] = { fg = palette.grey_24 },
+        ['LspCodeLens'] = { fg = palette.grey_25 },
+        ['LspCodeLensSeparator'] = { fg = palette.grey_25 },
 
         -- References
         ['LspReferenceWrite'] = { bg = theme.lsp.references.write },
@@ -592,13 +592,13 @@ function M.get(config, theme)
         ['TroubleCount'] = { bg = palette.grey_11, fg = palette.light_17 },
         ['TroubleFile'] = { fg = theme.ui.fg },
         ['TroubleFoldIcon'] = { fg = palette.light_05 },
-        ['TroubleLocation'] = { fg = palette.grey_23 },
+        ['TroubleLocation'] = { fg = palette.grey_24 },
         ['TroublePreview'] = { bg = palette.grey_09 },
         ['TroubleSignError'] = { fg = theme.lsp.diagnostics.error },
         ['TroubleSignHint'] = { fg = theme.lsp.diagnostics.hint },
         ['TroubleSignInformation'] = { fg = theme.lsp.diagnostics.info },
         ['TroubleSignWarning'] = { fg = theme.lsp.diagnostics.warn },
-        ['TroubleSource'] = { fg = palette.grey_23 },
+        ['TroubleSource'] = { fg = palette.grey_24 },
         ['TroubleTextError'] = { fg = theme.ui.fg },
         ['TroubleTextHint'] = { fg = theme.ui.fg },
         ['TroubleTextInformation'] = { fg = theme.ui.fg },
@@ -607,13 +607,13 @@ function M.get(config, theme)
         -- mfussenegger/nvim-dap
         ['DapBreakpoint'] = { fg = palette.red_06 },
         ['DapStopped'] = { fg = palette.yellow_09 },
-        ['DapBreakpointRejected'] = { fg = palette.grey_24 },
+        ['DapBreakpointRejected'] = { fg = palette.grey_25 },
 
         -- rcarriga/nvim-dap-ui
         ['DapUIScope'] = { fg = theme.ui.fg },
         ['DapUIVariable'] = { link = 'Variable' },
         ['DapUIType'] = { link = 'Type' },
-        ['DapUIValue'] = { fg = palette.grey_24 },
+        ['DapUIValue'] = { fg = palette.grey_25 },
         ['DapUIDecoration'] = { fg = theme.ui.fg },
         ['DapUIBreakpointsPath'] = { fg = theme.ui.fg },
         ['DapUILineNumber'] = { link = 'LineNr' },
@@ -621,7 +621,7 @@ function M.get(config, theme)
         ['DapUICurrentFrameName'] = { fg = theme.ui.fg },
         ['DapUISource'] = { fg = theme.ui.fg },
         ['DapUIThread'] = { fg = theme.ui.fg },
-        ['DapUIWatchesEmpty'] = { fg = palette.grey_24 },
+        ['DapUIWatchesEmpty'] = { fg = palette.grey_25 },
         ['DapUIWatchesValue'] = { fg = theme.ui.fg },
 
         -- hrsh7th/nvim-cmp
@@ -871,6 +871,9 @@ function M.get(config, theme)
             bg = theme.ui.bg,
             fg = theme.lsp.diagnostics.warn,
         },
+
+        -- github.com/echasnovski/mini.indentscope
+        ['MiniIndentscopeSymbol'] = { fg = theme.ui.indent_guide.active.fg },
     }
 end
 
