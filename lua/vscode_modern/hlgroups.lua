@@ -91,7 +91,7 @@ function M.get(config, theme)
             bg = theme.ui.cursor.term.bg,
             fg = theme.ui.cursor.term.fg,
         },
-        ['Title'] = { fg = palette.light_17 },
+        ['Title'] = { fg = theme.ui.fg },
         ['Visual'] = { bg = theme.ui.visual.bg },
         ['WarningMsg'] = { fg = theme.lsp.diagnostics.warn },
         ['Whitespace'] = { fg = theme.ui.indent_guide.fg, bg = palette.none },
