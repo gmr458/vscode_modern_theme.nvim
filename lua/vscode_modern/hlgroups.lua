@@ -274,6 +274,11 @@ function M.get(config, theme)
 
         -- Java
         ['@function.builtin.super.java'] = { link = 'Keyword' },
+        ['@keyword.import.import.java'] = { link = 'Keyword' },
+        ['@keyword.import.package.java'] = { link = 'Keyword' },
+        ['@keyword.operator.new.java'] = {
+            fg = theme.sintax.keyword_control_flow,
+        },
         ['@variable.builtin.this.java'] = { link = 'Keyword' },
 
         -- JavaScript
