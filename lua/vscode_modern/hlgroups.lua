@@ -879,6 +879,67 @@ function M.get(config, theme)
 
         -- github.com/echasnovski/mini.indentscope
         ['MiniIndentscopeSymbol'] = { fg = theme.ui.indent_guide.active.fg },
+
+        -- github.com/folke/snacks.nvim
+        ['SnacksPickerCol'] = {
+            fg = theme.snacks.picker.col.fg,
+        },
+        ['SnacksPickerDir'] = {
+            fg = theme.snacks.picker.dir.fg,
+        },
+        ['SnacksPickerGitStatusDeleted'] = { fg = theme.git.status.deleted },
+        ['SnacksPickerGitStatusIgnored'] = { fg = theme.git.status.ignored },
+        ['SnacksPickerGitStatusModified'] = { fg = theme.git.status.modified },
+        ['SnacksPickerGitStatusStaged'] = { fg = theme.git.status.staged },
+        ['SnacksPickerGitStatusUntracked'] = { fg = theme.git.status.untracked },
+        ['SnacksPickerInput'] = {
+            bg = config.transparent_background and palette.none
+                or theme.ui.telescope.prompt.bg,
+            fg = theme.ui.telescope.prompt.fg,
+        },
+        ['SnacksPickerInputBorder'] = {
+            bg = config.transparent_background and palette.none
+                or theme.ui.telescope.prompt.border.bg,
+            fg = config.transparent_background and palette.light_02
+                or theme.ui.telescope.prompt.border.fg,
+        },
+        ['SnacksPickerList'] = {
+            bg = config.transparent_background and palette.none
+                or theme.ui.telescope.results.bg,
+        },
+        ['SnacksPickerListBorder'] = {
+            bg = config.transparent_background and palette.none
+                or theme.ui.telescope.results.border.bg,
+            fg = config.transparent_background and palette.light_02
+                or theme.ui.telescope.results.border.fg,
+        },
+        ['SnacksPickerListCursorLine'] = {
+            bg = theme.ui.telescope.selection.bg,
+        },
+        ['SnacksPickerMatch'] = { fg = theme.ui.telescope.matching.fg },
+        ['SnacksPickerPreview'] = {
+            bg = config.transparent_background and palette.none
+                or theme.ui.telescope.preview.bg,
+        },
+        ['SnacksPickerPreviewBorder'] = {
+            bg = config.transparent_background and palette.none
+                or theme.ui.telescope.preview.border.bg,
+            fg = config.transparent_background and palette.light_02
+                or theme.ui.telescope.preview.border.fg,
+        },
+        ['SnacksPickerPrompt'] = {
+            bg = config.transparent_background and palette.none
+                or theme.ui.telescope.prompt.bg,
+            fg = theme.ui.telescope.prompt.fg,
+        },
+        ['SnacksPickerRow'] = {
+            fg = theme.snacks.picker.row.fg,
+        },
+        ['SnacksPickerTree'] = {
+            bg = config.transparent_background and palette.none
+                or theme.ui.telescope.results.bg,
+            fg = theme.ui.line_nr.fg,
+        },
     }
 end
 

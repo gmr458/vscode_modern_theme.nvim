@@ -258,6 +258,19 @@ return {
                     focus = palette.magenta_01,
                 },
             },
+            snacks = {
+                picker = {
+                    dir = {
+                        fg = palette.grey_25,
+                    },
+                    row = {
+                        fg = palette.grey_25,
+                    },
+                    col = {
+                        fg = palette.grey_25,
+                    },
+                },
+            },
         }
 
         return theme
@@ -511,6 +524,19 @@ return {
                     run = palette.yellow_09,
                     skip = palette.blue_05,
                     focus = palette.magenta_01,
+                },
+            },
+            snacks = {
+                picker = {
+                    dir = {
+                        fg = '#454545',
+                    },
+                    row = {
+                        fg = '#454545',
+                    },
+                    col = {
+                        fg = '#454545',
+                    },
                 },
             },
         }
