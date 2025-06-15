@@ -506,6 +506,9 @@ function M.get(config, theme)
                 or theme.ui.telescope.results.title.bg,
             fg = theme.ui.telescope.results.title.fg,
         },
+        ['TelescopeResultsComment'] = {
+            fg = theme.ui.telescope.results.comments.fg,
+        },
 
         -- Telescope Results Diff
         ['TelescopeResultsDiffAdd'] = { fg = theme.git.signs.add },

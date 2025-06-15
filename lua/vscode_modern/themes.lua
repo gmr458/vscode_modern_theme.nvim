@@ -172,6 +172,9 @@ return {
                             bg = palette.blue_06,
                             fg = palette.light_17,
                         },
+                        comments = {
+                            fg = palette.grey_25,
+                        },
                     },
                     selection = {
                         bg = palette.blue_08,
@@ -442,6 +445,9 @@ return {
                         title = {
                             bg = palette.blue_06,
                             fg = palette.light_13,
+                        },
+                        comments = {
+                            fg = '#454545',
                         },
                     },
                     selection = {
