@@ -134,7 +134,7 @@ return {
                 },
                 telescope = {
                     matching = {
-                        fg = palette.blue_04,
+                        fg = palette.blue_16,
                     },
                     preview = {
                         bg = palette.grey_01,
