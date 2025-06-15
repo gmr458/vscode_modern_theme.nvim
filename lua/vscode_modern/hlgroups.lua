@@ -186,6 +186,8 @@ function M.get(config, theme)
         ['Todo'] = { fg = theme.sintax.todo },
 
         -- nvim-treesitter/nvim-treesitter
+        ['@_jsx_attribute'] = { link = 'htmlArg' },
+        ['@_jsx_element'] = { link = 'htmlTagName' },
         ['@attribute'] = { link = '@type' },
         ['@boolean'] = { link = 'Boolean' },
         ['@character'] = { link = 'String' },
@@ -224,20 +226,28 @@ function M.get(config, theme)
         ['@operator'] = { link = 'Operator' },
         ['@variable.parameter'] = { link = 'Variable' },
         ['@punctuation'] = { fg = theme.sintax.punctuation },
+        ['@punctuation.special'] = { fg = theme.sintax.punctuation },
         ['@property'] = { link = 'Variable' },
         ['@punctuation.delimiter'] = { fg = theme.sintax.punctuation },
         ['@keyword.repeat'] = { link = 'Repeat' },
         ['@keyword.storage'] = { link = 'StorageClass' },
         ['@string'] = { link = 'String' },
         ['@string.escape'] = { link = 'SpecialChar' },
+        ['@markup.heading.1'] = { fg = theme.ui.fg },
+        ['@markup.heading.2'] = { fg = theme.ui.fg },
+        ['@markup.heading.3'] = { fg = theme.ui.fg },
+        ['@markup.heading.4'] = { fg = theme.ui.fg },
+        ['@markup.heading.5'] = { fg = theme.ui.fg },
+        ['@markup.heading.6'] = { fg = theme.ui.fg },
         ['@markup.link.label'] = { link = 'String' },
         ['@markup.link.url'] = {
             fg = theme.sintax.identifier,
             underline = true,
         },
         ['@string.special.url'] = { fg = theme.sintax.string, underline = true },
-        ['@tag'] = { fg = theme.sintax.xml_tag },
-        ['@tag.attribute'] = { link = 'Variable' },
+        ['@tag'] = { link = 'htmlTagName' },
+        ['@tag.attribute'] = { link = 'htmlArg' },
+        ['@tag.builtin'] = { link = 'htmlTagName' },
         ['@tag.delimiter'] = { fg = theme.sintax.xml_delimiter },
         ['@type'] = { link = 'Type' },
         ['@type.builtin'] = { link = 'Type' },
@@ -271,6 +281,11 @@ function M.get(config, theme)
 
         -- HTML
         ['@constant.html'] = { link = 'Keyword' },
+        ['htmlArg'] = { fg = theme.sintax.xml_arg },
+        ['htmlSpecialTagName'] = { link = 'htmlTagName' },
+        ['htmlString'] = { fg = theme.sintax.xml_string },
+        ['htmlTag'] = { fg = theme.sintax.xml_delimiter },
+        ['htmlTagName'] = { fg = theme.sintax.xml_tag },
 
         -- Java
         ['@function.builtin.super.java'] = { link = 'Keyword' },
@@ -811,10 +826,11 @@ function M.get(config, theme)
         ['luaParenError'] = { link = 'Normal' },
 
         -- xml
-        ['xmlAttrib'] = { link = 'Variable' },
-        ['xmlProcessingDelim'] = { fg = theme.sintax.xml_delimiter },
-        ['xmlTag'] = { fg = theme.sintax.xml_delimiter },
-        ['xmlTagName'] = { link = 'Keyword' },
+        ['xmlAttrib'] = { fg = theme.sintax.xml_arg },
+        ['xmlProcessingDelim'] = { fg = theme.sintax.xml_tag },
+        ['xmlTag'] = { fg = theme.sintax.xml_tag },
+        ['xmlTagName'] = { fg = theme.sintax.xml_tag },
+        ['xmlString'] = { fg = theme.sintax.xml_string },
 
         -- my custom statusline
         ['StatusLineMode'] = {
