@@ -282,6 +282,7 @@ function M.get(config, theme)
         ['@variable.builtin.this.java'] = { link = 'Keyword' },
 
         -- JavaScript
+        ['@attribute.javascript'] = { link = 'Function' },
         ['@constructor.constructor.javascript'] = { link = 'Keyword' },
         ['@keyword.coroutine.await.javascript'] = {
             fg = theme.sintax.keyword_control_flow,
@@ -289,10 +290,9 @@ function M.get(config, theme)
         ['@keyword.default.javascript'] = {
             fg = theme.sintax.keyword_control_flow,
         },
-        ['@keyword.export.javascript'] = {
-            fg = theme.sintax.keyword_control_flow,
-        },
         ['@number.infinity.javascript'] = { link = 'Keyword' },
+        ['@operator.arrow.javascript'] = { link = 'Keyword' },
+        ['@tag.javascript'] = { link = 'Type' },
         ['@variable.builtin.this.javascript'] = { link = 'Keyword' },
         ['@variable.builtin.super.javascript'] = { link = 'Keyword' },
 
@@ -340,28 +340,31 @@ function M.get(config, theme)
         ['@variable.builtin.rust'] = { link = 'Keyword' },
 
         -- TypeScript
+        ['@attribute.typescript'] = { link = 'Function' },
         ['@constructor.constructor.typescript'] = { link = 'Keyword' },
-        ['@constant.builtin.undefined.typescript'] = { link = 'Keyword' },
         ['@keyword.coroutine.await.typescript'] = {
             fg = theme.sintax.keyword_control_flow,
         },
         ['@keyword.default.typescript'] = {
             fg = theme.sintax.keyword_control_flow,
         },
-        ['@keyword.export.typescript'] = {
+        ['@keyword.operator.as.typescript'] = {
             fg = theme.sintax.keyword_control_flow,
         },
         ['@number.infinity.typescript'] = { link = 'Keyword' },
+        ['@operator.arrow.typescript'] = { link = 'Keyword' },
         ['@variable.builtin.super.typescript'] = { link = 'Keyword' },
         ['@variable.builtin.this.typescript'] = { link = 'Keyword' },
 
         -- TypeScript JSX
-        ['@keyword.as.tsx'] = { fg = theme.sintax.keyword_control_flow },
+        ['@tag.tsx'] = { link = 'Type' },
         ['@keyword.coroutine.await.tsx'] = {
             fg = theme.sintax.keyword_control_flow,
         },
         ['@keyword.default.tsx'] = { fg = theme.sintax.keyword_control_flow },
-        ['@keyword.export.tsx'] = { fg = theme.sintax.keyword_control_flow },
+        ['@keyword.operator.as.tsx'] = {
+            fg = theme.sintax.keyword_control_flow,
+        },
 
         -- Semantic Tokens
         ['@lsp.type.annotation'] = { link = 'Type' },
@@ -382,15 +385,18 @@ function M.get(config, theme)
         ['@lsp.typemod.boolean.macro'] = { link = 'Boolean' },
         ['@lsp.typemod.character.macro'] = { link = 'Character' },
         ['@lsp.typemod.class.constructor'] = { link = 'Function' },
+        ['@lsp.typemod.class.declaration'] = { link = 'Type' },
         ['@lsp.typemod.class.importDeclaration'] = { link = 'Type' },
         ['@lsp.typemod.class.readonly'] = { link = 'Type' },
         ['@lsp.typemod.enum.declaration'] = { link = 'Type' },
         ['@lsp.typemod.enum.public'] = { link = 'Type' },
+        ['@lsp.typemod.enum.readonly'] = { link = 'Type' },
         ['@lsp.typemod.function.declaration'] = { link = 'Function' },
         ['@lsp.typemod.function.local'] = { link = 'Function' },
         ['@lsp.typemod.function.macro'] = { link = 'Function' },
         ['@lsp.typemod.function.readonly'] = { link = 'Function' },
         ['@lsp.typemod.generic.macro'] = { link = 'Variable' },
+        ['@lsp.typemod.member.declaration'] = { link = 'Function' },
         ['@lsp.typemod.method.macro'] = { link = 'Function' },
         ['@lsp.typemod.namespace.macro'] = { link = 'Type' },
         ['@lsp.typemod.number.macro'] = { link = 'Number' },

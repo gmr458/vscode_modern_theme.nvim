@@ -1,8 +1,8 @@
 ; extends
 
-["export"] @keyword.export
 ["default"] @keyword.default
 ["await"] @keyword.coroutine.await
+["=>"] @operator.arrow
 
 (this) @variable.builtin.this
 (super) @variable.builtin.super
