@@ -965,6 +965,57 @@ function M.get(config, theme)
                 or theme.ui.telescope.results.bg,
             fg = theme.ui.line_nr.fg,
         },
+
+        -- github.com/Saghen/blink.cmp
+        ['BlinkCmpMenu'] = { bg = theme.ui.float.bg },
+        ['BlinkCmpMenuSelection'] = {
+            bg = palette.blue_08,
+            fg = palette.light_17,
+        },
+        ['BlinkCmpMenuBorder'] = {
+            bg = config.transparent_background and palette.none
+                or theme.ui.float.border.bg,
+            fg = theme.ui.float.border.fg,
+        },
+        ['BlinkCmpDoc'] = {
+            bg = config.transparent_background and palette.none or theme.ui.bg,
+            fg = theme.ui.fg,
+        },
+        ['BlinkCmpDocSeparator'] = {
+            bg = config.transparent_background and palette.none
+                or theme.ui.float.border.bg,
+            fg = theme.ui.float.border.fg,
+        },
+        ['BlinkCmpDocBorder'] = {
+            bg = config.transparent_background and palette.none
+                or theme.ui.float.border.bg,
+            fg = theme.ui.float.border.fg,
+        },
+        ['BlinkCmpKind'] = { link = 'BlinkCmpMenu' },
+        ['BlinkCmpKindClass'] = { fg = theme.sintax.type },
+        ['BlinkCmpKindConstant'] = { fg = theme.sintax.constant },
+        ['BlinkCmpKindConstructor'] = { fg = theme.sintax.function_name },
+        ['BlinkCmpKindEnum'] = { fg = theme.sintax.type },
+        ['BlinkCmpKindEnumMember'] = { fg = theme.sintax.identifier },
+        ['BlinkCmpKindEvent'] = { fg = theme.sintax.identifier },
+        ['BlinkCmpKindField'] = { fg = theme.sintax.identifier },
+        ['BlinkCmpKindFile'] = { fg = theme.sintax.identifier },
+        ['BlinkCmpKindFolder'] = { link = 'Directory' },
+        ['BlinkCmpKindFunction'] = { fg = theme.sintax.function_name },
+        ['BlinkCmpKindInterface'] = { fg = theme.sintax.type },
+        ['BlinkCmpKindKeyword'] = { fg = theme.sintax.keyword },
+        ['BlinkCmpKindMethod'] = { fg = theme.sintax.function_name },
+        ['BlinkCmpKindModule'] = { fg = theme.sintax.identifier },
+        ['BlinkCmpKindOperator'] = { fg = theme.sintax.operator },
+        ['BlinkCmpKindProperty'] = { fg = theme.sintax.identifier },
+        ['BlinkCmpKindReference'] = { fg = theme.sintax.identifier },
+        ['BlinkCmpKindSnippet'] = { fg = theme.sintax.identifier },
+        ['BlinkCmpKindStruct'] = { fg = theme.sintax.type },
+        ['BlinkCmpKindText'] = { fg = theme.sintax.string },
+        ['BlinkCmpKindTypedParameter'] = { fg = theme.sintax.type },
+        ['BlinkCmpKindUnit'] = { fg = theme.sintax.identifier },
+        ['BlinkCmpKindValue'] = { fg = theme.sintax.identifier },
+        ['BlinkCmpKindVariable'] = { fg = theme.sintax.identifier },
     }
 end
 
