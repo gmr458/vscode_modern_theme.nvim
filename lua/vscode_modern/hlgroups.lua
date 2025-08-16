@@ -404,6 +404,7 @@ function M.get(config, theme)
         ['@lsp.typemod.class.importDeclaration'] = { link = 'Type' },
         ['@lsp.typemod.class.readonly'] = { link = 'Type' },
         ['@lsp.typemod.enum.declaration'] = { link = 'Type' },
+        ['@lsp.typemod.enum.library'] = { link = 'Type' },
         ['@lsp.typemod.enum.public'] = { link = 'Type' },
         ['@lsp.typemod.enum.readonly'] = { link = 'Type' },
         ['@lsp.typemod.function.declaration'] = { link = 'Function' },
